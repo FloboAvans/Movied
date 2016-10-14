@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviedApp", "MoviedApp\MoviedApp.csproj", "{100F647F-AF0D-40BF-B69C-16B3594FE78B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared Code", "Shared Code\Shared Code.csproj", "{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{9336BAF4-0CC3-4FE7-AE1A-0E48246DD1DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{100F647F-AF0D-40BF-B69C-16B3594FE78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{100F647F-AF0D-40BF-B69C-16B3594FE78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{100F647F-AF0D-40BF-B69C-16B3594FE78B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9336BAF4-0CC3-4FE7-AE1A-0E48246DD1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9336BAF4-0CC3-4FE7-AE1A-0E48246DD1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9336BAF4-0CC3-4FE7-AE1A-0E48246DD1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9336BAF4-0CC3-4FE7-AE1A-0E48246DD1DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
