@@ -41,7 +41,7 @@ namespace Shared_Code
 
         private NodeResponse CheckValidity(Message message)
         {
-            if (message.destinationId != Id)
+            if (message.destinationID != Id)
                 return NodeResponse.DESTINATION_MISMATCH;
             return NodeResponse.SUCCES;
         }
