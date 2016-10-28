@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Shared_Code
 {
-    class Node
+    public class Node
     {
-        private Queue<Message> inQueue = new Queue<Message>();
+        private Queue<Message> inQueue;
 
         private static int NodeIdCounter = 1;
         public readonly int Id = NodeIdCounter++;
@@ -19,14 +19,16 @@ namespace Shared_Code
         {
             SUCCES,
             DESTINATION_MISMATCH,
-            MESSAGE_FAULT
+            MES_UNKNOWN,
+            MES_NODE_MISMATCH
         }
 
-
-        public Node(Func<Message, NodeResponse> messageHandler)
+        public Node(Func<Node, Message, NodeResponse> messageHandler, Queue<Message> inQueue)
         {
             if (messageHandler == null)
                 throw new ArgumentNullException("messageHandler may not be NULL");
+
+            this.inQueue = inQueue ?? new Queue<Message>();
 
             new Thread(() => MessageLoop(messageHandler)).Start();
         }
@@ -46,7 +48,7 @@ namespace Shared_Code
             return NodeResponse.SUCCES;
         }
 
-        private void MessageLoop(Func<Message, NodeResponse> messageHandler)
+        private void MessageLoop(Func<Node, Message, NodeResponse> messageHandler)
         {
             while (true)
             {
@@ -60,7 +62,7 @@ namespace Shared_Code
                         if ((response = CheckValidity(m)) != NodeResponse.SUCCES)
                             OnError(response, m, this);
                         else
-                            if ((response = messageHandler(m)) != NodeResponse.SUCCES)
+                            if ((response = messageHandler(this, m)) != NodeResponse.SUCCES)
                                 OnError(response, m, this);
                     }
                 }
