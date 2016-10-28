@@ -46,6 +46,7 @@ namespace HashingTest
                     byte[] idBuff = new byte[4];
                     rng.GetBytes(idBuff);
                     id = BitConverter.ToInt32(idBuff, 0);
+                    id = Math.Abs(id);
                 } while (validID(id));
             }
 
