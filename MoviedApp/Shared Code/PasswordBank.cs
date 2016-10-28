@@ -14,7 +14,7 @@ namespace HashingTest
     public class PasswordBank : ISerializable
     {
         /// <summary>
-        /// used to store the salt and hash for a particular user(implicit)
+        /// used to store the salt and hash for a particular userName(implicit)
         /// </summary>
         [Serializable]
         private class Entry : ISerializable
@@ -92,8 +92,9 @@ namespace HashingTest
         // used to generate the salt
         private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
-        // stores all the users and their entry
-        private Dictionary<string, Entry> users = new Dictionary<string, Entry>();
+        // stores all the usersName and their entry
+        private Dictionary<string, Entry> usersName = new Dictionary<string, Entry>();
+        private Dictionary<int, Entry> usersID = new Dictionary<int, Entry>();
 
         /// <summary>
         /// generates the initial PasswordBank
@@ -102,7 +103,8 @@ namespace HashingTest
         public PasswordBank(string adminPassword)
         {
             byte[] salt;
-            CreateUser("admin", out salt);
+            int id;
+            CreateUser("admin", out salt, out id);
             VerifyUser("admin", HashPasword(adminPassword, salt));
         }
 
@@ -113,7 +115,8 @@ namespace HashingTest
         /// <param name="context"></param>
         public PasswordBank(SerializationInfo info, StreamingContext context)
         {
-            users = (Dictionary<string, Entry>) info.GetValue("users", users.GetType());
+            usersName = (Dictionary<string, Entry>) info.GetValue("usersName", usersName.GetType());
+            usersID = (Dictionary<int, Entry>) info.GetValue("usersID", usersID.GetType());
         }
 
         /// <summary>
@@ -123,66 +126,105 @@ namespace HashingTest
         /// <param name="context"></param>
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("users", users);
+            info.AddValue("usersName", usersName);
+            info.AddValue("usersID", usersID);
         }
 
         /// <summary>
-        /// returns a boolean indicating wether the users exists or not
+        /// returns a boolean indicating wether the usersName exists or not
         /// </summary>
-        /// <param name="user">the username that needs to be checked</param>
+        /// <param name="userName">the username that needs to be checked</param>
         /// <returns></returns>
-        public bool UserExists(string user)
+        public bool UserExists(string userName)
         {
-            return users.ContainsKey(user);
+            return usersName.ContainsKey(userName);
+        }
+
+        public bool UserExist(int userID)
+        {
+            return usersID.ContainsKey(userID);
         }
 
         /// <summary>
         /// creates a user and outputs the entry's salt
         /// </summary>
-        /// <param name="user">the username</param>
+        /// <param name="userName">the username</param>
         /// <param name="salt">the salt to be used for hashing</param>
         /// <returns>succes</returns>
-        public Response CreateUser(string user, out byte[] salt)
+        public Response CreateUser(string userName, out byte[] salt, out int id)
         {
-            if (users.ContainsKey(user)) // if the user already exists
+            if (usersName.ContainsKey(userName)) // if the userName already exists
             {
                 salt = null; // set the salt to null
+                id = int.MinValue;
                 return Response.USER_EXISTS; // and return
             }
 
-            Entry userEntry = new Entry(id => true); // construct a new entry
+            Entry userEntry = new Entry(i => true); // construct a new entry
             salt = userEntry.salt; // extract the salt
-            users.Add(user, userEntry); // add the user to the dictionary
+            id = userEntry.id; // and the id
+            usersName.Add(userName, userEntry); // add the userName to the dictionaries
+            usersID.Add(id, userEntry);
             return Response.SUCCES; // and return
         }
 
         /// <summary>
-        /// adds the hash to the user and completes the setup
+        /// adds the hash to the user and completes the setup, slower than VerifyUser(int, byte[])
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="userName"></param>
         /// <param name="hash"></param>
         /// <returns>succes</returns>
-        public Response VerifyUser(string user, byte[] hash)
+        public Response VerifyUser(string userName, byte[] hash)
+        {
+            // NOTE: we call the VerifyUser(int, byte[]) even though it is slower because it prevents code duplication
+            Entry e;
+            if (usersName.TryGetValue(userName, out e))
+                return Response.NO_SUCH_USER;
+            return VerifyUser(e.id, hash); 
+        }
+
+        /// <summary>
+        /// adds the hash to the user and completes the setup, faster than VerifyUser(string, byte[])
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="hash"></param>
+        /// <returns></returns>
+        public Response VerifyUser(int userID, byte[] hash)
         {
             Entry e;
-            if (users.TryGetValue(user, out e) == false) // if the user doesn't exist
+            if (usersID.TryGetValue(userID, out e) == false) // if the userID doesn't exist
                 return Response.NO_SUCH_USER; // exit
-            if (e.IsVerievied) // if the user is verified already
+            if (e.IsVerievied) // if the userName is verified already
                 return Response.USER_IS_VALIDATED; // return 
             e.hash = hash; // otherwise we can set the hash
             return Response.SUCCES; // and we return succes
         }
 
         /// <summary>
-        /// checks if a login is succesfull
+        /// checks if a login is succesfull, slower than VerifyLogin(int, byte[])
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="userName"></param>
         /// <param name="hash"></param>
         /// <returns>succes</returns>
-        public Response VerifyLogin(string user, byte[] hash)
+        public Response VerifyLogin(string userName, byte[] hash)
+        {
+            // NOTE: we call the VerifyLogin(int, byte[]) even though it is slower because it prevents code duplication
+            Entry e;
+            if (usersName.TryGetValue(userName, out e))
+                return Response.NO_SUCH_USER;
+            return VerifyLogin(e.id, hash);
+        }
+
+        /// <summary>
+        /// checks if a login is succesfull, faster than VerifyLogin(string, byte[])
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="hash"></param>
+        /// <returns></returns>
+        public Response VerifyLogin(int userID, byte[] hash)
         {
             Entry e;
-            if (users.TryGetValue(user, out e) == false) // if the user doesn't exist
+            if (usersID.TryGetValue(userID, out e) == false) // if the user doesn't exist
                 return Response.NO_SUCH_USER;// we exit
             if (e.IsVerievied == false) // if the user isn't verified
                 return Response.USER_IS_NOT_VALIDATED; // we return (we cannot compare the hash)
@@ -192,13 +234,31 @@ namespace HashingTest
         /// <summary>
         /// outputs the salt for a specific user
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="userName"></param>
         /// <param name="salt"></param>
         /// <returns>succes</returns>
-        public Response GetSalt(string user, out byte[] salt)
+        public Response GetSalt(string userName, out byte[] salt)
         {
             Entry e;
-            if (users.TryGetValue(user, out e) == false) // if the user doesn't exist
+            if (usersName.TryGetValue(userName, out e) == false) // if the user doesn't exist
+            {
+                salt = null; // set the salt 
+                return Response.NO_SUCH_USER; // and return
+            }
+            salt = e.salt; // otherwise set the salt
+            return Response.SUCCES; // and return succes
+        }
+
+        /// <summary>
+        /// outputs the salt for a specific user
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
+        public Response GetSalt(int userID, out byte[] salt)
+        {
+            Entry e;
+            if (usersID.TryGetValue(userID, out e) == false) // if the userName doesn't exist
             {
                 salt = null; // set the salt 
                 return Response.NO_SUCH_USER; // and return
