@@ -25,17 +25,28 @@ namespace HashingTest
                                 // (salt is used to make te generation of a rainbow-table imposible. However a lookup table can still be generated for this specific entry)
             public byte[] hash; // the hash of the password + salt. hash may be null
 
+            public int id;
+            public string name;
+
             public bool IsVerievied { get { return hash != null; } } // checks if the entry has been verified (a.k.a. has a hash)
 
             /// <summary>
             /// generates and stores the salt for the entry
             /// </summary>
             /// 
-            public Entry()
+            public Entry(Func<int, bool> validID)
             {
                 salt = new byte[SALT_LENGTH]; // allocate an array for the salt
                 rng.GetBytes(salt); // generates the salt
                 hash = null; // explicitly sets the hash to null
+
+                int id;
+                do
+                {
+                    byte[] idBuff = new byte[4];
+                    rng.GetBytes(idBuff);
+                    id = BitConverter.ToInt32(idBuff, 0);
+                } while (validID(id));
             }
 
             /// <summary>
@@ -48,6 +59,8 @@ namespace HashingTest
                 salt = Convert.FromBase64String(info.GetString("salt"));
                 // gets the salt and if it doesn't exist sets it to null
                 try { hash = Convert.FromBase64String(info.GetString("hash")); } catch (Exception) { hash = null; }
+                id = info.GetInt32("id");
+                name = info.GetString("name");
             }
 
             /// <summary>
@@ -59,6 +72,8 @@ namespace HashingTest
             {
                 info.AddValue("salt", Convert.ToBase64String(salt));
                 if (hash != null) info.AddValue("hash", Convert.ToBase64String(hash));
+                info.AddValue("id", id);
+                info.AddValue("name", name);
             }
         }
 
@@ -135,7 +150,7 @@ namespace HashingTest
                 return Response.USER_EXISTS; // and return
             }
 
-            Entry userEntry = new Entry(); // construct a new entry
+            Entry userEntry = new Entry(id => true); // construct a new entry
             salt = userEntry.salt; // extract the salt
             users.Add(user, userEntry); // add the user to the dictionary
             return Response.SUCCES; // and return
