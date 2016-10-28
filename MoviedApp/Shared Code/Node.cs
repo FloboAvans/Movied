@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace Shared_Code
 {
-    struct Message
-    {
-        public readonly int destinationId;
-        public readonly int originId;
-    }
-
     class Node
     {
         private Queue<Message> inQueue = new Queue<Message>();
