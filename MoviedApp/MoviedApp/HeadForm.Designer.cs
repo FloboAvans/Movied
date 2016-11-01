@@ -40,12 +40,15 @@ namespace MoviedApp
             this.libraryLabel = new System.Windows.Forms.Label();
             this.watchedLabel = new System.Windows.Forms.Label();
             this.friendsLabel = new System.Windows.Forms.Label();
+            this.headPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
             this.Layout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.headPanel.SuspendLayout();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,13 +61,14 @@ namespace MoviedApp
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Layout.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.Layout.Controls.Add(this.headPanel, 1, 1);
             this.Layout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Layout.Location = new System.Drawing.Point(0, 0);
             this.Layout.Name = "Layout";
             this.Layout.RowCount = 2;
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Layout.Size = new System.Drawing.Size(974, 470);
+            this.Layout.Size = new System.Drawing.Size(991, 547);
             this.Layout.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -81,7 +85,7 @@ namespace MoviedApp
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 364);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 441);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -90,7 +94,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::MoviedApp.Properties.Resources.logo_movied;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 326);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 403);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 35);
@@ -108,7 +112,7 @@ namespace MoviedApp
             this.tableLayoutPanel2.Controls.Add(this.libraryLabel, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.watchedLabel, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.friendsLabel, 0, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 62);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 100);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -119,7 +123,6 @@ namespace MoviedApp
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(138, 199);
             this.tableLayoutPanel2.TabIndex = 1;
-            this.tableLayoutPanel2.MouseHover += new System.EventHandler(this.tableLayoutPanel2_MouseHover);
             // 
             // wishlistLabel
             // 
@@ -127,7 +130,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wishlistLabel.AutoSize = true;
-            this.wishlistLabel.Font = new System.Drawing.Font("Quicksand", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wishlistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wishlistLabel.ForeColor = System.Drawing.Color.White;
             this.wishlistLabel.Location = new System.Drawing.Point(3, 160);
             this.wishlistLabel.Name = "wishlistLabel";
@@ -135,6 +138,8 @@ namespace MoviedApp
             this.wishlistLabel.TabIndex = 4;
             this.wishlistLabel.Text = "Wishlist";
             this.wishlistLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.wishlistLabel.MouseEnter += new System.EventHandler(this.wishlistLabel_MouseEnter);
+            this.wishlistLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // timelineLabel
             // 
@@ -142,7 +147,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.timelineLabel.AutoSize = true;
-            this.timelineLabel.Font = new System.Drawing.Font("Quicksand", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timelineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timelineLabel.ForeColor = System.Drawing.Color.White;
             this.timelineLabel.Location = new System.Drawing.Point(3, 0);
             this.timelineLabel.Name = "timelineLabel";
@@ -151,6 +156,8 @@ namespace MoviedApp
             this.timelineLabel.Text = "Timeline";
             this.timelineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.timelineLabel.Click += new System.EventHandler(this.timelineLabel_Click);
+            this.timelineLabel.MouseEnter += new System.EventHandler(this.timelineLabel_MouseEnter);
+            this.timelineLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // libraryLabel
             // 
@@ -158,7 +165,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.libraryLabel.AutoSize = true;
-            this.libraryLabel.Font = new System.Drawing.Font("Quicksand", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.libraryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.libraryLabel.ForeColor = System.Drawing.Color.White;
             this.libraryLabel.Location = new System.Drawing.Point(3, 40);
             this.libraryLabel.Name = "libraryLabel";
@@ -166,6 +173,8 @@ namespace MoviedApp
             this.libraryLabel.TabIndex = 1;
             this.libraryLabel.Text = "Library";
             this.libraryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.libraryLabel.MouseEnter += new System.EventHandler(this.libraryLabel_MouseEnter);
+            this.libraryLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // watchedLabel
             // 
@@ -173,7 +182,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.watchedLabel.AutoSize = true;
-            this.watchedLabel.Font = new System.Drawing.Font("Quicksand", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.watchedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchedLabel.ForeColor = System.Drawing.Color.White;
             this.watchedLabel.Location = new System.Drawing.Point(3, 120);
             this.watchedLabel.Name = "watchedLabel";
@@ -181,6 +190,8 @@ namespace MoviedApp
             this.watchedLabel.TabIndex = 3;
             this.watchedLabel.Text = "Watched";
             this.watchedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.watchedLabel.MouseEnter += new System.EventHandler(this.watchedLabel_MouseEnter);
+            this.watchedLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // friendsLabel
             // 
@@ -188,7 +199,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.friendsLabel.AutoSize = true;
-            this.friendsLabel.Font = new System.Drawing.Font("Quicksand", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.friendsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.friendsLabel.ForeColor = System.Drawing.Color.White;
             this.friendsLabel.Location = new System.Drawing.Point(3, 80);
             this.friendsLabel.Name = "friendsLabel";
@@ -196,6 +207,31 @@ namespace MoviedApp
             this.friendsLabel.TabIndex = 2;
             this.friendsLabel.Text = "Friends";
             this.friendsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.friendsLabel.MouseEnter += new System.EventHandler(this.friendsLabel_MouseEnter);
+            this.friendsLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // headPanel
+            // 
+            this.headPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.headPanel.BackColor = System.Drawing.Color.LightGray;
+            this.headPanel.Controls.Add(this.panel1);
+            this.headPanel.Location = new System.Drawing.Point(153, 103);
+            this.headPanel.Name = "headPanel";
+            this.headPanel.Size = new System.Drawing.Size(835, 441);
+            this.headPanel.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DarkRed;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(835, 441);
+            this.panel1.TabIndex = 0;
             // 
             // titleBar
             // 
@@ -208,7 +244,7 @@ namespace MoviedApp
             this.titleBar.Name = "titleBar";
             this.titleBar.RowCount = 1;
             this.titleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.titleBar.Size = new System.Drawing.Size(974, 31);
+            this.titleBar.Size = new System.Drawing.Size(991, 31);
             this.titleBar.TabIndex = 1;
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             // 
@@ -222,7 +258,7 @@ namespace MoviedApp
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.consolBox.Location = new System.Drawing.Point(872, 3);
+            this.consolBox.Location = new System.Drawing.Point(889, 3);
             this.consolBox.Name = "consolBox";
             this.consolBox.RowCount = 1;
             this.consolBox.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -236,7 +272,7 @@ namespace MoviedApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MoviedApp.Properties.Resources.background_blue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(974, 470);
+            this.ClientSize = new System.Drawing.Size(991, 547);
             this.Controls.Add(this.titleBar);
             this.Controls.Add(this.Layout);
             this.Name = "HeadForm";
@@ -247,6 +283,7 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.headPanel.ResumeLayout(false);
             this.titleBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -265,5 +302,7 @@ namespace MoviedApp
         public Label timelineLabel;
         private TableLayoutPanel titleBar;
         private TableLayoutPanel consolBox;
+        private Panel headPanel;
+        private Panel panel1;
     }
 }

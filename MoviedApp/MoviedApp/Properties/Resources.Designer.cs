@@ -109,5 +109,35 @@ namespace MoviedApp.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Quicksand_Bold {
+            get {
+                object obj = ResourceManager.GetObject("Quicksand_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Quicksand_Light {
+            get {
+                object obj = ResourceManager.GetObject("Quicksand_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Quicksand_Regular {
+            get {
+                object obj = ResourceManager.GetObject("Quicksand_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

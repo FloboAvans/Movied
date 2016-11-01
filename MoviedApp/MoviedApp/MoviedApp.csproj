@@ -67,6 +67,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="res\Quicksand-Bold.ttf" />
+    <None Include="res\Quicksand-Light.ttf" />
+    <None Include="res\Quicksand-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HeadForm.resx">

@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MoviedApp.Properties;
 
 namespace MoviedApp
 {
     public partial class HeadForm : Form
     {
-        //Resize resize = new Resize();
+        private FontFamily _quicksandLight;
+        private FontFamily _quicksandRegular;
+        private FontFamily _quicksandBold;
 
         public HeadForm()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+
+            CargoPrivateFontCollection();
+            Fonts();
         }
 
         protected override void WndProc(ref Message m)
@@ -104,6 +112,72 @@ namespace MoviedApp
             return col;
         }
 
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
+        private void CargoPrivateFontCollection()
+        {
+            int count = 0;
+            // Create the byte array and get its length
+            while (count < 3)
+            {
+                byte[] fontArray;
+                int dataLength;
+                if (count == 1)
+                {
+                    fontArray = Resources.Quicksand_Regular;
+                    dataLength = Resources.Quicksand_Regular.Length;
+                }
+                else if (count == 2)
+                {
+                    fontArray = Resources.Quicksand_Bold;
+                    dataLength = Resources.Quicksand_Bold.Length;
+                }
+                else
+                {
+                   fontArray = Resources.Quicksand_Light;
+                   dataLength = Resources.Quicksand_Light.Length;
+                }
+
+                // ASSIGN MEMORY AND COPY  BYTE[] ON THAT MEMORY ADDRESS
+                var ptrData = Marshal.AllocCoTaskMem(dataLength);
+                Marshal.Copy(fontArray, 0, ptrData, dataLength);
+
+                uint cFonts = 0;
+                AddFontMemResourceEx(ptrData, (uint)fontArray.Length, IntPtr.Zero, ref cFonts);
+
+                var pfc = new PrivateFontCollection();
+                //PASS THE FONT TO THE  PRIVATEFONTCOLLECTION OBJECT
+                pfc.AddMemoryFont(ptrData, dataLength);
+
+                //FREE THE  "UNSAFE" MEMORY
+                Marshal.FreeCoTaskMem(ptrData);
+                if (count == 1)
+                {
+                    _quicksandRegular = pfc.Families[0];
+                }
+                else if (count == 2)
+                {
+                    _quicksandBold = pfc.Families[0];
+                }
+                else
+                {
+                    _quicksandLight = pfc.Families[0];
+                }
+                count++;
+            }
+            
+        }
+
+        private void Fonts()
+        {
+            timelineLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            libraryLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            friendsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            watchedLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        }
+
         private void consolBox_MouseClick(object sender, EventArgs e)
         {
             int cellPos = GetRowColIndex(
@@ -132,35 +206,38 @@ namespace MoviedApp
             }
         }
 
-        private void tableLayoutPanel2_MouseHover(object sender, EventArgs e)
+        private void timelineLabel_MouseEnter(object sender, EventArgs e)
         {
-            Console.WriteLine("test");
-            int cellPos = GetRowColIndex(
-                consolBox,
-                consolBox.PointToClient(Cursor.Position));
-            switch (cellPos)
-            {
-                case 0:
-                    this.timelineLabel.Font = new Font("Quicksand", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                    break;
-                case 1:
-                    this.libraryLabel.Font = new Font("Quicksand", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                    break;
-                case 2:
-                    this.friendsLabel.Font = new Font("Quicksand", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                    break;
-                case 3:
-                    this.watchedLabel.Font = new Font("Quicksand", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                    break;
-                case 4:
-                    this.wishlistLabel.Font = new Font("Quicksand", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                    break;
-            }
+            timelineLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void libraryLabel_MouseEnter(object sender, EventArgs e)
+        {
+            libraryLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void friendsLabel_MouseEnter(object sender, EventArgs e)
+        {
+            friendsLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void watchedLabel_MouseEnter(object sender, EventArgs e)
+        {
+            watchedLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void wishlistLabel_MouseEnter(object sender, EventArgs e)
+        {
+            wishlistLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void label_MouseLeave(object sender, EventArgs e)
+        {
+            Fonts();
         }
 
         private void timelineLabel_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Hello?");
+            panel1.Visible = false;
         }
     }
 }
