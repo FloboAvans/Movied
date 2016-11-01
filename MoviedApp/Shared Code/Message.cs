@@ -8,27 +8,46 @@ namespace Shared_Code
 {
     public struct Message
     {
+        public sealed class Type
+        {
+            private Type()
+            {
+            }
+
+            public static readonly ID<Type> clientServer = 1;
+            public static class ClientServer
+            {
+                public static readonly ID<Type> login = clientServer[0];
+                public static class Login
+                {
+                    public static readonly ID<Type> saltRequest = login[0];
+                    public static readonly ID<Type> createUser = login[1];
+                    public static readonly ID<Type> setHash = login[2];
+                    public static readonly ID<Type> checkHash = login[3];
+                }
+            }
+        }
+
         public readonly int senderID;
         public readonly int destinationID;
-        public readonly string messageName;
+        public readonly ID<Type> type;
         public readonly bool isValid;
+        public readonly bool isResponse;
         public readonly dynamic message;
 
-        public Message(int senderID, int destinationID, string messageName, bool isValid, dynamic message)
+        public Message(int senderID, int destinationID, ID<Type> type, bool isValid, bool isResponse, dynamic message)
         {
-            if (messageName == null || messageName.Trim() == "")
-                throw new ArgumentException("messageName is null or \"\"");
-
             this.senderID = senderID;
             this.destinationID = destinationID;
-            this.messageName = messageName;
+            this.type = type;
             this.isValid = isValid;
+            this.isResponse = isResponse;
             this.message = message;
         }
 
         public override string ToString()
         {
-            return $"sID={senderID}, dID={destinationID}, mn={messageName}, valid={isValid}";
+            return $"sID={senderID}, dID={destinationID}, m={type}, valid={isValid}, response={isResponse}, message={message}";
         }
     }
 }

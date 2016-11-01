@@ -32,7 +32,18 @@ namespace Server
         {
             if (typeof(ClientNode) != node.GetType())
                 return NodeResponse.MES_NODE_MISMATCH;
-            return NodeResponse.SUCCES;
+
+            ClientNode clientNode = (ClientNode) node;
+
+            switch (clientNode.state)
+            {
+                case State.START:
+                    throw new Exception("state should never be START");
+                    break;
+                case State.LOGIN:
+
+                    break;
+            }
         }
     }
 }
