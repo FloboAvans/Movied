@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Shared_Code
@@ -25,20 +27,54 @@ namespace Shared_Code
                     public static readonly ID<Type> setHash = login[2];
                     public static readonly ID<Type> checkHash = login[3];
                 }
+
+                public static readonly ID<Type> error = clientServer[1];
+                public static class Error
+                {
+                    public static readonly ID<Type> connectionException = error[0];
+                }
+            }
+        }
+
+        public static class Trace
+        {
+            private static Mutex mutex = new Mutex(false);
+            private static uint count = 0;
+            private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+
+            public const byte ID_NOT_SET = 0;
+
+            public static ulong GenerateTrace(byte id)
+            {
+                mutex.WaitOne();
+                try
+                {
+                    uint currCount = count++;
+                    byte[] randBuff = new byte[4];
+                    rng.GetBytes(randBuff);
+                    randBuff[0] = id;
+                    return ((ulong) currCount) << 32 | BitConverter.ToUInt32(randBuff, 0);
+                }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
             }
         }
 
         public readonly int senderID;
         public readonly int destinationID;
+        public readonly ulong traceNumber;
         public readonly ID<Type> type;
         public readonly bool isValid;
         public readonly bool isResponse;
         public readonly dynamic message;
 
-        public Message(int senderID, int destinationID, ID<Type> type, bool isValid, bool isResponse, dynamic message)
+        public Message(int senderID, int destinationID, ulong traceNumber, ID<Type> type, bool isValid, bool isResponse, dynamic message)
         {
             this.senderID = senderID;
             this.destinationID = destinationID;
+            this.traceNumber = traceNumber;
             this.type = type;
             this.isValid = isValid;
             this.isResponse = isResponse;
