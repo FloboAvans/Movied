@@ -28,10 +28,10 @@ namespace Server
 
         }
 
-        private static NodeResponse MessageHandler(Node node, Message message)
+        private static ID<NodeResponse> MessageHandler(Node node, Message message)
         {
             if (typeof(ClientNode) != node.GetType())
-                return NodeResponse.MES_NODE_MISMATCH;
+                return NodeResponse.PreCheck.nodeMismatch;
 
             ClientNode clientNode = (ClientNode) node;
 
@@ -39,11 +39,15 @@ namespace Server
             {
                 case State.START:
                     throw new Exception("state should never be START");
-                    break;
                 case State.LOGIN:
-
+                    if (message.type.isa(Message.Type.ClientServer.login) == false)
+                    {
+                        clientNode.OnError(NodeResponse.ClientNode.invalidState, message, clientNode);
+                    }
                     break;
             }
+
+            return NodeResponse.succes;
         }
     }
 }

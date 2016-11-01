@@ -34,6 +34,8 @@ namespace Shared_Code
             {
                 public static readonly ID<NodeResponse> invalidState = clientNode[0];
             }
+
+
         }
 
         public Node(Func<Node, Message, ID<NodeResponse>> messageHandler, Queue<Message> inQueue)
