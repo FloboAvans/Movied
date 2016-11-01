@@ -59,7 +59,6 @@ namespace MoviedApp
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Layout.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.Layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Layout.Enabled = false;
             this.Layout.Location = new System.Drawing.Point(0, 0);
             this.Layout.Name = "Layout";
             this.Layout.RowCount = 2;
