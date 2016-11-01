@@ -63,12 +63,12 @@ namespace MoviedApp
             this.Layout.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.Layout.Controls.Add(this.headPanel, 1, 1);
             this.Layout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Layout.Location = new System.Drawing.Point(0, 0);
+            this.Layout.Location = new System.Drawing.Point(2, 2);
             this.Layout.Name = "Layout";
             this.Layout.RowCount = 2;
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.Layout.Size = new System.Drawing.Size(991, 547);
+            this.Layout.Size = new System.Drawing.Size(987, 543);
             this.Layout.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -85,7 +85,7 @@ namespace MoviedApp
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 441);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 437);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -94,7 +94,7 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::MoviedApp.Properties.Resources.logo_movied;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 403);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 399);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 35);
@@ -112,7 +112,7 @@ namespace MoviedApp
             this.tableLayoutPanel2.Controls.Add(this.libraryLabel, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.watchedLabel, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.friendsLabel, 0, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 100);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 98);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -219,7 +219,7 @@ namespace MoviedApp
             this.headPanel.Controls.Add(this.panel1);
             this.headPanel.Location = new System.Drawing.Point(153, 103);
             this.headPanel.Name = "headPanel";
-            this.headPanel.Size = new System.Drawing.Size(835, 441);
+            this.headPanel.Size = new System.Drawing.Size(831, 437);
             this.headPanel.TabIndex = 3;
             // 
             // panel1
@@ -230,7 +230,7 @@ namespace MoviedApp
             this.panel1.BackColor = System.Drawing.Color.DarkRed;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 441);
+            this.panel1.Size = new System.Drawing.Size(831, 440);
             this.panel1.TabIndex = 0;
             // 
             // titleBar
@@ -240,11 +240,11 @@ namespace MoviedApp
             this.titleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.titleBar.Controls.Add(this.consolBox, 0, 0);
             this.titleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleBar.Location = new System.Drawing.Point(0, 0);
+            this.titleBar.Location = new System.Drawing.Point(2, 2);
             this.titleBar.Name = "titleBar";
             this.titleBar.RowCount = 1;
             this.titleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.titleBar.Size = new System.Drawing.Size(991, 31);
+            this.titleBar.Size = new System.Drawing.Size(987, 31);
             this.titleBar.TabIndex = 1;
             this.titleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBar_MouseDown);
             // 
@@ -258,7 +258,7 @@ namespace MoviedApp
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.consolBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.consolBox.Location = new System.Drawing.Point(889, 3);
+            this.consolBox.Location = new System.Drawing.Point(885, 3);
             this.consolBox.Name = "consolBox";
             this.consolBox.RowCount = 1;
             this.consolBox.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -277,6 +277,7 @@ namespace MoviedApp
             this.Controls.Add(this.Layout);
             this.Name = "HeadForm";
             this.Opacity = 0.95D;
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "HeadForm";
             this.Layout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
