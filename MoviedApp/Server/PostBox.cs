@@ -11,6 +11,14 @@ namespace Server
     [Serializable]
     class PostBox : ISerializable
     {
+        public static PostBox instance = Init();
+
+        private static PostBox Init()
+        {
+            // TODO implement serilzation 
+            return new PostBox();
+        }
+
         public enum Response
         {
             SUCCESS,
@@ -53,12 +61,12 @@ namespace Server
 
         private Dictionary<int, Entry> postBox;
 
-        public PostBox()
+        private PostBox()
         {
             postBox = new Dictionary<int, Entry>();
         }
 
-        public PostBox(SerializationInfo info, StreamingContext context)
+        private PostBox(SerializationInfo info, StreamingContext context)
         {
             postBox = (Dictionary<int, Entry>) info.GetValue("postBox", postBox.GetType());
         }
