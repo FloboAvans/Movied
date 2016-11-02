@@ -29,7 +29,7 @@ namespace Server
             while (true)
             {
                 TcpClient client = listner.AcceptTcpClient();
-                //PostBox.instance.
+                new ClientNode(client);
             }
         }
     }
