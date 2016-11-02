@@ -23,6 +23,9 @@ namespace MoviedApp
         public HeadForm()
         {
             InitializeComponent();
+
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
             this.FormBorderStyle = FormBorderStyle.None;
 
             CargoPrivateFontCollection();
@@ -35,6 +38,16 @@ namespace MoviedApp
             libraryTable.HorizontalScroll.Visible = false;
             libraryTable.HorizontalScroll.Maximum = 0;
             libraryTable.AutoScroll = true;
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
 
         protected override void WndProc(ref Message m)
@@ -188,16 +201,21 @@ namespace MoviedApp
 
         private void clearAllPanels()
         {
-            //timelinePanel.Enabled = false;
+            timelinePanel.Enabled = false;
             timelinePanel.Visible = false;
-            //libraryPanel.Enabled = false;
+            libraryPanel.Enabled = false;
             libraryPanel.Visible = false;
-           // friendsPanel.Enabled = false;
+            friendsPanel.Enabled = false;
             friendsPanel.Visible = false;
-            //watchedPanel.Enabled = false;
-            homeLabel.Visible = false;
-           // wishlistPanel.Enabled = false;
+            watchedPanel.Enabled = false;
+            watchedPanel.Visible = false;
+            wishlistPanel.Enabled = false;
             wishlistPanel.Visible = false;
+
+            timelineHeaderPanel.Enabled = false;
+            timelineHeaderPanel.Visible = false;
+            libraryHeaderPanel.Enabled = false;
+            libraryHeaderPanel.Visible = false;
         }
 
         private void consolBox_MouseClick(object sender, EventArgs e)
@@ -297,7 +315,7 @@ namespace MoviedApp
                 libraryPanel.Visible = true;
                 libraryPanel.Enabled = true;
                 libraryHeaderPanel.Visible = true;
-                timelineHeaderPanel.Visible = false;
+                libraryHeaderPanel.Enabled = true;
             }
         }
 
@@ -309,8 +327,8 @@ namespace MoviedApp
                 clearAllPanels();
                 timelinePanel.Visible = true;
                 timelinePanel.Enabled = true;
-                libraryHeaderPanel.Visible = false;
                 timelineHeaderPanel.Visible = true;
+                timelineHeaderPanel.Enabled = true;
             }
         }
 
@@ -326,11 +344,11 @@ namespace MoviedApp
 
         private void watchedLabel_Click(object sender, EventArgs e)
         {
-            if (!(homeLabel.Visible && homeLabel.Enabled))
+            if (!(watchedPanel.Visible && watchedPanel.Enabled))
             {
                 clearAllPanels();
-                homeLabel.Visible = true;
-                homeLabel.Enabled = true;
+                watchedPanel.Visible = true;
+                watchedPanel.Enabled = true;
             }
         }
 

@@ -34,10 +34,6 @@ namespace MoviedApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeadForm));
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.headPanel = new System.Windows.Forms.Panel();
-            this.watchedPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.friendsPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.timelinePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.libraryPanel = new System.Windows.Forms.Panel();
@@ -59,6 +55,10 @@ namespace MoviedApp
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.wishlistPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.watchedPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.friendsPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,16 +68,14 @@ namespace MoviedApp
             this.watchedLabel = new System.Windows.Forms.Label();
             this.friendsLabel = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.timelineHeaderPanel = new System.Windows.Forms.Panel();
+            this.homeLabel = new System.Windows.Forms.Label();
             this.libraryHeaderPanel = new System.Windows.Forms.Panel();
             this.genreLabel = new System.Windows.Forms.Label();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
-            this.timelineHeaderPanel = new System.Windows.Forms.Panel();
-            this.homeLabel = new System.Windows.Forms.Label();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
-            this.watchedPanel.SuspendLayout();
-            this.friendsPanel.SuspendLayout();
             this.timelinePanel.SuspendLayout();
             this.libraryPanel.SuspendLayout();
             this.libraryTable.SuspendLayout();
@@ -97,13 +95,15 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.wishlistPanel.SuspendLayout();
+            this.watchedPanel.SuspendLayout();
+            this.friendsPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.headerPanel.SuspendLayout();
+            this.timelineHeaderPanel.SuspendLayout();
             this.libraryHeaderPanel.SuspendLayout();
             this.titleBar.SuspendLayout();
-            this.timelineHeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Layout
@@ -123,62 +123,23 @@ namespace MoviedApp
             this.Layout.RowCount = 2;
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Layout.Size = new System.Drawing.Size(1027, 543);
             this.Layout.TabIndex = 0;
             // 
             // headPanel
             // 
             this.headPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headPanel.Controls.Add(this.watchedPanel);
-            this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Controls.Add(this.timelinePanel);
             this.headPanel.Controls.Add(this.libraryPanel);
             this.headPanel.Controls.Add(this.wishlistPanel);
+            this.headPanel.Controls.Add(this.watchedPanel);
+            this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headPanel.Location = new System.Drawing.Point(153, 103);
             this.headPanel.Name = "headPanel";
             this.headPanel.Size = new System.Drawing.Size(871, 437);
             this.headPanel.TabIndex = 3;
-            // 
-            // watchedPanel
-            // 
-            this.watchedPanel.Controls.Add(this.label3);
-            this.watchedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.watchedPanel.Location = new System.Drawing.Point(0, 0);
-            this.watchedPanel.Name = "watchedPanel";
-            this.watchedPanel.Size = new System.Drawing.Size(871, 437);
-            this.watchedPanel.TabIndex = 21;
-            this.watchedPanel.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(423, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Watched";
-            // 
-            // friendsPanel
-            // 
-            this.friendsPanel.Controls.Add(this.label2);
-            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
-            this.friendsPanel.Name = "friendsPanel";
-            this.friendsPanel.Size = new System.Drawing.Size(871, 437);
-            this.friendsPanel.TabIndex = 18;
-            this.friendsPanel.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(423, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Friends";
             // 
             // timelinePanel
             // 
@@ -432,6 +393,46 @@ namespace MoviedApp
             this.label4.TabIndex = 0;
             this.label4.Text = "Wishlist";
             // 
+            // watchedPanel
+            // 
+            this.watchedPanel.Controls.Add(this.label3);
+            this.watchedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.watchedPanel.Location = new System.Drawing.Point(0, 0);
+            this.watchedPanel.Name = "watchedPanel";
+            this.watchedPanel.Size = new System.Drawing.Size(871, 437);
+            this.watchedPanel.TabIndex = 21;
+            this.watchedPanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(423, 189);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Watched";
+            // 
+            // friendsPanel
+            // 
+            this.friendsPanel.Controls.Add(this.label2);
+            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
+            this.friendsPanel.Name = "friendsPanel";
+            this.friendsPanel.Size = new System.Drawing.Size(871, 437);
+            this.friendsPanel.TabIndex = 18;
+            this.friendsPanel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(423, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Friends";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -577,13 +578,35 @@ namespace MoviedApp
             // 
             // headerPanel
             // 
-            this.headerPanel.Controls.Add(this.timelineHeaderPanel);
             this.headerPanel.Controls.Add(this.libraryHeaderPanel);
+            this.headerPanel.Controls.Add(this.timelineHeaderPanel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.headerPanel.Location = new System.Drawing.Point(153, 28);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(871, 69);
             this.headerPanel.TabIndex = 4;
+            // 
+            // timelineHeaderPanel
+            // 
+            this.timelineHeaderPanel.Controls.Add(this.homeLabel);
+            this.timelineHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timelineHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.timelineHeaderPanel.Name = "timelineHeaderPanel";
+            this.timelineHeaderPanel.Size = new System.Drawing.Size(871, 69);
+            this.timelineHeaderPanel.TabIndex = 2;
+            this.timelineHeaderPanel.Visible = false;
+            // 
+            // homeLabel
+            // 
+            this.homeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.homeLabel.AutoSize = true;
+            this.homeLabel.Font = new System.Drawing.Font("Quicksand", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeLabel.ForeColor = System.Drawing.Color.White;
+            this.homeLabel.Location = new System.Drawing.Point(423, 3);
+            this.homeLabel.Name = "homeLabel";
+            this.homeLabel.Size = new System.Drawing.Size(468, 62);
+            this.homeLabel.TabIndex = 1;
+            this.homeLabel.Text = "WELCOME BACK";
             // 
             // libraryHeaderPanel
             // 
@@ -592,7 +615,7 @@ namespace MoviedApp
             this.libraryHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.libraryHeaderPanel.Name = "libraryHeaderPanel";
             this.libraryHeaderPanel.Size = new System.Drawing.Size(871, 69);
-            this.libraryHeaderPanel.TabIndex = 0;
+            this.libraryHeaderPanel.TabIndex = 3;
             this.libraryHeaderPanel.Visible = false;
             // 
             // genreLabel
@@ -601,7 +624,7 @@ namespace MoviedApp
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Quicksand", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreLabel.ForeColor = System.Drawing.Color.White;
-            this.genreLabel.Location = new System.Drawing.Point(425, 6);
+            this.genreLabel.Location = new System.Drawing.Point(441, 6);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(449, 62);
             this.genreLabel.TabIndex = 0;
@@ -640,29 +663,6 @@ namespace MoviedApp
             this.consolBox.TabIndex = 0;
             this.consolBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.consolBox_MouseClick);
             // 
-            // timelineHeaderPanel
-            // 
-            this.timelineHeaderPanel.Controls.Add(this.homeLabel);
-            this.timelineHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timelineHeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.timelineHeaderPanel.Name = "timelineHeaderPanel";
-            this.timelineHeaderPanel.Size = new System.Drawing.Size(871, 69);
-            this.timelineHeaderPanel.TabIndex = 2;
-            this.timelineHeaderPanel.Visible = false;
-            // 
-            // homeLabel
-            // 
-            this.homeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.homeLabel.AutoSize = true;
-            this.homeLabel.Font = new System.Drawing.Font("Quicksand", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLabel.ForeColor = System.Drawing.Color.White;
-            this.homeLabel.Location = new System.Drawing.Point(412, 7);
-            this.homeLabel.Name = "homeLabel";
-            this.homeLabel.Size = new System.Drawing.Size(468, 62);
-            this.homeLabel.TabIndex = 1;
-            this.homeLabel.Text = "WELCOME BACK";
-            this.homeLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
             // HeadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,10 +679,6 @@ namespace MoviedApp
             this.ResizeEnd += new System.EventHandler(this.HeadForm_ResizeEnd);
             this.Layout.ResumeLayout(false);
             this.headPanel.ResumeLayout(false);
-            this.watchedPanel.ResumeLayout(false);
-            this.watchedPanel.PerformLayout();
-            this.friendsPanel.ResumeLayout(false);
-            this.friendsPanel.PerformLayout();
             this.timelinePanel.ResumeLayout(false);
             this.timelinePanel.PerformLayout();
             this.libraryPanel.ResumeLayout(false);
@@ -704,16 +700,20 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.wishlistPanel.ResumeLayout(false);
             this.wishlistPanel.PerformLayout();
+            this.watchedPanel.ResumeLayout(false);
+            this.watchedPanel.PerformLayout();
+            this.friendsPanel.ResumeLayout(false);
+            this.friendsPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.headerPanel.ResumeLayout(false);
+            this.timelineHeaderPanel.ResumeLayout(false);
+            this.timelineHeaderPanel.PerformLayout();
             this.libraryHeaderPanel.ResumeLayout(false);
             this.libraryHeaderPanel.PerformLayout();
             this.titleBar.ResumeLayout(false);
-            this.timelineHeaderPanel.ResumeLayout(false);
-            this.timelineHeaderPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -750,8 +750,6 @@ namespace MoviedApp
         private PictureBox pictureBox15;
         private PictureBox pictureBox16;
         private Panel headerPanel;
-        private Panel libraryHeaderPanel;
-        private Label genreLabel;
         private Panel friendsPanel;
         private Label label2;
         private Panel timelinePanel;
@@ -760,6 +758,8 @@ namespace MoviedApp
         private Label label4;
         private Panel watchedPanel;
         private Label label3;
+        private Panel libraryHeaderPanel;
+        private Label genreLabel;
         private Panel timelineHeaderPanel;
         private Label homeLabel;
     }
