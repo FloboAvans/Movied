@@ -13,10 +13,11 @@ namespace Server
         public static class Identifier
         {
             public const int UNKNOWN_EDGE = 0;
+            public const int PASSWORD_NODE = 1<<1;
 
             private static Mutex serverMutex = new Mutex(false);
             private static Mutex clientMutex = new Mutex(false);
-            private static int serverNodeID = 1;
+            private static int serverNodeID = 2;
             private static int clientNodeID = -1;
 
             public static bool IsServerNode(int id)
@@ -58,7 +59,7 @@ namespace Server
 
         private Queue<Message> inQueue;
 
-        public readonly int Id = Identifier.GenerateServerID();
+        public readonly int Id;
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"{r} on [{m}] by {n.Id}");
 
         public sealed class NodeResponse
@@ -90,10 +91,12 @@ namespace Server
             }
         }
 
-        public Node(Func<Node, Message, ID<NodeResponse>> messageHandler)
+        public Node(Func<Node, Message, ID<NodeResponse>> messageHandler, int id = 0)
         {
             if (messageHandler == null)
                 throw new ArgumentNullException("messageHandler may not be NULL");
+
+            Id = id == 0 ? Identifier.GenerateServerID() : id;
 
             this.inQueue = new Queue<Message>();
 

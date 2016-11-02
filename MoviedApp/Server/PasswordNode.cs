@@ -12,7 +12,8 @@ namespace Server
 {
     class PasswordNode : Node
     {
-        public static PasswordNode instance = new PasswordNode();
+        private static PasswordNode instance;
+        public static void Init() { instance = new PasswordNode();}
 
         private PasswordBank passwordBank;
 

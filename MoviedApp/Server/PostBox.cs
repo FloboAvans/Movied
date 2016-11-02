@@ -76,6 +76,13 @@ namespace Server
             info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
         }
 
+        public Response TargetExists(int id)
+        {
+            if (postBox.ContainsKey(id))
+                return Response.SUCCESS;
+            return Response.NO_SUTCH_TARGET;
+        }
+
         public Response PostMessage(Message message)
         {
             lock (postBox)
