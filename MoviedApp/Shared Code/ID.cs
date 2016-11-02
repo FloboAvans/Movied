@@ -66,6 +66,11 @@ namespace Shared_Code
             mID = id;
         }
 
+        public static implicit operator uint(ID<T> id)
+        {
+            return id.mID;
+        }
+
         private readonly uint mID;
 
         public override string ToString()
