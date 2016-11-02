@@ -45,7 +45,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="ID.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Node.cs" />
     <Compile Include="PasswordBank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

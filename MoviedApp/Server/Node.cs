@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Shared_Code;
 
-namespace Shared_Code
+namespace Server
 {
     public class Node
     {
