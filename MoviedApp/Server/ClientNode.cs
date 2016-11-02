@@ -132,7 +132,15 @@ namespace Server
                 case State.LOGIN:
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
                         return NodeResponse.messageTypeMismatch;
-
+                    switch (clientNode.loginState)
+                    {
+                        case LoginState.AWAITING:
+                            if (message.type == Message.Type.ClientServer.Login.saltRequest)
+                            {
+                                
+                            }
+                            break;
+                    }
 
                     break;
             }

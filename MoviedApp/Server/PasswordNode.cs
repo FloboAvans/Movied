@@ -29,6 +29,39 @@ namespace Server
             if (node.GetType() != typeof(PasswordNode))
                 return NodeResponse.PreCheck.nodeMismatch;
 
+            PasswordNode passwordNode = (PasswordNode) node;
+
+            if (message.type == Message.Type.ClientServer.Login.saltRequest)
+            {
+                byte[] saltBytes;
+                PasswordBank.Response response;
+                if (message.message.mode == true)
+                    response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
+                else
+                    response = passwordNode.passwordBank.GetSalt((int) message.message.userid, out saltBytes);
+
+                Message returnMessage;
+                if (response == PasswordBank.Response.SUCCES)
+                    returnMessage = new Message(
+                        passwordNode.Id,
+                        message.senderID,
+                        message.traceNumber,
+                        message.type,
+                        true,
+                        true,
+                        new {salt = Convert.ToBase64String(saltBytes)});
+                else
+                    returnMessage = new Message(
+                        passwordNode.Id,
+                        message.senderID,
+                        message.traceNumber,
+                        message.type,
+                        false,
+                        true,
+                        new {response = response});
+
+                PostBox.instance.PostMessage(returnMessage);
+            }
             return NodeResponse.succes;
         }
     }

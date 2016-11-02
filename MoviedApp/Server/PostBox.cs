@@ -76,12 +76,12 @@ namespace Server
             info.AddValue("postBox", postBox);
         }
 
-        public Response PostMessage(int id, Message message)
+        public Response PostMessage(Message message)
         {
             lock (postBox)
             {
                 Entry entry;
-                if (postBox.TryGetValue(id, out entry) == false)
+                if (postBox.TryGetValue(message.destinationID, out entry) == false)
                     return Response.NO_SUTCH_TARGET;
                 Response response;
                 if ((response = entry.Check()) != Response.SUCCESS)
