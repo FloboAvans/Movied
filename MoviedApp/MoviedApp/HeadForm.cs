@@ -27,6 +27,14 @@ namespace MoviedApp
 
             CargoPrivateFontCollection();
             Fonts();
+
+            clearAllPanels();
+
+            libraryTable.AutoScroll = false;
+            libraryTable.HorizontalScroll.Enabled = false;
+            libraryTable.HorizontalScroll.Visible = false;
+            libraryTable.HorizontalScroll.Maximum = 0;
+            libraryTable.AutoScroll = true;
         }
 
         protected override void WndProc(ref Message m)
@@ -178,6 +186,20 @@ namespace MoviedApp
             wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
 
+        private void clearAllPanels()
+        {
+            //timelinePanel.Enabled = false;
+            timelinePanel.Visible = false;
+            //libraryPanel.Enabled = false;
+            libraryPanel.Visible = false;
+           // friendsPanel.Enabled = false;
+            friendsPanel.Visible = false;
+            //watchedPanel.Enabled = false;
+            homeLabel.Visible = false;
+           // wishlistPanel.Enabled = false;
+            wishlistPanel.Visible = false;
+        }
+
         private void consolBox_MouseClick(object sender, EventArgs e)
         {
             int cellPos = GetRowColIndex(
@@ -235,9 +257,92 @@ namespace MoviedApp
             Fonts();
         }
 
+        private void HeadForm_ResizeEnd(object sender, EventArgs e)
+        {
+            if (libraryPanel.Enabled && libraryPanel.Visible)
+            {
+                int columns = libraryTable.Width/140;
+                while (libraryTable.ColumnCount != columns)
+                {
+                    Console.WriteLine(columns);
+                    if (libraryTable.ColumnCount < columns)
+                    {
+                        float percent = 100/libraryTable.ColumnCount;
+                        libraryTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, percent));
+                        libraryTable.ColumnCount++;
+                        for (int i = 0; i < libraryTable.ColumnStyles.Count - 1; i++)
+                        {
+                            libraryTable.ColumnStyles[i] = new ColumnStyle(SizeType.Percent, percent);
+                        }
+                    }
+
+
+                    if (libraryTable.ColumnCount > columns)
+                    {
+                        libraryTable.ColumnStyles.RemoveAt(libraryTable.ColumnStyles.Count - 1);
+                        libraryTable.ColumnCount--;
+                    }
+                    libraryTable.Refresh();
+                }
+                libraryTable.Width = libraryPanel.Width;
+
+            }
+        }
+        
+        private void libraryLabel_Click(object sender, EventArgs e)
+        {
+            if (!(libraryPanel.Visible && libraryPanel.Enabled))
+            {
+                clearAllPanels();
+                libraryPanel.Visible = true;
+                libraryPanel.Enabled = true;
+                libraryHeaderPanel.Visible = true;
+                timelineHeaderPanel.Visible = false;
+            }
+        }
+
+
         private void timelineLabel_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
+            if (!(timelinePanel.Visible && timelinePanel.Enabled))
+            {
+                clearAllPanels();
+                timelinePanel.Visible = true;
+                timelinePanel.Enabled = true;
+                libraryHeaderPanel.Visible = false;
+                timelineHeaderPanel.Visible = true;
+            }
+        }
+
+        private void friendsLabel_Click(object sender, EventArgs e)
+        {
+            if (!(friendsPanel.Visible && friendsPanel.Enabled))
+            {
+                clearAllPanels();
+                friendsPanel.Visible = true;
+                friendsPanel.Enabled = true;
+            }
+        }
+
+        private void watchedLabel_Click(object sender, EventArgs e)
+        {
+            if (!(homeLabel.Visible && homeLabel.Enabled))
+            {
+                clearAllPanels();
+                homeLabel.Visible = true;
+                homeLabel.Enabled = true;
+            }
+        }
+
+        private void wishlistLabel_Click(object sender, EventArgs e)
+        {
+            if (!(wishlistPanel.Visible && wishlistPanel.Enabled))
+            {
+                clearAllPanels();
+                wishlistPanel.Visible = true;
+                wishlistPanel.Enabled = true;
+            }
         }
     }
+    
 }
