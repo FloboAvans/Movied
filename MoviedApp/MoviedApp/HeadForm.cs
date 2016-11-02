@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -40,7 +41,14 @@ namespace MoviedApp
             libraryTable.HorizontalScroll.Maximum = 0;
             libraryTable.AutoScroll = true;
 
+            filmInfoTable.AutoScroll = false;
+            filmInfoTable.HorizontalScroll.Enabled = false;
+            filmInfoTable.HorizontalScroll.Visible = false;
+            filmInfoTable.HorizontalScroll.Maximum = 0;
+            filmInfoTable.AutoScroll = true;
+
             SetPlaceHolder(searchTextBox, "search");
+            SetPlaceHolder(searchTextBox2, "search");
         }
 
         protected override CreateParams CreateParams
@@ -119,10 +127,10 @@ namespace MoviedApp
             }
         }
 
-        private int GetRowColIndex(TableLayoutPanel tlp, Point point)
+        private Point GetRowColIndex(TableLayoutPanel tlp, Point point)
         {
             if (point.X > tlp.Width || point.Y > tlp.Height)
-                return 999;
+                return new Point(999, 999); ;
 
             int w = tlp.Width;
             int h = tlp.Height;
@@ -133,7 +141,13 @@ namespace MoviedApp
                 w -= widths[i];
             int col = i + 1;
 
-            return col;
+            int[] heights = tlp.GetRowHeights();
+            for (i = heights.Length - 1; i >= 0 && point.Y < h; i--)
+                h -= heights[i];
+
+            int row = i + 1;
+
+            return new Point(col, row);
         }
 
         [DllImport("gdi32.dll")]
@@ -202,8 +216,28 @@ namespace MoviedApp
             wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             homeLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             genreLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filmNameLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            overviewTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+            castTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+            crewTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+            factsTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+
+            overviewText.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            statusTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            languageTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            runtimeTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            releaseTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            budgetTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            revenueTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            homepageTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            trailerButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            addWishlistButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             searchTextBox.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            searchTextBox2.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void clearAllPanels()
@@ -218,11 +252,15 @@ namespace MoviedApp
             watchedPanel.Visible = false;
             wishlistPanel.Enabled = false;
             wishlistPanel.Visible = false;
+            movieInfoPanel.Enabled = false;
+            movieInfoPanel.Visible = false;
 
             timelineHeaderPanel.Enabled = false;
             timelineHeaderPanel.Visible = false;
             libraryHeaderPanel.Enabled = false;
             libraryHeaderPanel.Visible = false;
+            filmInfoHeaderPanel.Enabled = false;
+            filmInfoHeaderPanel.Visible = false;
         }
 
         public void SetPlaceHolder(Control control, string PlaceHolderText)
@@ -242,12 +280,40 @@ namespace MoviedApp
             };
         }
 
+        private static Image DrawReflection(Image img, Color toBG) // img is the original image.
+        {
+            //This is the static function that generates the reflection...
+            int height = img.Height + 100; //Added height from the original height of the image.
+            Bitmap bmp = new Bitmap(img.Width, height, PixelFormat.Format64bppPArgb); //A new 
+                                                                                      //bitmap.
+                                                                                      //The Brush that generates the fading effect to a specific color of your background.
+            Brush brsh = new LinearGradientBrush(new Rectangle(0, 0, img.Width + 10,
+              height), Color.Transparent, toBG, LinearGradientMode.Vertical);
+            bmp.SetResolution(img.HorizontalResolution, img.VerticalResolution); //Sets the new 
+                                                                                 //bitmap's resolution.
+            using (Graphics grfx = Graphics.FromImage(bmp)) //A graphics to be generated 
+                                                            //from an image (here, the new Bitmap we've created (BMP)).
+            {
+                Bitmap bm = (Bitmap)img; //Generates a bitmap from the original image (img).
+                grfx.DrawImage(bm, 0, 0, img.Width, img.Height); //Draws the generated 
+                                                                 //bitmap (bm) to the new bitmap (bmp).
+                Bitmap bm1 = (Bitmap)img;   //Generates a bitmap again 
+                                            //from the original image (img).
+                bm1.RotateFlip(RotateFlipType.Rotate180FlipX); //Flips and rotates the 
+                                                               //image (bm1).
+                grfx.DrawImage(bm1, 0, img.Height);     //Draws (bm1) below (bm) so it serves 
+                                                        //as the reflection image.
+                Rectangle rt = new Rectangle(0, img.Height, img.Width, 100); //A new rectangle 
+                                                                             //to paint our gradient effect.
+                grfx.FillRectangle(brsh, rt); //Brushes the gradient on (rt).
+            }
+            return bmp; //Returns the (bmp) with the generated image.
+        }
+
         private void consolBox_MouseClick(object sender, EventArgs e)
         {
-            int cellPos = GetRowColIndex(
-                consolBox,
-                consolBox.PointToClient(Cursor.Position));
-            switch (cellPos)
+            Point cellPos = GetRowColIndex(consolBox,consolBox.PointToClient(Cursor.Position));
+            switch (cellPos.X)
             {
                 case 0:
                     WindowState = FormWindowState.Minimized;
@@ -293,6 +359,20 @@ namespace MoviedApp
         private void wishlistLabel_MouseEnter(object sender, EventArgs e)
         {
             wishlistLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void trailerButton_MouseEnter(object sender, EventArgs e)
+        {
+            trailerButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void addWishlistButton_MouseEnter(object sender, EventArgs e)
+        {
+            addWishlistButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void addCheckinButton_MouseEnter(object sender, EventArgs e)
+        {
+            addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
         private void label_MouseLeave(object sender, EventArgs e)
         {
@@ -384,6 +464,57 @@ namespace MoviedApp
                 wishlistPanel.Visible = true;
                 wishlistPanel.Enabled = true;
             }
+        }
+
+        private void libraryTable_MouseClick(object sender, MouseEventArgs e)
+        {
+            Point cellPos = GetRowColIndex(consolBox, libraryTable.PointToClient(Cursor.Position));
+            Console.WriteLine(cellPos);
+            switch (cellPos.X)
+            {
+                case 0:
+                    switch (cellPos.Y)
+                    {
+                        case 0:
+                            clearAllPanels();
+                            movieInfoPanel.Visible = true;
+                            movieInfoPanel.Enabled = true;
+                            filmInfoHeaderPanel.Visible = true;
+                            filmInfoHeaderPanel.Enabled = true;
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (cellPos.Y)
+                    {
+                        case 1:
+                            clearAllPanels();
+                            movieInfoPanel.Visible = true;
+                            movieInfoPanel.Enabled = true;
+                            filmInfoHeaderPanel.Visible = true;
+                            filmInfoHeaderPanel.Enabled = true;
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (cellPos.Y)
+                    {
+                        case 0:
+                            break;
+                    }
+                    break;
+            }
+
+            clearAllPanels();
+            movieInfoPanel.Visible = true;
+            movieInfoPanel.Enabled = true;
+            filmInfoHeaderPanel.Visible = true;
+            filmInfoHeaderPanel.Enabled = true;
+        }
+
+        private void filmImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            filmImage.Image = DrawReflection(filmImage.Image, Color.FromArgb(11, 19, 29));
         }
     }
     
