@@ -46,7 +46,7 @@ namespace HashingTest
                     byte[] idBuff = new byte[4];
                     rng.GetBytes(idBuff);
                     id = BitConverter.ToInt32(idBuff, 0);
-                    id = Math.Abs(id);
+                    id = Math.Abs(id) | 1; // ensures id is always uneven
                 } while (validID(id));
             }
 
@@ -266,6 +266,30 @@ namespace HashingTest
             }
             salt = e.salt; // otherwise set the salt
             return Response.SUCCES; // and return succes
+        }
+
+        public Response GetID(string userName, out int id)
+        {
+            Entry entry;
+            if (usersName.TryGetValue(userName, out entry) == false)
+            {
+                id = 0;
+                return Response.NO_SUCH_USER;
+            }
+            id = entry.id;
+            return Response.SUCCES;
+        }
+
+        public Response GetName(int id, out string username)
+        {
+            Entry entry;
+            if (usersID.TryGetValue(id, out entry) == false)
+            {
+                username = null;
+                return Response.NO_SUCH_USER;
+            }
+            username = entry.name;
+            return Response.SUCCES;
         }
 
         /// <summary>

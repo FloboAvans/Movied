@@ -16,6 +16,8 @@ namespace Shared_Code
 
             public const int LENGTH_BYTE_SIZE = 4;
             public const int UNKNOWN_ERROR = -1;
+
+            public const byte SERVER_TRACE_ID = 1;
         }
 
         public static class GeneralInfo

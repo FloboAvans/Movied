@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Shared_Code;
 
-namespace Shared_Code
+namespace Server
 {
     public class Node
     {
@@ -18,12 +19,22 @@ namespace Shared_Code
             private static int serverNodeID = 1;
             private static int clientNodeID = -1;
 
+            public static bool IsServerNode(int id)
+            {
+                return id > 0;
+            }
+
+            public static bool IsUserID(int id)
+            {
+                return IsServerNode(id) && id%2 == 0;
+            }
+
             public static int GenerateServerID()
             {
                 serverMutex.WaitOne();
                 try
                 {
-                    return serverNodeID++;
+                    return serverNodeID++<<1;
                 }
                 finally
                 {
@@ -47,9 +58,7 @@ namespace Shared_Code
 
         private Queue<Message> inQueue;
 
-        private static int NodeIdCounter = 1;
-        public readonly int Id = NodeIdCounter++;
-        public const byte SERVER_MESSAGE_ID = 1;
+        public readonly int Id = Identifier.GenerateServerID();
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"{r} on [{m}] by {n.Id}");
 
         public sealed class NodeResponse
@@ -74,7 +83,11 @@ namespace Shared_Code
                 public static readonly ID<NodeResponse> connectionExecption = clientNode[1];
             }
 
-
+            public static readonly ID<NodeResponse> postBox = 5;
+            public static class PostBox
+            {
+                public static readonly ID<NodeResponse> unableToSendMessage = postBox[0];
+            }
         }
 
         public Node(Func<Node, Message, ID<NodeResponse>> messageHandler)

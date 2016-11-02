@@ -15,7 +15,7 @@ namespace Server
     {
         public class ConnectionAbrubtlyLostException : IOException
         {
-            
+
         }
 
         public enum State
@@ -68,9 +68,9 @@ namespace Server
             {
                 while (true)
                 {
-                    byte[] length_buffer = new byte[Constants.Network.LENGTH_BYTE_SIZE];
-                    client.Read(length_buffer, 0, length_buffer.Length);
-                    int lenght = BitConverter.ToInt32(length_buffer, 0);
+                    byte[] lengthBuffer = new byte[Constants.Network.LENGTH_BYTE_SIZE];
+                    client.Read(lengthBuffer, 0, lengthBuffer.Length);
+                    int lenght = BitConverter.ToInt32(lengthBuffer, 0);
                     if (lenght == Constants.Network.UNKNOWN_ERROR)
                         throw new ConnectionAbrubtlyLostException();
 
@@ -86,18 +86,36 @@ namespace Server
                 Message exceptionMessage = new Message(
                     Id,
                     Id,
-                    Node.SERVER_MESSAGE_ID,
+                    Message.Trace.GenerateTrace(Constants.Network.SERVER_TRACE_ID),
                     Message.Type.ClientServer.Error.connectionException,
                     true, false,
                     new {exception = e});
                 AddMessage(exceptionMessage);
-                return;
             }
         }
 
         private void WriteToClient(Message message)
         {
-            
+            try
+            {
+                string messageString = JsonConvert.SerializeObject(message);
+                byte[] messageBytes = Encoding.UTF8.GetBytes(messageString);
+                byte[] lengthBuffer = BitConverter.GetBytes(messageBytes.Length);
+
+                client.Write(lengthBuffer, 0, lengthBuffer.Length);
+                client.Write(messageBytes, 0, messageBytes.Length);
+            }
+            catch (Exception e)
+            {
+                AddMessage(new Message(
+                    Id,
+                    Id,
+                    Message.Trace.GenerateTrace(Constants.Network.SERVER_TRACE_ID),
+                    Message.Type.ClientServer.Error.connectionException,
+                    true,
+                    false,
+                    new {exception = e, internalMessage = message}));
+            }
         }
 
         private static ID<NodeResponse> MessageHandler(Node node, Message message)
@@ -114,7 +132,15 @@ namespace Server
                 case State.LOGIN:
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
                         return NodeResponse.messageTypeMismatch;
-
+                    switch (clientNode.loginState)
+                    {
+                        case LoginState.AWAITING:
+                            if (message.type == Message.Type.ClientServer.Login.saltRequest)
+                            {
+                                
+                            }
+                            break;
+                    }
 
                     break;
             }

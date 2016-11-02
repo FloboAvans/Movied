@@ -73,15 +73,15 @@ namespace Server
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("postBox", postBox);
+            info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
         }
 
-        public Response PostMessage(int id, Message message)
+        public Response PostMessage(Message message)
         {
             lock (postBox)
             {
                 Entry entry;
-                if (postBox.TryGetValue(id, out entry) == false)
+                if (postBox.TryGetValue(message.destinationID, out entry) == false)
                     return Response.NO_SUTCH_TARGET;
                 Response response;
                 if ((response = entry.Check()) != Response.SUCCESS)
