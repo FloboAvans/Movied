@@ -103,6 +103,16 @@ namespace MoviedApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filterButton {
+            get {
+                object obj = ResourceManager.GetObject("filterButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_movied {
             get {
                 object obj = ResourceManager.GetObject("logo_movied", resourceCulture);
@@ -137,6 +147,16 @@ namespace MoviedApp.Properties {
             get {
                 object obj = ResourceManager.GetObject("Quicksand_Regular", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchButton {
+            get {
+                object obj = ResourceManager.GetObject("searchButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

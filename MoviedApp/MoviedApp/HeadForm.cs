@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -38,6 +39,8 @@ namespace MoviedApp
             libraryTable.HorizontalScroll.Visible = false;
             libraryTable.HorizontalScroll.Maximum = 0;
             libraryTable.AutoScroll = true;
+
+            SetPlaceHolder(searchTextBox, "search");
         }
 
         protected override CreateParams CreateParams
@@ -197,6 +200,10 @@ namespace MoviedApp
             friendsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             watchedLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            homeLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            genreLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            searchTextBox.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void clearAllPanels()
@@ -216,6 +223,23 @@ namespace MoviedApp
             timelineHeaderPanel.Visible = false;
             libraryHeaderPanel.Enabled = false;
             libraryHeaderPanel.Visible = false;
+        }
+
+        public void SetPlaceHolder(Control control, string PlaceHolderText)
+        {
+            control.Text = PlaceHolderText;
+            control.GotFocus += delegate (object sender, EventArgs args) {
+                if (control.Text == PlaceHolderText)
+                {
+                    control.Text = "";
+                }
+            };
+            control.LostFocus += delegate (object sender, EventArgs args) {
+                if (control.Text.Length == 0)
+                {
+                    control.Text = PlaceHolderText;
+                }
+            };
         }
 
         private void consolBox_MouseClick(object sender, EventArgs e)
@@ -312,10 +336,10 @@ namespace MoviedApp
             if (!(libraryPanel.Visible && libraryPanel.Enabled))
             {
                 clearAllPanels();
-                libraryPanel.Visible = true;
-                libraryPanel.Enabled = true;
                 libraryHeaderPanel.Visible = true;
                 libraryHeaderPanel.Enabled = true;
+                libraryPanel.Visible = true;
+                libraryPanel.Enabled = true;
             }
         }
 
@@ -325,10 +349,10 @@ namespace MoviedApp
             if (!(timelinePanel.Visible && timelinePanel.Enabled))
             {
                 clearAllPanels();
-                timelinePanel.Visible = true;
-                timelinePanel.Enabled = true;
                 timelineHeaderPanel.Visible = true;
                 timelineHeaderPanel.Enabled = true;
+                timelinePanel.Visible = true;
+                timelinePanel.Enabled = true;
             }
         }
 
