@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Shared_Code
 {
+    [Serializable]
     public struct Message
     {
         public sealed class Type
