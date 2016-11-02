@@ -26,7 +26,7 @@ namespace Server
 
             public static bool IsUserID(int id)
             {
-                return IsServerNode(id) ? id%2 == 0 : false;
+                return IsServerNode(id) && id%2 == 0;
             }
 
             public static int GenerateServerID()
@@ -83,7 +83,11 @@ namespace Server
                 public static readonly ID<NodeResponse> connectionExecption = clientNode[1];
             }
 
-
+            public static readonly ID<NodeResponse> postBox = 5;
+            public static class PostBox
+            {
+                public static readonly ID<NodeResponse> unableToSendMessage = postBox[0];
+            }
         }
 
         public Node(Func<Node, Message, ID<NodeResponse>> messageHandler)

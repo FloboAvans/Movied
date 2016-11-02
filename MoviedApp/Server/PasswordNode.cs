@@ -30,39 +30,40 @@ namespace Server
                 return NodeResponse.PreCheck.nodeMismatch;
 
             PasswordNode passwordNode = (PasswordNode) node;
-
-            if (message.type == Message.Type.ClientServer.Login.saltRequest)
+            Message returnMessage;
             {
-                byte[] saltBytes;
-                PasswordBank.Response response;
-                if (message.message.mode == true)
-                    response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
-                else
-                    response = passwordNode.passwordBank.GetSalt((int) message.message.userid, out saltBytes);
+                if (message.type == Message.Type.ClientServer.Login.saltRequest)
+                {
+                    byte[] saltBytes;
+                    PasswordBank.Response response;
+                    if (message.message.mode == true)
+                        response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
+                    else
+                        response = passwordNode.passwordBank.GetSalt((int) message.message.userid, out saltBytes);
 
-                Message returnMessage;
-                if (response == PasswordBank.Response.SUCCES)
-                    returnMessage = new Message(
-                        passwordNode.Id,
-                        message.senderID,
-                        message.traceNumber,
-                        message.type,
-                        true,
-                        true,
-                        new {salt = Convert.ToBase64String(saltBytes)});
-                else
-                    returnMessage = new Message(
-                        passwordNode.Id,
-                        message.senderID,
-                        message.traceNumber,
-                        message.type,
-                        false,
-                        true,
-                        new {response = response});
-
-                PostBox.instance.PostMessage(returnMessage);
+                    if (response == PasswordBank.Response.SUCCES)
+                        returnMessage = new Message(
+                            passwordNode.Id,
+                            message.senderID,
+                            message.traceNumber,
+                            message.type,
+                            true,
+                            true,
+                            new {salt = Convert.ToBase64String(saltBytes)});
+                    else
+                        returnMessage = new Message(
+                            passwordNode.Id,
+                            message.senderID,
+                            message.traceNumber,
+                            message.type,
+                            false,
+                            true,
+                            new {response = response});
+                }
             }
-            return NodeResponse.succes;
+            PostBox.Response pbResponse = PostBox.instance.PostMessage(message);
+            if (pbResponse == PostBox.Response.SUCCESS) return NodeResponse.succes;
+            return NodeResponse.PostBox.unableToSendMessage;
         }
     }
 }
