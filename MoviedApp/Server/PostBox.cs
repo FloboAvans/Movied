@@ -73,7 +73,7 @@ namespace Server
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("postBox", postBox);
+            info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
         }
 
         public Response PostMessage(Message message)
