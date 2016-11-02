@@ -19,12 +19,22 @@ namespace Server
             private static int serverNodeID = 1;
             private static int clientNodeID = -1;
 
+            public static bool IsServerNode(int id)
+            {
+                return id > 0;
+            }
+
+            public static bool IsUserID(int id)
+            {
+                return IsServerNode(id) ? id%2 == 0 : false;
+            }
+
             public static int GenerateServerID()
             {
                 serverMutex.WaitOne();
                 try
                 {
-                    return serverNodeID++;
+                    return serverNodeID++<<1;
                 }
                 finally
                 {
@@ -48,8 +58,7 @@ namespace Server
 
         private Queue<Message> inQueue;
 
-        private static int NodeIdCounter = 1;
-        public readonly int Id = NodeIdCounter++;
+        public readonly int Id = Identifier.GenerateServerID();
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"{r} on [{m}] by {n.Id}");
 
         public sealed class NodeResponse
