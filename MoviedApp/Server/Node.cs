@@ -97,6 +97,7 @@ namespace Server
                 throw new ArgumentNullException("messageHandler may not be NULL");
 
             Id = id == 0 ? Identifier.GenerateServerID() : id;
+            //if (PostBox.instance.TargetExists(Id) == PostBox.Response.SUCCESS)
 
             this.inQueue = new Queue<Message>();
 

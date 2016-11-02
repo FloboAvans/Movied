@@ -130,6 +130,7 @@ namespace Server
                 case State.START:
                     throw new Exception("state should never be START");
                 case State.LOGIN:
+                    #region LOGIN
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
                         return NodeResponse.messageTypeMismatch;
                     switch (clientNode.loginState)
@@ -137,11 +138,13 @@ namespace Server
                         case LoginState.AWAITING:
                             if (message.type == Message.Type.ClientServer.Login.saltRequest)
                             {
-                                
+                                if (message.isResponse == false)
+
                             }
                             break;
                     }
 
+                    #endregion
                     break;
             }
 
