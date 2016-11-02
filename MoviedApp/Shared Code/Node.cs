@@ -49,7 +49,6 @@ namespace Shared_Code
 
         private static int NodeIdCounter = 1;
         public readonly int Id = NodeIdCounter++;
-        public const byte SERVER_MESSAGE_ID = 1;
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"{r} on [{m}] by {n.Id}");
 
         public sealed class NodeResponse
