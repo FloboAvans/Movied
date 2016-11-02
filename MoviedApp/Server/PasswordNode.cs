@@ -12,7 +12,8 @@ namespace Server
 {
     class PasswordNode : Node
     {
-        public static PasswordNode instance = new PasswordNode();
+        private static PasswordNode instance;
+        public static void Init() { instance = new PasswordNode();}
 
         private PasswordBank passwordBank;
 
@@ -34,6 +35,7 @@ namespace Server
             {
                 if (message.type == Message.Type.ClientServer.Login.saltRequest)
                 {
+                    #region SALT_REQUEST
                     byte[] saltBytes;
                     PasswordBank.Response response;
                     if (message.message.mode == true)
@@ -59,9 +61,87 @@ namespace Server
                             false,
                             true,
                             new {response = response});
+                    #endregion
                 }
+                else if (message.type == Message.Type.ClientServer.Login.checkHash)
+                {
+                    #region CHECK_HASH
+
+                    PasswordBank.Response response;
+                    byte[] hash = Convert.FromBase64String((string) message.message.hash);
+                    if (message.message.mode == true)
+                        response = passwordNode.passwordBank.VerifyLogin((string) message.message.username, hash);
+                    else
+                        response = passwordNode.passwordBank.VerifyLogin((int) message.message.userid, hash);
+
+                        returnMessage = new Message(
+                            passwordNode.Id,
+                            message.senderID,
+                            message.traceNumber,
+                            message.type,
+                            response == PasswordBank.Response.SUCCES,
+                            true,
+                            new {response = response});
+                    #endregion
+                }
+                else if (message.type == Message.Type.ClientServer.Login.createUser)
+                {
+                    #region CREATE_USER
+
+                    byte[] saltBytes;
+                    int id;
+                    PasswordBank.Response response = passwordNode.passwordBank.CreateUser(message.message.username, out saltBytes, out id);
+
+                    if (response == PasswordBank.Response.SUCCES)
+                        returnMessage = new Message(
+                            passwordNode.Id,
+                            message.senderID,
+                            message.traceNumber,
+                            message.type,
+                            true,
+                            true,
+                            new
+                            {
+                                salt = Convert.ToBase64String(saltBytes),
+                                id = id
+                            });
+                    else
+                        returnMessage = new Message(
+                            passwordNode.Id,
+                            message.senderID,
+                            message.traceNumber,
+                            message.type,
+                            false,
+                            true,
+                            new {response = response});
+                    #endregion
+                }
+                else if (message.type == Message.Type.ClientServer.Login.setHash)
+                {
+                    #region SET_HASH
+
+                    PasswordBank.Response response;
+                    byte[] hash = Convert.FromBase64String(message.message.hash);
+                    if (message.message.mode == true)
+                        response = passwordNode.passwordBank.VerifyUser((string) message.message.username, hash);
+                    else
+                        response = passwordNode.passwordBank.VerifyUser((int) message.message.userid, hash);
+
+                    returnMessage = new Message(
+                        passwordNode.Id,
+                        message.senderID,
+                        message.traceNumber,
+                        message.type,
+                        response == PasswordBank.Response.SUCCES,
+                        true,
+                        new {response = response});
+
+                    #endregion
+                }
+                else
+                    return NodeResponse.messageTypeMismatch;
             }
-            PostBox.Response pbResponse = PostBox.instance.PostMessage(message);
+            PostBox.Response pbResponse = PostBox.instance.PostMessage(returnMessage);
             if (pbResponse == PostBox.Response.SUCCESS) return NodeResponse.succes;
             return NodeResponse.PostBox.unableToSendMessage;
         }
