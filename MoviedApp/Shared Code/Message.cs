@@ -27,12 +27,19 @@ namespace Shared_Code
                     public static readonly ID<Type> createUser = login[1];
                     public static readonly ID<Type> setHash = login[2];
                     public static readonly ID<Type> checkHash = login[3];
+                    public static readonly ID<Type> alreadyLogedIn = login[4];
                 }
 
                 public static readonly ID<Type> error = clientServer[1];
                 public static class Error
                 {
                     public static readonly ID<Type> connectionException = error[0];
+                }
+
+                public static readonly ID<Type> utility = clientServer[2];
+                public static class Utility
+                {
+                    public static readonly ID<Type> shutdown = utility[0];
                 }
             }
         }
@@ -66,7 +73,7 @@ namespace Shared_Code
         public int senderID;
         public int destinationID;
         public readonly ulong traceNumber;
-        public readonly ID<Type> type;
+        public ID<Type> type;
         public bool succes;
         public readonly bool isResponse;
         public readonly dynamic message;
