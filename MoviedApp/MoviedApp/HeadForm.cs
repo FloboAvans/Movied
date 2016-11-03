@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MoviedApp.Properties;
+using RatingControls;
 
 namespace MoviedApp
 {
@@ -51,7 +52,6 @@ namespace MoviedApp
             SetPlaceHolder(searchTextBox2, "search");
             SetPlaceHolder(usernameTextBox, "username");
             SetPlaceHolder(passwordTextBox, "password");
-
         }
 
         protected override CreateParams CreateParams
@@ -323,7 +323,9 @@ namespace MoviedApp
 
         public static Image CropToCircle(Image srcImage, Color backGround)
         {
-            Image dstImage = new Bitmap(srcImage.Width, srcImage.Height, srcImage.PixelFormat);
+            Bitmap bitmap = new Bitmap(srcImage.Width, srcImage.Height, srcImage.PixelFormat);
+            bitmap.MakeTransparent(Color.Black);
+            Image dstImage = bitmap;
             Graphics g = Graphics.FromImage(dstImage);
             using (Brush br = new SolidBrush(backGround))
             {
@@ -333,7 +335,6 @@ namespace MoviedApp
             path.AddEllipse(0, 0, dstImage.Width, dstImage.Height);
             g.SetClip(path);
             g.DrawImage(srcImage, 0, 0);
-
             return dstImage;
         }
 
@@ -533,6 +534,13 @@ namespace MoviedApp
             }
         }
 
+        private void addCheckinButton_Click(object sender, EventArgs e)
+        {
+            clearAllPanels();
+            checkinPanel.Visible = true;
+            checkinPanel.Enabled = true;
+        }
+
         private void libraryTable_MouseClick(object sender, MouseEventArgs e)
         {
             Point cellPos = GetRowColIndex(consolBox, libraryTable.PointToClient(Cursor.Position));
@@ -590,6 +598,7 @@ namespace MoviedApp
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
         }
+        
     }
     
 }
