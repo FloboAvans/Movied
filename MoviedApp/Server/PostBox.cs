@@ -19,6 +19,14 @@ namespace Server
             return new PostBox();
         }
 
+        public enum TargetState
+        {
+            NON_EXISTENT,
+            ACTIVE,
+            TANSFORMING,
+            INACTIVE
+        }
+
         public enum Response
         {
             SUCCESS,
@@ -76,11 +84,29 @@ namespace Server
             info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
         }
 
+        public TargetState GeTargetState(int id)
+        {
+            lock (postBox)
+            {
+                Entry entry;
+                if (postBox.TryGetValue(id, out entry) == false)
+                    return TargetState.NON_EXISTENT;
+                if (entry.IsActivating)
+                    return TargetState.TANSFORMING;
+                if (entry.node != null)
+                    return TargetState.ACTIVE;
+                return TargetState.INACTIVE;
+            }
+        }
+
         public Response TargetExists(int id)
         {
-            if (postBox.ContainsKey(id))
-                return Response.SUCCESS;
-            return Response.NO_SUTCH_TARGET;
+            lock (postBox)
+            {
+                if (postBox.ContainsKey(id))
+                    return Response.SUCCESS;
+                return Response.NO_SUTCH_TARGET;
+            }
         }
 
         public Response PostMessage(Message message)
