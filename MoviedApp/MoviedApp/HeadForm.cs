@@ -239,7 +239,8 @@ namespace MoviedApp
             addWishlistButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             loginButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            
+            createButton.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
             usernameError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             passwordError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             alreadyloginError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -353,6 +354,21 @@ namespace MoviedApp
             Layout.Visible = true;
         }
 
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (passwordTextBox.Text != "password")
+                passwordTextBox.PasswordChar = '\u25CF';
+            else
+            {
+                passwordTextBox.PasswordChar = '\0';
+            }
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void consolBox_MouseClick(object sender, EventArgs e)
         {
             Point cellPos = GetRowColIndex(consolBox,consolBox.PointToClient(Cursor.Position));
@@ -416,6 +432,14 @@ namespace MoviedApp
         private void addCheckinButton_MouseEnter(object sender, EventArgs e)
         {
             addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void loginButton_MouseEnter(object sender, EventArgs e)
+        {
+            loginButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void createButton_MouseEnter(object sender, EventArgs e)
+        {
+            createButton.Font = new Font(_quicksandRegular, 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
         private void label_MouseLeave(object sender, EventArgs e)
         {
@@ -565,16 +589,6 @@ namespace MoviedApp
         {
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (passwordTextBox.Text != "password")
-                passwordTextBox.PasswordChar = '\u25CF';
-            else
-            {
-                passwordTextBox.PasswordChar = '\0';
-            }
         }
     }
     

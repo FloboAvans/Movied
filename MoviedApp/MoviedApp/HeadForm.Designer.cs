@@ -121,6 +121,7 @@ namespace MoviedApp
             this.passwordError = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Label();
             this.alreadyloginError = new System.Windows.Forms.Label();
+            this.createButton = new System.Windows.Forms.Label();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
             this.watchedPanel.SuspendLayout();
@@ -1280,18 +1281,20 @@ namespace MoviedApp
             this.tableLayoutPanel5.Controls.Add(this.passwordError, 1, 4);
             this.tableLayoutPanel5.Controls.Add(this.loginButton, 1, 6);
             this.tableLayoutPanel5.Controls.Add(this.alreadyloginError, 1, 7);
+            this.tableLayoutPanel5.Controls.Add(this.createButton, 1, 8);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 9;
+            this.tableLayoutPanel5.RowCount = 10;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(949, 543);
             this.tableLayoutPanel5.TabIndex = 0;
@@ -1300,7 +1303,7 @@ namespace MoviedApp
             // 
             this.pictureBox19.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox19.Image = global::MoviedApp.Properties.Resources.logo_movied;
-            this.pictureBox19.Location = new System.Drawing.Point(352, 139);
+            this.pictureBox19.Location = new System.Drawing.Point(352, 129);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(244, 50);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1316,7 +1319,7 @@ namespace MoviedApp
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.White;
-            this.passwordTextBox.Location = new System.Drawing.Point(352, 295);
+            this.passwordTextBox.Location = new System.Drawing.Point(352, 285);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(244, 28);
             this.passwordTextBox.TabIndex = 2;
@@ -1332,7 +1335,7 @@ namespace MoviedApp
             this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameTextBox.ForeColor = System.Drawing.Color.White;
-            this.usernameTextBox.Location = new System.Drawing.Point(352, 240);
+            this.usernameTextBox.Location = new System.Drawing.Point(352, 230);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(244, 28);
             this.usernameTextBox.TabIndex = 1;
@@ -1344,7 +1347,7 @@ namespace MoviedApp
             this.usernameError.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usernameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameError.ForeColor = System.Drawing.Color.Red;
-            this.usernameError.Location = new System.Drawing.Point(352, 222);
+            this.usernameError.Location = new System.Drawing.Point(352, 212);
             this.usernameError.Name = "usernameError";
             this.usernameError.Size = new System.Drawing.Size(244, 15);
             this.usernameError.TabIndex = 8;
@@ -1358,7 +1361,7 @@ namespace MoviedApp
             this.passwordError.Dock = System.Windows.Forms.DockStyle.Fill;
             this.passwordError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordError.ForeColor = System.Drawing.Color.Red;
-            this.passwordError.Location = new System.Drawing.Point(352, 277);
+            this.passwordError.Location = new System.Drawing.Point(352, 267);
             this.passwordError.Name = "passwordError";
             this.passwordError.Size = new System.Drawing.Size(244, 15);
             this.passwordError.TabIndex = 9;
@@ -1372,13 +1375,15 @@ namespace MoviedApp
             this.loginButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(352, 332);
+            this.loginButton.Location = new System.Drawing.Point(352, 322);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(244, 60);
+            this.loginButton.Size = new System.Drawing.Size(244, 40);
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "login";
             this.loginButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.MouseEnter += new System.EventHandler(this.loginButton_MouseEnter);
+            this.loginButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // alreadyloginError
             // 
@@ -1386,13 +1391,29 @@ namespace MoviedApp
             this.alreadyloginError.Dock = System.Windows.Forms.DockStyle.Fill;
             this.alreadyloginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alreadyloginError.ForeColor = System.Drawing.Color.Red;
-            this.alreadyloginError.Location = new System.Drawing.Point(352, 392);
+            this.alreadyloginError.Location = new System.Drawing.Point(352, 362);
             this.alreadyloginError.Name = "alreadyloginError";
             this.alreadyloginError.Size = new System.Drawing.Size(244, 15);
             this.alreadyloginError.TabIndex = 10;
             this.alreadyloginError.Text = "Your already logged in on another device";
             this.alreadyloginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.alreadyloginError.Visible = false;
+            // 
+            // createButton
+            // 
+            this.createButton.AutoSize = true;
+            this.createButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createButton.ForeColor = System.Drawing.Color.White;
+            this.createButton.Location = new System.Drawing.Point(352, 377);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(244, 40);
+            this.createButton.TabIndex = 11;
+            this.createButton.Text = "create";
+            this.createButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
+            this.createButton.MouseEnter += new System.EventHandler(this.createButton_MouseEnter);
+            this.createButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // HeadForm
             // 
@@ -1571,5 +1592,6 @@ namespace MoviedApp
         private Label passwordError;
         private PictureBox userPictureBox;
         private Label alreadyloginError;
+        private Label createButton;
     }
 }
