@@ -21,6 +21,7 @@ namespace MoviedApp
 
         static async Task Sample(CancellationToken cancellationToken)
         {
-            
+
         }
+    }
 }
