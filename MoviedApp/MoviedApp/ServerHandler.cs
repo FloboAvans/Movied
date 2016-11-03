@@ -31,14 +31,18 @@ namespace MoviedApp
 
         private ServerHandler()
         {
-            ServerConnector.instance.OnConnection += () => ++state; ServerConnector.instance.SendMessage(new Message(
-                Message.ID_UNKNOWN,
-                Message.ID_UNKNOWN,
-                0,
-                Message.Type.ClientServer.handshake,
-                true,
-                false,
-                null));
+            ServerConnector.instance.OnConnection += () =>
+            {
+                ++state;
+                ServerConnector.instance.SendMessage(new Message(
+                    Message.ID_UNKNOWN,
+                    Message.ID_UNKNOWN,
+                    0,
+                    Message.Type.ClientServer.handshake,
+                    true,
+                    false,
+                    null));
+            };
 
             ServerConnector.instance.OnMessageRecieved += MessageHandler;
             ServerConnector.instance.Init();
