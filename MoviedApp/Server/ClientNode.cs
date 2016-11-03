@@ -30,21 +30,6 @@ namespace Server
 
         private NetworkStream client;
 
-        #region LOGIN
-
-        private enum LoginState
-        {
-            NOT_STARTED,
-            AWAITING,
-            CREATING,
-            LOGIN,
-            LOGED_IN
-        }
-
-        private LoginState loginState = LoginState.NOT_STARTED;
-
-        #endregion
-
         public ClientNode(TcpClient client) : base(MessageHandler)
         {
             if (client == null)
@@ -55,7 +40,6 @@ namespace Server
             this.client = client.GetStream();
             new Thread(ReadFromClient).Start();
 
-            loginState = LoginState.AWAITING;
             ++state;
         }
 
@@ -115,56 +99,66 @@ namespace Server
                     #region LOGIN
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
                         return NodeResponse.messageTypeMismatch;
-                    switch (clientNode.loginState)
+                    if (message.type.isa(Message.Type.ClientServer.login))
                     {
-                        case LoginState.AWAITING:
-                            if (message.type.isa(Message.Type.ClientServer.login))
+                        Message forwardMessage = message;
+                        if (message.isResponse == false)
+                        {
+                            forwardMessage.senderID = node.Id;
+                            forwardMessage.destinationID = Node.Identifier.PASSWORD_NODE;
+                        }
+                        else if ((message.type == Message.Type.ClientServer.Login.checkHash ||
+                                  message.type == Message.Type.ClientServer.Login.setHash) &&
+                                 message.succes)
+                        {
+                            forwardMessage.destinationID = clientNode.clientID;
+                            forwardMessage.senderID = clientNode.Id;
+                            PostBox.TargetState targetState = PostBox.instance.GeTargetState(message.message.userid);
+                            switch (targetState)
                             {
-                                Message forwardMessage = message;
-                                if (message.isResponse == false)
-                                {
-                                    forwardMessage.senderID = node.Id;
-                                    forwardMessage.destinationID = Node.Identifier.PASSWORD_NODE;
-                                }
-                                else if ((message.type == Message.Type.ClientServer.Login.checkHash ||
-                                     message.type == Message.Type.ClientServer.Login.setHash)       &&
-                                    message.succes)
-                                {
-                                    forwardMessage.destinationID = clientNode.clientID;
-                                    forwardMessage.senderID = clientNode.Id;
-                                    PostBox.TargetState targetState = PostBox.instance.GeTargetState(message.message.userid);
-                                    switch (targetState)
+                                case PostBox.TargetState.ACTIVE:
+                                case PostBox.TargetState.TANSFORMING:
+                                    forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
+                                    break;
+                                case PostBox.TargetState.INACTIVE:
+                                    Queue<Message> messages;
+                                    PostBox.Response response =
+                                        PostBox.instance.ActivateTargetStep1(message.message.userid, out messages);
+                                    if (response != PostBox.Response.SUCCESS)
+                                        forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
+                                    else
                                     {
-                                        case PostBox.TargetState.ACTIVE:
+                                        foreach (
+                                            Message m in
+                                            messages.Where(m => m.type != Message.Type.ClientServer.Utility.shutdown))
+                                            clientNode.AddMessage(m);
+                                        clientNode.userID = message.message.userid;
+                                        if ((response = PostBox.instance.ActivateTargetStep2(clientNode)) !=
+                                            PostBox.Response.SUCCESS)
                                             forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
-                                            break;
-                                        case PostBox.TargetState.INACTIVE:
-                                            Queue<Message> messages;
-                                            PostBox.Response response = PostBox.instance.ActivateTargetStep1(message.message.userid, out messages);
-                                            if (response != PostBox.Response.SUCCESS)
-                                                forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
-                                            else
-                                            {
-                                               foreach (Message m in messages.Where(m => m.type != Message.Type.ClientServer.Utility.shutdown))
-                                                    clientNode.AddMessage(m);
-                                                clientNode.userID = message.message.userid;
-                                                if ((response = PostBox.instance.ActivateTargetStep2(clientNode)) != PostBox.Response.SUCCESS)
-                                                    forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
-                                                else
-                                                {
-                                                    clientNode.loginState = LoginState.LOGED_IN;
-                                                }
-                                            }
-                                            PostBox.instance.PostMessage(forwardMessage);
-                                            break;
-                                            //TODO implement the other cases
+                                        else
+                                        {
+                                            ++clientNode.state;
+                                        }
                                     }
-                                }
+                                    PostBox.instance.PostMessage(forwardMessage);
+                                    break;
+                                case PostBox.TargetState.NON_EXISTENT:
+                                    if (PostBox.instance.AddTarget(clientNode) != PostBox.Response.SUCCESS)
+                                        forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
+                                    else
+                                    {
+                                        clientNode.userID = message.message.userid;
+                                        ++clientNode.state;
+                                    }
+                                    PostBox.instance.PostMessage(forwardMessage);
 
-                                PostBox.instance.PostMessage(forwardMessage);
-                                return NodeResponse.succes;
+                                    break;
                             }
-                            break;
+                        }
+
+                        PostBox.instance.PostMessage(forwardMessage);
+                        return NodeResponse.succes;
                     }
 
                     #endregion
