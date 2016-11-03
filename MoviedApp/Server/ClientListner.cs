@@ -12,9 +12,9 @@ namespace Server
 {
     class ClientListner
     {
-        public static ClientListner instance = new ClientListner();
+        public static ClientListner instance;
 
-        private ClientListner()
+        public ClientListner()
         {
             if (instance != null)
                 throw new Exception("ClientListner uses the singelton pattern");
@@ -24,7 +24,7 @@ namespace Server
 
         private void Listner()
         {
-            TcpListener listner = new TcpListener(IPAddress.Parse(Constants.Network.HOST_IP), Constants.Network.HOST_PORT);
+            TcpListener listner = new TcpListener(Dns.GetHostAddresses(Constants.Network.HOST_IP)[0], Constants.Network.HOST_PORT);
             listner.Start();
             while (true)
             {

@@ -19,13 +19,14 @@ namespace MoviedApp
 
         public static readonly ServerConnector instance = new ServerConnector();
 
+        private readonly object serverLocable = new object();
         private NetworkStream server = null;
 
         public bool IsConnected
         {
             get
             {
-                lock (server)
+                lock (serverLocable)
                 {
                     return server != null;
                 }
@@ -33,12 +34,21 @@ namespace MoviedApp
         }
 
         public Action<Message> OnMessageRecieved = message => Console.WriteLine("message recieved: " + message);
+        public Action OnConnection = () => Console.WriteLine("connction established");
 
         private Mutex writeMutex = new Mutex(false);
 
         private ServerConnector()
         {
+        }
+
+        private bool initialized = false;
+        public void Init()
+        {
+            if (initialized)
+                throw new Exception("init may be called only once");
             new Thread(ConnectionEstablisher).Start();
+
         }
 
         private void ConnectionEstablisher()
@@ -52,11 +62,11 @@ namespace MoviedApp
                 }
                 catch (Exception) { Thread.Sleep(250); }
             } while (server == null);
-            lock (this.server)
+            lock (serverLocable)
             {
                 this.server = server.GetStream();
             }
-
+            OnConnection();
             new Thread(Reader).Start();
         }
 

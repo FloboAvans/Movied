@@ -41,6 +41,8 @@ namespace Shared_Code
                 {
                     public static readonly ID<Type> shutdown = utility[0];
                 }
+
+                public static readonly ID<Type> handshake = clientServer[3];
             }
         }
 
@@ -70,13 +72,15 @@ namespace Shared_Code
             }
         }
 
+        public const int ID_UNKNOWN = 0;
+
         public int senderID;
         public int destinationID;
         public readonly ulong traceNumber;
         public ID<Type> type;
         public bool succes;
-        public readonly bool isResponse;
-        public readonly dynamic message;
+        public bool isResponse;
+        public dynamic message;
 
         public Message(int senderID, int destinationID, ulong traceNumber, ID<Type> type, bool succes, bool isResponse, dynamic message)
         {

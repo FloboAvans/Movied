@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shared_Code;
 
 namespace Server
 {
@@ -10,6 +11,8 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            new ClientListner();
+            PasswordNode.Init();
         }
     }
 }

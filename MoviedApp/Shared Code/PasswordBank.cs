@@ -47,7 +47,7 @@ namespace HashingTest
                     rng.GetBytes(idBuff);
                     id = BitConverter.ToInt32(idBuff, 0);
                     id = Math.Abs(id) | 1; // ensures id is always uneven
-                } while (validID(id));
+                } while (validID(id) == false);
             }
 
             /// <summary>

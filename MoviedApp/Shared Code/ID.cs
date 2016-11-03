@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,13 +11,19 @@ namespace Shared_Code
     // http://stackoverflow.com/questions/980766/how-do-i-declare-a-nested-enum (01/11/2016)
     // author: yoyo
 
-    public struct ID<T>
+    [Serializable]
+    public struct ID<T> : ISerializable
     {
         public static ID<T> none;
 
         public ID<T> this[int childID]
         {
             get { return new ID<T>((mID << 8) | (uint)childID); }
+        }
+
+        public ID(SerializationInfo info, StreamingContext context)
+        {
+            mID = info.GetUInt32("mID");
         }
 
         public ID<T> super
@@ -61,6 +68,11 @@ namespace Shared_Code
             return (int)mID;
         }
 
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("mID", mID);
+        }
+
         private ID(uint id)
         {
             mID = id;
@@ -75,10 +87,22 @@ namespace Shared_Code
 
         public override string ToString()
         {
-            Type type = typeof(T);
+            return this.ToString<T, T>();
+        }
+    }
+
+    public static class IDExtensions
+    {
+        public static string ToString<T,G>(this ID<G> id)
+        {
+            return ToString(id, typeof(T));
+        }
+
+        public static string ToString<G>(this ID<G> id, Type type)
+        {
             foreach (var field in type.GetFields(BindingFlags.GetField | BindingFlags.Public | BindingFlags.Static))
             {
-                if ((field.FieldType == typeof(ID<T>)) && this.Equals(field.GetValue(null)))
+                if ((field.FieldType == typeof(ID<G>)) && id.Equals(field.GetValue(null)))
                 {
                     return string.Format("{0}.{1}", type.ToString().Replace('+', '.'), field.Name);
                 }
@@ -86,7 +110,7 @@ namespace Shared_Code
 
             foreach (var nestedType in type.GetNestedTypes())
             {
-                string asNestedType = nestedType.ToString();
+                string asNestedType = ToString<G>(id, nestedType);
                 if (asNestedType != null)
                 {
                     return asNestedType;
