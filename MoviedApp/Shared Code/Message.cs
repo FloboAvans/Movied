@@ -63,28 +63,28 @@ namespace Shared_Code
             }
         }
 
-        public readonly int senderID;
-        public readonly int destinationID;
+        public int senderID;
+        public int destinationID;
         public readonly ulong traceNumber;
         public readonly ID<Type> type;
-        public readonly bool isValid;
+        public bool succes;
         public readonly bool isResponse;
         public readonly dynamic message;
 
-        public Message(int senderID, int destinationID, ulong traceNumber, ID<Type> type, bool isValid, bool isResponse, dynamic message)
+        public Message(int senderID, int destinationID, ulong traceNumber, ID<Type> type, bool succes, bool isResponse, dynamic message)
         {
             this.senderID = senderID;
             this.destinationID = destinationID;
             this.traceNumber = traceNumber;
             this.type = type;
-            this.isValid = isValid;
+            this.succes = succes;
             this.isResponse = isResponse;
             this.message = message;
         }
 
         public override string ToString()
         {
-            return $"sID={senderID}, dID={destinationID}, m={type}, valid={isValid}, response={isResponse}, message={message}";
+            return $"sID={senderID}, dID={destinationID}, m={type}, valid={succes}, response={isResponse}, message={message}";
         }
     }
 }
