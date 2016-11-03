@@ -13,11 +13,6 @@ namespace Server
 {
     class ClientNode : Node
     {
-        public class ConnectionAbrubtlyLostException : IOException
-        {
-
-        }
-
         public enum State
         {
             START = 0,
@@ -68,17 +63,7 @@ namespace Server
             {
                 while (true)
                 {
-                    byte[] lengthBuffer = new byte[Constants.Network.LENGTH_BYTE_SIZE];
-                    client.Read(lengthBuffer, 0, lengthBuffer.Length);
-                    int lenght = BitConverter.ToInt32(lengthBuffer, 0);
-                    if (lenght == Constants.Network.UNKNOWN_ERROR)
-                        throw new ConnectionAbrubtlyLostException();
-
-                    byte[] messageBuffer = new byte[lenght];
-                    client.Read(messageBuffer, 0, lenght);
-                    string messageString = Encoding.UTF8.GetString(messageBuffer);
-                    Message message = JsonConvert.DeserializeObject<Message>(messageString);
-                    AddMessage(message);
+                    AddMessage(IOHandler.Read(client));
                 }
             }
             catch (Exception e)
@@ -98,12 +83,7 @@ namespace Server
         {
             try
             {
-                string messageString = JsonConvert.SerializeObject(message);
-                byte[] messageBytes = Encoding.UTF8.GetBytes(messageString);
-                byte[] lengthBuffer = BitConverter.GetBytes(messageBytes.Length);
-
-                client.Write(lengthBuffer, 0, lengthBuffer.Length);
-                client.Write(messageBytes, 0, messageBytes.Length);
+                IOHandler.Write(client, message);
             }
             catch (Exception e)
             {
