@@ -114,6 +114,7 @@ namespace Server
 
                     forwardMessage.succes = true;
                     forwardMessage.message = new {clientid = clientNode.clientID};
+                    ++clientNode.state;
                     clientNode.WriteToClient(forwardMessage);
                     return NodeResponse.succes;
                 case State.LOGIN:
@@ -176,7 +177,13 @@ namespace Server
                                     break;
                             }
                         }
-
+                        else
+                        {
+                            forwardMessage.destinationID = clientNode.clientID;
+                            forwardMessage.senderID = clientNode.Id;
+                            clientNode.WriteToClient(forwardMessage);
+                            return NodeResponse.succes;
+                        }
                         PostBox.instance.PostMessage(forwardMessage);
                         return NodeResponse.succes;
                     }

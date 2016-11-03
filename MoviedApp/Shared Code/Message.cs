@@ -76,7 +76,7 @@ namespace Shared_Code
 
         public int senderID;
         public int destinationID;
-        public readonly ulong traceNumber;
+        public ulong traceNumber;
         public ID<Type> type;
         public bool succes;
         public bool isResponse;
@@ -95,7 +95,7 @@ namespace Shared_Code
 
         public override string ToString()
         {
-            return $"sID={senderID}, dID={destinationID}, m={type}, valid={succes}, response={isResponse}, message={message}";
+            return $"sID={senderID}, dID={destinationID}, trace={traceNumber}, m={type}, valid={succes}, response={isResponse}, message={message}";
         }
     }
 }

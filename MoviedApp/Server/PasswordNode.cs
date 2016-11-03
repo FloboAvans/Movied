@@ -17,7 +17,7 @@ namespace Server
 
         private PasswordBank passwordBank;
 
-        private PasswordNode() : base(MessageHandler)
+        private PasswordNode() : base(MessageHandler, Identifier.PASSWORD_NODE)
         {
             if (File.Exists("passwords.pswrd"))
                 passwordBank = JsonConvert.DeserializeObject<PasswordBank>(File.ReadAllText("passwords.pswrd"));
@@ -72,7 +72,7 @@ namespace Server
 
                     int id;
 
-                        passwordNode.passwordBank.GetID(message.message.username, out id);
+                        passwordNode.passwordBank.GetID((string)message.message.username, out id);
 
                     returnMessage = new Message(
                         passwordNode.Id,

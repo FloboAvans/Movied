@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HashingTest;
 using MoviedApp.Properties;
 using RatingControls;
 
@@ -347,6 +348,10 @@ namespace MoviedApp
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
+            usernameError.Visible = false;
+            passwordError.Visible = false;
+            alreadyloginError.Visible = false;
+
             ServerHandler.instance.SendMessage(new Shared_Code.Message(
                 ServerHandler.instance.clientID,
                 ServerHandler.instance.serverNodeID,
@@ -355,12 +360,48 @@ namespace MoviedApp
                 true,
                 false,
                 new {username = usernameTextBox.Text}
-            ), m => Console.WriteLine(m));
+            ), m1 =>
+            {
+                if (m1.succes == false)
+                {
+                    usernameError.Invoke(new Action(() => usernameError.Visible = true));
+                    return;
+                }
+                byte[] salt = Convert.FromBase64String((string) m1.message.salt);
+                passwordTextBox.Invoke(new Action(() =>
+                {
+                    byte[] hash = PasswordBank.HashPasword(passwordTextBox.Text, salt);
+                    ServerHandler.instance.SendMessage(new Shared_Code.Message(
+                            ServerHandler.instance.clientID,
+                            ServerHandler.instance.serverNodeID,
+                            Shared_Code.Message.Trace.GenerateTrace(100),
+                            Shared_Code.Message.Type.ClientServer.Login.checkHash,
+                            true,
+                            false,
+                            new {username = m1.message.username, hash = Convert.ToBase64String(hash)}),
+                        m2 =>
+                        {
+                            if (m2.succes)
+                            {
+                                loginPanel.Invoke(new Action(() =>
+                                {
+                                    loginPanel.Enabled = false;
+                                    loginPanel.Visible = false;
+                                }));
+                                Layout.Invoke(new Action(() =>
+                                {
+                                    Layout.Enabled = true;
+                                    Layout.Visible = true;
+                                }));
 
-            loginPanel.Enabled = false;
-            loginPanel.Visible = false;
-            Layout.Enabled = true;
-            Layout.Visible = true;
+                            }
+                            else
+                            {
+                                alreadyloginError.Invoke(new Action(() => alreadyloginError.Visible = true));
+                            }
+                        });
+                }));
+            });
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
