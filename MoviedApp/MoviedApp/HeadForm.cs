@@ -451,7 +451,7 @@ namespace MoviedApp
         {
             if (libraryPanel.Enabled && libraryPanel.Visible)
             {
-                int columns = libraryPanel.Width/140;
+                int columns = libraryPanel.Width/132;
                 while (libraryTable.ColumnCount != columns)
                 {
                     Console.WriteLine(columns);
@@ -469,7 +469,7 @@ namespace MoviedApp
 
                     if (libraryTable.ColumnCount > columns)
                     {
-                        libraryTable.ColumnStyles.RemoveAt(libraryTable.ColumnStyles.Count - 1);
+                        libraryTable.ColumnStyles.RemoveAt(libraryTable.ColumnCount - 1);
                         libraryTable.ColumnCount--;
                     }
                     libraryTable.Refresh();
@@ -543,7 +543,7 @@ namespace MoviedApp
 
         private void libraryTable_MouseClick(object sender, MouseEventArgs e)
         {
-            Point cellPos = GetRowColIndex(consolBox, libraryTable.PointToClient(Cursor.Position));
+            Point cellPos = GetRowColIndex(libraryTable, libraryTable.PointToClient(Cursor.Position));
             Console.WriteLine(cellPos);
             switch (cellPos.X)
             {
@@ -579,12 +579,12 @@ namespace MoviedApp
                     }
                     break;
             }
+        }
 
-            clearAllPanels();
-            filmInfoPanel.Visible = true;
-            filmInfoPanel.Enabled = true;
-            filmInfoHeaderPanel.Visible = true;
-            filmInfoHeaderPanel.Enabled = true;
+
+        private void clickPanel_MouseClick(object sender, MouseEventArgs e)
+        {
+            libraryTable_MouseClick(sender,e);
         }
 
         private void filmImage_MouseClick(object sender, MouseEventArgs e)
@@ -598,7 +598,6 @@ namespace MoviedApp
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
         }
-        
     }
     
 }
