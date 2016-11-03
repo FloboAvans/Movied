@@ -647,6 +647,13 @@ namespace MoviedApp
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
         }
+
+        private void HeadForm_Click(object sender, EventArgs e)
+        {
+
+            if (libraryPanel.Visible)
+                libraryTable_MouseClick(sender, (MouseEventArgs)e);
+        }
     }
     
 }
