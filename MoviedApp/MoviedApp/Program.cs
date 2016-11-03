@@ -11,6 +11,7 @@ namespace MoviedApp
     {
         static void Main(string[] args)
         {
+            ServerHandler.instance.OnHandshakeComplete += () => Console.WriteLine("testtesttest");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HeadForm());
