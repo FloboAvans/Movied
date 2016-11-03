@@ -15,11 +15,12 @@ namespace Server
     {
         public enum State
         {
-            START = 0,
-            LOGIN = 1,
-            ACTIVE = 2,
-            CLOSING_DOWN = 3,
-            CLOSED = 4
+            START,
+            HANDSHAKE,
+            LOGIN,
+            ACTIVE,
+            CLOSING_DOWN,
+            CLOSED
         }
 
         public const int ID_UNKNOWN = -1;
@@ -91,17 +92,33 @@ namespace Server
 
             ClientNode clientNode = (ClientNode) node;
 
+            Message forwardMessage = message;
             switch (clientNode.state)
             {
                 case State.START:
                     throw new Exception("state should never be START");
+                case State.HANDSHAKE:
+                    forwardMessage.destinationID = clientNode.clientID;
+                    forwardMessage.senderID = clientNode.Id;
+                    forwardMessage.isResponse = true;
+
+                    if (message.type != Message.Type.ClientServer.handshake)
+                    {
+                        forwardMessage.succes = false;
+                        clientNode.WriteToClient(forwardMessage);
+                        return NodeResponse.messageTypeMismatch;
+                    }
+
+                    forwardMessage.succes = true;
+                    forwardMessage.message = new {clientid = clientNode.clientID};
+                    clientNode.WriteToClient(forwardMessage);
+                    return NodeResponse.succes;
                 case State.LOGIN:
                     #region LOGIN
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
                         return NodeResponse.messageTypeMismatch;
                     if (message.type.isa(Message.Type.ClientServer.login))
                     {
-                        Message forwardMessage = message;
                         if (message.isResponse == false)
                         {
                             forwardMessage.senderID = node.Id;
