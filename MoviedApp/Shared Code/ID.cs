@@ -87,10 +87,22 @@ namespace Shared_Code
 
         public override string ToString()
         {
-            Type type = typeof(T);
+            return this.ToString<T, T>();
+        }
+    }
+
+    public static class IDExtensions
+    {
+        public static string ToString<T,G>(this ID<G> id)
+        {
+            return ToString(id, typeof(T));
+        }
+
+        public static string ToString<G>(this ID<G> id, Type type)
+        {
             foreach (var field in type.GetFields(BindingFlags.GetField | BindingFlags.Public | BindingFlags.Static))
             {
-                if ((field.FieldType == typeof(ID<T>)) && this.Equals(field.GetValue(null)))
+                if ((field.FieldType == typeof(ID<G>)) && id.Equals(field.GetValue(null)))
                 {
                     return string.Format("{0}.{1}", type.ToString().Replace('+', '.'), field.Name);
                 }
@@ -98,7 +110,7 @@ namespace Shared_Code
 
             foreach (var nestedType in type.GetNestedTypes())
             {
-                string asNestedType = nestedType.ToString();
+                string asNestedType = ToString<G>(id, nestedType);
                 if (asNestedType != null)
                 {
                     return asNestedType;

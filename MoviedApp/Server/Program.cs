@@ -13,8 +13,6 @@ namespace Server
         {
             new ClientListner();
             PasswordNode.Init();
-
-            Console.WriteLine($"Message.Type.ClientServer.handshake ={Message.Type.ClientServer.handshake.ToString<Message.Type>()}");
         }
     }
 }
