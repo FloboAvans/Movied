@@ -63,6 +63,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Resize.cs" />
+    <Compile Include="ServerConnector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -100,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\filterButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared Code\Shared Code.csproj">
+      <Project>{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}</Project>
+      <Name>Shared Code</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
