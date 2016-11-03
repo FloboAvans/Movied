@@ -117,7 +117,7 @@ namespace Server
 
         private ID<NodeResponse> CheckValidity(Message message)
         {
-            if (message.destinationID != Id)
+            if (message.destinationID != Id && message.destinationID != Message.ID_UNKNOWN)
                 return NodeResponse.PreCheck.nodeMismatch;
             return NodeResponse.succes;
         }

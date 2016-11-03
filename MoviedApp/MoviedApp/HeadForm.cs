@@ -346,7 +346,15 @@ namespace MoviedApp
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //TODO check username and password
+            ServerHandler.instance.SendMessage(new Shared_Code.Message(
+                ServerHandler.instance.clientID,
+                ServerHandler.instance.serverNodeID,
+                Shared_Code.Message.Trace.GenerateTrace(100),
+                Shared_Code.Message.Type.ClientServer.Login.saltRequest,
+                true,
+                false,
+                new {username = usernameTextBox.Text}
+            ), m => Console.WriteLine(m));
 
             loginPanel.Enabled = false;
             loginPanel.Visible = false;

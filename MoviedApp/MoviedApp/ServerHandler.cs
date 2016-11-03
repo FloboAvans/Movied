@@ -20,7 +20,8 @@ namespace MoviedApp
             CLOSED
         }
 
-        private int clientID = Message.ID_UNKNOWN;
+        public int clientID = Message.ID_UNKNOWN;
+        public int serverNodeID = Message.ID_UNKNOWN;
 
         private State state = State.NOT_STARTED;
 
@@ -30,7 +31,7 @@ namespace MoviedApp
 
         private ServerHandler()
         {
-            ServerConnector.instance.OnConnection += () => ServerConnector.instance.SendMessage(new Message(
+            ServerConnector.instance.OnConnection += () => ++state; ServerConnector.instance.SendMessage(new Message(
                 Message.ID_UNKNOWN,
                 Message.ID_UNKNOWN,
                 0,
@@ -59,6 +60,7 @@ namespace MoviedApp
                         Console.WriteLine($"connection was blocked, message={message}");
                     }
                     clientID = message.message.clientid;
+                    serverNodeID = message.senderID;
                     OnHandshakeComplete();
                     ++state;
                     return;
