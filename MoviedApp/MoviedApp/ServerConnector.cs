@@ -19,13 +19,14 @@ namespace MoviedApp
 
         public static readonly ServerConnector instance = new ServerConnector();
 
+        private readonly object serverLocable = new object();
         private NetworkStream server = null;
 
         public bool IsConnected
         {
             get
             {
-                lock (server)
+                lock (serverLocable)
                 {
                     return server != null;
                 }
@@ -61,7 +62,7 @@ namespace MoviedApp
                 }
                 catch (Exception) { Thread.Sleep(250); }
             } while (server == null);
-            lock (this.server)
+            lock (serverLocable)
             {
                 this.server = server.GetStream();
             }
