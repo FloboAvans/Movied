@@ -74,14 +74,24 @@ namespace Server
                     else
                         response = passwordNode.passwordBank.VerifyLogin((int) message.message.userid, hash);
 
-                        returnMessage = new Message(
-                            passwordNode.Id,
-                            message.senderID,
-                            message.traceNumber,
-                            message.type,
-                            response == PasswordBank.Response.SUCCES,
-                            true,
-                            new {response = response});
+                    int id;
+                    if (message.message.mode)
+                        passwordNode.passwordBank.GetID(message.message.username, out id);
+                    else
+                        id = message.message.userid;
+                    returnMessage = new Message(
+                        passwordNode.Id,
+                        message.senderID,
+                        message.traceNumber,
+                        message.type,
+                        response == PasswordBank.Response.SUCCES,
+                        true,
+                        new
+                        {
+                            response = response,
+                            id = id
+                        });
+
                     #endregion
                 }
                 else if (message.type == Message.Type.ClientServer.Login.createUser)
@@ -127,6 +137,12 @@ namespace Server
                     else
                         response = passwordNode.passwordBank.VerifyUser((int) message.message.userid, hash);
 
+                    int id;
+                    if (message.message.mode)
+                        passwordNode.passwordBank.GetID(message.message.username, out id);
+                    else
+                        id = message.message.userid;
+
                     returnMessage = new Message(
                         passwordNode.Id,
                         message.senderID,
@@ -134,7 +150,11 @@ namespace Server
                         message.type,
                         response == PasswordBank.Response.SUCCES,
                         true,
-                        new {response = response});
+                        new
+                        {
+                            response = response,
+                            id = id
+                        });
 
                     #endregion
                 }
