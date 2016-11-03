@@ -33,12 +33,21 @@ namespace MoviedApp
         }
 
         public Action<Message> OnMessageRecieved = message => Console.WriteLine("message recieved: " + message);
+        public Action OnConnection = () => Console.WriteLine("connction established");
 
         private Mutex writeMutex = new Mutex(false);
 
         private ServerConnector()
         {
+        }
+
+        private bool initialized = false;
+        public void Init()
+        {
+            if (initialized)
+                throw new Exception("init may be called only once");
             new Thread(ConnectionEstablisher).Start();
+
         }
 
         private void ConnectionEstablisher()
@@ -56,7 +65,7 @@ namespace MoviedApp
             {
                 this.server = server.GetStream();
             }
-
+            OnConnection();
             new Thread(Reader).Start();
         }
 
