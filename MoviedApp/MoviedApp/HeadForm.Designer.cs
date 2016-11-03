@@ -35,7 +35,30 @@ namespace MoviedApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeadForm));
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.headPanel = new System.Windows.Forms.Panel();
-            this.movieInfoPanel = new System.Windows.Forms.Panel();
+            this.watchedPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.friendsPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timelinePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.libraryPanel = new System.Windows.Forms.Panel();
+            this.libraryTable = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.filmInfoPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.addCheckinButton = new System.Windows.Forms.Label();
             this.addWishlistButton = new System.Windows.Forms.Label();
@@ -63,29 +86,6 @@ namespace MoviedApp
             this.homepageTitleLabel = new System.Windows.Forms.Label();
             this.wishlistPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.watchedPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.friendsPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.timelinePanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.libraryPanel = new System.Windows.Forms.Panel();
-            this.libraryTable = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -109,22 +109,21 @@ namespace MoviedApp
             this.genreLabel = new System.Windows.Forms.Label();
             this.timelineHeaderPanel = new System.Windows.Forms.Panel();
             this.homeLabel = new System.Windows.Forms.Label();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
+            this.loginPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.usernameError = new System.Windows.Forms.Label();
+            this.passwordError = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Label();
+            this.alreadyloginError = new System.Windows.Forms.Label();
+            this.createButton = new System.Windows.Forms.Label();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
-            this.movieInfoPanel.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.filmImage)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.filmInfoTable.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.wishlistPanel.SuspendLayout();
             this.watchedPanel.SuspendLayout();
             this.friendsPanel.SuspendLayout();
             this.timelinePanel.SuspendLayout();
@@ -145,6 +144,18 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.filmInfoPanel.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filmImage)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.filmInfoTable.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.wishlistPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -158,7 +169,11 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.filterButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
             this.timelineHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.titleBar.SuspendLayout();
+            this.loginPanel.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.SuspendLayout();
             // 
             // Layout
@@ -172,7 +187,9 @@ namespace MoviedApp
             this.Layout.Controls.Add(this.headPanel, 1, 1);
             this.Layout.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.Layout.Controls.Add(this.headerPanel, 1, 0);
+            this.Layout.Controls.Add(this.userPictureBox, 0, 0);
             this.Layout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Layout.Enabled = false;
             this.Layout.Location = new System.Drawing.Point(2, 2);
             this.Layout.Name = "Layout";
             this.Layout.RowCount = 2;
@@ -181,32 +198,306 @@ namespace MoviedApp
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Layout.Size = new System.Drawing.Size(949, 543);
             this.Layout.TabIndex = 0;
+            this.Layout.Visible = false;
             // 
             // headPanel
             // 
             this.headPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headPanel.Controls.Add(this.movieInfoPanel);
-            this.headPanel.Controls.Add(this.wishlistPanel);
             this.headPanel.Controls.Add(this.watchedPanel);
             this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Controls.Add(this.timelinePanel);
             this.headPanel.Controls.Add(this.libraryPanel);
+            this.headPanel.Controls.Add(this.filmInfoPanel);
+            this.headPanel.Controls.Add(this.wishlistPanel);
             this.headPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headPanel.Location = new System.Drawing.Point(153, 115);
             this.headPanel.Name = "headPanel";
             this.headPanel.Size = new System.Drawing.Size(793, 425);
             this.headPanel.TabIndex = 3;
             // 
-            // movieInfoPanel
+            // watchedPanel
             // 
-            this.movieInfoPanel.Controls.Add(this.tableLayoutPanel4);
-            this.movieInfoPanel.Controls.Add(this.tableLayoutPanel3);
-            this.movieInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.movieInfoPanel.Location = new System.Drawing.Point(0, 0);
-            this.movieInfoPanel.Name = "movieInfoPanel";
-            this.movieInfoPanel.Size = new System.Drawing.Size(793, 425);
-            this.movieInfoPanel.TabIndex = 22;
-            this.movieInfoPanel.Visible = false;
+            this.watchedPanel.Controls.Add(this.label3);
+            this.watchedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.watchedPanel.Location = new System.Drawing.Point(0, 0);
+            this.watchedPanel.Name = "watchedPanel";
+            this.watchedPanel.Size = new System.Drawing.Size(793, 425);
+            this.watchedPanel.TabIndex = 21;
+            this.watchedPanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(423, 189);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Watched";
+            // 
+            // friendsPanel
+            // 
+            this.friendsPanel.Controls.Add(this.label2);
+            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
+            this.friendsPanel.Name = "friendsPanel";
+            this.friendsPanel.Size = new System.Drawing.Size(793, 425);
+            this.friendsPanel.TabIndex = 18;
+            this.friendsPanel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(423, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Friends";
+            // 
+            // timelinePanel
+            // 
+            this.timelinePanel.Controls.Add(this.label1);
+            this.timelinePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timelinePanel.Location = new System.Drawing.Point(0, 0);
+            this.timelinePanel.Name = "timelinePanel";
+            this.timelinePanel.Size = new System.Drawing.Size(793, 425);
+            this.timelinePanel.TabIndex = 17;
+            this.timelinePanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(423, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Timeline";
+            // 
+            // libraryPanel
+            // 
+            this.libraryPanel.AutoScroll = true;
+            this.libraryPanel.BackColor = System.Drawing.Color.Transparent;
+            this.libraryPanel.Controls.Add(this.libraryTable);
+            this.libraryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.libraryPanel.Location = new System.Drawing.Point(0, 0);
+            this.libraryPanel.Name = "libraryPanel";
+            this.libraryPanel.Size = new System.Drawing.Size(793, 425);
+            this.libraryPanel.TabIndex = 0;
+            // 
+            // libraryTable
+            // 
+            this.libraryTable.AutoScroll = true;
+            this.libraryTable.BackColor = System.Drawing.Color.Transparent;
+            this.libraryTable.ColumnCount = 6;
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.Controls.Add(this.pictureBox12, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox11, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox10, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox8, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox7, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox6, 0, 2);
+            this.libraryTable.Controls.Add(this.pictureBox4, 2, 0);
+            this.libraryTable.Controls.Add(this.pictureBox3, 1, 0);
+            this.libraryTable.Controls.Add(this.pictureBox2, 0, 0);
+            this.libraryTable.Controls.Add(this.pictureBox9, 0, 1);
+            this.libraryTable.Controls.Add(this.pictureBox13, 1, 1);
+            this.libraryTable.Controls.Add(this.pictureBox5, 4, 0);
+            this.libraryTable.Controls.Add(this.pictureBox14, 5, 1);
+            this.libraryTable.Controls.Add(this.pictureBox15, 3, 1);
+            this.libraryTable.Controls.Add(this.pictureBox16, 5, 0);
+            this.libraryTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.libraryTable.Location = new System.Drawing.Point(0, 0);
+            this.libraryTable.Name = "libraryTable";
+            this.libraryTable.RowCount = 3;
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
+            this.libraryTable.Size = new System.Drawing.Size(793, 425);
+            this.libraryTable.TabIndex = 0;
+            this.libraryTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.libraryTable_MouseClick);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox12.Location = new System.Drawing.Point(3, 413);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox12.TabIndex = 10;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox11.Location = new System.Drawing.Point(135, 413);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox11.TabIndex = 9;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox10.Location = new System.Drawing.Point(663, 413);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(127, 199);
+            this.pictureBox10.TabIndex = 8;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox8.Location = new System.Drawing.Point(267, 413);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox8.TabIndex = 6;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox7.Location = new System.Drawing.Point(399, 413);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox7.TabIndex = 5;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Location = new System.Drawing.Point(531, 413);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox6.TabIndex = 4;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Location = new System.Drawing.Point(267, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Location = new System.Drawing.Point(135, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox9.Location = new System.Drawing.Point(3, 208);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox9.TabIndex = 11;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.BackgroundImage")));
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox13.Location = new System.Drawing.Point(135, 208);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox13.TabIndex = 12;
+            this.pictureBox13.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Location = new System.Drawing.Point(531, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox5.TabIndex = 3;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox14.Location = new System.Drawing.Point(663, 208);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(127, 199);
+            this.pictureBox14.TabIndex = 13;
+            this.pictureBox14.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
+            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox15.Location = new System.Drawing.Point(399, 208);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(126, 199);
+            this.pictureBox15.TabIndex = 14;
+            this.pictureBox15.TabStop = false;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.BackgroundImage")));
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox16.Location = new System.Drawing.Point(663, 3);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(127, 199);
+            this.pictureBox16.TabIndex = 15;
+            this.pictureBox16.TabStop = false;
+            // 
+            // filmInfoPanel
+            // 
+            this.filmInfoPanel.Controls.Add(this.tableLayoutPanel4);
+            this.filmInfoPanel.Controls.Add(this.tableLayoutPanel3);
+            this.filmInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filmInfoPanel.Location = new System.Drawing.Point(0, 0);
+            this.filmInfoPanel.Name = "filmInfoPanel";
+            this.filmInfoPanel.Size = new System.Drawing.Size(793, 425);
+            this.filmInfoPanel.TabIndex = 22;
+            this.filmInfoPanel.Visible = false;
             // 
             // tableLayoutPanel4
             // 
@@ -605,279 +896,6 @@ namespace MoviedApp
             this.label4.TabIndex = 0;
             this.label4.Text = "Wishlist";
             // 
-            // watchedPanel
-            // 
-            this.watchedPanel.Controls.Add(this.label3);
-            this.watchedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.watchedPanel.Location = new System.Drawing.Point(0, 0);
-            this.watchedPanel.Name = "watchedPanel";
-            this.watchedPanel.Size = new System.Drawing.Size(793, 425);
-            this.watchedPanel.TabIndex = 21;
-            this.watchedPanel.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(423, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Watched";
-            // 
-            // friendsPanel
-            // 
-            this.friendsPanel.Controls.Add(this.label2);
-            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
-            this.friendsPanel.Name = "friendsPanel";
-            this.friendsPanel.Size = new System.Drawing.Size(793, 425);
-            this.friendsPanel.TabIndex = 18;
-            this.friendsPanel.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(423, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Friends";
-            // 
-            // timelinePanel
-            // 
-            this.timelinePanel.Controls.Add(this.label1);
-            this.timelinePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timelinePanel.Location = new System.Drawing.Point(0, 0);
-            this.timelinePanel.Name = "timelinePanel";
-            this.timelinePanel.Size = new System.Drawing.Size(793, 425);
-            this.timelinePanel.TabIndex = 17;
-            this.timelinePanel.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(423, 189);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Timeline";
-            // 
-            // libraryPanel
-            // 
-            this.libraryPanel.AutoScroll = true;
-            this.libraryPanel.BackColor = System.Drawing.Color.Transparent;
-            this.libraryPanel.Controls.Add(this.libraryTable);
-            this.libraryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryPanel.Location = new System.Drawing.Point(0, 0);
-            this.libraryPanel.Name = "libraryPanel";
-            this.libraryPanel.Size = new System.Drawing.Size(793, 425);
-            this.libraryPanel.TabIndex = 0;
-            // 
-            // libraryTable
-            // 
-            this.libraryTable.AutoScroll = true;
-            this.libraryTable.BackColor = System.Drawing.Color.Transparent;
-            this.libraryTable.ColumnCount = 6;
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.Controls.Add(this.pictureBox12, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox11, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox10, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox8, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox7, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox6, 0, 2);
-            this.libraryTable.Controls.Add(this.pictureBox4, 2, 0);
-            this.libraryTable.Controls.Add(this.pictureBox3, 1, 0);
-            this.libraryTable.Controls.Add(this.pictureBox2, 0, 0);
-            this.libraryTable.Controls.Add(this.pictureBox9, 0, 1);
-            this.libraryTable.Controls.Add(this.pictureBox13, 1, 1);
-            this.libraryTable.Controls.Add(this.pictureBox5, 4, 0);
-            this.libraryTable.Controls.Add(this.pictureBox14, 5, 1);
-            this.libraryTable.Controls.Add(this.pictureBox15, 3, 1);
-            this.libraryTable.Controls.Add(this.pictureBox16, 5, 0);
-            this.libraryTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryTable.Location = new System.Drawing.Point(0, 0);
-            this.libraryTable.Name = "libraryTable";
-            this.libraryTable.RowCount = 3;
-            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
-            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
-            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 205F));
-            this.libraryTable.Size = new System.Drawing.Size(793, 425);
-            this.libraryTable.TabIndex = 0;
-            this.libraryTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.libraryTable_MouseClick);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox12.Location = new System.Drawing.Point(3, 413);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox12.TabIndex = 10;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox11.Location = new System.Drawing.Point(135, 413);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox11.TabIndex = 9;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.BackgroundImage")));
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox10.Location = new System.Drawing.Point(663, 413);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(127, 199);
-            this.pictureBox10.TabIndex = 8;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox8.Location = new System.Drawing.Point(267, 413);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox8.TabIndex = 6;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox7.Location = new System.Drawing.Point(399, 413);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Location = new System.Drawing.Point(531, 413);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Location = new System.Drawing.Point(267, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(135, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox9.Location = new System.Drawing.Point(3, 208);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox9.TabIndex = 11;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.BackgroundImage")));
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox13.Location = new System.Drawing.Point(135, 208);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox13.TabIndex = 12;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Location = new System.Drawing.Point(531, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox14.Location = new System.Drawing.Point(663, 208);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(127, 199);
-            this.pictureBox14.TabIndex = 13;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox15.Location = new System.Drawing.Point(399, 208);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(126, 199);
-            this.pictureBox15.TabIndex = 14;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.BackgroundImage")));
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox16.Location = new System.Drawing.Point(663, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(127, 199);
-            this.pictureBox16.TabIndex = 15;
-            this.pictureBox16.TabStop = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1195,6 +1213,18 @@ namespace MoviedApp
             this.homeLabel.TabIndex = 1;
             this.homeLabel.Text = "WELCOME BACK";
             // 
+            // userPictureBox
+            // 
+            this.userPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.userPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("userPictureBox.Image")));
+            this.userPictureBox.Location = new System.Drawing.Point(37, 34);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(75, 75);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.userPictureBox.TabIndex = 5;
+            this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
+            // 
             // titleBar
             // 
             this.titleBar.BackColor = System.Drawing.Color.Transparent;
@@ -1228,6 +1258,163 @@ namespace MoviedApp
             this.consolBox.TabIndex = 0;
             this.consolBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.consolBox_MouseClick);
             // 
+            // loginPanel
+            // 
+            this.loginPanel.BackColor = System.Drawing.Color.Transparent;
+            this.loginPanel.Controls.Add(this.tableLayoutPanel5);
+            this.loginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginPanel.Location = new System.Drawing.Point(2, 2);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(949, 543);
+            this.loginPanel.TabIndex = 2;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.pictureBox19, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.passwordTextBox, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.usernameTextBox, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.usernameError, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.passwordError, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.loginButton, 1, 6);
+            this.tableLayoutPanel5.Controls.Add(this.alreadyloginError, 1, 7);
+            this.tableLayoutPanel5.Controls.Add(this.createButton, 1, 8);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 10;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(949, 543);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox19.Image = global::MoviedApp.Properties.Resources.logo_movied;
+            this.pictureBox19.Location = new System.Drawing.Point(352, 129);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(244, 50);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox19.TabIndex = 7;
+            this.pictureBox19.TabStop = false;
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.ForeColor = System.Drawing.Color.White;
+            this.passwordTextBox.Location = new System.Drawing.Point(352, 285);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(244, 28);
+            this.passwordTextBox.TabIndex = 2;
+            this.passwordTextBox.Text = "password";
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.usernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTextBox.ForeColor = System.Drawing.Color.White;
+            this.usernameTextBox.Location = new System.Drawing.Point(352, 230);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(244, 28);
+            this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.Text = "username";
+            // 
+            // usernameError
+            // 
+            this.usernameError.AutoSize = true;
+            this.usernameError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usernameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameError.ForeColor = System.Drawing.Color.Red;
+            this.usernameError.Location = new System.Drawing.Point(352, 212);
+            this.usernameError.Name = "usernameError";
+            this.usernameError.Size = new System.Drawing.Size(244, 15);
+            this.usernameError.TabIndex = 8;
+            this.usernameError.Text = "Username is incorrect";
+            this.usernameError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usernameError.Visible = false;
+            // 
+            // passwordError
+            // 
+            this.passwordError.AutoSize = true;
+            this.passwordError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.passwordError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordError.ForeColor = System.Drawing.Color.Red;
+            this.passwordError.Location = new System.Drawing.Point(352, 267);
+            this.passwordError.Name = "passwordError";
+            this.passwordError.Size = new System.Drawing.Size(244, 15);
+            this.passwordError.TabIndex = 9;
+            this.passwordError.Text = "Password is incorrect";
+            this.passwordError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.passwordError.Visible = false;
+            // 
+            // loginButton
+            // 
+            this.loginButton.AutoSize = true;
+            this.loginButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.Color.White;
+            this.loginButton.Location = new System.Drawing.Point(352, 322);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(244, 40);
+            this.loginButton.TabIndex = 3;
+            this.loginButton.Text = "login";
+            this.loginButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.MouseEnter += new System.EventHandler(this.loginButton_MouseEnter);
+            this.loginButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // alreadyloginError
+            // 
+            this.alreadyloginError.AutoSize = true;
+            this.alreadyloginError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.alreadyloginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alreadyloginError.ForeColor = System.Drawing.Color.Red;
+            this.alreadyloginError.Location = new System.Drawing.Point(352, 362);
+            this.alreadyloginError.Name = "alreadyloginError";
+            this.alreadyloginError.Size = new System.Drawing.Size(244, 15);
+            this.alreadyloginError.TabIndex = 10;
+            this.alreadyloginError.Text = "Your already logged in on another device";
+            this.alreadyloginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.alreadyloginError.Visible = false;
+            // 
+            // createButton
+            // 
+            this.createButton.AutoSize = true;
+            this.createButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.createButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createButton.ForeColor = System.Drawing.Color.White;
+            this.createButton.Location = new System.Drawing.Point(352, 377);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(244, 40);
+            this.createButton.TabIndex = 11;
+            this.createButton.Text = "create";
+            this.createButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
+            this.createButton.MouseEnter += new System.EventHandler(this.createButton_MouseEnter);
+            this.createButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
             // HeadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1236,6 +1423,7 @@ namespace MoviedApp
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(953, 547);
             this.Controls.Add(this.titleBar);
+            this.Controls.Add(this.loginPanel);
             this.Controls.Add(this.Layout);
             this.Name = "HeadForm";
             this.Padding = new System.Windows.Forms.Padding(2);
@@ -1243,25 +1431,6 @@ namespace MoviedApp
             this.ResizeEnd += new System.EventHandler(this.HeadForm_ResizeEnd);
             this.Layout.ResumeLayout(false);
             this.headPanel.ResumeLayout(false);
-            this.movieInfoPanel.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.filmImage)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.filmInfoTable.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
-            this.wishlistPanel.ResumeLayout(false);
-            this.wishlistPanel.PerformLayout();
             this.watchedPanel.ResumeLayout(false);
             this.watchedPanel.PerformLayout();
             this.friendsPanel.ResumeLayout(false);
@@ -1285,6 +1454,25 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            this.filmInfoPanel.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.filmImage)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.filmInfoTable.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
+            this.wishlistPanel.ResumeLayout(false);
+            this.wishlistPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1304,7 +1492,12 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).EndInit();
             this.timelineHeaderPanel.ResumeLayout(false);
             this.timelineHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.titleBar.ResumeLayout(false);
+            this.loginPanel.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1357,7 +1550,7 @@ namespace MoviedApp
         private Panel searchPanel;
         private PictureBox searchButton;
         private PictureBox filterButton;
-        private Panel movieInfoPanel;
+        private Panel filmInfoPanel;
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel filmInfoHeaderPanel;
@@ -1389,5 +1582,16 @@ namespace MoviedApp
         private Label budgetTitleLabel;
         private Label homepageTitleLabel;
         private TextBox overviewText;
+        private Panel loginPanel;
+        private TableLayoutPanel tableLayoutPanel5;
+        private TextBox usernameTextBox;
+        private TextBox passwordTextBox;
+        private Label loginButton;
+        private PictureBox pictureBox19;
+        private Label usernameError;
+        private Label passwordError;
+        private PictureBox userPictureBox;
+        private Label alreadyloginError;
+        private Label createButton;
     }
 }

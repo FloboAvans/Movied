@@ -49,6 +49,9 @@ namespace MoviedApp
 
             SetPlaceHolder(searchTextBox, "search");
             SetPlaceHolder(searchTextBox2, "search");
+            SetPlaceHolder(usernameTextBox, "username");
+            SetPlaceHolder(passwordTextBox, "password");
+
         }
 
         protected override CreateParams CreateParams
@@ -235,9 +238,17 @@ namespace MoviedApp
             trailerButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             addWishlistButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            loginButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            createButton.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            usernameError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            passwordError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            alreadyloginError.Font = new Font(_quicksandRegular, 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             searchTextBox.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             searchTextBox2.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            usernameTextBox.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            passwordTextBox.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void clearAllPanels()
@@ -252,8 +263,8 @@ namespace MoviedApp
             watchedPanel.Visible = false;
             wishlistPanel.Enabled = false;
             wishlistPanel.Visible = false;
-            movieInfoPanel.Enabled = false;
-            movieInfoPanel.Visible = false;
+            filmInfoPanel.Enabled = false;
+            filmInfoPanel.Visible = false;
 
             timelineHeaderPanel.Enabled = false;
             timelineHeaderPanel.Visible = false;
@@ -308,6 +319,54 @@ namespace MoviedApp
                 grfx.FillRectangle(brsh, rt); //Brushes the gradient on (rt).
             }
             return bmp; //Returns the (bmp) with the generated image.
+        }
+
+        public static Image CropToCircle(Image srcImage, Color backGround)
+        {
+            Image dstImage = new Bitmap(srcImage.Width, srcImage.Height, srcImage.PixelFormat);
+            Graphics g = Graphics.FromImage(dstImage);
+            using (Brush br = new SolidBrush(backGround))
+            {
+                g.FillRectangle(br, 0, 0, dstImage.Width, dstImage.Height);
+            }
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, dstImage.Width, dstImage.Height);
+            g.SetClip(path);
+            g.DrawImage(srcImage, 0, 0);
+
+            return dstImage;
+        }
+
+        void loginPanel_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
+        }
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            //TODO check username and password
+
+            loginPanel.Enabled = false;
+            loginPanel.Visible = false;
+            Layout.Enabled = true;
+            Layout.Visible = true;
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (passwordTextBox.Text != "password")
+                passwordTextBox.PasswordChar = '\u25CF';
+            else
+            {
+                passwordTextBox.PasswordChar = '\0';
+            }
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void consolBox_MouseClick(object sender, EventArgs e)
@@ -373,6 +432,14 @@ namespace MoviedApp
         private void addCheckinButton_MouseEnter(object sender, EventArgs e)
         {
             addCheckinButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void loginButton_MouseEnter(object sender, EventArgs e)
+        {
+            loginButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void createButton_MouseEnter(object sender, EventArgs e)
+        {
+            createButton.Font = new Font(_quicksandRegular, 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
         private void label_MouseLeave(object sender, EventArgs e)
         {
@@ -477,8 +544,8 @@ namespace MoviedApp
                     {
                         case 0:
                             clearAllPanels();
-                            movieInfoPanel.Visible = true;
-                            movieInfoPanel.Enabled = true;
+                            filmInfoPanel.Visible = true;
+                            filmInfoPanel.Enabled = true;
                             filmInfoHeaderPanel.Visible = true;
                             filmInfoHeaderPanel.Enabled = true;
                             break;
@@ -489,8 +556,8 @@ namespace MoviedApp
                     {
                         case 1:
                             clearAllPanels();
-                            movieInfoPanel.Visible = true;
-                            movieInfoPanel.Enabled = true;
+                            filmInfoPanel.Visible = true;
+                            filmInfoPanel.Enabled = true;
                             filmInfoHeaderPanel.Visible = true;
                             filmInfoHeaderPanel.Enabled = true;
                             break;
@@ -506,15 +573,22 @@ namespace MoviedApp
             }
 
             clearAllPanels();
-            movieInfoPanel.Visible = true;
-            movieInfoPanel.Enabled = true;
+            filmInfoPanel.Visible = true;
+            filmInfoPanel.Enabled = true;
             filmInfoHeaderPanel.Visible = true;
             filmInfoHeaderPanel.Enabled = true;
         }
 
         private void filmImage_MouseClick(object sender, MouseEventArgs e)
         {
+            //TODO implement in load
             filmImage.Image = DrawReflection(filmImage.Image, Color.FromArgb(11, 19, 29));
+        }
+
+        private void userPictureBox_Click(object sender, EventArgs e)
+        {
+            //TODO implement in load
+            userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
         }
     }
     
