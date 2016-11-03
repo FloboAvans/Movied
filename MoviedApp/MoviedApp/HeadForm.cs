@@ -451,18 +451,18 @@ namespace MoviedApp
         {
             if (libraryPanel.Enabled && libraryPanel.Visible)
             {
-                int columns = libraryTable.Width/140;
+                int columns = libraryPanel.Width/140;
                 while (libraryTable.ColumnCount != columns)
                 {
                     Console.WriteLine(columns);
                     if (libraryTable.ColumnCount < columns)
                     {
-                        float percent = 100/libraryTable.ColumnCount;
-                        libraryTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, percent));
+                        float percent = libraryPanel.Width/libraryTable.ColumnCount;
+                        libraryTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, percent));
                         libraryTable.ColumnCount++;
                         for (int i = 0; i < libraryTable.ColumnStyles.Count - 1; i++)
                         {
-                            libraryTable.ColumnStyles[i] = new ColumnStyle(SizeType.Percent, percent);
+                            libraryTable.ColumnStyles[i] = new ColumnStyle(SizeType.Absolute, percent);
                         }
                     }
 
