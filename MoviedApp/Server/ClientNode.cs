@@ -50,7 +50,9 @@ namespace Server
             {
                 while (true)
                 {
-                    AddMessage(IOHandler.Read(client));
+                    Message message = IOHandler.Read(client);
+                    Console.WriteLine($"clientNode {Id} recieved message \n\t{message}");
+                    AddMessage(message);
                 }
             }
             catch (Exception e)
@@ -62,6 +64,7 @@ namespace Server
                     Message.Type.ClientServer.Error.connectionException,
                     true, false,
                     new {exception = e});
+                Console.WriteLine($"clientNode {Id} recieved exception\n\t{e.GetType().Name} : {e.Message}");
                 AddMessage(exceptionMessage);
             }
         }

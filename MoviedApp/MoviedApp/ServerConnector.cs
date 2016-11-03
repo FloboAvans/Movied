@@ -93,7 +93,8 @@ namespace MoviedApp
 
         private void Reader()
         {
-            OnMessageRecieved(IOHandler.Read(server));
+            while (true)
+                OnMessageRecieved(IOHandler.Read(server));
         }
     }
 }

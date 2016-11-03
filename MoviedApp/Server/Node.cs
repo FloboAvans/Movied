@@ -102,6 +102,8 @@ namespace Server
             if (response != PostBox.Response.SUCCESS)
                 throw new ArgumentException($"PostBox gave a \"{response}\" on id \"{Id}\" during Node()");
 
+            Console.WriteLine($"new node, id={Id}, type={GetType().Name}");
+
             this.inQueue = new Queue<Message>();
 
             new Thread(() => MessageLoop(messageHandler)).Start();
