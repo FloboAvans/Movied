@@ -51,7 +51,6 @@ namespace MoviedApp
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.budgetFilm = new System.Windows.Forms.Label();
             this.revenueFilm = new System.Windows.Forms.Label();
-            this.homepageFilm = new System.Windows.Forms.Label();
             this.revenueTitleLabel = new System.Windows.Forms.Label();
             this.budgetTitleLabel = new System.Windows.Forms.Label();
             this.homepageTitleLabel = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@ namespace MoviedApp
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.ratingTitleLabel = new System.Windows.Forms.Label();
-            this.checkinRating = new RatingControls.Rating();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.reviewTextBox = new System.Windows.Forms.TextBox();
             this.reviewTitleLabel = new System.Windows.Forms.Label();
@@ -142,6 +140,8 @@ namespace MoviedApp
             this.loginButton = new System.Windows.Forms.Label();
             this.alreadyloginError = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Label();
+            this.homepageFilm = new System.Windows.Forms.LinkLabel();
+            this.checkinRating = new RatingControls.Rating();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
             this.filmInfoPanel.SuspendLayout();
@@ -360,6 +360,7 @@ namespace MoviedApp
             // 
             // filmInfoTable
             // 
+            this.filmInfoTable.AutoScroll = true;
             this.filmInfoTable.ColumnCount = 1;
             this.filmInfoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.filmInfoTable.Controls.Add(this.tableLayoutPanel9, 0, 0);
@@ -432,8 +433,8 @@ namespace MoviedApp
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel10.Controls.Add(this.budgetFilm, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.revenueFilm, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.homepageFilm, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.revenueTitleLabel, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.homepageFilm, 2, 1);
             this.tableLayoutPanel10.Controls.Add(this.budgetTitleLabel, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.homepageTitleLabel, 2, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -474,21 +475,6 @@ namespace MoviedApp
             this.revenueFilm.TabIndex = 12;
             this.revenueFilm.Text = "revenueFilm";
             this.revenueFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // homepageFilm
-            // 
-            this.homepageFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.homepageFilm.AutoSize = true;
-            this.homepageFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homepageFilm.ForeColor = System.Drawing.Color.White;
-            this.homepageFilm.Location = new System.Drawing.Point(367, 37);
-            this.homepageFilm.Name = "homepageFilm";
-            this.homepageFilm.Size = new System.Drawing.Size(177, 37);
-            this.homepageFilm.TabIndex = 11;
-            this.homepageFilm.Text = "homepageFilm";
-            this.homepageFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // revenueTitleLabel
             // 
@@ -1191,27 +1177,6 @@ namespace MoviedApp
             this.ratingTitleLabel.TabIndex = 5;
             this.ratingTitleLabel.Text = "Rating";
             // 
-            // checkinRating
-            // 
-            this.checkinRating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkinRating.BottomMargin = 2;
-            this.checkinRating.HoverColor = System.Drawing.Color.White;
-            this.checkinRating.LeftMargin = 2;
-            this.checkinRating.Location = new System.Drawing.Point(18, 30);
-            this.checkinRating.Margin = new System.Windows.Forms.Padding(18, 10, 18, 10);
-            this.checkinRating.Name = "checkinRating";
-            this.checkinRating.OutlineColor = System.Drawing.Color.White;
-            this.checkinRating.OutlineThickness = 1;
-            this.checkinRating.RightMargin = 2;
-            this.checkinRating.SelectedColor = System.Drawing.Color.White;
-            this.checkinRating.Size = new System.Drawing.Size(511, 41);
-            this.checkinRating.StarCount = 10;
-            this.checkinRating.StarSpacing = 8;
-            this.checkinRating.TabIndex = 1;
-            this.checkinRating.Text = "Rating";
-            this.checkinRating.TopMargin = 2;
-            // 
             // tableLayoutPanel18
             // 
             this.tableLayoutPanel18.ColumnCount = 1;
@@ -1785,6 +1750,45 @@ namespace MoviedApp
             this.createButton.MouseEnter += new System.EventHandler(this.createButton_MouseEnter);
             this.createButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
+            // homepageFilm
+            // 
+            this.homepageFilm.ActiveLinkColor = System.Drawing.Color.White;
+            this.homepageFilm.AutoSize = true;
+            this.homepageFilm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homepageFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homepageFilm.ForeColor = System.Drawing.Color.White;
+            this.homepageFilm.LinkColor = System.Drawing.Color.White;
+            this.homepageFilm.Location = new System.Drawing.Point(367, 37);
+            this.homepageFilm.Name = "homepageFilm";
+            this.homepageFilm.Size = new System.Drawing.Size(177, 37);
+            this.homepageFilm.TabIndex = 14;
+            this.homepageFilm.TabStop = true;
+            this.homepageFilm.Text = "homepageFilm";
+            this.homepageFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.homepageFilm.VisitedLinkColor = System.Drawing.Color.White;
+            this.homepageFilm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.homepageFilm_LinkClicked);
+            // 
+            // checkinRating
+            // 
+            this.checkinRating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkinRating.BottomMargin = 2;
+            this.checkinRating.HoverColor = System.Drawing.Color.White;
+            this.checkinRating.LeftMargin = 2;
+            this.checkinRating.Location = new System.Drawing.Point(18, 30);
+            this.checkinRating.Margin = new System.Windows.Forms.Padding(18, 10, 18, 10);
+            this.checkinRating.Name = "checkinRating";
+            this.checkinRating.OutlineColor = System.Drawing.Color.White;
+            this.checkinRating.OutlineThickness = 1;
+            this.checkinRating.RightMargin = 2;
+            this.checkinRating.SelectedColor = System.Drawing.Color.White;
+            this.checkinRating.Size = new System.Drawing.Size(511, 41);
+            this.checkinRating.StarCount = 10;
+            this.checkinRating.StarSpacing = 8;
+            this.checkinRating.TabIndex = 1;
+            this.checkinRating.Text = "Rating";
+            this.checkinRating.TopMargin = 2;
+            // 
             // HeadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1964,7 +1968,6 @@ namespace MoviedApp
         private TableLayoutPanel libraryTable;
         private Label budgetFilm;
         private Label revenueFilm;
-        private Label homepageFilm;
         private Label languageFilm;
         private Label releaseFilm;
         private Label runtimeFilm;
@@ -1981,5 +1984,6 @@ namespace MoviedApp
         private Label castName1;
         private Label castName2;
         private Label castName3;
+        private LinkLabel homepageFilm;
     }
 }
