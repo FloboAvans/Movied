@@ -481,6 +481,7 @@ namespace MoviedApp
             usernameError.Visible = false;
             passwordError.Visible = false;
             alreadyloginError.Visible = false;
+            accountExistsError.Visible = false;
 
             ServerHandler.instance.SendMessage(new Shared_Code.Message(
                 ServerHandler.instance.clientID,
@@ -554,7 +555,53 @@ namespace MoviedApp
 
         private void createButton_Click(object sender, EventArgs e)
         {
+            usernameError.Visible = false;
+            passwordError.Visible = false;
+            alreadyloginError.Visible = false;
+            accountExistsError.Visible = false;
 
+            ServerHandler.instance.SendMessage(new Shared_Code.Message(
+                ServerHandler.instance.clientID,
+                ServerHandler.instance.serverNodeID,
+                Shared_Code.Message.Trace.GenerateTrace(100),
+                Shared_Code.Message.Type.ClientServer.Login.createUser,
+                true,
+                false,
+                new {username = (string)usernameTextBox.Text}), m1 =>
+            {
+                if (m1.succes == false)
+                {
+                    accountExistsError.Visible = true;
+                }
+                else
+                {
+                    passwordTextBox.Invoke(new Action(() =>
+                    {
+                        byte[] salt = Convert.FromBase64String((string)m1.message.salt);
+                        byte[] hash = PasswordBank.HashPasword(passwordTextBox.Text, salt);
+                        ServerHandler.instance.SendMessage(new Shared_Code.Message(
+                            ServerHandler.instance.clientID,
+                            ServerHandler.instance.serverNodeID,
+                            Shared_Code.Message.Trace.GenerateTrace(100),
+                            Shared_Code.Message.Type.ClientServer.Login.setHash,
+                            true,
+                            false,
+                            new {username = (string)m1.message.username, hash = Convert.ToBase64String(hash)}), m2 =>
+                        {
+                            loginPanel.Invoke(new Action(() =>
+                            {
+                                loginPanel.Enabled = false;
+                                loginPanel.Visible = false;
+                            }));
+                            Layout.Invoke(new Action(() =>
+                            {
+                                Layout.Enabled = true;
+                                Layout.Visible = true;
+                            }));
+                        });
+                    }));
+                }
+            });
         }
 
         private void consolBox_MouseClick(object sender, EventArgs e)
