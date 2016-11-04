@@ -40,7 +40,6 @@ namespace HashingTest
                 rng.GetBytes(salt); // generates the salt
                 hash = null; // explicitly sets the hash to null
 
-                int id;
                 do
                 {
                     byte[] idBuff = new byte[4];
@@ -179,7 +178,7 @@ namespace HashingTest
         {
             // NOTE: we call the VerifyUser(int, byte[]) even though it is slower because it prevents code duplication
             Entry e;
-            if (usersName.TryGetValue(userName, out e))
+            if (usersName.TryGetValue(userName, out e) == false)
                 return Response.NO_SUCH_USER;
             return VerifyUser(e.id, hash); 
         }
@@ -211,7 +210,7 @@ namespace HashingTest
         {
             // NOTE: we call the VerifyLogin(int, byte[]) even though it is slower because it prevents code duplication
             Entry e;
-            if (usersName.TryGetValue(userName, out e))
+            if (usersName.TryGetValue(userName, out e) == false)
                 return Response.NO_SUCH_USER;
             return VerifyLogin(e.id, hash);
         }

@@ -49,7 +49,7 @@ namespace Server
                             message.type,
                             true,
                             true,
-                            new {salt = Convert.ToBase64String(saltBytes), username = message.message.username});
+                            new {salt = Convert.ToBase64String(saltBytes), username = (string)message.message.username});
                     else
                         returnMessage = new Message(
                             passwordNode.Id,
@@ -84,7 +84,7 @@ namespace Server
                         new
                         {
                             response = response,
-                            id = id,
+                            userid = id,
                             username = message.message.username
                         });
 
