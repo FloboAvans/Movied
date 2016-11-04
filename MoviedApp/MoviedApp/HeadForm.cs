@@ -515,6 +515,9 @@ namespace MoviedApp
                             }
                             else
                             {
+                                if (m2.message.response == PasswordBank.Response.HASH_MISMATCH)
+                                    passwordError.Invoke(new Action(() => passwordError.Visible = true));
+                                else
                                 alreadyloginError.Invoke(new Action(() => alreadyloginError.Visible = true));
                             }
                         });
