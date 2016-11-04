@@ -127,14 +127,17 @@ namespace Server
             }
         }
 
-        public Response AddTarget(int id)
+        public Response AddTarget(int id, Node node = null)
         {
             lock (postBox)
             {
 
                 if (postBox.ContainsKey(id))
                     return Response.TARGET_EXISTS;
-                postBox.Add(id, new Entry(null, new Queue<Message>()));
+                if (node == null)
+                    postBox.Add(id, new Entry(null, new Queue<Message>()));
+                else
+                    postBox.Add(id, new Entry(node, null));
                 return Response.SUCCESS;
             }
         }

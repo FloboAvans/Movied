@@ -114,6 +114,7 @@ namespace Server
 
                     forwardMessage.succes = true;
                     forwardMessage.message = new {clientid = clientNode.clientID};
+                    ++clientNode.state;
                     clientNode.WriteToClient(forwardMessage);
                     return NodeResponse.succes;
                 case State.LOGIN:
@@ -133,7 +134,7 @@ namespace Server
                         {
                             forwardMessage.destinationID = clientNode.clientID;
                             forwardMessage.senderID = clientNode.Id;
-                            PostBox.TargetState targetState = PostBox.instance.GeTargetState(message.message.userid);
+                            PostBox.TargetState targetState = PostBox.instance.GeTargetState((int)message.message.userid);
                             switch (targetState)
                             {
                                 case PostBox.TargetState.ACTIVE:
@@ -161,22 +162,27 @@ namespace Server
                                             ++clientNode.state;
                                         }
                                     }
-                                    PostBox.instance.PostMessage(forwardMessage);
                                     break;
                                 case PostBox.TargetState.NON_EXISTENT:
-                                    if (PostBox.instance.AddTarget(clientNode) != PostBox.Response.SUCCESS)
+                                    if (PostBox.instance.AddTarget((int)message.message.userid,clientNode) != PostBox.Response.SUCCESS)
                                         forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
                                     else
                                     {
                                         clientNode.userID = message.message.userid;
                                         ++clientNode.state;
                                     }
-                                    PostBox.instance.PostMessage(forwardMessage);
 
                                     break;
                             }
+                            clientNode.WriteToClient(forwardMessage);
                         }
-
+                        else
+                        {
+                            forwardMessage.destinationID = clientNode.clientID;
+                            forwardMessage.senderID = clientNode.Id;
+                            clientNode.WriteToClient(forwardMessage);
+                            return NodeResponse.succes;
+                        }
                         PostBox.instance.PostMessage(forwardMessage);
                         return NodeResponse.succes;
                     }

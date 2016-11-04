@@ -17,7 +17,7 @@ namespace Server
 
         private PasswordBank passwordBank;
 
-        private PasswordNode() : base(MessageHandler)
+        private PasswordNode() : base(MessageHandler, Identifier.PASSWORD_NODE)
         {
             if (File.Exists("passwords.pswrd"))
                 passwordBank = JsonConvert.DeserializeObject<PasswordBank>(File.ReadAllText("passwords.pswrd"));
@@ -38,10 +38,8 @@ namespace Server
                     #region SALT_REQUEST
                     byte[] saltBytes;
                     PasswordBank.Response response;
-                    if (message.message.mode == true)
-                        response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
-                    else
-                        response = passwordNode.passwordBank.GetSalt((int) message.message.userid, out saltBytes);
+
+                    response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
 
                     if (response == PasswordBank.Response.SUCCES)
                         returnMessage = new Message(
@@ -51,7 +49,7 @@ namespace Server
                             message.type,
                             true,
                             true,
-                            new {salt = Convert.ToBase64String(saltBytes)});
+                            new {salt = Convert.ToBase64String(saltBytes), username = (string)message.message.username});
                     else
                         returnMessage = new Message(
                             passwordNode.Id,
@@ -69,16 +67,13 @@ namespace Server
 
                     PasswordBank.Response response;
                     byte[] hash = Convert.FromBase64String((string) message.message.hash);
-                    if (message.message.mode == true)
+
                         response = passwordNode.passwordBank.VerifyLogin((string) message.message.username, hash);
-                    else
-                        response = passwordNode.passwordBank.VerifyLogin((int) message.message.userid, hash);
 
                     int id;
-                    if (message.message.mode)
-                        passwordNode.passwordBank.GetID(message.message.username, out id);
-                    else
-                        id = message.message.userid;
+
+                        passwordNode.passwordBank.GetID((string)message.message.username, out id);
+
                     returnMessage = new Message(
                         passwordNode.Id,
                         message.senderID,
@@ -89,7 +84,8 @@ namespace Server
                         new
                         {
                             response = response,
-                            id = id
+                            userid = id,
+                            username = message.message.username
                         });
 
                     #endregion
@@ -132,16 +128,13 @@ namespace Server
 
                     PasswordBank.Response response;
                     byte[] hash = Convert.FromBase64String(message.message.hash);
-                    if (message.message.mode == true)
-                        response = passwordNode.passwordBank.VerifyUser((string) message.message.username, hash);
-                    else
+
                         response = passwordNode.passwordBank.VerifyUser((int) message.message.userid, hash);
 
                     int id;
-                    if (message.message.mode)
+
                         passwordNode.passwordBank.GetID(message.message.username, out id);
-                    else
-                        id = message.message.userid;
+
 
                     returnMessage = new Message(
                         passwordNode.Id,
@@ -153,7 +146,8 @@ namespace Server
                         new
                         {
                             response = response,
-                            id = id
+                            id = id,
+                            username = message.message.username
                         });
 
                     #endregion
