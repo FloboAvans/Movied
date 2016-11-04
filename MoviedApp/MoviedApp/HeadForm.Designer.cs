@@ -114,13 +114,6 @@ namespace MoviedApp
             this.watchedLabel = new System.Windows.Forms.Label();
             this.friendsLabel = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.filmInfoHeaderPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.searchTextBox2 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.filmNameLabel = new System.Windows.Forms.Label();
             this.libraryHeaderPanel = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.filterButton = new System.Windows.Forms.PictureBox();
@@ -129,6 +122,13 @@ namespace MoviedApp
             this.genreLabel = new System.Windows.Forms.Label();
             this.timelineHeaderPanel = new System.Windows.Forms.Panel();
             this.homeLabel = new System.Windows.Forms.Label();
+            this.filmInfoHeaderPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.searchTextBox2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.filmNameLabel = new System.Windows.Forms.Label();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
@@ -175,16 +175,16 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            this.filmInfoHeaderPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            this.tableLayoutPanel11.SuspendLayout();
             this.libraryHeaderPanel.SuspendLayout();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.filterButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
             this.timelineHeaderPanel.SuspendLayout();
+            this.filmInfoHeaderPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            this.tableLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.titleBar.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -1410,93 +1410,6 @@ namespace MoviedApp
             this.headerPanel.Size = new System.Drawing.Size(793, 78);
             this.headerPanel.TabIndex = 4;
             // 
-            // filmInfoHeaderPanel
-            // 
-            this.filmInfoHeaderPanel.Controls.Add(this.panel2);
-            this.filmInfoHeaderPanel.Controls.Add(this.tableLayoutPanel11);
-            this.filmInfoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filmInfoHeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.filmInfoHeaderPanel.Name = "filmInfoHeaderPanel";
-            this.filmInfoHeaderPanel.Size = new System.Drawing.Size(793, 78);
-            this.filmInfoHeaderPanel.TabIndex = 4;
-            this.filmInfoHeaderPanel.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
-            this.panel2.Controls.Add(this.pictureBox17);
-            this.panel2.Controls.Add(this.pictureBox18);
-            this.panel2.Controls.Add(this.searchTextBox2);
-            this.panel2.Location = new System.Drawing.Point(551, -1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 33);
-            this.panel2.TabIndex = 6;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox17.BackgroundImage = global::MoviedApp.Properties.Resources.filterButton;
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox17.Location = new System.Drawing.Point(174, 8);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(18, 17);
-            this.pictureBox17.TabIndex = 5;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox18.BackgroundImage = global::MoviedApp.Properties.Resources.searchButton;
-            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox18.Location = new System.Drawing.Point(199, 8);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(18, 17);
-            this.pictureBox18.TabIndex = 4;
-            this.pictureBox18.TabStop = false;
-            // 
-            // searchTextBox2
-            // 
-            this.searchTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
-            this.searchTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox2.ForeColor = System.Drawing.Color.White;
-            this.searchTextBox2.Location = new System.Drawing.Point(9, 2);
-            this.searchTextBox2.Name = "searchTextBox2";
-            this.searchTextBox2.Size = new System.Drawing.Size(159, 28);
-            this.searchTextBox2.TabIndex = 3;
-            this.searchTextBox2.Text = "search";
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 1;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Controls.Add(this.filmNameLabel, 0, 1);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(793, 78);
-            this.tableLayoutPanel11.TabIndex = 0;
-            // 
-            // filmNameLabel
-            // 
-            this.filmNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.filmNameLabel.AutoSize = true;
-            this.filmNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filmNameLabel.ForeColor = System.Drawing.Color.White;
-            this.filmNameLabel.Location = new System.Drawing.Point(236, 24);
-            this.filmNameLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.filmNameLabel.Name = "filmNameLabel";
-            this.filmNameLabel.Size = new System.Drawing.Size(557, 54);
-            this.filmNameLabel.TabIndex = 2;
-            this.filmNameLabel.Text = "STAR TREK BEYOND";
-            this.filmNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
             // libraryHeaderPanel
             // 
             this.libraryHeaderPanel.Controls.Add(this.searchPanel);
@@ -1588,6 +1501,93 @@ namespace MoviedApp
             this.homeLabel.Size = new System.Drawing.Size(519, 69);
             this.homeLabel.TabIndex = 1;
             this.homeLabel.Text = "WELCOME BACK";
+            // 
+            // filmInfoHeaderPanel
+            // 
+            this.filmInfoHeaderPanel.Controls.Add(this.panel2);
+            this.filmInfoHeaderPanel.Controls.Add(this.tableLayoutPanel11);
+            this.filmInfoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filmInfoHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.filmInfoHeaderPanel.Name = "filmInfoHeaderPanel";
+            this.filmInfoHeaderPanel.Size = new System.Drawing.Size(793, 78);
+            this.filmInfoHeaderPanel.TabIndex = 4;
+            this.filmInfoHeaderPanel.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.panel2.Controls.Add(this.pictureBox17);
+            this.panel2.Controls.Add(this.pictureBox18);
+            this.panel2.Controls.Add(this.searchTextBox2);
+            this.panel2.Location = new System.Drawing.Point(551, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(225, 33);
+            this.panel2.TabIndex = 6;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox17.BackgroundImage = global::MoviedApp.Properties.Resources.filterButton;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox17.Location = new System.Drawing.Point(174, 8);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(18, 17);
+            this.pictureBox17.TabIndex = 5;
+            this.pictureBox17.TabStop = false;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox18.BackgroundImage = global::MoviedApp.Properties.Resources.searchButton;
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox18.Location = new System.Drawing.Point(199, 8);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(18, 17);
+            this.pictureBox18.TabIndex = 4;
+            this.pictureBox18.TabStop = false;
+            // 
+            // searchTextBox2
+            // 
+            this.searchTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.searchTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox2.ForeColor = System.Drawing.Color.White;
+            this.searchTextBox2.Location = new System.Drawing.Point(9, 2);
+            this.searchTextBox2.Name = "searchTextBox2";
+            this.searchTextBox2.Size = new System.Drawing.Size(159, 28);
+            this.searchTextBox2.TabIndex = 3;
+            this.searchTextBox2.Text = "search";
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Controls.Add(this.filmNameLabel, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(793, 78);
+            this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // filmNameLabel
+            // 
+            this.filmNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.filmNameLabel.AutoSize = true;
+            this.filmNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filmNameLabel.ForeColor = System.Drawing.Color.White;
+            this.filmNameLabel.Location = new System.Drawing.Point(236, 24);
+            this.filmNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.filmNameLabel.Name = "filmNameLabel";
+            this.filmNameLabel.Size = new System.Drawing.Size(557, 54);
+            this.filmNameLabel.TabIndex = 2;
+            this.filmNameLabel.Text = "STAR TREK BEYOND";
+            this.filmNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // userPictureBox
             // 
@@ -1867,13 +1867,6 @@ namespace MoviedApp
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.headerPanel.ResumeLayout(false);
-            this.filmInfoHeaderPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
             this.libraryHeaderPanel.ResumeLayout(false);
             this.libraryHeaderPanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
@@ -1882,6 +1875,13 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).EndInit();
             this.timelineHeaderPanel.ResumeLayout(false);
             this.timelineHeaderPanel.PerformLayout();
+            this.filmInfoHeaderPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.titleBar.ResumeLayout(false);
             this.loginPanel.ResumeLayout(false);
