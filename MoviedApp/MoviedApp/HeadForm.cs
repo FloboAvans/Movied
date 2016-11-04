@@ -564,6 +564,13 @@ namespace MoviedApp
                 Console.WriteLine("Enter");
             }
         }
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginButton_Click(sender, e);
+            }
+        }
         private void loginButton_Click(object sender, EventArgs e)
         {
             usernameError.Visible = false;
@@ -962,6 +969,7 @@ namespace MoviedApp
             clearAllPanels();
             filmInfoHeaderPanel.Visible = true;
             filmInfoHeaderPanel.Enabled = true;
+            reviewTextBox.Clear();
             filmImageCheckin.ImageLocation = Path.Combine("https://image.tmdb.org/t/p/w500" + movie.Poster);
             checkinPanel.Visible = true;
             checkinPanel.Enabled = true;

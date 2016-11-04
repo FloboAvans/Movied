@@ -281,7 +281,7 @@ namespace RatingControls
             g.FillPolygon(fillBrush, p);
             g.DrawPolygon(outlinePen, p);
         }
-
+        
         protected override void OnMouseEnter(System.EventArgs ea)
         {
             m_hovering = true;
