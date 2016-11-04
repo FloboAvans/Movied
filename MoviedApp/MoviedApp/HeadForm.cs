@@ -28,7 +28,7 @@ namespace MoviedApp
         private FontFamily _quicksandRegular;
         private FontFamily _quicksandBold;
 
-        private MovieApiCalls apiCalls;
+        private Movies mostPopularMovies;
         private Movie movie;
 
         private static string apiKey = "c84acd026332c3ab0c37200ff32e6f07";
@@ -41,9 +41,7 @@ namespace MoviedApp
 
             this.FormBorderStyle = FormBorderStyle.None;
 
-            this.apiCalls = new MovieApiCalls("c84acd026332c3ab0c37200ff32e6f07");
-
-            CargoPrivateFontCollection();
+           CargoPrivateFontCollection();
             Fonts();
 
             clearAllPanels();
@@ -672,8 +670,16 @@ namespace MoviedApp
         {
             if (!(libraryPanel.Visible && libraryPanel.Enabled))
             {
+                Task t = Task.Factory.StartNew(() =>
+                {
+                    var client = new ServiceClient(apiKey);//TODO
+                    mostPopularMovies = client.Movies.GetPopularAsync(null, 1, new CancellationToken(false)).Result;
+                });
+
+                t.Wait();
+
                 clearAllPanels();
-                FillLibraryTable(apiCalls.getPopularMovies());
+                FillLibraryTable(mostPopularMovies);
                 libraryHeaderPanel.Visible = true;
                 libraryHeaderPanel.Enabled = true;
                 libraryPanel.Visible = true;
