@@ -35,6 +35,20 @@ namespace MoviedApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeadForm));
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.headPanel = new System.Windows.Forms.Panel();
+            this.checkinPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkinConfirmButton = new System.Windows.Forms.Label();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.filmImageCheckin = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.ratingTitleLabel = new System.Windows.Forms.Label();
+            this.checkinRating = new RatingControls.Rating();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.reviewTextBox = new System.Windows.Forms.TextBox();
+            this.reviewTitleLabel = new System.Windows.Forms.Label();
             this.filmInfoPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,52 +97,56 @@ namespace MoviedApp
             this.castName3 = new System.Windows.Forms.Label();
             this.wishlistPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.watchedPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.checkinsPanel = new System.Windows.Forms.Panel();
+            this.checkinsTable = new System.Windows.Forms.TableLayoutPanel();
             this.friendsPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.timelinePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.libraryPanel = new System.Windows.Forms.Panel();
             this.libraryTable = new System.Windows.Forms.TableLayoutPanel();
-            this.checkinPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkinConfirmButton = new System.Windows.Forms.Label();
-            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.filmImageCheckin = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.ratingTitleLabel = new System.Windows.Forms.Label();
-            this.checkinRating = new RatingControls.Rating();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.reviewTextBox = new System.Windows.Forms.TextBox();
-            this.reviewTitleLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.wishlistLabel = new System.Windows.Forms.Label();
             this.timelineLabel = new System.Windows.Forms.Label();
             this.libraryLabel = new System.Windows.Forms.Label();
-            this.watchedLabel = new System.Windows.Forms.Label();
+            this.checkinsLabel = new System.Windows.Forms.Label();
             this.friendsLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.libraryHeaderPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.filterComingSoon = new System.Windows.Forms.Label();
+            this.filterInTheater = new System.Windows.Forms.Label();
+            this.filterMostPopular = new System.Windows.Forms.Label();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.filterButton = new System.Windows.Forms.PictureBox();
             this.searchButton = new System.Windows.Forms.PictureBox();
             this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.genreLabel = new System.Windows.Forms.Label();
             this.timelineHeaderPanel = new System.Windows.Forms.Panel();
             this.homeLabel = new System.Windows.Forms.Label();
             this.filmInfoHeaderPanel = new System.Windows.Forms.Panel();
+            this.backButton = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.searchTextBox2 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.filmNameLabel = new System.Windows.Forms.Label();
+            this.checkinsHeaderPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.filterLowestRatedCheckins = new System.Windows.Forms.Label();
+            this.filterTopRatedCheckins = new System.Windows.Forms.Label();
+            this.filterNewestCheckins = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.searchBoxCheckins = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkinsTitle = new System.Windows.Forms.Label();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
@@ -145,6 +163,15 @@ namespace MoviedApp
             this.accountExistsError = new System.Windows.Forms.Label();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
+            this.checkinPanel.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.filmInfoPanel.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -158,33 +185,32 @@ namespace MoviedApp
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.wishlistPanel.SuspendLayout();
-            this.watchedPanel.SuspendLayout();
+            this.checkinsPanel.SuspendLayout();
             this.friendsPanel.SuspendLayout();
             this.timelinePanel.SuspendLayout();
             this.libraryPanel.SuspendLayout();
-            this.checkinPanel.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            this.tableLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.headerPanel.SuspendLayout();
             this.libraryHeaderPanel.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.filterButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
+            this.tableLayoutPanel20.SuspendLayout();
             this.timelineHeaderPanel.SuspendLayout();
             this.filmInfoHeaderPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.tableLayoutPanel11.SuspendLayout();
+            this.checkinsHeaderPanel.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tableLayoutPanel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.titleBar.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -217,18 +243,217 @@ namespace MoviedApp
             // headPanel
             // 
             this.headPanel.BackColor = System.Drawing.Color.Transparent;
+            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Controls.Add(this.filmInfoPanel);
             this.headPanel.Controls.Add(this.wishlistPanel);
-            this.headPanel.Controls.Add(this.watchedPanel);
+            this.headPanel.Controls.Add(this.checkinsPanel);
             this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Controls.Add(this.timelinePanel);
             this.headPanel.Controls.Add(this.libraryPanel);
-            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headPanel.Location = new System.Drawing.Point(153, 115);
             this.headPanel.Name = "headPanel";
             this.headPanel.Size = new System.Drawing.Size(793, 425);
             this.headPanel.TabIndex = 3;
+            // 
+            // checkinPanel
+            // 
+            this.checkinPanel.Controls.Add(this.tableLayoutPanel13);
+            this.checkinPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkinPanel.Location = new System.Drawing.Point(0, 0);
+            this.checkinPanel.Name = "checkinPanel";
+            this.checkinPanel.Size = new System.Drawing.Size(793, 425);
+            this.checkinPanel.TabIndex = 23;
+            this.checkinPanel.Visible = false;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel15, 0, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 2;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(793, 425);
+            this.tableLayoutPanel13.TabIndex = 2;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 4;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel14.Controls.Add(this.checkinConfirmButton, 3, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 387);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(787, 35);
+            this.tableLayoutPanel14.TabIndex = 1;
+            // 
+            // checkinConfirmButton
+            // 
+            this.checkinConfirmButton.AutoSize = true;
+            this.checkinConfirmButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkinConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkinConfirmButton.ForeColor = System.Drawing.Color.White;
+            this.checkinConfirmButton.Location = new System.Drawing.Point(654, 0);
+            this.checkinConfirmButton.Name = "checkinConfirmButton";
+            this.checkinConfirmButton.Size = new System.Drawing.Size(130, 35);
+            this.checkinConfirmButton.TabIndex = 11;
+            this.checkinConfirmButton.Text = "Check in";
+            this.checkinConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkinConfirmButton.Click += new System.EventHandler(this.checkinConfirmButton_Click);
+            this.checkinConfirmButton.MouseEnter += new System.EventHandler(this.checkinConfirmButton_MouseEnter);
+            this.checkinConfirmButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.AutoScroll = true;
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00378F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.99622F));
+            this.tableLayoutPanel15.Controls.Add(this.filmImageCheckin, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 378F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(787, 378);
+            this.tableLayoutPanel15.TabIndex = 0;
+            // 
+            // filmImageCheckin
+            // 
+            this.filmImageCheckin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filmImageCheckin.Image = ((System.Drawing.Image)(resources.GetObject("filmImageCheckin.Image")));
+            this.filmImageCheckin.Location = new System.Drawing.Point(10, 10);
+            this.filmImageCheckin.Margin = new System.Windows.Forms.Padding(10);
+            this.filmImageCheckin.Name = "filmImageCheckin";
+            this.filmImageCheckin.Size = new System.Drawing.Size(208, 288);
+            this.filmImageCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.filmImageCheckin.TabIndex = 0;
+            this.filmImageCheckin.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.tableLayoutPanel16);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(231, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(553, 372);
+            this.panel4.TabIndex = 1;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 1;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 0, 2);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 5;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(553, 372);
+            this.tableLayoutPanel16.TabIndex = 1;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.ratingTitleLabel, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.checkinRating, 0, 1);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 2;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(547, 81);
+            this.tableLayoutPanel17.TabIndex = 6;
+            // 
+            // ratingTitleLabel
+            // 
+            this.ratingTitleLabel.AutoSize = true;
+            this.ratingTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.ratingTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.ratingTitleLabel.Name = "ratingTitleLabel";
+            this.ratingTitleLabel.Size = new System.Drawing.Size(56, 20);
+            this.ratingTitleLabel.TabIndex = 5;
+            this.ratingTitleLabel.Text = "Rating";
+            // 
+            // checkinRating
+            // 
+            this.checkinRating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkinRating.BottomMargin = 2;
+            this.checkinRating.HoverColor = System.Drawing.Color.White;
+            this.checkinRating.LeftMargin = 2;
+            this.checkinRating.Location = new System.Drawing.Point(18, 30);
+            this.checkinRating.Margin = new System.Windows.Forms.Padding(18, 10, 18, 10);
+            this.checkinRating.Name = "checkinRating";
+            this.checkinRating.OutlineColor = System.Drawing.Color.White;
+            this.checkinRating.OutlineThickness = 1;
+            this.checkinRating.RightMargin = 2;
+            this.checkinRating.SelectedColor = System.Drawing.Color.White;
+            this.checkinRating.Size = new System.Drawing.Size(511, 41);
+            this.checkinRating.StarCount = 10;
+            this.checkinRating.StarSpacing = 8;
+            this.checkinRating.TabIndex = 1;
+            this.checkinRating.Text = "Rating";
+            this.checkinRating.TopMargin = 2;
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 1;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Controls.Add(this.reviewTextBox, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.reviewTitleLabel, 0, 0);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 103);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 2;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(547, 81);
+            this.tableLayoutPanel18.TabIndex = 8;
+            // 
+            // reviewTextBox
+            // 
+            this.reviewTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.reviewTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reviewTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reviewTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reviewTextBox.ForeColor = System.Drawing.Color.White;
+            this.reviewTextBox.Location = new System.Drawing.Point(3, 23);
+            this.reviewTextBox.Multiline = true;
+            this.reviewTextBox.Name = "reviewTextBox";
+            this.reviewTextBox.Size = new System.Drawing.Size(541, 70);
+            this.reviewTextBox.TabIndex = 2;
+            // 
+            // reviewTitleLabel
+            // 
+            this.reviewTitleLabel.AutoSize = true;
+            this.reviewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reviewTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.reviewTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.reviewTitleLabel.Name = "reviewTitleLabel";
+            this.reviewTitleLabel.Size = new System.Drawing.Size(60, 20);
+            this.reviewTitleLabel.TabIndex = 5;
+            this.reviewTitleLabel.Text = "Review";
             // 
             // filmInfoPanel
             // 
@@ -966,24 +1191,38 @@ namespace MoviedApp
             this.label4.TabIndex = 0;
             this.label4.Text = "Wishlist";
             // 
-            // watchedPanel
+            // checkinsPanel
             // 
-            this.watchedPanel.Controls.Add(this.label3);
-            this.watchedPanel.Location = new System.Drawing.Point(-2, 0);
-            this.watchedPanel.Name = "watchedPanel";
-            this.watchedPanel.Size = new System.Drawing.Size(793, 425);
-            this.watchedPanel.TabIndex = 21;
-            this.watchedPanel.Visible = false;
+            this.checkinsPanel.Controls.Add(this.checkinsTable);
+            this.checkinsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkinsPanel.Location = new System.Drawing.Point(0, 0);
+            this.checkinsPanel.Name = "checkinsPanel";
+            this.checkinsPanel.Size = new System.Drawing.Size(793, 425);
+            this.checkinsPanel.TabIndex = 21;
+            this.checkinsPanel.Visible = false;
             // 
-            // label3
+            // checkinsTable
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(423, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Watched";
+            this.checkinsTable.AutoScroll = true;
+            this.checkinsTable.BackColor = System.Drawing.Color.Transparent;
+            this.checkinsTable.ColumnCount = 6;
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkinsTable.Location = new System.Drawing.Point(0, 0);
+            this.checkinsTable.Name = "checkinsTable";
+            this.checkinsTable.RowCount = 5;
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.Size = new System.Drawing.Size(793, 425);
+            this.checkinsTable.TabIndex = 1;
             // 
             // friendsPanel
             // 
@@ -1059,203 +1298,6 @@ namespace MoviedApp
             this.libraryTable.Size = new System.Drawing.Size(793, 425);
             this.libraryTable.TabIndex = 0;
             // 
-            // checkinPanel
-            // 
-            this.checkinPanel.Controls.Add(this.tableLayoutPanel13);
-            this.checkinPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkinPanel.Location = new System.Drawing.Point(0, 0);
-            this.checkinPanel.Name = "checkinPanel";
-            this.checkinPanel.Size = new System.Drawing.Size(793, 425);
-            this.checkinPanel.TabIndex = 23;
-            this.checkinPanel.Visible = false;
-            // 
-            // tableLayoutPanel13
-            // 
-            this.tableLayoutPanel13.ColumnCount = 1;
-            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 1);
-            this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel15, 0, 0);
-            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
-            this.tableLayoutPanel13.RowCount = 2;
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(793, 425);
-            this.tableLayoutPanel13.TabIndex = 2;
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 4;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel14.Controls.Add(this.checkinConfirmButton, 3, 0);
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 387);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 1;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(787, 35);
-            this.tableLayoutPanel14.TabIndex = 1;
-            // 
-            // checkinConfirmButton
-            // 
-            this.checkinConfirmButton.AutoSize = true;
-            this.checkinConfirmButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkinConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkinConfirmButton.ForeColor = System.Drawing.Color.White;
-            this.checkinConfirmButton.Location = new System.Drawing.Point(654, 0);
-            this.checkinConfirmButton.Name = "checkinConfirmButton";
-            this.checkinConfirmButton.Size = new System.Drawing.Size(130, 35);
-            this.checkinConfirmButton.TabIndex = 11;
-            this.checkinConfirmButton.Text = "Check in";
-            this.checkinConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkinConfirmButton.Click += new System.EventHandler(this.checkinConfirmButton_Click);
-            // 
-            // tableLayoutPanel15
-            // 
-            this.tableLayoutPanel15.AutoScroll = true;
-            this.tableLayoutPanel15.ColumnCount = 2;
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00378F));
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.99622F));
-            this.tableLayoutPanel15.Controls.Add(this.filmImageCheckin, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.panel4, 1, 0);
-            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 1;
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 378F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(787, 378);
-            this.tableLayoutPanel15.TabIndex = 0;
-            // 
-            // filmImageCheckin
-            // 
-            this.filmImageCheckin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filmImageCheckin.Image = ((System.Drawing.Image)(resources.GetObject("filmImageCheckin.Image")));
-            this.filmImageCheckin.Location = new System.Drawing.Point(10, 10);
-            this.filmImageCheckin.Margin = new System.Windows.Forms.Padding(10);
-            this.filmImageCheckin.Name = "filmImageCheckin";
-            this.filmImageCheckin.Size = new System.Drawing.Size(208, 288);
-            this.filmImageCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.filmImageCheckin.TabIndex = 0;
-            this.filmImageCheckin.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.tableLayoutPanel16);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(231, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(553, 372);
-            this.panel4.TabIndex = 1;
-            // 
-            // tableLayoutPanel16
-            // 
-            this.tableLayoutPanel16.ColumnCount = 1;
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel17, 0, 1);
-            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 0, 2);
-            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
-            this.tableLayoutPanel16.RowCount = 5;
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(553, 372);
-            this.tableLayoutPanel16.TabIndex = 1;
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 1;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.ratingTitleLabel, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.checkinRating, 0, 1);
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 2;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(547, 81);
-            this.tableLayoutPanel17.TabIndex = 6;
-            // 
-            // ratingTitleLabel
-            // 
-            this.ratingTitleLabel.AutoSize = true;
-            this.ratingTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ratingTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.ratingTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.ratingTitleLabel.Name = "ratingTitleLabel";
-            this.ratingTitleLabel.Size = new System.Drawing.Size(56, 20);
-            this.ratingTitleLabel.TabIndex = 5;
-            this.ratingTitleLabel.Text = "Rating";
-            // 
-            // checkinRating
-            // 
-            this.checkinRating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkinRating.BottomMargin = 2;
-            this.checkinRating.HoverColor = System.Drawing.Color.White;
-            this.checkinRating.LeftMargin = 2;
-            this.checkinRating.Location = new System.Drawing.Point(18, 30);
-            this.checkinRating.Margin = new System.Windows.Forms.Padding(18, 10, 18, 10);
-            this.checkinRating.Name = "checkinRating";
-            this.checkinRating.OutlineColor = System.Drawing.Color.White;
-            this.checkinRating.OutlineThickness = 1;
-            this.checkinRating.RightMargin = 2;
-            this.checkinRating.SelectedColor = System.Drawing.Color.White;
-            this.checkinRating.Size = new System.Drawing.Size(511, 41);
-            this.checkinRating.StarCount = 10;
-            this.checkinRating.StarSpacing = 8;
-            this.checkinRating.TabIndex = 1;
-            this.checkinRating.Text = "Rating";
-            this.checkinRating.TopMargin = 2;
-            // 
-            // tableLayoutPanel18
-            // 
-            this.tableLayoutPanel18.ColumnCount = 1;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Controls.Add(this.reviewTextBox, 0, 1);
-            this.tableLayoutPanel18.Controls.Add(this.reviewTitleLabel, 0, 0);
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 103);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 2;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(547, 81);
-            this.tableLayoutPanel18.TabIndex = 8;
-            // 
-            // reviewTextBox
-            // 
-            this.reviewTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.reviewTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.reviewTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reviewTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reviewTextBox.ForeColor = System.Drawing.Color.White;
-            this.reviewTextBox.Location = new System.Drawing.Point(3, 23);
-            this.reviewTextBox.Multiline = true;
-            this.reviewTextBox.Name = "reviewTextBox";
-            this.reviewTextBox.Size = new System.Drawing.Size(541, 70);
-            this.reviewTextBox.TabIndex = 2;
-            // 
-            // reviewTitleLabel
-            // 
-            this.reviewTitleLabel.AutoSize = true;
-            this.reviewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reviewTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.reviewTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.reviewTitleLabel.Name = "reviewTitleLabel";
-            this.reviewTitleLabel.Size = new System.Drawing.Size(60, 20);
-            this.reviewTitleLabel.TabIndex = 5;
-            this.reviewTitleLabel.Text = "Review";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1263,13 +1305,16 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.usernameLabel, 0, 0);
+            this.tableLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 115);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(144, 425);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -1279,10 +1324,10 @@ namespace MoviedApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::MoviedApp.Properties.Resources.logo_movied;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 387);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 402);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(114, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(114, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1295,9 +1340,9 @@ namespace MoviedApp
             this.tableLayoutPanel2.Controls.Add(this.wishlistLabel, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.timelineLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.libraryLabel, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.watchedLabel, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.checkinsLabel, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.friendsLabel, 0, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 92);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 107);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -1363,23 +1408,23 @@ namespace MoviedApp
             this.libraryLabel.MouseEnter += new System.EventHandler(this.libraryLabel_MouseEnter);
             this.libraryLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
-            // watchedLabel
+            // checkinsLabel
             // 
-            this.watchedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.checkinsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.watchedLabel.AutoSize = true;
-            this.watchedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.watchedLabel.ForeColor = System.Drawing.Color.White;
-            this.watchedLabel.Location = new System.Drawing.Point(3, 120);
-            this.watchedLabel.Name = "watchedLabel";
-            this.watchedLabel.Size = new System.Drawing.Size(132, 40);
-            this.watchedLabel.TabIndex = 3;
-            this.watchedLabel.Text = "Watched";
-            this.watchedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.watchedLabel.Click += new System.EventHandler(this.watchedLabel_Click);
-            this.watchedLabel.MouseEnter += new System.EventHandler(this.watchedLabel_MouseEnter);
-            this.watchedLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            this.checkinsLabel.AutoSize = true;
+            this.checkinsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkinsLabel.ForeColor = System.Drawing.Color.White;
+            this.checkinsLabel.Location = new System.Drawing.Point(3, 120);
+            this.checkinsLabel.Name = "checkinsLabel";
+            this.checkinsLabel.Size = new System.Drawing.Size(132, 40);
+            this.checkinsLabel.TabIndex = 3;
+            this.checkinsLabel.Text = "Check-ins";
+            this.checkinsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkinsLabel.Click += new System.EventHandler(this.checkinsLabel_Click);
+            this.checkinsLabel.MouseEnter += new System.EventHandler(this.checkinsLabel_MouseEnter);
+            this.checkinsLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // friendsLabel
             // 
@@ -1399,11 +1444,23 @@ namespace MoviedApp
             this.friendsLabel.MouseEnter += new System.EventHandler(this.friendsLabel_MouseEnter);
             this.friendsLabel.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usernameLabel.Location = new System.Drawing.Point(3, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(138, 15);
+            this.usernameLabel.TabIndex = 2;
+            this.usernameLabel.Text = "no user";
+            this.usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // headerPanel
             // 
             this.headerPanel.Controls.Add(this.libraryHeaderPanel);
             this.headerPanel.Controls.Add(this.timelineHeaderPanel);
             this.headerPanel.Controls.Add(this.filmInfoHeaderPanel);
+            this.headerPanel.Controls.Add(this.checkinsHeaderPanel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerPanel.Location = new System.Drawing.Point(153, 31);
             this.headerPanel.Name = "headerPanel";
@@ -1412,14 +1469,86 @@ namespace MoviedApp
             // 
             // libraryHeaderPanel
             // 
+            this.libraryHeaderPanel.Controls.Add(this.tableLayoutPanel19);
             this.libraryHeaderPanel.Controls.Add(this.searchPanel);
-            this.libraryHeaderPanel.Controls.Add(this.genreLabel);
+            this.libraryHeaderPanel.Controls.Add(this.tableLayoutPanel20);
             this.libraryHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.libraryHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.libraryHeaderPanel.Name = "libraryHeaderPanel";
             this.libraryHeaderPanel.Size = new System.Drawing.Size(793, 78);
             this.libraryHeaderPanel.TabIndex = 3;
             this.libraryHeaderPanel.Visible = false;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 3;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel19.Controls.Add(this.filterComingSoon, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.filterInTheater, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.filterMostPopular, 0, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 1;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(793, 34);
+            this.tableLayoutPanel19.TabIndex = 5;
+            // 
+            // filterComingSoon
+            // 
+            this.filterComingSoon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterComingSoon.AutoSize = true;
+            this.filterComingSoon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterComingSoon.ForeColor = System.Drawing.Color.White;
+            this.filterComingSoon.Location = new System.Drawing.Point(531, 0);
+            this.filterComingSoon.Name = "filterComingSoon";
+            this.filterComingSoon.Size = new System.Drawing.Size(259, 34);
+            this.filterComingSoon.TabIndex = 3;
+            this.filterComingSoon.Text = "coming soon";
+            this.filterComingSoon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterComingSoon.Click += new System.EventHandler(this.filterComingSoon_Click);
+            this.filterComingSoon.MouseEnter += new System.EventHandler(this.filterComingSoon_MouseEnter);
+            this.filterComingSoon.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // filterInTheater
+            // 
+            this.filterInTheater.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterInTheater.AutoSize = true;
+            this.filterInTheater.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterInTheater.ForeColor = System.Drawing.Color.White;
+            this.filterInTheater.Location = new System.Drawing.Point(267, 0);
+            this.filterInTheater.Name = "filterInTheater";
+            this.filterInTheater.Size = new System.Drawing.Size(258, 34);
+            this.filterInTheater.TabIndex = 2;
+            this.filterInTheater.Text = "in theater";
+            this.filterInTheater.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterInTheater.Click += new System.EventHandler(this.filterInTheater_Click);
+            this.filterInTheater.MouseEnter += new System.EventHandler(this.filterInTheater_MouseEnter);
+            this.filterInTheater.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // filterMostPopular
+            // 
+            this.filterMostPopular.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterMostPopular.AutoSize = true;
+            this.filterMostPopular.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterMostPopular.ForeColor = System.Drawing.Color.White;
+            this.filterMostPopular.Location = new System.Drawing.Point(3, 0);
+            this.filterMostPopular.Name = "filterMostPopular";
+            this.filterMostPopular.Size = new System.Drawing.Size(258, 34);
+            this.filterMostPopular.TabIndex = 1;
+            this.filterMostPopular.Text = "most popular";
+            this.filterMostPopular.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterMostPopular.Click += new System.EventHandler(this.filterMostPopular_Click);
+            this.filterMostPopular.MouseEnter += new System.EventHandler(this.filterMostPopular_MouseEnter);
+            this.filterMostPopular.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // searchPanel
             // 
@@ -1467,6 +1596,21 @@ namespace MoviedApp
             this.searchTextBox.Size = new System.Drawing.Size(243, 28);
             this.searchTextBox.TabIndex = 3;
             this.searchTextBox.Text = "search";
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 1;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel20.Controls.Add(this.genreLabel, 0, 1);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 2;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(793, 78);
+            this.tableLayoutPanel20.TabIndex = 6;
             // 
             // genreLabel
             // 
@@ -1474,11 +1618,12 @@ namespace MoviedApp
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreLabel.ForeColor = System.Drawing.Color.White;
-            this.genreLabel.Location = new System.Drawing.Point(304, 22);
+            this.genreLabel.Location = new System.Drawing.Point(284, 24);
             this.genreLabel.Name = "genreLabel";
-            this.genreLabel.Size = new System.Drawing.Size(506, 69);
+            this.genreLabel.Size = new System.Drawing.Size(506, 54);
             this.genreLabel.TabIndex = 0;
             this.genreLabel.Text = "MOST POPULAR";
+            this.genreLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // timelineHeaderPanel
             // 
@@ -1504,6 +1649,7 @@ namespace MoviedApp
             // 
             // filmInfoHeaderPanel
             // 
+            this.filmInfoHeaderPanel.Controls.Add(this.backButton);
             this.filmInfoHeaderPanel.Controls.Add(this.panel2);
             this.filmInfoHeaderPanel.Controls.Add(this.tableLayoutPanel11);
             this.filmInfoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1512,6 +1658,21 @@ namespace MoviedApp
             this.filmInfoHeaderPanel.Size = new System.Drawing.Size(793, 78);
             this.filmInfoHeaderPanel.TabIndex = 4;
             this.filmInfoHeaderPanel.Visible = false;
+            // 
+            // backButton
+            // 
+            this.backButton.AutoSize = true;
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.White;
+            this.backButton.Location = new System.Drawing.Point(0, 0);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(64, 29);
+            this.backButton.TabIndex = 11;
+            this.backButton.Text = "back";
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.MouseEnter += new System.EventHandler(this.backButton_MouseEnter);
+            this.backButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
             // panel2
             // 
@@ -1588,6 +1749,163 @@ namespace MoviedApp
             this.filmNameLabel.TabIndex = 2;
             this.filmNameLabel.Text = "STAR TREK BEYOND";
             this.filmNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // checkinsHeaderPanel
+            // 
+            this.checkinsHeaderPanel.Controls.Add(this.tableLayoutPanel21);
+            this.checkinsHeaderPanel.Controls.Add(this.panel5);
+            this.checkinsHeaderPanel.Controls.Add(this.tableLayoutPanel22);
+            this.checkinsHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkinsHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.checkinsHeaderPanel.Name = "checkinsHeaderPanel";
+            this.checkinsHeaderPanel.Size = new System.Drawing.Size(793, 78);
+            this.checkinsHeaderPanel.TabIndex = 5;
+            this.checkinsHeaderPanel.Visible = false;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 3;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel21.Controls.Add(this.filterLowestRatedCheckins, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.filterTopRatedCheckins, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.filterNewestCheckins, 0, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(793, 34);
+            this.tableLayoutPanel21.TabIndex = 5;
+            // 
+            // filterLowestRatedCheckins
+            // 
+            this.filterLowestRatedCheckins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterLowestRatedCheckins.AutoSize = true;
+            this.filterLowestRatedCheckins.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterLowestRatedCheckins.ForeColor = System.Drawing.Color.White;
+            this.filterLowestRatedCheckins.Location = new System.Drawing.Point(531, 0);
+            this.filterLowestRatedCheckins.Name = "filterLowestRatedCheckins";
+            this.filterLowestRatedCheckins.Size = new System.Drawing.Size(259, 34);
+            this.filterLowestRatedCheckins.TabIndex = 3;
+            this.filterLowestRatedCheckins.Text = "lowest rated";
+            this.filterLowestRatedCheckins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterLowestRatedCheckins.Click += new System.EventHandler(this.filterLowestRatedCheckins_Click);
+            this.filterLowestRatedCheckins.MouseEnter += new System.EventHandler(this.filterLowestRatedCheckins_MouseEnter);
+            this.filterLowestRatedCheckins.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // filterTopRatedCheckins
+            // 
+            this.filterTopRatedCheckins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterTopRatedCheckins.AutoSize = true;
+            this.filterTopRatedCheckins.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterTopRatedCheckins.ForeColor = System.Drawing.Color.White;
+            this.filterTopRatedCheckins.Location = new System.Drawing.Point(267, 0);
+            this.filterTopRatedCheckins.Name = "filterTopRatedCheckins";
+            this.filterTopRatedCheckins.Size = new System.Drawing.Size(258, 34);
+            this.filterTopRatedCheckins.TabIndex = 2;
+            this.filterTopRatedCheckins.Text = "top rated";
+            this.filterTopRatedCheckins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterTopRatedCheckins.Click += new System.EventHandler(this.filterTopRatedCheckins_Click);
+            this.filterTopRatedCheckins.MouseEnter += new System.EventHandler(this.filterTopRatedCheckins_MouseEnter);
+            this.filterTopRatedCheckins.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // filterNewestCheckins
+            // 
+            this.filterNewestCheckins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterNewestCheckins.AutoSize = true;
+            this.filterNewestCheckins.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterNewestCheckins.ForeColor = System.Drawing.Color.White;
+            this.filterNewestCheckins.Location = new System.Drawing.Point(3, 0);
+            this.filterNewestCheckins.Name = "filterNewestCheckins";
+            this.filterNewestCheckins.Size = new System.Drawing.Size(258, 34);
+            this.filterNewestCheckins.TabIndex = 1;
+            this.filterNewestCheckins.Text = "newest";
+            this.filterNewestCheckins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.filterNewestCheckins.Click += new System.EventHandler(this.filterNewestCheckins_Click);
+            this.filterNewestCheckins.MouseEnter += new System.EventHandler(this.filterNewestCheckins_MouseEnter);
+            this.filterNewestCheckins.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.pictureBox3);
+            this.panel5.Controls.Add(this.searchBoxCheckins);
+            this.panel5.Location = new System.Drawing.Point(3, 40);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(309, 34);
+            this.panel5.TabIndex = 4;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackgroundImage = global::MoviedApp.Properties.Resources.filterButton;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(258, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.BackgroundImage = global::MoviedApp.Properties.Resources.searchButton;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(283, 8);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(18, 18);
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // searchBoxCheckins
+            // 
+            this.searchBoxCheckins.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.searchBoxCheckins.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchBoxCheckins.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBoxCheckins.ForeColor = System.Drawing.Color.White;
+            this.searchBoxCheckins.Location = new System.Drawing.Point(9, 2);
+            this.searchBoxCheckins.Name = "searchBoxCheckins";
+            this.searchBoxCheckins.Size = new System.Drawing.Size(243, 28);
+            this.searchBoxCheckins.TabIndex = 3;
+            this.searchBoxCheckins.Text = "search";
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Controls.Add(this.checkinsTitle, 0, 1);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 2;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(793, 78);
+            this.tableLayoutPanel22.TabIndex = 6;
+            // 
+            // checkinsTitle
+            // 
+            this.checkinsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkinsTitle.AutoSize = true;
+            this.checkinsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkinsTitle.ForeColor = System.Drawing.Color.White;
+            this.checkinsTitle.Location = new System.Drawing.Point(431, 24);
+            this.checkinsTitle.Name = "checkinsTitle";
+            this.checkinsTitle.Size = new System.Drawing.Size(359, 54);
+            this.checkinsTitle.TabIndex = 0;
+            this.checkinsTitle.Text = "CHECK-INS";
+            this.checkinsTitle.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // userPictureBox
             // 
@@ -1815,14 +2133,27 @@ namespace MoviedApp
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(953, 547);
             this.Controls.Add(this.titleBar);
-            this.Controls.Add(this.Layout);
             this.Controls.Add(this.loginPanel);
+            this.Controls.Add(this.Layout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(969, 39);
             this.Name = "HeadForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "HeadForm";
             this.Layout.ResumeLayout(false);
             this.headPanel.ResumeLayout(false);
+            this.checkinPanel.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
             this.filmInfoPanel.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1843,45 +2174,46 @@ namespace MoviedApp
             this.tableLayoutPanel6.PerformLayout();
             this.wishlistPanel.ResumeLayout(false);
             this.wishlistPanel.PerformLayout();
-            this.watchedPanel.ResumeLayout(false);
-            this.watchedPanel.PerformLayout();
+            this.checkinsPanel.ResumeLayout(false);
             this.friendsPanel.ResumeLayout(false);
             this.friendsPanel.PerformLayout();
             this.timelinePanel.ResumeLayout(false);
             this.timelinePanel.PerformLayout();
             this.libraryPanel.ResumeLayout(false);
-            this.checkinPanel.ResumeLayout(false);
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel14.ResumeLayout(false);
-            this.tableLayoutPanel14.PerformLayout();
-            this.tableLayoutPanel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.headerPanel.ResumeLayout(false);
             this.libraryHeaderPanel.ResumeLayout(false);
-            this.libraryHeaderPanel.PerformLayout();
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.filterButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).EndInit();
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel20.PerformLayout();
             this.timelineHeaderPanel.ResumeLayout(false);
             this.timelineHeaderPanel.PerformLayout();
             this.filmInfoHeaderPanel.ResumeLayout(false);
+            this.filmInfoHeaderPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
+            this.checkinsHeaderPanel.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tableLayoutPanel22.ResumeLayout(false);
+            this.tableLayoutPanel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.titleBar.ResumeLayout(false);
             this.loginPanel.ResumeLayout(false);
@@ -1900,7 +2232,7 @@ namespace MoviedApp
         private TableLayoutPanel tableLayoutPanel2;
         private Label friendsLabel;
         private Label libraryLabel;
-        private Label watchedLabel;
+        private Label checkinsLabel;
         public Label wishlistLabel;
         public Label timelineLabel;
         private TableLayoutPanel titleBar;
@@ -1914,8 +2246,7 @@ namespace MoviedApp
         private Label label1;
         private Panel wishlistPanel;
         private Label label4;
-        private Panel watchedPanel;
-        private Label label3;
+        private Panel checkinsPanel;
         private Panel libraryHeaderPanel;
         private Label genreLabel;
         private Panel timelineHeaderPanel;
@@ -2004,5 +2335,24 @@ namespace MoviedApp
         private Label castName3;
         private LinkLabel homepageFilm;
         private Label accountExistsError;
+        private TableLayoutPanel tableLayoutPanel19;
+        public Label filterComingSoon;
+        public Label filterInTheater;
+        public Label filterMostPopular;
+        private Label backButton;
+        private Label usernameLabel;
+        private TableLayoutPanel tableLayoutPanel20;
+        private TableLayoutPanel checkinsTable;
+        private Panel checkinsHeaderPanel;
+        private TableLayoutPanel tableLayoutPanel21;
+        public Label filterLowestRatedCheckins;
+        public Label filterTopRatedCheckins;
+        public Label filterNewestCheckins;
+        private Panel panel5;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private TextBox searchBoxCheckins;
+        private TableLayoutPanel tableLayoutPanel22;
+        private Label checkinsTitle;
     }
 }

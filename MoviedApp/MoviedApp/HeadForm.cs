@@ -28,10 +28,15 @@ namespace MoviedApp
         private FontFamily _quicksandRegular;
         private FontFamily _quicksandBold;
 
-        private Movies mostPopularMovies;
+        private Movies movies;
         private Movie movie;
 
+        private string filter = "MOSTPOPULAR";
+
         private static string apiKey = "c84acd026332c3ab0c37200ff32e6f07";
+
+        private List<Tuple<int,int,string>> checkinsList = new List<Tuple<int, int, string>>();
+        private List<Movie> checkinMovies = new List<Movie>();
 
         public HeadForm()
         {
@@ -222,14 +227,16 @@ namespace MoviedApp
 
         private void Fonts()
         {
+            usernameLabel.Font = new Font(_quicksandRegular, 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             timelineLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             libraryLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             friendsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            watchedLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            checkinsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             homeLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             genreLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             filmNameLabel.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            checkinsTitle.Font = new Font(_quicksandLight, 45F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             overviewTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
             castTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
@@ -282,8 +289,42 @@ namespace MoviedApp
 
             searchTextBox.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             searchTextBox2.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            searchBoxCheckins.Font = new Font(_quicksandRegular, 17.75F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             usernameTextBox.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             passwordTextBox.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            filterMostPopular.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filterInTheater.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filterComingSoon.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filterNewestCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filterTopRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            filterLowestRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            backButton.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            if (filter == "MOSTPOPULAR")
+                filterMostPopular.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if (filter == "INTHEATER")
+                filterInTheater.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if (filter == "COMINGSOON")
+                filterComingSoon.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if (filter == "NEWESTCHECKINS")
+                filterNewestCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            if (filter == "TOPCHECKINS")
+                filterTopRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            if (filter == "LOWESTCHECKINS")
+                filterLowestRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+
+            if (timelinePanel.Visible)
+                timelineLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if(libraryPanel.Visible || filmInfoPanel.Visible)
+                libraryLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if(friendsPanel.Visible)
+                friendsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if(checkinsPanel.Visible || checkinPanel.Visible)
+                checkinsLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            if(wishlistPanel.Visible)
+                wishlistLabel.Font = new Font(_quicksandRegular, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void clearAllPanels()
@@ -294,8 +335,8 @@ namespace MoviedApp
             libraryPanel.Visible = false;
             friendsPanel.Enabled = false;
             friendsPanel.Visible = false;
-            watchedPanel.Enabled = false;
-            watchedPanel.Visible = false;
+            checkinsPanel.Enabled = false;
+            checkinsPanel.Visible = false;
             wishlistPanel.Enabled = false;
             wishlistPanel.Visible = false;
             filmInfoPanel.Enabled = false;
@@ -375,7 +416,7 @@ namespace MoviedApp
             return dstImage;
         }
 
-        private void FillLibraryTable(Movies movies)
+        private void ResetLibraryTable()
         {
             this.libraryTable.Controls.Clear();
             this.libraryTable.ColumnCount = 6;
@@ -391,7 +432,28 @@ namespace MoviedApp
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+        }
+        private void ResetCheckinsTable()
+        {
+            this.checkinsTable.Controls.Clear();
+            this.checkinsTable.ColumnCount = 6;
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.checkinsTable.RowCount = 5;
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.checkinsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+        }
 
+        private void FillLibraryTable(Movies movies)
+        {
+            ResetLibraryTable();
             foreach (Movie m in movies.Results)
             {
                 PictureBox p = new PictureBox();
@@ -412,6 +474,31 @@ namespace MoviedApp
                     filmInfoHeaderPanel.Enabled = true;
                 };
                 libraryTable.Controls.Add(p);
+            }
+        }
+        private void FillCheckinsTable(List<Movie> movies)
+        {
+            ResetCheckinsTable();
+            foreach (Movie m in movies)
+            {
+                PictureBox p = new PictureBox();
+                p.Dock = System.Windows.Forms.DockStyle.Fill;
+                p.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                p.Height = 205;
+
+                if (m.Poster == null)
+                    continue;
+                p.ImageLocation = Path.Combine("https://image.tmdb.org/t/p/w500" + m.Poster);
+                p.MouseClick += (s, e) =>
+                {
+                    FillFilmInfoTable(m);
+                    clearAllPanels();
+                    filmInfoPanel.Enabled = true;
+                    filmInfoPanel.Visible = true;
+                    filmInfoHeaderPanel.Visible = true;
+                    filmInfoHeaderPanel.Enabled = true;
+                };
+                checkinsTable.Controls.Add(p);
             }
         }
 
@@ -474,6 +561,7 @@ namespace MoviedApp
             if (e.KeyCode == Keys.Enter)
             {
                 loginButton_Click(sender, e);
+                Console.WriteLine("Enter");
             }
         }
         private void loginButton_Click(object sender, EventArgs e)
@@ -521,6 +609,7 @@ namespace MoviedApp
                                 }));
                                 Layout.Invoke(new Action(() =>
                                 {
+                                    usernameLabel.Text = usernameTextBox.Text;
                                     userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
 
                                     //startupPanel
@@ -590,6 +679,12 @@ namespace MoviedApp
                         {
                             loginPanel.Invoke(new Action(() =>
                             {
+                                usernameLabel.Text = usernameTextBox.Text;
+                                userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
+
+                                //startupPanel
+                                libraryLabel_Click(sender, e);
+
                                 loginPanel.Enabled = false;
                                 loginPanel.Visible = false;
                             }));
@@ -645,9 +740,9 @@ namespace MoviedApp
             friendsLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
 
-        private void watchedLabel_MouseEnter(object sender, EventArgs e)
+        private void checkinsLabel_MouseEnter(object sender, EventArgs e)
         {
-            watchedLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            checkinsLabel.Font = new Font(_quicksandBold, 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
 
         private void wishlistLabel_MouseEnter(object sender, EventArgs e)
@@ -675,6 +770,40 @@ namespace MoviedApp
         private void createButton_MouseEnter(object sender, EventArgs e)
         {
             createButton.Font = new Font(_quicksandRegular, 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void checkinConfirmButton_MouseEnter(object sender, EventArgs e)
+        {
+            checkinConfirmButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void filterMostPopular_MouseEnter(object sender, EventArgs e)
+        {
+            filterMostPopular.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void filterInTheater_MouseEnter(object sender, EventArgs e)
+        {
+            filterInTheater.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+
+        private void filterComingSoon_MouseEnter(object sender, EventArgs e)
+        {
+            filterComingSoon.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void backButton_MouseEnter(object sender, EventArgs e)
+        {
+            backButton.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void filterLowestRatedCheckins_MouseEnter(object sender, EventArgs e)
+        {
+            filterLowestRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void filterTopRatedCheckins_MouseEnter(object sender, EventArgs e)
+        {
+            filterTopRatedCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void filterNewestCheckins_MouseEnter(object sender, EventArgs e)
+        {
+            filterNewestCheckins.Font = new Font(_quicksandRegular, 18F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
         }
         private void label_MouseLeave(object sender, EventArgs e)
         {
@@ -712,21 +841,67 @@ namespace MoviedApp
 
             }
         }
+
+        private void downloadMovies()
+        {
+            Task t = Task.Factory.StartNew(() =>
+            {
+                var client = new ServiceClient(apiKey);
+                switch (filter)
+                {
+                    case "MOSTPOPULAR":
+                        movies = client.Movies.GetPopularAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "INTHEATER":
+                        movies = client.Movies.GetNowPlayingAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "COMINGSOON":
+                        movies = client.Movies.GetUpcomingAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "NEWESTCHECKINS":
+                        checkinMovies.Clear();
+                        checkinsList.Reverse();
+                        foreach (Tuple<int,int,string> movie in checkinsList)
+                        {
+                            checkinMovies.Add(client.Movies.GetAsync(movie.Item1, null, true, new CancellationToken(false)).Result);
+                        }
+                        checkinsList.Reverse();
+                        break;
+                    case "TOPCHECKINS":
+                        checkinMovies.Clear();
+                        List<Tuple<int, int, string>> topList = checkinsList.OrderBy(o => o.Item2).ToList();
+                        checkinsList.Reverse();
+                        foreach (Tuple<int, int, string> movie in topList)
+                        {
+                            checkinMovies.Add(client.Movies.GetAsync(movie.Item1, null, true, new CancellationToken(false)).Result);
+                        }
+                        break;
+                    case "LOWESTCHECKINS":
+                        checkinMovies.Clear();
+                        List<Tuple<int, int, string>> lowList = checkinsList.OrderBy(o => o.Item2).ToList();
+                        foreach (Tuple<int, int, string> movie in lowList)
+                        {
+                            checkinMovies.Add(client.Movies.GetAsync(movie.Item1, null, true, new CancellationToken(false)).Result);
+                        }
+                        break;
+                    default:
+                        if(filter != "")
+                            movies = client.Movies.SearchAsync(filter, null, true, null, true, 1, new CancellationToken(false)).Result;
+                        break;
+                }
+
+            });
+
+            t.Wait();
+        }
         
         private void libraryLabel_Click(object sender, EventArgs e)
         {
             if (!(libraryPanel.Visible && libraryPanel.Enabled))
-            {
-                Task t = Task.Factory.StartNew(() =>
-                {
-                    var client = new ServiceClient(apiKey);//TODO
-                    mostPopularMovies = client.Movies.GetPopularAsync(null, 1, new CancellationToken(false)).Result;
-                });
-
-                t.Wait();
-
+            { 
+                downloadMovies();
                 clearAllPanels();
-                FillLibraryTable(mostPopularMovies);
+                FillLibraryTable(movies);
                 libraryHeaderPanel.Visible = true;
                 libraryHeaderPanel.Enabled = true;
                 libraryPanel.Visible = true;
@@ -757,13 +932,18 @@ namespace MoviedApp
             }
         }
 
-        private void watchedLabel_Click(object sender, EventArgs e)
+        private void checkinsLabel_Click(object sender, EventArgs e)
         {
-            if (!(watchedPanel.Visible && watchedPanel.Enabled))
+            if (!(checkinsPanel.Visible && checkinsPanel.Enabled))
             {
+                filter = "NEWESTCHECKINS";
+                downloadMovies();
                 clearAllPanels();
-                watchedPanel.Visible = true;
-                watchedPanel.Enabled = true;
+                FillCheckinsTable(checkinMovies);
+                checkinsPanel.Enabled = true;
+                checkinsPanel.Visible = true;
+                checkinsHeaderPanel.Enabled = true;
+                checkinsHeaderPanel.Visible = true;
             }
         }
 
@@ -802,14 +982,90 @@ namespace MoviedApp
         {
             //TODO add checkin to the server
             string review = reviewTextBox.Text;
-            int rating = checkinRating.StarCount;
+            int rating = checkinRating.HoverStar;
+            Console.WriteLine(rating);
             int movieID = movie.Id;
+            checkinsList.Add(new Tuple<int,int,string>(movieID, rating, review));
+            backButton_Click(sender,e);
         }
 
         private void addWishlistButton_Click(object sender, EventArgs e)
         {
             //TODO add movie to watchlist on the server
             int movieID = movie.Id;
+        }
+
+        private void filterMostPopular_Click(object sender, EventArgs e)
+        {
+            filter = "MOSTPOPULAR";
+            downloadMovies();
+            FillLibraryTable(movies);
+            genreLabel.Text = "MOST POPULAR";
+        }
+
+        private void filterInTheater_Click(object sender, EventArgs e)
+        {
+            filter = "INTHEATER";
+            downloadMovies();
+            FillLibraryTable(movies);
+            genreLabel.Text = "IN THEATER";
+        }
+
+        private void filterComingSoon_Click(object sender, EventArgs e)
+        {
+            filter = "COMINGSOON";
+            downloadMovies();
+            FillLibraryTable(movies);
+            genreLabel.Text = "COMING SOON";
+        }
+        private void filterNewestCheckins_Click(object sender, EventArgs e)
+        {
+            filter = "NEWESTCHECKINS";
+            downloadMovies();
+            FillCheckinsTable(checkinMovies);
+        }
+        private void filterTopRatedCheckins_Click(object sender, EventArgs e)
+        {
+            filter = "TOPCHECKINS";
+            downloadMovies();
+            FillCheckinsTable(checkinMovies);
+        }
+        private void filterLowestRatedCheckins_Click(object sender, EventArgs e)
+        {
+            filter = "LOWESTCHECKINS";
+            downloadMovies();
+            FillCheckinsTable(checkinMovies);
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            filter = searchTextBox.Text;
+            downloadMovies();
+            FillLibraryTable(movies);
+            genreLabel.Text = "SEARCH";
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            if (checkinPanel.Visible)
+            {
+                clearAllPanels();
+                filmInfoPanel.Enabled = true;
+                filmInfoPanel.Visible = true;
+                filmInfoHeaderPanel.Enabled = true;
+                filmInfoHeaderPanel.Visible = true;
+                return;
+            }
+            if (filmInfoPanel.Visible)
+            {
+                clearAllPanels();
+                libraryPanel.Enabled = true;
+                libraryPanel.Visible = true;
+                libraryHeaderPanel.Enabled = true;
+                libraryHeaderPanel.Visible = true;
+                return;
+            }
+
         }
     }
     
