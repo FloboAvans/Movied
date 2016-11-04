@@ -40,7 +40,7 @@ namespace MoviedApp
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.checkinConfirmButton = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.filmImageCheckin = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -149,7 +149,7 @@ namespace MoviedApp
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).BeginInit();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
@@ -217,13 +217,13 @@ namespace MoviedApp
             // headPanel
             // 
             this.headPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Controls.Add(this.filmInfoPanel);
             this.headPanel.Controls.Add(this.wishlistPanel);
             this.headPanel.Controls.Add(this.watchedPanel);
             this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Controls.Add(this.timelinePanel);
             this.headPanel.Controls.Add(this.libraryPanel);
+            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headPanel.Location = new System.Drawing.Point(153, 115);
             this.headPanel.Name = "headPanel";
@@ -283,6 +283,7 @@ namespace MoviedApp
             this.checkinConfirmButton.TabIndex = 11;
             this.checkinConfirmButton.Text = "Check in";
             this.checkinConfirmButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkinConfirmButton.Click += new System.EventHandler(this.checkinConfirmButton_Click);
             // 
             // tableLayoutPanel15
             // 
@@ -290,7 +291,7 @@ namespace MoviedApp
             this.tableLayoutPanel15.ColumnCount = 2;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00378F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.99622F));
-            this.tableLayoutPanel15.Controls.Add(this.pictureBox20, 0, 0);
+            this.tableLayoutPanel15.Controls.Add(this.filmImageCheckin, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.panel4, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 3);
@@ -301,17 +302,17 @@ namespace MoviedApp
             this.tableLayoutPanel15.Size = new System.Drawing.Size(787, 378);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
-            // pictureBox20
+            // filmImageCheckin
             // 
-            this.pictureBox20.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox20.Margin = new System.Windows.Forms.Padding(10);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(208, 288);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox20.TabIndex = 0;
-            this.pictureBox20.TabStop = false;
+            this.filmImageCheckin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filmImageCheckin.Image = ((System.Drawing.Image)(resources.GetObject("filmImageCheckin.Image")));
+            this.filmImageCheckin.Location = new System.Drawing.Point(10, 10);
+            this.filmImageCheckin.Margin = new System.Windows.Forms.Padding(10);
+            this.filmImageCheckin.Name = "filmImageCheckin";
+            this.filmImageCheckin.Size = new System.Drawing.Size(208, 288);
+            this.filmImageCheckin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.filmImageCheckin.TabIndex = 0;
+            this.filmImageCheckin.TabStop = false;
             // 
             // panel4
             // 
@@ -497,6 +498,7 @@ namespace MoviedApp
             this.addWishlistButton.TabIndex = 12;
             this.addWishlistButton.Text = "Wishlist";
             this.addWishlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.addWishlistButton.Click += new System.EventHandler(this.addWishlistButton_Click);
             this.addWishlistButton.MouseEnter += new System.EventHandler(this.addWishlistButton_MouseEnter);
             this.addWishlistButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
             // 
@@ -609,7 +611,6 @@ namespace MoviedApp
             this.overviewFilm.Name = "overviewFilm";
             this.overviewFilm.Size = new System.Drawing.Size(541, 143);
             this.overviewFilm.TabIndex = 7;
-            this.overviewFilm.Text = "d\r\nd\r\nd\r\nd\r\nd\r\ndd\r\ndd\r\nd\r\nd\r\nd";
             // 
             // overviewTitleLabel
             // 
@@ -1598,7 +1599,6 @@ namespace MoviedApp
             this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.userPictureBox.TabIndex = 5;
             this.userPictureBox.TabStop = false;
-            this.userPictureBox.Click += new System.EventHandler(this.userPictureBox_Click);
             // 
             // titleBar
             // 
@@ -1828,7 +1828,7 @@ namespace MoviedApp
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel14.PerformLayout();
             this.tableLayoutPanel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmImageCheckin)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
@@ -1974,7 +1974,7 @@ namespace MoviedApp
         private TableLayoutPanel tableLayoutPanel14;
         private Label checkinConfirmButton;
         private TableLayoutPanel tableLayoutPanel15;
-        private PictureBox pictureBox20;
+        private PictureBox filmImageCheckin;
         private Panel panel4;
         private TableLayoutPanel tableLayoutPanel16;
         private TextBox reviewTextBox;
