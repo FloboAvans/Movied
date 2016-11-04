@@ -29,6 +29,7 @@ namespace MoviedApp
         private FontFamily _quicksandBold;
 
         private MovieApiCalls apiCalls;
+        private Movie movie;
 
         private static string apiKey = "c84acd026332c3ab0c37200ff32e6f07";
 
@@ -246,7 +247,10 @@ namespace MoviedApp
             revenueTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             homepageTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
+            ratingTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
             reviewTextBox.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            reviewTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
+            checkinConfirmButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             castName1.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             castName2.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -298,6 +302,8 @@ namespace MoviedApp
             wishlistPanel.Visible = false;
             filmInfoPanel.Enabled = false;
             filmInfoPanel.Visible = false;
+            checkinPanel.Enabled = false;
+            checkinPanel.Visible = false;
 
             timelineHeaderPanel.Enabled = false;
             timelineHeaderPanel.Visible = false;
@@ -405,6 +411,7 @@ namespace MoviedApp
                     filmInfoPanel.Enabled = true;
                     filmInfoPanel.Visible = true;
                     filmInfoHeaderPanel.Visible = true;
+                    filmInfoHeaderPanel.Enabled = true;
                 };
                 libraryTable.Controls.Add(p);
             }
@@ -412,7 +419,7 @@ namespace MoviedApp
 
         private void FillFilmInfoTable(Movie thumbMovie)
         {
-            Movie movie = thumbMovie;
+            movie = thumbMovie;
             Task t = Task.Factory.StartNew(() =>
             {
                 var client = new ServiceClient(apiKey);
@@ -455,8 +462,12 @@ namespace MoviedApp
             runtimeFilm.Text = movie.Runtime.ToString();
             releaseFilm.Text = movie.ReleaseDate.ToString(); //"dd MMMM, yyyy"
             budgetFilm.Text = "$" + movie.Budget;
-            revenueFilm.Text = "$" + movie.Revenue;
+            if (movie.Revenue == 0)
+                revenueFilm.Text = "-";
+            else
+                revenueFilm.Text = "$" + movie.Revenue;
             homepageFilm.Text = movie.HomePage;
+            homepageFilm.Links.Clear();
             homepageFilm.Links.Add(1, homepageFilm.Text.Length, movie.HomePage);
         }
 
@@ -512,6 +523,11 @@ namespace MoviedApp
                                 }));
                                 Layout.Invoke(new Action(() =>
                                 {
+                                    userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
+
+                                    //startupPanel
+                                    libraryLabel_Click(sender, e);
+
                                     Layout.Enabled = true;
                                     Layout.Visible = true;
                                 }));
@@ -758,6 +774,9 @@ namespace MoviedApp
         private void addCheckinButton_Click(object sender, EventArgs e)
         {
             clearAllPanels();
+            filmInfoHeaderPanel.Visible = true;
+            filmInfoHeaderPanel.Enabled = true;
+            filmImageCheckin.ImageLocation = Path.Combine("https://image.tmdb.org/t/p/w500" + movie.Poster);
             checkinPanel.Visible = true;
             checkinPanel.Enabled = true;
         }
@@ -768,15 +787,23 @@ namespace MoviedApp
             filmImage.Image = DrawReflection(filmImage.Image, Color.FromArgb(11, 19, 29));
         }
 
-        private void userPictureBox_Click(object sender, EventArgs e)
-        {
-            //TODO implement in load
-            userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
-        }
-
         private void homepageFilm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void checkinConfirmButton_Click(object sender, EventArgs e)
+        {
+            //TODO add checkin to the server
+            string review = reviewTextBox.Text;
+            int rating = checkinRating.StarCount;
+            int movieID = movie.Id;
+        }
+
+        private void addWishlistButton_Click(object sender, EventArgs e)
+        {
+            //TODO add movie to watchlist on the server
+            int movieID = movie.Id;
         }
     }
     
