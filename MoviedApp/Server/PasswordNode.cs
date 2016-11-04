@@ -96,7 +96,7 @@ namespace Server
 
                     byte[] saltBytes;
                     int id;
-                    PasswordBank.Response response = passwordNode.passwordBank.CreateUser(message.message.username, out saltBytes, out id);
+                    PasswordBank.Response response = passwordNode.passwordBank.CreateUser((string)message.message.username, out saltBytes, out id);
 
                     if (response == PasswordBank.Response.SUCCES)
                         returnMessage = new Message(
@@ -109,7 +109,8 @@ namespace Server
                             new
                             {
                                 salt = Convert.ToBase64String(saltBytes),
-                                id = id
+                                username = (string)message.message.username,
+                                userid = id
                             });
                     else
                         returnMessage = new Message(
@@ -127,13 +128,13 @@ namespace Server
                     #region SET_HASH
 
                     PasswordBank.Response response;
-                    byte[] hash = Convert.FromBase64String(message.message.hash);
+                    byte[] hash = Convert.FromBase64String((string)message.message.hash);
 
-                        response = passwordNode.passwordBank.VerifyUser((int) message.message.userid, hash);
+                        response = passwordNode.passwordBank.VerifyUser((string) message.message.username, hash);
 
                     int id;
 
-                        passwordNode.passwordBank.GetID(message.message.username, out id);
+                        passwordNode.passwordBank.GetID((string)message.message.username, out id);
 
 
                     returnMessage = new Message(
@@ -146,7 +147,7 @@ namespace Server
                         new
                         {
                             response = response,
-                            id = id,
+                            userid = id,
                             username = message.message.username
                         });
 
