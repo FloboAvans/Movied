@@ -455,6 +455,7 @@ namespace MoviedApp
             budgetFilm.Text = "$" + movie.Budget;
             revenueFilm.Text = "$" + movie.Revenue;
             homepageFilm.Text = movie.HomePage;
+            homepageFilm.Links.Add(1, homepageFilm.Text.Length, movie.HomePage);
         }
 
         void loginPanel_KeyDown(object sender, KeyEventArgs e)
@@ -719,6 +720,11 @@ namespace MoviedApp
         {
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
+        }
+
+        private void homepageFilm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
     }
     
