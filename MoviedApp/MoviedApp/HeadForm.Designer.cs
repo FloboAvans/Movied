@@ -35,26 +35,62 @@ namespace MoviedApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeadForm));
             this.Layout = new System.Windows.Forms.TableLayoutPanel();
             this.headPanel = new System.Windows.Forms.Panel();
+            this.filmInfoPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.addCheckinButton = new System.Windows.Forms.Label();
+            this.addWishlistButton = new System.Windows.Forms.Label();
+            this.trailerButton = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.filmImage = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.filmInfoTable = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.overviewFilm = new System.Windows.Forms.TextBox();
+            this.overviewTitleLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.budgetFilm = new System.Windows.Forms.Label();
+            this.revenueFilm = new System.Windows.Forms.Label();
+            this.homepageFilm = new System.Windows.Forms.Label();
+            this.revenueTitleLabel = new System.Windows.Forms.Label();
+            this.budgetTitleLabel = new System.Windows.Forms.Label();
+            this.homepageTitleLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.languageFilm = new System.Windows.Forms.Label();
+            this.factsTitleLabel = new System.Windows.Forms.Label();
+            this.statusTitleLabel = new System.Windows.Forms.Label();
+            this.languageTitleLabel = new System.Windows.Forms.Label();
+            this.runtimeTitleLabel = new System.Windows.Forms.Label();
+            this.releaseTitleLabel = new System.Windows.Forms.Label();
+            this.releaseFilm = new System.Windows.Forms.Label();
+            this.runtimeFilm = new System.Windows.Forms.Label();
+            this.statusFilm = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.functionName1 = new System.Windows.Forms.Label();
+            this.functionName3 = new System.Windows.Forms.Label();
+            this.functionName2 = new System.Windows.Forms.Label();
+            this.crewTitleLabel = new System.Windows.Forms.Label();
+            this.crewName1 = new System.Windows.Forms.Label();
+            this.crewName3 = new System.Windows.Forms.Label();
+            this.crewName2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.roleName1 = new System.Windows.Forms.Label();
+            this.roleName2 = new System.Windows.Forms.Label();
+            this.roleName3 = new System.Windows.Forms.Label();
+            this.castTitleLabel = new System.Windows.Forms.Label();
+            this.castName1 = new System.Windows.Forms.Label();
+            this.castName2 = new System.Windows.Forms.Label();
+            this.castName3 = new System.Windows.Forms.Label();
+            this.wishlistPanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.watchedPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.friendsPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timelinePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.libraryPanel = new System.Windows.Forms.Panel();
             this.libraryTable = new System.Windows.Forms.TableLayoutPanel();
-            this.libraryCover18 = new System.Windows.Forms.PictureBox();
-            this.libraryCover17 = new System.Windows.Forms.PictureBox();
-            this.libraryCover16 = new System.Windows.Forms.PictureBox();
-            this.libraryCover15 = new System.Windows.Forms.PictureBox();
-            this.libraryCover14 = new System.Windows.Forms.PictureBox();
-            this.libraryCover13 = new System.Windows.Forms.PictureBox();
-            this.libraryCover12 = new System.Windows.Forms.PictureBox();
-            this.libraryCover11 = new System.Windows.Forms.PictureBox();
-            this.libraryCover10 = new System.Windows.Forms.PictureBox();
-            this.libraryCover9 = new System.Windows.Forms.PictureBox();
-            this.libraryCover8 = new System.Windows.Forms.PictureBox();
-            this.libraryCover7 = new System.Windows.Forms.PictureBox();
-            this.libraryCover6 = new System.Windows.Forms.PictureBox();
-            this.libraryCover5 = new System.Windows.Forms.PictureBox();
-            this.libraryCover4 = new System.Windows.Forms.PictureBox();
-            this.libraryCover3 = new System.Windows.Forms.PictureBox();
-            this.libraryCover2 = new System.Windows.Forms.PictureBox();
-            this.libraryCover1 = new System.Windows.Forms.PictureBox();
             this.checkinPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,41 +105,6 @@ namespace MoviedApp
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.reviewTextBox = new System.Windows.Forms.TextBox();
             this.reviewTitleLabel = new System.Windows.Forms.Label();
-            this.filmInfoPanel = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.addCheckinButton = new System.Windows.Forms.Label();
-            this.addWishlistButton = new System.Windows.Forms.Label();
-            this.trailerButton = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.filmImage = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.filmInfoTable = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.overviewText = new System.Windows.Forms.TextBox();
-            this.overviewTitleLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.revenueTitleLabel = new System.Windows.Forms.Label();
-            this.budgetTitleLabel = new System.Windows.Forms.Label();
-            this.homepageTitleLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.factsTitleLabel = new System.Windows.Forms.Label();
-            this.statusTitleLabel = new System.Windows.Forms.Label();
-            this.languageTitleLabel = new System.Windows.Forms.Label();
-            this.runtimeTitleLabel = new System.Windows.Forms.Label();
-            this.releaseTitleLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.crewTitleLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.castTitleLabel = new System.Windows.Forms.Label();
-            this.wishlistPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.watchedPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.friendsPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.timelinePanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -113,6 +114,13 @@ namespace MoviedApp
             this.watchedLabel = new System.Windows.Forms.Label();
             this.friendsLabel = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.filmInfoHeaderPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.searchTextBox2 = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.filmNameLabel = new System.Windows.Forms.Label();
             this.libraryHeaderPanel = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.filterButton = new System.Windows.Forms.PictureBox();
@@ -121,13 +129,6 @@ namespace MoviedApp
             this.genreLabel = new System.Windows.Forms.Label();
             this.timelineHeaderPanel = new System.Windows.Forms.Panel();
             this.homeLabel = new System.Windows.Forms.Label();
-            this.filmInfoHeaderPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.searchTextBox2 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.filmNameLabel = new System.Windows.Forms.Label();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.titleBar = new System.Windows.Forms.TableLayoutPanel();
             this.consolBox = new System.Windows.Forms.TableLayoutPanel();
@@ -143,35 +144,6 @@ namespace MoviedApp
             this.createButton = new System.Windows.Forms.Label();
             this.Layout.SuspendLayout();
             this.headPanel.SuspendLayout();
-            this.libraryPanel.SuspendLayout();
-            this.libraryTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover1)).BeginInit();
-            this.checkinPanel.SuspendLayout();
-            this.tableLayoutPanel13.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            this.tableLayoutPanel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel16.SuspendLayout();
-            this.tableLayoutPanel17.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
             this.filmInfoPanel.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -188,20 +160,30 @@ namespace MoviedApp
             this.watchedPanel.SuspendLayout();
             this.friendsPanel.SuspendLayout();
             this.timelinePanel.SuspendLayout();
+            this.libraryPanel.SuspendLayout();
+            this.checkinPanel.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            this.libraryHeaderPanel.SuspendLayout();
-            this.searchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.filterButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
-            this.timelineHeaderPanel.SuspendLayout();
             this.filmInfoHeaderPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.tableLayoutPanel11.SuspendLayout();
+            this.libraryHeaderPanel.SuspendLayout();
+            this.searchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchButton)).BeginInit();
+            this.timelineHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.titleBar.SuspendLayout();
             this.loginPanel.SuspendLayout();
@@ -234,18 +216,809 @@ namespace MoviedApp
             // headPanel
             // 
             this.headPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headPanel.Controls.Add(this.libraryPanel);
-            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Controls.Add(this.filmInfoPanel);
             this.headPanel.Controls.Add(this.wishlistPanel);
             this.headPanel.Controls.Add(this.watchedPanel);
             this.headPanel.Controls.Add(this.friendsPanel);
             this.headPanel.Controls.Add(this.timelinePanel);
+            this.headPanel.Controls.Add(this.libraryPanel);
+            this.headPanel.Controls.Add(this.checkinPanel);
             this.headPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headPanel.Location = new System.Drawing.Point(153, 115);
             this.headPanel.Name = "headPanel";
             this.headPanel.Size = new System.Drawing.Size(793, 425);
             this.headPanel.TabIndex = 3;
+            // 
+            // filmInfoPanel
+            // 
+            this.filmInfoPanel.Controls.Add(this.tableLayoutPanel12);
+            this.filmInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filmInfoPanel.Location = new System.Drawing.Point(0, 0);
+            this.filmInfoPanel.Name = "filmInfoPanel";
+            this.filmInfoPanel.Size = new System.Drawing.Size(793, 425);
+            this.filmInfoPanel.TabIndex = 22;
+            this.filmInfoPanel.Visible = false;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 2;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(793, 425);
+            this.tableLayoutPanel12.TabIndex = 2;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel4.Controls.Add(this.addCheckinButton, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.addWishlistButton, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.trailerButton, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 387);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(787, 35);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // addCheckinButton
+            // 
+            this.addCheckinButton.AutoSize = true;
+            this.addCheckinButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addCheckinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCheckinButton.ForeColor = System.Drawing.Color.White;
+            this.addCheckinButton.Location = new System.Drawing.Point(654, 0);
+            this.addCheckinButton.Name = "addCheckinButton";
+            this.addCheckinButton.Size = new System.Drawing.Size(130, 35);
+            this.addCheckinButton.TabIndex = 11;
+            this.addCheckinButton.Text = "Check in";
+            this.addCheckinButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.addCheckinButton.Click += new System.EventHandler(this.addCheckinButton_Click);
+            this.addCheckinButton.MouseEnter += new System.EventHandler(this.addCheckinButton_MouseEnter);
+            this.addCheckinButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // addWishlistButton
+            // 
+            this.addWishlistButton.AutoSize = true;
+            this.addWishlistButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addWishlistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addWishlistButton.ForeColor = System.Drawing.Color.White;
+            this.addWishlistButton.Location = new System.Drawing.Point(521, 0);
+            this.addWishlistButton.Name = "addWishlistButton";
+            this.addWishlistButton.Size = new System.Drawing.Size(127, 35);
+            this.addWishlistButton.TabIndex = 12;
+            this.addWishlistButton.Text = "Wishlist";
+            this.addWishlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.addWishlistButton.MouseEnter += new System.EventHandler(this.addWishlistButton_MouseEnter);
+            this.addWishlistButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // trailerButton
+            // 
+            this.trailerButton.AutoSize = true;
+            this.trailerButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.trailerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trailerButton.ForeColor = System.Drawing.Color.White;
+            this.trailerButton.Location = new System.Drawing.Point(254, 0);
+            this.trailerButton.Name = "trailerButton";
+            this.trailerButton.Size = new System.Drawing.Size(73, 35);
+            this.trailerButton.TabIndex = 13;
+            this.trailerButton.Text = "Trailer";
+            this.trailerButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.trailerButton.MouseEnter += new System.EventHandler(this.trailerButton_MouseEnter);
+            this.trailerButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.AutoScroll = true;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00378F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.99622F));
+            this.tableLayoutPanel3.Controls.Add(this.filmImage, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 378F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(787, 378);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // filmImage
+            // 
+            this.filmImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filmImage.Image = ((System.Drawing.Image)(resources.GetObject("filmImage.Image")));
+            this.filmImage.Location = new System.Drawing.Point(10, 10);
+            this.filmImage.Margin = new System.Windows.Forms.Padding(10);
+            this.filmImage.Name = "filmImage";
+            this.filmImage.Size = new System.Drawing.Size(208, 288);
+            this.filmImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.filmImage.TabIndex = 0;
+            this.filmImage.TabStop = false;
+            this.filmImage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.filmImage_MouseClick);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.filmInfoTable);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(231, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(553, 372);
+            this.panel1.TabIndex = 1;
+            // 
+            // filmInfoTable
+            // 
+            this.filmInfoTable.ColumnCount = 1;
+            this.filmInfoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.filmInfoTable.Controls.Add(this.tableLayoutPanel9, 0, 0);
+            this.filmInfoTable.Controls.Add(this.tableLayoutPanel10, 0, 8);
+            this.filmInfoTable.Controls.Add(this.tableLayoutPanel8, 0, 6);
+            this.filmInfoTable.Controls.Add(this.tableLayoutPanel7, 0, 4);
+            this.filmInfoTable.Controls.Add(this.tableLayoutPanel6, 0, 2);
+            this.filmInfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filmInfoTable.Location = new System.Drawing.Point(0, 0);
+            this.filmInfoTable.Name = "filmInfoTable";
+            this.filmInfoTable.RowCount = 10;
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.filmInfoTable.Size = new System.Drawing.Size(553, 372);
+            this.filmInfoTable.TabIndex = 1;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Controls.Add(this.overviewFilm, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.overviewTitleLabel, 0, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(547, 81);
+            this.tableLayoutPanel9.TabIndex = 6;
+            // 
+            // overviewFilm
+            // 
+            this.overviewFilm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.overviewFilm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.overviewFilm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.overviewFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.overviewFilm.ForeColor = System.Drawing.Color.White;
+            this.overviewFilm.Location = new System.Drawing.Point(3, 23);
+            this.overviewFilm.Multiline = true;
+            this.overviewFilm.Name = "overviewFilm";
+            this.overviewFilm.Size = new System.Drawing.Size(541, 143);
+            this.overviewFilm.TabIndex = 7;
+            this.overviewFilm.Text = "d\r\nd\r\nd\r\nd\r\nd\r\ndd\r\ndd\r\nd\r\nd\r\nd";
+            // 
+            // overviewTitleLabel
+            // 
+            this.overviewTitleLabel.AutoSize = true;
+            this.overviewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.overviewTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.overviewTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.overviewTitleLabel.Name = "overviewTitleLabel";
+            this.overviewTitleLabel.Size = new System.Drawing.Size(72, 20);
+            this.overviewTitleLabel.TabIndex = 5;
+            this.overviewTitleLabel.Text = "Overview";
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 3;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel10.Controls.Add(this.budgetFilm, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.revenueFilm, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.homepageFilm, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.revenueTitleLabel, 1, 0);
+            this.tableLayoutPanel10.Controls.Add(this.budgetTitleLabel, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.homepageTitleLabel, 2, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 430);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(547, 74);
+            this.tableLayoutPanel10.TabIndex = 7;
+            // 
+            // budgetFilm
+            // 
+            this.budgetFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.budgetFilm.AutoSize = true;
+            this.budgetFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.budgetFilm.ForeColor = System.Drawing.Color.White;
+            this.budgetFilm.Location = new System.Drawing.Point(3, 37);
+            this.budgetFilm.Name = "budgetFilm";
+            this.budgetFilm.Size = new System.Drawing.Size(176, 37);
+            this.budgetFilm.TabIndex = 13;
+            this.budgetFilm.Text = "budgetFilm";
+            this.budgetFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // revenueFilm
+            // 
+            this.revenueFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.revenueFilm.AutoSize = true;
+            this.revenueFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.revenueFilm.ForeColor = System.Drawing.Color.White;
+            this.revenueFilm.Location = new System.Drawing.Point(185, 37);
+            this.revenueFilm.Name = "revenueFilm";
+            this.revenueFilm.Size = new System.Drawing.Size(176, 37);
+            this.revenueFilm.TabIndex = 12;
+            this.revenueFilm.Text = "revenueFilm";
+            this.revenueFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // homepageFilm
+            // 
+            this.homepageFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.homepageFilm.AutoSize = true;
+            this.homepageFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homepageFilm.ForeColor = System.Drawing.Color.White;
+            this.homepageFilm.Location = new System.Drawing.Point(367, 37);
+            this.homepageFilm.Name = "homepageFilm";
+            this.homepageFilm.Size = new System.Drawing.Size(177, 37);
+            this.homepageFilm.TabIndex = 11;
+            this.homepageFilm.Text = "homepageFilm";
+            this.homepageFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // revenueTitleLabel
+            // 
+            this.revenueTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.revenueTitleLabel.AutoSize = true;
+            this.revenueTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.revenueTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.revenueTitleLabel.Location = new System.Drawing.Point(185, 0);
+            this.revenueTitleLabel.Name = "revenueTitleLabel";
+            this.revenueTitleLabel.Size = new System.Drawing.Size(176, 37);
+            this.revenueTitleLabel.TabIndex = 9;
+            this.revenueTitleLabel.Text = "Revenue";
+            this.revenueTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // budgetTitleLabel
+            // 
+            this.budgetTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.budgetTitleLabel.AutoSize = true;
+            this.budgetTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.budgetTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.budgetTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.budgetTitleLabel.Name = "budgetTitleLabel";
+            this.budgetTitleLabel.Size = new System.Drawing.Size(176, 37);
+            this.budgetTitleLabel.TabIndex = 8;
+            this.budgetTitleLabel.Text = "Budget";
+            this.budgetTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // homepageTitleLabel
+            // 
+            this.homepageTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.homepageTitleLabel.AutoSize = true;
+            this.homepageTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homepageTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.homepageTitleLabel.Location = new System.Drawing.Point(367, 0);
+            this.homepageTitleLabel.Name = "homepageTitleLabel";
+            this.homepageTitleLabel.Size = new System.Drawing.Size(177, 37);
+            this.homepageTitleLabel.TabIndex = 10;
+            this.homepageTitleLabel.Text = "Homepage";
+            this.homepageTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 4;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel8.Controls.Add(this.languageFilm, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.factsTitleLabel, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.statusTitleLabel, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.languageTitleLabel, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.runtimeTitleLabel, 2, 1);
+            this.tableLayoutPanel8.Controls.Add(this.releaseTitleLabel, 3, 1);
+            this.tableLayoutPanel8.Controls.Add(this.releaseFilm, 2, 2);
+            this.tableLayoutPanel8.Controls.Add(this.runtimeFilm, 1, 2);
+            this.tableLayoutPanel8.Controls.Add(this.statusFilm, 0, 2);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 320);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(547, 94);
+            this.tableLayoutPanel8.TabIndex = 5;
+            // 
+            // languageFilm
+            // 
+            this.languageFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.languageFilm.AutoSize = true;
+            this.languageFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.languageFilm.ForeColor = System.Drawing.Color.White;
+            this.languageFilm.Location = new System.Drawing.Point(139, 57);
+            this.languageFilm.Name = "languageFilm";
+            this.languageFilm.Size = new System.Drawing.Size(130, 37);
+            this.languageFilm.TabIndex = 13;
+            this.languageFilm.Text = "languageFilm";
+            this.languageFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // factsTitleLabel
+            // 
+            this.factsTitleLabel.AutoSize = true;
+            this.factsTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.factsTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.factsTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.factsTitleLabel.Name = "factsTitleLabel";
+            this.factsTitleLabel.Size = new System.Drawing.Size(49, 20);
+            this.factsTitleLabel.TabIndex = 4;
+            this.factsTitleLabel.Text = "Facts";
+            // 
+            // statusTitleLabel
+            // 
+            this.statusTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusTitleLabel.AutoSize = true;
+            this.statusTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.statusTitleLabel.Location = new System.Drawing.Point(3, 20);
+            this.statusTitleLabel.Name = "statusTitleLabel";
+            this.statusTitleLabel.Size = new System.Drawing.Size(130, 37);
+            this.statusTitleLabel.TabIndex = 5;
+            this.statusTitleLabel.Text = "Status";
+            this.statusTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // languageTitleLabel
+            // 
+            this.languageTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.languageTitleLabel.AutoSize = true;
+            this.languageTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.languageTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.languageTitleLabel.Location = new System.Drawing.Point(139, 20);
+            this.languageTitleLabel.Name = "languageTitleLabel";
+            this.languageTitleLabel.Size = new System.Drawing.Size(130, 37);
+            this.languageTitleLabel.TabIndex = 6;
+            this.languageTitleLabel.Text = "Original Language";
+            this.languageTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // runtimeTitleLabel
+            // 
+            this.runtimeTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.runtimeTitleLabel.AutoSize = true;
+            this.runtimeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runtimeTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.runtimeTitleLabel.Location = new System.Drawing.Point(275, 20);
+            this.runtimeTitleLabel.Name = "runtimeTitleLabel";
+            this.runtimeTitleLabel.Size = new System.Drawing.Size(130, 37);
+            this.runtimeTitleLabel.TabIndex = 7;
+            this.runtimeTitleLabel.Text = "Runtime";
+            this.runtimeTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // releaseTitleLabel
+            // 
+            this.releaseTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.releaseTitleLabel.AutoSize = true;
+            this.releaseTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releaseTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.releaseTitleLabel.Location = new System.Drawing.Point(411, 20);
+            this.releaseTitleLabel.Name = "releaseTitleLabel";
+            this.releaseTitleLabel.Size = new System.Drawing.Size(133, 37);
+            this.releaseTitleLabel.TabIndex = 9;
+            this.releaseTitleLabel.Text = "Release Date";
+            this.releaseTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // releaseFilm
+            // 
+            this.releaseFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.releaseFilm.AutoSize = true;
+            this.releaseFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.releaseFilm.ForeColor = System.Drawing.Color.White;
+            this.releaseFilm.Location = new System.Drawing.Point(411, 57);
+            this.releaseFilm.Name = "releaseFilm";
+            this.releaseFilm.Size = new System.Drawing.Size(133, 37);
+            this.releaseFilm.TabIndex = 12;
+            this.releaseFilm.Text = "releaseFilm";
+            this.releaseFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // runtimeFilm
+            // 
+            this.runtimeFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.runtimeFilm.AutoSize = true;
+            this.runtimeFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runtimeFilm.ForeColor = System.Drawing.Color.White;
+            this.runtimeFilm.Location = new System.Drawing.Point(275, 57);
+            this.runtimeFilm.Name = "runtimeFilm";
+            this.runtimeFilm.Size = new System.Drawing.Size(130, 37);
+            this.runtimeFilm.TabIndex = 11;
+            this.runtimeFilm.Text = "runtimeFilm";
+            this.runtimeFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // statusFilm
+            // 
+            this.statusFilm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusFilm.AutoSize = true;
+            this.statusFilm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusFilm.ForeColor = System.Drawing.Color.White;
+            this.statusFilm.Location = new System.Drawing.Point(3, 57);
+            this.statusFilm.Name = "statusFilm";
+            this.statusFilm.Size = new System.Drawing.Size(130, 37);
+            this.statusFilm.TabIndex = 10;
+            this.statusFilm.Text = "statusFilm";
+            this.statusFilm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel7.Controls.Add(this.functionName1, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.functionName3, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.functionName2, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.crewTitleLabel, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.crewName1, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.crewName3, 2, 1);
+            this.tableLayoutPanel7.Controls.Add(this.crewName2, 1, 1);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 210);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 3;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(547, 94);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // functionName1
+            // 
+            this.functionName1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.functionName1.AutoSize = true;
+            this.functionName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.functionName1.ForeColor = System.Drawing.Color.White;
+            this.functionName1.Location = new System.Drawing.Point(3, 57);
+            this.functionName1.Name = "functionName1";
+            this.functionName1.Size = new System.Drawing.Size(176, 37);
+            this.functionName1.TabIndex = 12;
+            this.functionName1.Text = "functionName1";
+            this.functionName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // functionName3
+            // 
+            this.functionName3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.functionName3.AutoSize = true;
+            this.functionName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.functionName3.ForeColor = System.Drawing.Color.White;
+            this.functionName3.Location = new System.Drawing.Point(367, 57);
+            this.functionName3.Name = "functionName3";
+            this.functionName3.Size = new System.Drawing.Size(177, 37);
+            this.functionName3.TabIndex = 11;
+            this.functionName3.Text = "functionName3";
+            this.functionName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // functionName2
+            // 
+            this.functionName2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.functionName2.AutoSize = true;
+            this.functionName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.functionName2.ForeColor = System.Drawing.Color.White;
+            this.functionName2.Location = new System.Drawing.Point(185, 57);
+            this.functionName2.Name = "functionName2";
+            this.functionName2.Size = new System.Drawing.Size(176, 37);
+            this.functionName2.TabIndex = 10;
+            this.functionName2.Text = "functionName2";
+            this.functionName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // crewTitleLabel
+            // 
+            this.crewTitleLabel.AutoSize = true;
+            this.crewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crewTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.crewTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.crewTitleLabel.Name = "crewTitleLabel";
+            this.crewTitleLabel.Size = new System.Drawing.Size(114, 20);
+            this.crewTitleLabel.TabIndex = 4;
+            this.crewTitleLabel.Text = "Featured Crew";
+            // 
+            // crewName1
+            // 
+            this.crewName1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crewName1.AutoSize = true;
+            this.crewName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crewName1.ForeColor = System.Drawing.Color.White;
+            this.crewName1.Location = new System.Drawing.Point(3, 20);
+            this.crewName1.Name = "crewName1";
+            this.crewName1.Size = new System.Drawing.Size(176, 37);
+            this.crewName1.TabIndex = 9;
+            this.crewName1.Text = "crewName1";
+            this.crewName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // crewName3
+            // 
+            this.crewName3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crewName3.AutoSize = true;
+            this.crewName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crewName3.ForeColor = System.Drawing.Color.White;
+            this.crewName3.Location = new System.Drawing.Point(367, 20);
+            this.crewName3.Name = "crewName3";
+            this.crewName3.Size = new System.Drawing.Size(177, 37);
+            this.crewName3.TabIndex = 8;
+            this.crewName3.Text = "crewName3";
+            this.crewName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // crewName2
+            // 
+            this.crewName2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crewName2.AutoSize = true;
+            this.crewName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crewName2.ForeColor = System.Drawing.Color.White;
+            this.crewName2.Location = new System.Drawing.Point(185, 20);
+            this.crewName2.Name = "crewName2";
+            this.crewName2.Size = new System.Drawing.Size(176, 37);
+            this.crewName2.TabIndex = 7;
+            this.crewName2.Text = "crewName2";
+            this.crewName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel6.Controls.Add(this.roleName1, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.roleName2, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.roleName3, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.castTitleLabel, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.castName1, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.castName2, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.castName3, 2, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 100);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(547, 94);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // roleName1
+            // 
+            this.roleName1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roleName1.AutoSize = true;
+            this.roleName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleName1.ForeColor = System.Drawing.Color.White;
+            this.roleName1.Location = new System.Drawing.Point(3, 57);
+            this.roleName1.Name = "roleName1";
+            this.roleName1.Size = new System.Drawing.Size(176, 37);
+            this.roleName1.TabIndex = 11;
+            this.roleName1.Text = "roleName2";
+            this.roleName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roleName2
+            // 
+            this.roleName2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roleName2.AutoSize = true;
+            this.roleName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleName2.ForeColor = System.Drawing.Color.White;
+            this.roleName2.Location = new System.Drawing.Point(185, 57);
+            this.roleName2.Name = "roleName2";
+            this.roleName2.Size = new System.Drawing.Size(176, 37);
+            this.roleName2.TabIndex = 10;
+            this.roleName2.Text = "roleName2";
+            this.roleName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roleName3
+            // 
+            this.roleName3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roleName3.AutoSize = true;
+            this.roleName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleName3.ForeColor = System.Drawing.Color.White;
+            this.roleName3.Location = new System.Drawing.Point(367, 57);
+            this.roleName3.Name = "roleName3";
+            this.roleName3.Size = new System.Drawing.Size(177, 37);
+            this.roleName3.TabIndex = 9;
+            this.roleName3.Text = "roleName3";
+            this.roleName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // castTitleLabel
+            // 
+            this.castTitleLabel.AutoSize = true;
+            this.castTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.castTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.castTitleLabel.Location = new System.Drawing.Point(3, 0);
+            this.castTitleLabel.Name = "castTitleLabel";
+            this.castTitleLabel.Size = new System.Drawing.Size(42, 20);
+            this.castTitleLabel.TabIndex = 4;
+            this.castTitleLabel.Text = "Cast";
+            // 
+            // castName1
+            // 
+            this.castName1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.castName1.AutoSize = true;
+            this.castName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.castName1.ForeColor = System.Drawing.Color.White;
+            this.castName1.Location = new System.Drawing.Point(3, 20);
+            this.castName1.Name = "castName1";
+            this.castName1.Size = new System.Drawing.Size(176, 37);
+            this.castName1.TabIndex = 6;
+            this.castName1.Text = "castName1";
+            this.castName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // castName2
+            // 
+            this.castName2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.castName2.AutoSize = true;
+            this.castName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.castName2.ForeColor = System.Drawing.Color.White;
+            this.castName2.Location = new System.Drawing.Point(185, 20);
+            this.castName2.Name = "castName2";
+            this.castName2.Size = new System.Drawing.Size(176, 37);
+            this.castName2.TabIndex = 7;
+            this.castName2.Text = "castName2";
+            this.castName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // castName3
+            // 
+            this.castName3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.castName3.AutoSize = true;
+            this.castName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.castName3.ForeColor = System.Drawing.Color.White;
+            this.castName3.Location = new System.Drawing.Point(367, 20);
+            this.castName3.Name = "castName3";
+            this.castName3.Size = new System.Drawing.Size(177, 37);
+            this.castName3.TabIndex = 8;
+            this.castName3.Text = "castName3";
+            this.castName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // wishlistPanel
+            // 
+            this.wishlistPanel.Controls.Add(this.label4);
+            this.wishlistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wishlistPanel.Location = new System.Drawing.Point(0, 0);
+            this.wishlistPanel.Name = "wishlistPanel";
+            this.wishlistPanel.Size = new System.Drawing.Size(793, 425);
+            this.wishlistPanel.TabIndex = 20;
+            this.wishlistPanel.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(423, 189);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Wishlist";
+            // 
+            // watchedPanel
+            // 
+            this.watchedPanel.Controls.Add(this.label3);
+            this.watchedPanel.Location = new System.Drawing.Point(-2, 0);
+            this.watchedPanel.Name = "watchedPanel";
+            this.watchedPanel.Size = new System.Drawing.Size(793, 425);
+            this.watchedPanel.TabIndex = 21;
+            this.watchedPanel.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(423, 189);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Watched";
+            // 
+            // friendsPanel
+            // 
+            this.friendsPanel.Controls.Add(this.label2);
+            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
+            this.friendsPanel.Name = "friendsPanel";
+            this.friendsPanel.Size = new System.Drawing.Size(793, 425);
+            this.friendsPanel.TabIndex = 18;
+            this.friendsPanel.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(423, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Friends";
+            // 
+            // timelinePanel
+            // 
+            this.timelinePanel.Controls.Add(this.label1);
+            this.timelinePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timelinePanel.Location = new System.Drawing.Point(0, 0);
+            this.timelinePanel.Name = "timelinePanel";
+            this.timelinePanel.Size = new System.Drawing.Size(793, 425);
+            this.timelinePanel.TabIndex = 17;
+            this.timelinePanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(423, 189);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Timeline";
             // 
             // libraryPanel
             // 
@@ -261,6 +1034,7 @@ namespace MoviedApp
             // libraryTable
             // 
             this.libraryTable.AutoScroll = true;
+            this.libraryTable.BackColor = System.Drawing.Color.Transparent;
             this.libraryTable.ColumnCount = 6;
             this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -268,250 +1042,17 @@ namespace MoviedApp
             this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.libraryTable.Controls.Add(this.libraryCover18, 5, 2);
-            this.libraryTable.Controls.Add(this.libraryCover17, 4, 2);
-            this.libraryTable.Controls.Add(this.libraryCover16, 3, 2);
-            this.libraryTable.Controls.Add(this.libraryCover15, 2, 2);
-            this.libraryTable.Controls.Add(this.libraryCover14, 1, 2);
-            this.libraryTable.Controls.Add(this.libraryCover13, 0, 2);
-            this.libraryTable.Controls.Add(this.libraryCover12, 5, 1);
-            this.libraryTable.Controls.Add(this.libraryCover11, 4, 1);
-            this.libraryTable.Controls.Add(this.libraryCover10, 3, 1);
-            this.libraryTable.Controls.Add(this.libraryCover9, 2, 1);
-            this.libraryTable.Controls.Add(this.libraryCover8, 1, 1);
-            this.libraryTable.Controls.Add(this.libraryCover7, 0, 1);
-            this.libraryTable.Controls.Add(this.libraryCover6, 5, 0);
-            this.libraryTable.Controls.Add(this.libraryCover5, 4, 0);
-            this.libraryTable.Controls.Add(this.libraryCover4, 3, 0);
-            this.libraryTable.Controls.Add(this.libraryCover3, 2, 0);
-            this.libraryTable.Controls.Add(this.libraryCover2, 1, 0);
-            this.libraryTable.Controls.Add(this.libraryCover1, 0, 0);
             this.libraryTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.libraryTable.Location = new System.Drawing.Point(0, 0);
             this.libraryTable.Name = "libraryTable";
-            this.libraryTable.RowCount = 3;
+            this.libraryTable.RowCount = 5;
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.libraryTable.Size = new System.Drawing.Size(793, 425);
             this.libraryTable.TabIndex = 0;
-            this.libraryTable.MouseClick += new System.Windows.Forms.MouseEventHandler(this.libraryTable_MouseClick);
-            // 
-            // libraryCover18
-            // 
-            this.libraryCover18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover18.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover18.Image")));
-            this.libraryCover18.Location = new System.Drawing.Point(663, 413);
-            this.libraryCover18.Name = "libraryCover18";
-            this.libraryCover18.Size = new System.Drawing.Size(127, 199);
-            this.libraryCover18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover18.TabIndex = 17;
-            this.libraryCover18.TabStop = false;
-            // 
-            // libraryCover17
-            // 
-            this.libraryCover17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover17.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover17.Image")));
-            this.libraryCover17.Location = new System.Drawing.Point(531, 413);
-            this.libraryCover17.Name = "libraryCover17";
-            this.libraryCover17.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover17.TabIndex = 16;
-            this.libraryCover17.TabStop = false;
-            // 
-            // libraryCover16
-            // 
-            this.libraryCover16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover16.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover16.Image")));
-            this.libraryCover16.Location = new System.Drawing.Point(399, 413);
-            this.libraryCover16.Name = "libraryCover16";
-            this.libraryCover16.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover16.TabIndex = 15;
-            this.libraryCover16.TabStop = false;
-            // 
-            // libraryCover15
-            // 
-            this.libraryCover15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover15.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover15.Image")));
-            this.libraryCover15.Location = new System.Drawing.Point(267, 413);
-            this.libraryCover15.Name = "libraryCover15";
-            this.libraryCover15.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover15.TabIndex = 14;
-            this.libraryCover15.TabStop = false;
-            // 
-            // libraryCover14
-            // 
-            this.libraryCover14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover14.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover14.Image")));
-            this.libraryCover14.Location = new System.Drawing.Point(135, 413);
-            this.libraryCover14.Name = "libraryCover14";
-            this.libraryCover14.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover14.TabIndex = 13;
-            this.libraryCover14.TabStop = false;
-            // 
-            // libraryCover13
-            // 
-            this.libraryCover13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover13.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover13.Image")));
-            this.libraryCover13.Location = new System.Drawing.Point(3, 413);
-            this.libraryCover13.Name = "libraryCover13";
-            this.libraryCover13.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover13.TabIndex = 12;
-            this.libraryCover13.TabStop = false;
-            // 
-            // libraryCover12
-            // 
-            this.libraryCover12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover12.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover12.Image")));
-            this.libraryCover12.Location = new System.Drawing.Point(663, 208);
-            this.libraryCover12.Name = "libraryCover12";
-            this.libraryCover12.Size = new System.Drawing.Size(127, 199);
-            this.libraryCover12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover12.TabIndex = 11;
-            this.libraryCover12.TabStop = false;
-            // 
-            // libraryCover11
-            // 
-            this.libraryCover11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover11.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover11.Image")));
-            this.libraryCover11.Location = new System.Drawing.Point(531, 208);
-            this.libraryCover11.Name = "libraryCover11";
-            this.libraryCover11.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover11.TabIndex = 10;
-            this.libraryCover11.TabStop = false;
-            // 
-            // libraryCover10
-            // 
-            this.libraryCover10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover10.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover10.Image")));
-            this.libraryCover10.Location = new System.Drawing.Point(399, 208);
-            this.libraryCover10.Name = "libraryCover10";
-            this.libraryCover10.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover10.TabIndex = 9;
-            this.libraryCover10.TabStop = false;
-            // 
-            // libraryCover9
-            // 
-            this.libraryCover9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover9.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover9.Image")));
-            this.libraryCover9.Location = new System.Drawing.Point(267, 208);
-            this.libraryCover9.Name = "libraryCover9";
-            this.libraryCover9.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover9.TabIndex = 8;
-            this.libraryCover9.TabStop = false;
-            // 
-            // libraryCover8
-            // 
-            this.libraryCover8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover8.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover8.Image")));
-            this.libraryCover8.Location = new System.Drawing.Point(135, 208);
-            this.libraryCover8.Name = "libraryCover8";
-            this.libraryCover8.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover8.TabIndex = 7;
-            this.libraryCover8.TabStop = false;
-            // 
-            // libraryCover7
-            // 
-            this.libraryCover7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover7.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover7.Image")));
-            this.libraryCover7.Location = new System.Drawing.Point(3, 208);
-            this.libraryCover7.Name = "libraryCover7";
-            this.libraryCover7.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover7.TabIndex = 6;
-            this.libraryCover7.TabStop = false;
-            // 
-            // libraryCover6
-            // 
-            this.libraryCover6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover6.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover6.Image")));
-            this.libraryCover6.Location = new System.Drawing.Point(663, 3);
-            this.libraryCover6.Name = "libraryCover6";
-            this.libraryCover6.Size = new System.Drawing.Size(127, 199);
-            this.libraryCover6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover6.TabIndex = 5;
-            this.libraryCover6.TabStop = false;
-            // 
-            // libraryCover5
-            // 
-            this.libraryCover5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover5.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover5.Image")));
-            this.libraryCover5.Location = new System.Drawing.Point(531, 3);
-            this.libraryCover5.Name = "libraryCover5";
-            this.libraryCover5.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover5.TabIndex = 4;
-            this.libraryCover5.TabStop = false;
-            // 
-            // libraryCover4
-            // 
-            this.libraryCover4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover4.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover4.Image")));
-            this.libraryCover4.Location = new System.Drawing.Point(399, 3);
-            this.libraryCover4.Name = "libraryCover4";
-            this.libraryCover4.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover4.TabIndex = 3;
-            this.libraryCover4.TabStop = false;
-            // 
-            // libraryCover3
-            // 
-            this.libraryCover3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover3.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover3.Image")));
-            this.libraryCover3.Location = new System.Drawing.Point(267, 3);
-            this.libraryCover3.Name = "libraryCover3";
-            this.libraryCover3.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover3.TabIndex = 2;
-            this.libraryCover3.TabStop = false;
-            // 
-            // libraryCover2
-            // 
-            this.libraryCover2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover2.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover2.Image")));
-            this.libraryCover2.Location = new System.Drawing.Point(135, 3);
-            this.libraryCover2.Name = "libraryCover2";
-            this.libraryCover2.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover2.TabIndex = 1;
-            this.libraryCover2.TabStop = false;
-            // 
-            // libraryCover1
-            // 
-            this.libraryCover1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.libraryCover1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryCover1.Image = ((System.Drawing.Image)(resources.GetObject("libraryCover1.Image")));
-            this.libraryCover1.Location = new System.Drawing.Point(3, 3);
-            this.libraryCover1.Name = "libraryCover1";
-            this.libraryCover1.Size = new System.Drawing.Size(126, 199);
-            this.libraryCover1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.libraryCover1.TabIndex = 0;
-            this.libraryCover1.TabStop = false;
             // 
             // checkinPanel
             // 
@@ -708,487 +1249,6 @@ namespace MoviedApp
             this.reviewTitleLabel.TabIndex = 5;
             this.reviewTitleLabel.Text = "Review";
             // 
-            // filmInfoPanel
-            // 
-            this.filmInfoPanel.Controls.Add(this.tableLayoutPanel12);
-            this.filmInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filmInfoPanel.Location = new System.Drawing.Point(0, 0);
-            this.filmInfoPanel.Name = "filmInfoPanel";
-            this.filmInfoPanel.Size = new System.Drawing.Size(793, 425);
-            this.filmInfoPanel.TabIndex = 22;
-            this.filmInfoPanel.Visible = false;
-            // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 1;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel4, 0, 1);
-            this.tableLayoutPanel12.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 2;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(793, 425);
-            this.tableLayoutPanel12.TabIndex = 2;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17F));
-            this.tableLayoutPanel4.Controls.Add(this.addCheckinButton, 3, 0);
-            this.tableLayoutPanel4.Controls.Add(this.addWishlistButton, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.trailerButton, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 387);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(787, 35);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // addCheckinButton
-            // 
-            this.addCheckinButton.AutoSize = true;
-            this.addCheckinButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addCheckinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addCheckinButton.ForeColor = System.Drawing.Color.White;
-            this.addCheckinButton.Location = new System.Drawing.Point(654, 0);
-            this.addCheckinButton.Name = "addCheckinButton";
-            this.addCheckinButton.Size = new System.Drawing.Size(130, 35);
-            this.addCheckinButton.TabIndex = 11;
-            this.addCheckinButton.Text = "Check in";
-            this.addCheckinButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.addCheckinButton.Click += new System.EventHandler(this.addCheckinButton_Click);
-            this.addCheckinButton.MouseEnter += new System.EventHandler(this.addCheckinButton_MouseEnter);
-            this.addCheckinButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
-            // 
-            // addWishlistButton
-            // 
-            this.addWishlistButton.AutoSize = true;
-            this.addWishlistButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addWishlistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addWishlistButton.ForeColor = System.Drawing.Color.White;
-            this.addWishlistButton.Location = new System.Drawing.Point(521, 0);
-            this.addWishlistButton.Name = "addWishlistButton";
-            this.addWishlistButton.Size = new System.Drawing.Size(127, 35);
-            this.addWishlistButton.TabIndex = 12;
-            this.addWishlistButton.Text = "Wishlist";
-            this.addWishlistButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.addWishlistButton.MouseEnter += new System.EventHandler(this.addWishlistButton_MouseEnter);
-            this.addWishlistButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
-            // 
-            // trailerButton
-            // 
-            this.trailerButton.AutoSize = true;
-            this.trailerButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.trailerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.trailerButton.ForeColor = System.Drawing.Color.White;
-            this.trailerButton.Location = new System.Drawing.Point(254, 0);
-            this.trailerButton.Name = "trailerButton";
-            this.trailerButton.Size = new System.Drawing.Size(73, 35);
-            this.trailerButton.TabIndex = 13;
-            this.trailerButton.Text = "Trailer";
-            this.trailerButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.trailerButton.MouseEnter += new System.EventHandler(this.trailerButton_MouseEnter);
-            this.trailerButton.MouseLeave += new System.EventHandler(this.label_MouseLeave);
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoScroll = true;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.00378F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.99622F));
-            this.tableLayoutPanel3.Controls.Add(this.filmImage, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 378F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(787, 378);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // filmImage
-            // 
-            this.filmImage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.filmImage.Image = ((System.Drawing.Image)(resources.GetObject("filmImage.Image")));
-            this.filmImage.Location = new System.Drawing.Point(10, 10);
-            this.filmImage.Margin = new System.Windows.Forms.Padding(10);
-            this.filmImage.Name = "filmImage";
-            this.filmImage.Size = new System.Drawing.Size(208, 288);
-            this.filmImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.filmImage.TabIndex = 0;
-            this.filmImage.TabStop = false;
-            this.filmImage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.filmImage_MouseClick);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.filmInfoTable);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(231, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(553, 372);
-            this.panel1.TabIndex = 1;
-            // 
-            // filmInfoTable
-            // 
-            this.filmInfoTable.ColumnCount = 1;
-            this.filmInfoTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.filmInfoTable.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.filmInfoTable.Controls.Add(this.tableLayoutPanel10, 0, 4);
-            this.filmInfoTable.Controls.Add(this.tableLayoutPanel8, 0, 3);
-            this.filmInfoTable.Controls.Add(this.tableLayoutPanel7, 0, 2);
-            this.filmInfoTable.Controls.Add(this.tableLayoutPanel6, 0, 1);
-            this.filmInfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filmInfoTable.Location = new System.Drawing.Point(0, 0);
-            this.filmInfoTable.Name = "filmInfoTable";
-            this.filmInfoTable.RowCount = 5;
-            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.filmInfoTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.filmInfoTable.Size = new System.Drawing.Size(553, 372);
-            this.filmInfoTable.TabIndex = 1;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.overviewText, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.overviewTitleLabel, 0, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(547, 81);
-            this.tableLayoutPanel9.TabIndex = 6;
-            // 
-            // overviewText
-            // 
-            this.overviewText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.overviewText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.overviewText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.overviewText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overviewText.ForeColor = System.Drawing.Color.White;
-            this.overviewText.Location = new System.Drawing.Point(3, 23);
-            this.overviewText.Multiline = true;
-            this.overviewText.Name = "overviewText";
-            this.overviewText.Size = new System.Drawing.Size(541, 143);
-            this.overviewText.TabIndex = 7;
-            this.overviewText.Text = "d\r\nd\r\nd\r\nd\r\nd\r\ndd\r\ndd\r\nd\r\nd\r\nd";
-            // 
-            // overviewTitleLabel
-            // 
-            this.overviewTitleLabel.AutoSize = true;
-            this.overviewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.overviewTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.overviewTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.overviewTitleLabel.Name = "overviewTitleLabel";
-            this.overviewTitleLabel.Size = new System.Drawing.Size(72, 20);
-            this.overviewTitleLabel.TabIndex = 5;
-            this.overviewTitleLabel.Text = "Overview";
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 3;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel10.Controls.Add(this.revenueTitleLabel, 1, 0);
-            this.tableLayoutPanel10.Controls.Add(this.budgetTitleLabel, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.homepageTitleLabel, 2, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 390);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(547, 74);
-            this.tableLayoutPanel10.TabIndex = 7;
-            // 
-            // revenueTitleLabel
-            // 
-            this.revenueTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.revenueTitleLabel.AutoSize = true;
-            this.revenueTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenueTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.revenueTitleLabel.Location = new System.Drawing.Point(185, 0);
-            this.revenueTitleLabel.Name = "revenueTitleLabel";
-            this.revenueTitleLabel.Size = new System.Drawing.Size(176, 37);
-            this.revenueTitleLabel.TabIndex = 9;
-            this.revenueTitleLabel.Text = "Revenue";
-            this.revenueTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // budgetTitleLabel
-            // 
-            this.budgetTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.budgetTitleLabel.AutoSize = true;
-            this.budgetTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.budgetTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.budgetTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.budgetTitleLabel.Name = "budgetTitleLabel";
-            this.budgetTitleLabel.Size = new System.Drawing.Size(176, 37);
-            this.budgetTitleLabel.TabIndex = 8;
-            this.budgetTitleLabel.Text = "Budget";
-            this.budgetTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // homepageTitleLabel
-            // 
-            this.homepageTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.homepageTitleLabel.AutoSize = true;
-            this.homepageTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homepageTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.homepageTitleLabel.Location = new System.Drawing.Point(367, 0);
-            this.homepageTitleLabel.Name = "homepageTitleLabel";
-            this.homepageTitleLabel.Size = new System.Drawing.Size(177, 37);
-            this.homepageTitleLabel.TabIndex = 10;
-            this.homepageTitleLabel.Text = "Homepage";
-            this.homepageTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 4;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Controls.Add(this.factsTitleLabel, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.statusTitleLabel, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.languageTitleLabel, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.runtimeTitleLabel, 2, 1);
-            this.tableLayoutPanel8.Controls.Add(this.releaseTitleLabel, 3, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 290);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 3;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(547, 94);
-            this.tableLayoutPanel8.TabIndex = 5;
-            // 
-            // factsTitleLabel
-            // 
-            this.factsTitleLabel.AutoSize = true;
-            this.factsTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.factsTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.factsTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.factsTitleLabel.Name = "factsTitleLabel";
-            this.factsTitleLabel.Size = new System.Drawing.Size(49, 20);
-            this.factsTitleLabel.TabIndex = 4;
-            this.factsTitleLabel.Text = "Facts";
-            // 
-            // statusTitleLabel
-            // 
-            this.statusTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusTitleLabel.AutoSize = true;
-            this.statusTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.statusTitleLabel.Location = new System.Drawing.Point(3, 20);
-            this.statusTitleLabel.Name = "statusTitleLabel";
-            this.statusTitleLabel.Size = new System.Drawing.Size(130, 37);
-            this.statusTitleLabel.TabIndex = 5;
-            this.statusTitleLabel.Text = "Status";
-            this.statusTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // languageTitleLabel
-            // 
-            this.languageTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.languageTitleLabel.AutoSize = true;
-            this.languageTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.languageTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.languageTitleLabel.Location = new System.Drawing.Point(139, 20);
-            this.languageTitleLabel.Name = "languageTitleLabel";
-            this.languageTitleLabel.Size = new System.Drawing.Size(130, 37);
-            this.languageTitleLabel.TabIndex = 6;
-            this.languageTitleLabel.Text = "Original Language";
-            this.languageTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // runtimeTitleLabel
-            // 
-            this.runtimeTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.runtimeTitleLabel.AutoSize = true;
-            this.runtimeTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.runtimeTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.runtimeTitleLabel.Location = new System.Drawing.Point(275, 20);
-            this.runtimeTitleLabel.Name = "runtimeTitleLabel";
-            this.runtimeTitleLabel.Size = new System.Drawing.Size(130, 37);
-            this.runtimeTitleLabel.TabIndex = 7;
-            this.runtimeTitleLabel.Text = "Runtime";
-            this.runtimeTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // releaseTitleLabel
-            // 
-            this.releaseTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.releaseTitleLabel.AutoSize = true;
-            this.releaseTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.releaseTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.releaseTitleLabel.Location = new System.Drawing.Point(411, 20);
-            this.releaseTitleLabel.Name = "releaseTitleLabel";
-            this.releaseTitleLabel.Size = new System.Drawing.Size(133, 37);
-            this.releaseTitleLabel.TabIndex = 9;
-            this.releaseTitleLabel.Text = "Release Date";
-            this.releaseTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 3;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel7.Controls.Add(this.crewTitleLabel, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 190);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(547, 94);
-            this.tableLayoutPanel7.TabIndex = 4;
-            // 
-            // crewTitleLabel
-            // 
-            this.crewTitleLabel.AutoSize = true;
-            this.crewTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crewTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.crewTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.crewTitleLabel.Name = "crewTitleLabel";
-            this.crewTitleLabel.Size = new System.Drawing.Size(114, 20);
-            this.crewTitleLabel.TabIndex = 4;
-            this.crewTitleLabel.Text = "Featured Crew";
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel6.Controls.Add(this.castTitleLabel, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 90);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(547, 94);
-            this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // castTitleLabel
-            // 
-            this.castTitleLabel.AutoSize = true;
-            this.castTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.castTitleLabel.ForeColor = System.Drawing.Color.White;
-            this.castTitleLabel.Location = new System.Drawing.Point(3, 0);
-            this.castTitleLabel.Name = "castTitleLabel";
-            this.castTitleLabel.Size = new System.Drawing.Size(42, 20);
-            this.castTitleLabel.TabIndex = 4;
-            this.castTitleLabel.Text = "Cast";
-            // 
-            // wishlistPanel
-            // 
-            this.wishlistPanel.Controls.Add(this.label4);
-            this.wishlistPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wishlistPanel.Location = new System.Drawing.Point(0, 0);
-            this.wishlistPanel.Name = "wishlistPanel";
-            this.wishlistPanel.Size = new System.Drawing.Size(793, 425);
-            this.wishlistPanel.TabIndex = 20;
-            this.wishlistPanel.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(423, 189);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Wishlist";
-            // 
-            // watchedPanel
-            // 
-            this.watchedPanel.Controls.Add(this.label3);
-            this.watchedPanel.Location = new System.Drawing.Point(-2, 0);
-            this.watchedPanel.Name = "watchedPanel";
-            this.watchedPanel.Size = new System.Drawing.Size(793, 425);
-            this.watchedPanel.TabIndex = 21;
-            this.watchedPanel.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(423, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Watched";
-            // 
-            // friendsPanel
-            // 
-            this.friendsPanel.Controls.Add(this.label2);
-            this.friendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.friendsPanel.Location = new System.Drawing.Point(0, 0);
-            this.friendsPanel.Name = "friendsPanel";
-            this.friendsPanel.Size = new System.Drawing.Size(793, 425);
-            this.friendsPanel.TabIndex = 18;
-            this.friendsPanel.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(423, 189);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Friends";
-            // 
-            // timelinePanel
-            // 
-            this.timelinePanel.Controls.Add(this.label1);
-            this.timelinePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timelinePanel.Location = new System.Drawing.Point(0, 0);
-            this.timelinePanel.Name = "timelinePanel";
-            this.timelinePanel.Size = new System.Drawing.Size(793, 425);
-            this.timelinePanel.TabIndex = 17;
-            this.timelinePanel.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(423, 189);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Timeline";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1334,14 +1394,101 @@ namespace MoviedApp
             // 
             // headerPanel
             // 
+            this.headerPanel.Controls.Add(this.filmInfoHeaderPanel);
             this.headerPanel.Controls.Add(this.libraryHeaderPanel);
             this.headerPanel.Controls.Add(this.timelineHeaderPanel);
-            this.headerPanel.Controls.Add(this.filmInfoHeaderPanel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerPanel.Location = new System.Drawing.Point(153, 31);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(793, 78);
             this.headerPanel.TabIndex = 4;
+            // 
+            // filmInfoHeaderPanel
+            // 
+            this.filmInfoHeaderPanel.Controls.Add(this.panel2);
+            this.filmInfoHeaderPanel.Controls.Add(this.tableLayoutPanel11);
+            this.filmInfoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filmInfoHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.filmInfoHeaderPanel.Name = "filmInfoHeaderPanel";
+            this.filmInfoHeaderPanel.Size = new System.Drawing.Size(793, 78);
+            this.filmInfoHeaderPanel.TabIndex = 4;
+            this.filmInfoHeaderPanel.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.panel2.Controls.Add(this.pictureBox17);
+            this.panel2.Controls.Add(this.pictureBox18);
+            this.panel2.Controls.Add(this.searchTextBox2);
+            this.panel2.Location = new System.Drawing.Point(551, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(225, 33);
+            this.panel2.TabIndex = 6;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox17.BackgroundImage = global::MoviedApp.Properties.Resources.filterButton;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox17.Location = new System.Drawing.Point(174, 8);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(18, 17);
+            this.pictureBox17.TabIndex = 5;
+            this.pictureBox17.TabStop = false;
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox18.BackgroundImage = global::MoviedApp.Properties.Resources.searchButton;
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox18.Location = new System.Drawing.Point(199, 8);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(18, 17);
+            this.pictureBox18.TabIndex = 4;
+            this.pictureBox18.TabStop = false;
+            // 
+            // searchTextBox2
+            // 
+            this.searchTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
+            this.searchTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox2.ForeColor = System.Drawing.Color.White;
+            this.searchTextBox2.Location = new System.Drawing.Point(9, 2);
+            this.searchTextBox2.Name = "searchTextBox2";
+            this.searchTextBox2.Size = new System.Drawing.Size(159, 28);
+            this.searchTextBox2.TabIndex = 3;
+            this.searchTextBox2.Text = "search";
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Controls.Add(this.filmNameLabel, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(793, 78);
+            this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // filmNameLabel
+            // 
+            this.filmNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.filmNameLabel.AutoSize = true;
+            this.filmNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filmNameLabel.ForeColor = System.Drawing.Color.White;
+            this.filmNameLabel.Location = new System.Drawing.Point(236, 24);
+            this.filmNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.filmNameLabel.Name = "filmNameLabel";
+            this.filmNameLabel.Size = new System.Drawing.Size(557, 54);
+            this.filmNameLabel.TabIndex = 2;
+            this.filmNameLabel.Text = "STAR TREK BEYOND";
+            this.filmNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // libraryHeaderPanel
             // 
@@ -1435,93 +1582,6 @@ namespace MoviedApp
             this.homeLabel.TabIndex = 1;
             this.homeLabel.Text = "WELCOME BACK";
             // 
-            // filmInfoHeaderPanel
-            // 
-            this.filmInfoHeaderPanel.Controls.Add(this.panel2);
-            this.filmInfoHeaderPanel.Controls.Add(this.tableLayoutPanel11);
-            this.filmInfoHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filmInfoHeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.filmInfoHeaderPanel.Name = "filmInfoHeaderPanel";
-            this.filmInfoHeaderPanel.Size = new System.Drawing.Size(793, 78);
-            this.filmInfoHeaderPanel.TabIndex = 4;
-            this.filmInfoHeaderPanel.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
-            this.panel2.Controls.Add(this.pictureBox17);
-            this.panel2.Controls.Add(this.pictureBox18);
-            this.panel2.Controls.Add(this.searchTextBox2);
-            this.panel2.Location = new System.Drawing.Point(551, -1);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(225, 33);
-            this.panel2.TabIndex = 6;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox17.BackgroundImage = global::MoviedApp.Properties.Resources.filterButton;
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox17.Location = new System.Drawing.Point(174, 8);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(18, 17);
-            this.pictureBox17.TabIndex = 5;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox18.BackgroundImage = global::MoviedApp.Properties.Resources.searchButton;
-            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox18.Location = new System.Drawing.Point(199, 8);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(18, 17);
-            this.pictureBox18.TabIndex = 4;
-            this.pictureBox18.TabStop = false;
-            // 
-            // searchTextBox2
-            // 
-            this.searchTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(19)))), ((int)(((byte)(29)))));
-            this.searchTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextBox2.ForeColor = System.Drawing.Color.White;
-            this.searchTextBox2.Location = new System.Drawing.Point(9, 2);
-            this.searchTextBox2.Name = "searchTextBox2";
-            this.searchTextBox2.Size = new System.Drawing.Size(159, 28);
-            this.searchTextBox2.TabIndex = 3;
-            this.searchTextBox2.Text = "search";
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 1;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Controls.Add(this.filmNameLabel, 0, 1);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.05128F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.94872F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(793, 78);
-            this.tableLayoutPanel11.TabIndex = 0;
-            // 
-            // filmNameLabel
-            // 
-            this.filmNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.filmNameLabel.AutoSize = true;
-            this.filmNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filmNameLabel.ForeColor = System.Drawing.Color.White;
-            this.filmNameLabel.Location = new System.Drawing.Point(236, 24);
-            this.filmNameLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.filmNameLabel.Name = "filmNameLabel";
-            this.filmNameLabel.Size = new System.Drawing.Size(557, 54);
-            this.filmNameLabel.TabIndex = 2;
-            this.filmNameLabel.Text = "STAR TREK BEYOND";
-            this.filmNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
             // userPictureBox
             // 
             this.userPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -1576,6 +1636,7 @@ namespace MoviedApp
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(949, 543);
             this.loginPanel.TabIndex = 2;
+            this.loginPanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.loginPanel_KeyDown);
             // 
             // tableLayoutPanel5
             // 
@@ -1738,41 +1799,8 @@ namespace MoviedApp
             this.Name = "HeadForm";
             this.Padding = new System.Windows.Forms.Padding(2);
             this.Text = "HeadForm";
-            this.Click += new System.EventHandler(this.HeadForm_Click);
             this.Layout.ResumeLayout(false);
             this.headPanel.ResumeLayout(false);
-            this.libraryPanel.ResumeLayout(false);
-            this.libraryTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryCover1)).EndInit();
-            this.checkinPanel.ResumeLayout(false);
-            this.tableLayoutPanel13.ResumeLayout(false);
-            this.tableLayoutPanel14.ResumeLayout(false);
-            this.tableLayoutPanel14.PerformLayout();
-            this.tableLayoutPanel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel16.ResumeLayout(false);
-            this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel18.PerformLayout();
             this.filmInfoPanel.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1799,11 +1827,31 @@ namespace MoviedApp
             this.friendsPanel.PerformLayout();
             this.timelinePanel.ResumeLayout(false);
             this.timelinePanel.PerformLayout();
+            this.libraryPanel.ResumeLayout(false);
+            this.checkinPanel.ResumeLayout(false);
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel17.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.headerPanel.ResumeLayout(false);
+            this.filmInfoHeaderPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.libraryHeaderPanel.ResumeLayout(false);
             this.libraryHeaderPanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
@@ -1812,13 +1860,6 @@ namespace MoviedApp
             ((System.ComponentModel.ISupportInitialize)(this.searchButton)).EndInit();
             this.timelineHeaderPanel.ResumeLayout(false);
             this.timelineHeaderPanel.PerformLayout();
-            this.filmInfoHeaderPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.titleBar.ResumeLayout(false);
             this.loginPanel.ResumeLayout(false);
@@ -1887,7 +1928,7 @@ namespace MoviedApp
         private Label revenueTitleLabel;
         private Label budgetTitleLabel;
         private Label homepageTitleLabel;
-        private TextBox overviewText;
+        private TextBox overviewFilm;
         private Panel loginPanel;
         private TableLayoutPanel tableLayoutPanel5;
         private TextBox usernameTextBox;
@@ -1921,23 +1962,24 @@ namespace MoviedApp
         private TableLayoutPanel tableLayoutPanel18;
         private Label reviewTitleLabel;
         private TableLayoutPanel libraryTable;
-        private PictureBox libraryCover18;
-        private PictureBox libraryCover17;
-        private PictureBox libraryCover16;
-        private PictureBox libraryCover15;
-        private PictureBox libraryCover14;
-        private PictureBox libraryCover13;
-        private PictureBox libraryCover12;
-        private PictureBox libraryCover11;
-        private PictureBox libraryCover10;
-        private PictureBox libraryCover9;
-        private PictureBox libraryCover8;
-        private PictureBox libraryCover7;
-        private PictureBox libraryCover6;
-        private PictureBox libraryCover5;
-        private PictureBox libraryCover4;
-        private PictureBox libraryCover3;
-        private PictureBox libraryCover2;
-        private PictureBox libraryCover1;
+        private Label budgetFilm;
+        private Label revenueFilm;
+        private Label homepageFilm;
+        private Label languageFilm;
+        private Label releaseFilm;
+        private Label runtimeFilm;
+        private Label statusFilm;
+        private Label functionName1;
+        private Label functionName3;
+        private Label functionName2;
+        private Label crewName1;
+        private Label crewName3;
+        private Label crewName2;
+        private Label roleName1;
+        private Label roleName2;
+        private Label roleName3;
+        private Label castName1;
+        private Label castName2;
+        private Label castName3;
     }
 }

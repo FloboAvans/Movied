@@ -6,14 +6,17 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Net.TMDb;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MoviedApp.Properties;
 using RatingControls;
+using Image = System.Drawing.Image;
+using Resources = MoviedApp.Properties.Resources;
 
 namespace MoviedApp
 {
@@ -23,6 +26,10 @@ namespace MoviedApp
         private FontFamily _quicksandRegular;
         private FontFamily _quicksandBold;
 
+        private MovieApiCalls apiCalls;
+
+        private static string apiKey = "c84acd026332c3ab0c37200ff32e6f07";
+
         public HeadForm()
         {
             InitializeComponent();
@@ -30,6 +37,8 @@ namespace MoviedApp
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
             this.FormBorderStyle = FormBorderStyle.None;
+
+            this.apiCalls = new MovieApiCalls("c84acd026332c3ab0c37200ff32e6f07");
 
             CargoPrivateFontCollection();
             Fonts();
@@ -226,7 +235,7 @@ namespace MoviedApp
             crewTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
             factsTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Italic, GraphicsUnit.Point, ((byte)(0)));
 
-            overviewText.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            overviewFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             statusTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             languageTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             runtimeTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -234,6 +243,26 @@ namespace MoviedApp
             budgetTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             revenueTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             homepageTitleLabel.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            
+            castName1.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            castName2.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            castName3.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            roleName1.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            roleName2.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            roleName3.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            crewName1.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            crewName2.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            crewName3.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            functionName1.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            functionName2.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            functionName3.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            statusFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            languageFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            runtimeFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            releaseFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            budgetFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            revenueFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            homepageFilm.Font = new Font(_quicksandRegular, 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             trailerButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             addWishlistButton.Font = new Font(_quicksandRegular, 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
@@ -336,6 +365,94 @@ namespace MoviedApp
             g.SetClip(path);
             g.DrawImage(srcImage, 0, 0);
             return dstImage;
+        }
+
+        private void FillLibraryTable(Movies movies)
+        {
+            this.libraryTable.Controls.Clear();
+            this.libraryTable.ColumnCount = 6;
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.libraryTable.RowCount = 5;
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.libraryTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+
+            foreach (Movie m in movies.Results)
+            {
+                PictureBox p = new PictureBox();
+                p.Dock = System.Windows.Forms.DockStyle.Fill;
+                p.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                p.Height = 205;
+
+                if (m.Poster == null)
+                    continue;
+                p.ImageLocation = Path.Combine("https://image.tmdb.org/t/p/w500" + m.Poster);
+                p.MouseClick += (s, e) =>
+                {
+                    FillFilmInfoTable(m);
+                    clearAllPanels();
+                    filmInfoPanel.Enabled = true;
+                    filmInfoPanel.Visible = true;
+                    filmInfoHeaderPanel.Visible = true;
+                };
+                libraryTable.Controls.Add(p);
+            }
+        }
+
+        private void FillFilmInfoTable(Movie thumbMovie)
+        {
+            Movie movie = thumbMovie;
+            Task t = Task.Factory.StartNew(() =>
+            {
+                var client = new ServiceClient(apiKey);
+                movie = client.Movies.GetAsync(thumbMovie.Id, null, true, new CancellationToken(false)).Result;
+            });
+
+            t.Wait();
+            //Movie movie 
+            filmImage.ImageLocation = Path.Combine("https://image.tmdb.org/t/p/w500" + movie.Poster);
+
+            filmNameLabel.Text = movie.Title.ToUpper();
+            overviewFilm.Text = movie.Overview;
+
+            List<MediaCast> cast = new List<MediaCast>();
+            foreach (MediaCast c in movie.Credits.Cast.Take(3))
+            {
+                cast.Add(c);
+            }
+            castName1.Text = cast[0].Name;
+            castName2.Text = cast[1].Name;
+            castName3.Text = cast[2].Name;
+            roleName1.Text = cast[0].Character;
+            roleName2.Text = cast[1].Character;
+            roleName3.Text = cast[2].Character;
+
+            List<MediaCrew> crew = new List<MediaCrew>();
+            foreach (MediaCrew c in movie.Credits.Crew.Take(3))
+            {
+                crew.Add(c);
+            }
+            crewName1.Text = crew[0].Name;
+            crewName2.Text = crew[1].Name;
+            crewName3.Text = crew[2].Name;
+            functionName1.Text = crew[0].Job;
+            functionName2.Text = crew[1].Job;
+            functionName3.Text = crew[2].Job;
+
+            statusFilm.Text = movie.Status;
+            languageFilm.Text = movie.Languages.First().Name;
+            runtimeFilm.Text = movie.Runtime.ToString();
+            releaseFilm.Text = movie.ReleaseDate.ToString(); //"dd MMMM, yyyy"
+            budgetFilm.Text = "$" + movie.Budget;
+            revenueFilm.Text = "$" + movie.Revenue;
+            homepageFilm.Text = movie.HomePage;
         }
 
         void loginPanel_KeyDown(object sender, KeyEventArgs e)
@@ -492,6 +609,7 @@ namespace MoviedApp
             if (!(libraryPanel.Visible && libraryPanel.Enabled))
             {
                 clearAllPanels();
+                FillLibraryTable(apiCalls.getPopularMovies());
                 libraryHeaderPanel.Visible = true;
                 libraryHeaderPanel.Enabled = true;
                 libraryPanel.Visible = true;
@@ -549,52 +667,6 @@ namespace MoviedApp
             checkinPanel.Enabled = true;
         }
 
-        private void libraryTable_MouseClick(object sender, MouseEventArgs e)
-        {
-            Point cellPos = GetRowColIndex(libraryTable, libraryTable.PointToClient(Cursor.Position));
-            Console.WriteLine(cellPos);
-            switch (cellPos.X)
-            {
-                case 0:
-                    switch (cellPos.Y)
-                    {
-                        case 0:
-                            clearAllPanels();
-                            filmInfoPanel.Visible = true;
-                            filmInfoPanel.Enabled = true;
-                            filmInfoHeaderPanel.Visible = true;
-                            filmInfoHeaderPanel.Enabled = true;
-                            break;
-                    }
-                    break;
-                case 1:
-                    switch (cellPos.Y)
-                    {
-                        case 1:
-                            clearAllPanels();
-                            filmInfoPanel.Visible = true;
-                            filmInfoPanel.Enabled = true;
-                            filmInfoHeaderPanel.Visible = true;
-                            filmInfoHeaderPanel.Enabled = true;
-                            break;
-                    }
-                    break;
-                case 2:
-                    switch (cellPos.Y)
-                    {
-                        case 0:
-                            break;
-                    }
-                    break;
-            }
-        }
-
-
-        private void clickPanel_MouseClick(object sender, MouseEventArgs e)
-        {
-            libraryTable_MouseClick(sender,e);
-        }
-
         private void filmImage_MouseClick(object sender, MouseEventArgs e)
         {
             //TODO implement in load
@@ -605,13 +677,6 @@ namespace MoviedApp
         {
             //TODO implement in load
             userPictureBox.Image = CropToCircle(userPictureBox.Image, Color.Transparent);
-        }
-
-        private void HeadForm_Click(object sender, EventArgs e)
-        {
-
-            if (libraryPanel.Visible)
-                libraryTable_MouseClick(sender, (MouseEventArgs)e);
         }
     }
     
