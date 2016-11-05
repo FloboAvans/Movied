@@ -518,29 +518,48 @@ namespace MoviedApp
             filmNameLabel.Text = movie.Title.ToUpper();
             overviewFilm.Text = movie.Overview;
 
-            List<MediaCast> cast = new List<MediaCast>();
-            foreach (MediaCast c in movie.Credits.Cast.Take(3))
+            castName1.Text = "";
+            castName2.Text = "";
+            castName3.Text = "";
+            roleName1.Text = "";
+            roleName2.Text = "";
+            roleName3.Text = "";
+            crewName1.Text = "";
+            crewName2.Text = "";
+            crewName3.Text = "";
+            functionName1.Text = "";
+            functionName2.Text ="";
+            functionName3.Text = "";
+            if (movie.Credits.Cast != null)
             {
-                cast.Add(c);
+                List<MediaCast> cast = new List<MediaCast>();
+            
+                foreach (MediaCast c in movie.Credits.Cast.Take(3))
+                {
+                    cast.Add(c);
+                }
+                castName1.Text = cast[0].Name;
+                castName2.Text = cast[1].Name;
+                castName3.Text = cast[2].Name;
+                roleName1.Text = cast[0].Character;
+                roleName2.Text = cast[1].Character;
+                roleName3.Text = cast[2].Character;
             }
-            castName1.Text = cast[0].Name;
-            castName2.Text = cast[1].Name;
-            castName3.Text = cast[2].Name;
-            roleName1.Text = cast[0].Character;
-            roleName2.Text = cast[1].Character;
-            roleName3.Text = cast[2].Character;
 
-            List<MediaCrew> crew = new List<MediaCrew>();
-            foreach (MediaCrew c in movie.Credits.Crew.Take(3))
+            if (movie.Credits.Cast != null)
             {
-                crew.Add(c);
+                List<MediaCrew> crew = new List<MediaCrew>();
+                foreach (MediaCrew c in movie.Credits.Crew.Take(3))
+                {
+                    crew.Add(c);
+                }
+                crewName1.Text = crew[0].Name;
+                crewName2.Text = crew[1].Name;
+                crewName3.Text = crew[2].Name;
+                functionName1.Text = crew[0].Job;
+                functionName2.Text = crew[1].Job;
+                functionName3.Text = crew[2].Job;
             }
-            crewName1.Text = crew[0].Name;
-            crewName2.Text = crew[1].Name;
-            crewName3.Text = crew[2].Name;
-            functionName1.Text = crew[0].Job;
-            functionName2.Text = crew[1].Job;
-            functionName3.Text = crew[2].Job;
 
             statusFilm.Text = movie.Status;
             languageFilm.Text = movie.Languages.First().Name;
