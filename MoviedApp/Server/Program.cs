@@ -11,8 +11,8 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            new ClientListner();
             PasswordNode.Init();
+            ClientListner.Init();
         }
     }
 }

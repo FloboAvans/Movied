@@ -12,9 +12,11 @@ namespace Server
 {
     class ClientListner
     {
-        public static ClientListner instance;
+        public static ClientListner instance = new ClientListner();
 
-        public ClientListner()
+        public static void Init() { }
+
+        private ClientListner()
         {
             if (instance != null)
                 throw new Exception("ClientListner uses the singelton pattern");
