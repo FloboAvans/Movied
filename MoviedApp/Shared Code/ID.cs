@@ -11,8 +11,13 @@ namespace Shared_Code
     // http://stackoverflow.com/questions/980766/how-do-i-declare-a-nested-enum (01/11/2016)
     // author: yoyo
 
+
+#if WINDOWS_UWP
+    public struct ID<T>
+#else
     [Serializable]
     public struct ID<T> : ISerializable
+#endif
     {
         public static ID<T> none;
 
@@ -83,7 +88,7 @@ namespace Shared_Code
             return id.mID;
         }
 
-        private readonly uint mID;
+        public readonly uint mID;
 
         public override string ToString()
         {

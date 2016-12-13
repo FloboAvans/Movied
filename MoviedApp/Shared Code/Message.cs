@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace Shared_Code
 {
+#if WINDOWS_UWP
+    public struct Message
+#else
     [Serializable]
     public struct Message
+#endif
     {
         public sealed class Type
         {

@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 
 namespace HashingTest
 {
+#if WINDOWS_UWP == false
     /// <summary>
     /// used to manage passwords by: storing passwords, generating salt, generating the hash, and check login requests
     /// </summary>
@@ -290,6 +291,11 @@ namespace HashingTest
             username = entry.name;
             return Response.SUCCES;
         }
+
+#else
+    public class PasswordBank
+    {
+#endif
 
         /// <summary>
         /// generates a password hash
