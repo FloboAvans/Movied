@@ -60,7 +60,7 @@ namespace Server
         private Queue<Message> inQueue;
 
         public readonly int Id;
-        public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"{r} on [{m}] by {n.Id}");
+        public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"ERROR: {r} on [{m}] by {n.Id}");
 
         public sealed class NodeResponse
         {
