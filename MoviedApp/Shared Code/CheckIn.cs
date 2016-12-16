@@ -17,7 +17,7 @@ namespace Shared_Code
 
         public static long GetCurrentDate()
         {
-            return DateTimeOffset.Now.To
+            return DateTimeOffset.Now.ToUnixTimeMilliseconds();
         }
     }
 }
