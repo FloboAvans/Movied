@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Shared_Code
 {
     public struct MovieID
     {
-        public int value;
+        private int value;
 
         public static implicit operator int(MovieID id)
         {
@@ -23,7 +24,7 @@ namespace Shared_Code
 
     public struct Date
     {
-        public long value;
+        private long value;
 
         public static implicit operator long(Date date)
         {
@@ -38,7 +39,7 @@ namespace Shared_Code
 
     public struct UserID
     {
-        public int value;
+        private int value;
 
         public static implicit operator int(UserID id)
         {
@@ -48,21 +49,6 @@ namespace Shared_Code
         public static implicit operator UserID(int id)
         {
             return new UserID {value = id};
-        }
-    }
-
-    public struct TraceID
-    {
-        public ulong value;
-
-        public static implicit operator ulong(TraceID id)
-        {
-            return id.value;
-        }
-
-        public static implicit operator TraceID(ulong id)
-        {
-            return new TraceID {value = id};
         }
     }
 }
