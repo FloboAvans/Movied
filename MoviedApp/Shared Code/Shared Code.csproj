@@ -54,6 +54,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="PasswordBank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Typedefs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

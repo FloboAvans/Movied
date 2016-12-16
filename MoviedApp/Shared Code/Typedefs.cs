@@ -50,4 +50,19 @@ namespace Shared_Code
             return new UserID {value = id};
         }
     }
+
+    public struct TraceID
+    {
+        public ulong value;
+
+        public static implicit operator ulong(TraceID id)
+        {
+            return id.value;
+        }
+
+        public static implicit operator TraceID(ulong id)
+        {
+            return new TraceID {value = id};
+        }
+    }
 }
