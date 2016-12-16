@@ -50,32 +50,6 @@ namespace Shared_Code
             }
         }
 
-        public static class Trace
-        {
-            private static Mutex mutex = new Mutex(false);
-            private static uint count = 0;
-            private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-
-            public const byte ID_NOT_SET = 0;
-
-            public static ulong GenerateTrace(byte id)
-            {
-                mutex.WaitOne();
-                try
-                {
-                    uint currCount = count++;
-                    byte[] randBuff = new byte[4];
-                    rng.GetBytes(randBuff);
-                    randBuff[0] = id;
-                    return ((ulong) currCount) << 32 | BitConverter.ToUInt32(randBuff, 0);
-                }
-                finally
-                {
-                    mutex.ReleaseMutex();
-                }
-            }
-        }
-
         public const int ID_UNKNOWN = 0;
 
         public int senderID;
