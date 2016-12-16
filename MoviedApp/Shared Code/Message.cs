@@ -80,13 +80,13 @@ namespace Shared_Code
 
         public int senderID;
         public int destinationID;
-        public ulong traceNumber;
+        public TraceID traceNumber;
         public ID<Type> type;
         public bool succes;
         public bool isResponse;
         public dynamic message;
 
-        public Message(int senderID, int destinationID, ulong traceNumber, ID<Type> type, bool succes, bool isResponse, dynamic message)
+        public Message(int senderID, int destinationID, TraceID traceNumber, ID<Type> type, bool succes, bool isResponse, dynamic message)
         {
             this.senderID = senderID;
             this.destinationID = destinationID;
