@@ -8,6 +8,14 @@ namespace Shared_Code
 {
     public static class Constants
     {
+        public static class Apis
+        {
+            public static class TheMovieDatabase
+            {
+                public const string API_KEY = "c84acd026332c3ab0c37200ff32e6f07";
+            }
+        }
+
         public static class Network
         {
 

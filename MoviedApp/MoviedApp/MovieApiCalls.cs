@@ -5,6 +5,7 @@ using System.Net.TMDb;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Shared_Code;
 
 namespace MoviedApp
 {
@@ -14,7 +15,7 @@ namespace MoviedApp
         //private ServiceClient client;
         private static Movies mostPopularMovies;
         private static Movie movie;
-        private static string apiKey = "c84acd026332c3ab0c37200ff32e6f07";
+        private static string apiKey = Constants.Apis.TheMovieDatabase.API_KEY;
 
         public MovieApiCalls(string apiKey)
         {
