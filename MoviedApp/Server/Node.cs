@@ -58,6 +58,7 @@ namespace Server
         }
 
         private Queue<Message> inQueue;
+        private Dictionary<TraceID, Action<Message>> messageTracer = new Dictionary<TraceID, Action<Message>>();
 
         public readonly int Id;
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"ERROR: {r} on [{m}] by {n.Id}");
