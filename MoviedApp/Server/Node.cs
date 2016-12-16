@@ -8,7 +8,7 @@ using Shared_Code;
 
 namespace Server
 {
-    public class Node
+    class Node
     {
         public static class Identifier
         {
@@ -58,8 +58,7 @@ namespace Server
         }
 
         private Queue<Message> inQueue;
-        private Dictionary<TraceID, Action<Message>> messageTracer = new Dictionary<TraceID, Action<Message>>();
-
+        private Dictionary<TraceID, Func<Message, ID<NodeResponse>>> messageTracer = new Dictionary<TraceID, Func<Message, ID<NodeResponse>>>();
         public readonly int Id;
         public Action<ID<NodeResponse>, Message, Node> OnError = (r, m, n) => Console.WriteLine($"ERROR: {r} on [{m}] by {n.Id}");
 
@@ -76,6 +75,7 @@ namespace Server
             {
                 public static readonly ID<NodeResponse> destinationMismatch = preCheck[0];
                 public static readonly ID<NodeResponse> nodeMismatch = preCheck[1];
+                public static readonly ID<NodeResponse> traceFault = preCheck[2];
             }
 
             public static readonly ID<NodeResponse> clientNode = 4;
@@ -125,6 +125,17 @@ namespace Server
             return NodeResponse.succes;
         }
 
+        protected void AddTrace(Message m, Func<Message, ID<NodeResponse>> OnMessage)
+        {
+            if (OnMessage == null)
+                throw new ArgumentNullException("OnMessage may not be null");
+
+            if (messageTracer.ContainsKey(m.traceNumber))
+                throw new InvalidOperationException("trace already exists");
+
+            messageTracer.Add(m.traceNumber, OnMessage);
+        }
+
         private void MessageLoop(Func<Node, Message, ID<NodeResponse>> messageHandler)
         {
             while (true)
@@ -138,9 +149,20 @@ namespace Server
                         ID<NodeResponse> response;
                         if ((response = CheckValidity(m)) != NodeResponse.succes)
                             OnError(response, m, this);
-                        else
-                            if ((response = messageHandler(this, m)) != NodeResponse.succes)
-                                OnError(response, m, this);
+                        else if (messageTracer.ContainsKey(m.traceNumber))
+                        {
+                            Func<Message, ID<NodeResponse>> OnMessage;
+                            if (messageTracer.TryGetValue(m.traceNumber, out OnMessage) == false)
+                                OnError(NodeResponse.PreCheck.traceFault, m, this);
+                            else
+                            {
+                                messageTracer.Remove(m.traceNumber);
+                                if ((response = OnMessage(m)) != NodeResponse.succes)
+                                    OnError(response, m, this);
+                            }
+                        }
+                        else if ((response = messageHandler(this, m)) != NodeResponse.succes)
+                            OnError(response, m, this);
                     }
                 }
                 Thread.Yield();        
