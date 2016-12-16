@@ -15,10 +15,10 @@ namespace Shared_Code {
         [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern int memcmp(byte[] b1, byte[] b2, long count);
 
-        [FieldOffset(0)] private UniqeRandomNumber generatorID;
+        [FieldOffset(0)] private NodeAddress generatorID;
         [FieldOffset(sizeof(ulong))] private UniqeRandomNumber traceId;
 
-        public static UniqeRandomNumber localID;
+        public static NodeAddress localID;
 
         public static readonly TraceID None = default(TraceID);
 
@@ -76,6 +76,11 @@ namespace Shared_Code {
         private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
         private static uint Count = 0;
 
+        public UniqeRandomNumber(byte[] Count, byte[] Random)
+        {
+            Set(Count, Random);
+        }
+
         public static UniqeRandomNumber Generate()
         {
             UniqeRandomNumber number;
@@ -84,18 +89,41 @@ namespace Shared_Code {
             byte[] randomBytes = new byte[5];
             rng.GetBytes(randomBytes);
 
-            fixed (byte* pCountBytes = countBytes, pRandomBytes = randomBytes)
-            {
-                byte* pCount = number.count, pRandom = number.random;
+            number.Set(countBytes, randomBytes);
 
+            return number;
+        }
+
+        private void Set(byte[] Count, byte[] Random)
+        {
+            fixed (byte* pCountBytes = Count, pRandomBytes = Random, pCount = count, pRandom = random)
+            {
                 for (int i = 0; i < 3; i++)
                     pCount[i] = pCountBytes[i + 1];
 
                 for (int i = 0; i < 5; i++)
                     pRandom[i] = pRandomBytes[i];
             }
+        }
 
-            return number;
+        public static bool operator ==(UniqeRandomNumber a, UniqeRandomNumber b)
+        {
+            return (ulong) a == (ulong) b;
+        }
+
+        public static bool operator !=(UniqeRandomNumber a, UniqeRandomNumber b)
+        {
+            return (ulong) a != (ulong) b;
+        }
+
+        public static implicit operator ulong(UniqeRandomNumber number)
+        {
+            return *(ulong*) &number;
+        }
+
+        public static implicit operator UniqeRandomNumber(ulong number)
+        {
+            return *(UniqeRandomNumber*) &number;
         }
     }
 }

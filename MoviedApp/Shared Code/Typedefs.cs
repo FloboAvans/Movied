@@ -51,4 +51,35 @@ namespace Shared_Code
             return new UserID {value = id};
         }
     }
+
+    public struct NodeAddress
+    {
+        private UniqeRandomNumber value;
+
+        public static readonly NodeAddress None = default(NodeAddress);
+        public static NodeAddress Generate()
+        {
+            return UniqeRandomNumber.Generate();
+        }
+
+        public static implicit operator UniqeRandomNumber(NodeAddress address)
+        {
+            return address.value;
+        }
+
+        public static implicit operator NodeAddress(UniqeRandomNumber address)
+        {
+            return new NodeAddress {value = address};
+        }
+
+        public static bool operator ==(NodeAddress a, NodeAddress b)
+        {
+            return (UniqeRandomNumber) a == (UniqeRandomNumber) b;
+        }
+
+        public static bool operator !=(NodeAddress a, NodeAddress b)
+        {
+            return (UniqeRandomNumber) a != (UniqeRandomNumber) b;
+        }
+    }
 }

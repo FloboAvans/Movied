@@ -17,7 +17,9 @@ using System.Windows.Forms;
 using HashingTest;
 using MoviedApp.Properties;
 using RatingControls;
+using Shared_Code;
 using Image = System.Drawing.Image;
+using Message = System.Windows.Forms.Message;
 using Resources = MoviedApp.Properties.Resources;
 
 namespace MoviedApp
@@ -600,7 +602,7 @@ namespace MoviedApp
             ServerHandler.instance.SendMessage(new Shared_Code.Message(
                 ServerHandler.instance.clientID,
                 ServerHandler.instance.serverNodeID,
-                Shared_Code.Message.Trace.GenerateTrace(100),
+                TraceID.GenerateTraceID(), 
                 Shared_Code.Message.Type.ClientServer.Login.saltRequest,
                 true,
                 false,
@@ -619,7 +621,7 @@ namespace MoviedApp
                     ServerHandler.instance.SendMessage(new Shared_Code.Message(
                             ServerHandler.instance.clientID,
                             ServerHandler.instance.serverNodeID,
-                            Shared_Code.Message.Trace.GenerateTrace(100),
+                            TraceID.GenerateTraceID(), 
                             Shared_Code.Message.Type.ClientServer.Login.checkHash,
                             true,
                             false,
@@ -678,7 +680,7 @@ namespace MoviedApp
             ServerHandler.instance.SendMessage(new Shared_Code.Message(
                 ServerHandler.instance.clientID,
                 ServerHandler.instance.serverNodeID,
-                Shared_Code.Message.Trace.GenerateTrace(100),
+                TraceID.GenerateTraceID(), 
                 Shared_Code.Message.Type.ClientServer.Login.createUser,
                 true,
                 false,
@@ -697,7 +699,7 @@ namespace MoviedApp
                         ServerHandler.instance.SendMessage(new Shared_Code.Message(
                             ServerHandler.instance.clientID,
                             ServerHandler.instance.serverNodeID,
-                            Shared_Code.Message.Trace.GenerateTrace(100),
+                            TraceID.GenerateTraceID(), 
                             Shared_Code.Message.Type.ClientServer.Login.setHash,
                             true,
                             false,

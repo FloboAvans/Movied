@@ -47,6 +47,7 @@ namespace MoviedApp
         {
             if (initialized)
                 throw new Exception("init may be called only once");
+            TraceID.localID = NodeAddress.None;
             new Thread(ConnectionEstablisher).Start();
 
         }
