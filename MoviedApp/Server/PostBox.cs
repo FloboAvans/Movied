@@ -67,24 +67,25 @@ namespace Server
             }
         }
 
-        private Dictionary<int, Entry> postBox;
+        private Dictionary<NodeAddress, Entry> postBox;
 
         private PostBox()
         {
-            postBox = new Dictionary<int, Entry>();
+            postBox = new Dictionary<NodeAddress, Entry>();
         }
 
         private PostBox(SerializationInfo info, StreamingContext context)
         {
-            postBox = (Dictionary<int, Entry>) info.GetValue("postBox", postBox.GetType());
+            postBox = (Dictionary<NodeAddress, Entry>) info.GetValue("postBox", postBox.GetType());
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
+            //TODO fix this
+            //info.AddValue("postBox", postBox.Where(a => Node.Identifier.IsUserID(a.Key)));
         }
 
-        public TargetState GeTargetState(int id)
+        public TargetState GeTargetState(NodeAddress id)
         {
             lock (postBox)
             {
@@ -99,7 +100,7 @@ namespace Server
             }
         }
 
-        public Response TargetExists(int id)
+        public Response TargetExists(NodeAddress id)
         {
             lock (postBox)
             {
@@ -127,7 +128,7 @@ namespace Server
             }
         }
 
-        public Response AddTarget(int id, Node node = null)
+        public Response AddTarget(NodeAddress id, Node node = null)
         {
             lock (postBox)
             {
@@ -153,7 +154,7 @@ namespace Server
             }
         }
 
-        public Response ActivateTargetStep1(int id, out Queue<Message> inQueue)
+        public Response ActivateTargetStep1(NodeAddress id, out Queue<Message> inQueue)
         {
             inQueue = null;
             lock (postBox)
@@ -188,7 +189,7 @@ namespace Server
             }  
         }
 
-        public Response DeactivateTarget(int id, Queue<Message> inQueue)
+        public Response DeactivateTarget(NodeAddress id, Queue<Message> inQueue)
         {
             lock (postBox)
             {
@@ -206,7 +207,7 @@ namespace Server
             }
         }
 
-        public Response RemoveTarget(int id)
+        public Response RemoveTarget(NodeAddress id)
         {
             lock (postBox)
             {

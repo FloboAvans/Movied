@@ -26,12 +26,12 @@ namespace Server
         public const int ID_UNKNOWN = -1;
 
         public int userID = ID_UNKNOWN;
-        public int clientID = Identifier.GenerateClientID();
+        public NodeAddress clientID = UniqeRandomNumber.Generate();
         public State state = State.START;
 
         private NetworkStream client;
 
-        public ClientNode(TcpClient client) : base(MessageHandler)
+        public ClientNode(TcpClient client) : base(MessageHandler, NodeAddress.None)
         {
             if (client == null)
                 throw new ArgumentNullException("client may not be null");
@@ -60,7 +60,7 @@ namespace Server
                 Message exceptionMessage = new Message(
                     Id,
                     Id,
-                    Message.Trace.GenerateTrace(Constants.Network.SERVER_TRACE_ID),
+                    TraceID.GenerateTraceID(),
                     Message.Type.ClientServer.Error.connectionException,
                     true, false,
                     new {exception = e});
@@ -80,7 +80,7 @@ namespace Server
                 AddMessage(new Message(
                     Id,
                     Id,
-                    Message.Trace.GenerateTrace(Constants.Network.SERVER_TRACE_ID),
+                    TraceID.GenerateTraceID(), 
                     Message.Type.ClientServer.Error.connectionException,
                     true,
                     false,
@@ -113,7 +113,7 @@ namespace Server
                     }
 
                     forwardMessage.succes = true;
-                    forwardMessage.message = new {clientid = clientNode.clientID};
+                    forwardMessage.message = new {clientid = (ulong)(UniqeRandomNumber)clientNode.clientID};
                     ++clientNode.state;
                     clientNode.WriteToClient(forwardMessage);
                     return NodeResponse.succes;
@@ -126,7 +126,7 @@ namespace Server
                         if (message.isResponse == false)
                         {
                             forwardMessage.senderID = node.Id;
-                            forwardMessage.destinationID = Node.Identifier.PASSWORD_NODE;
+                            forwardMessage.destinationID = Constants.Server.PASSWORD_NODE_ADDRESS;
                         }
                         else if ((message.type == Message.Type.ClientServer.Login.checkHash ||
                                   message.type == Message.Type.ClientServer.Login.setHash) &&
@@ -134,7 +134,7 @@ namespace Server
                         {
                             forwardMessage.destinationID = clientNode.clientID;
                             forwardMessage.senderID = clientNode.Id;
-                            PostBox.TargetState targetState = PostBox.instance.GeTargetState((int)message.message.userid);
+                            PostBox.TargetState targetState = PostBox.instance.GeTargetState((NodeAddress)message.message.userid);
                             switch (targetState)
                             {
                                 case PostBox.TargetState.ACTIVE:
@@ -164,7 +164,7 @@ namespace Server
                                     }
                                     break;
                                 case PostBox.TargetState.NON_EXISTENT:
-                                    if (PostBox.instance.AddTarget((int)message.message.userid,clientNode) != PostBox.Response.SUCCESS)
+                                    if (PostBox.instance.AddTarget((NodeAddress)message.message.userid,clientNode) != PostBox.Response.SUCCESS)
                                         forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
                                     else
                                     {

@@ -25,7 +25,12 @@ namespace Shared_Code
             public const int LENGTH_BYTE_SIZE = 4;
             public const int UNKNOWN_ERROR = -1;
 
-            public const byte SERVER_TRACE_ID = 1;
+            public static readonly NodeAddress SERVER_NODE_ADDRESS = new UniqeRandomNumber(new byte[3] {0,0,0}, new byte[5] {1,2,3,4,5});
+        }
+
+        public static class Server
+        {
+            public static readonly NodeAddress PASSWORD_NODE_ADDRESS = new UniqeRandomNumber(new byte[3] {0, 0, 0}, new byte[5] {5, 4, 3, 2, 1});
         }
 
         public static class GeneralInfo

@@ -20,12 +20,12 @@ namespace MoviedApp
             CLOSED
         }
 
-        public int clientID = Message.ID_UNKNOWN;
-        public int serverNodeID = Message.ID_UNKNOWN;
+        public NodeAddress clientID = NodeAddress.None;
+        public NodeAddress serverNodeID = NodeAddress.None;
 
         private State state = State.NOT_STARTED;
 
-        private Dictionary<ulong, Action<Message>> resultDictionary = new Dictionary<ulong, Action<Message>>();
+        private Dictionary<TraceID, Action<Message>> resultDictionary = new Dictionary<TraceID, Action<Message>>();
 
         public Action OnHandshakeComplete = () => Console.WriteLine("handshake complete");
 
@@ -35,9 +35,9 @@ namespace MoviedApp
             {
                 ++state;
                 ServerConnector.instance.SendMessage(new Message(
-                    Message.ID_UNKNOWN,
-                    Message.ID_UNKNOWN,
-                    0,
+                    NodeAddress.None, 
+                    NodeAddress.None, 
+                    TraceID.None, 
                     Message.Type.ClientServer.handshake,
                     true,
                     false,
@@ -63,7 +63,7 @@ namespace MoviedApp
                     {
                         Console.WriteLine($"connection was blocked, message={message}");
                     }
-                    clientID = message.message.clientid;
+                    TraceID.localID = clientID = (UniqeRandomNumber)(ulong)message.message.clientid;
                     serverNodeID = message.senderID;
                     OnHandshakeComplete();
                     ++state;

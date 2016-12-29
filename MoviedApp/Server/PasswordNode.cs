@@ -17,7 +17,7 @@ namespace Server
 
         private PasswordBank passwordBank;
 
-        private PasswordNode() : base(MessageHandler, Identifier.PASSWORD_NODE)
+        private PasswordNode() : base(MessageHandler, Constants.Server.PASSWORD_NODE_ADDRESS)
         {
             if (File.Exists("passwords.pswrd"))
                 passwordBank = JsonConvert.DeserializeObject<PasswordBank>(File.ReadAllText("passwords.pswrd"));
