@@ -6,8 +6,94 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <SplitView x:Name="MySplitView" DisplayMode="Overlay" IsPaneOpen="False" OpenPaneLength="200" PaneBackground="Transparent">
+        <SplitView.Pane>
+            <Grid x:Name="MenuGrid" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Row="0">
+                <Ellipse Height="100" Width="100" Margin="12" Fill="Aquamarine" VerticalAlignment="Top"></Ellipse>
+                <TextBlock Text="admin" FontSize="14" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                </StackPanel>
+                    <ListView x:Name="Menu" Grid.Row="1" HorizontalAlignment="Center" SelectionMode="Single" SelectionChanged="Menu_OnSelectionChanged">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal"/>
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="SelectionStates">
+                                                    <VisualState x:Name="Unselected">
+                                                        <Storyboard>
+                                                            <ColorAnimation Duration="0" Storyboard.TargetName="myback" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="Transparent"/>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="SelectedUnfocused">
+                                                        <Storyboard>
+                                                            <ColorAnimation Duration="0" Storyboard.TargetName="myback" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="Transparent"/>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <Border x:Name="myback" Background="Transparent">
+                                                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                                            </Border>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    </Grid>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Timeline" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Library" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Friends" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Check-ins" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Wishlist" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Center">
+                        <TextBlock Text="Maps" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    </ListViewItem>
+                </ListView>
+            </Grid>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Image Source="ms-appx:///Assets/background_blue.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+
+                <CommandBar IsSticky="true" Background="DarkSlateGray">
+
+                    <AppBarButton Icon="Zoom"/>
+                    <CommandBar.SecondaryCommands>
+                        <AppBarButton Icon="Like" Label="Like"/>
+                        <AppBarButton Icon="Dislike" Label="Dislike"/>
+                    </CommandBar.SecondaryCommands>
+
+                    <CommandBar.Content>
+                        <AppBarButton FontFamily="Segoe MDL2 Assets" Content="&#xE700;" FontSize="20" Margin="12,0" Click="MenuButton_OnClick"/>
+                    </CommandBar.Content>
+
+                </CommandBar>
+                <Image Source="ms-appx:///Assets/logo_movied.png" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="12"/>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
+    
 </Page>

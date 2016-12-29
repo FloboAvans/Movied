@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +27,27 @@ namespace MoviedUWP
         public MainPage()
         {
             this.InitializeComponent();
+            MenuGrid.Background = new SolidColorBrush(Color.FromArgb(245, 25, 35, 50));
+        }
+
+        private void MenuButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void Menu_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems != null && e.AddedItems.Any())
+            {
+                ListViewItem listViewItem = Menu.ContainerFromItem(e.AddedItems[0]) as ListViewItem;
+                listViewItem.FontWeight = FontWeights.ExtraBlack;
+            }
+
+            if (e.RemovedItems != null && e.RemovedItems.Any())
+            {
+                ListViewItem listViewItem = Menu.ContainerFromItem(e.RemovedItems[0]) as ListViewItem;
+                listViewItem.FontWeight = FontWeights.Normal;
+            }
         }
     }
 }
