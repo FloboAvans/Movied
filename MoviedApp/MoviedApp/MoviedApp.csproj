@@ -81,8 +81,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Resize.cs" />
-    <Compile Include="ServerConnector.cs" />
-    <Compile Include="ServerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -122,6 +120,10 @@
     <None Include="res\filterButton.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Shared Code Client Side\Shared Code Client Side.csproj">
+      <Project>{02f4038a-5ca9-4a93-9e36-8b8656a26a7f}</Project>
+      <Name>Shared Code Client Side</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shared Code\Shared Code.csproj">
       <Project>{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}</Project>
       <Name>Shared Code</Name>

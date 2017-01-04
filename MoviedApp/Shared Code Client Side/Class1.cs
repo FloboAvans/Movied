@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DebugApp
+namespace Shared_Code_Client_Side
 {
-    class Program
+    public class Class1
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

@@ -28,7 +28,9 @@ namespace Shared_Code
 
         public JObject Serialize()
         {
-            JToken
+            // TODO finsish this
+            //JToken
+            return null;
         }
 
         public ID<T> super
