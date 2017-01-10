@@ -26,9 +26,11 @@ namespace Shared_Code
             mID = (uint) jObject["mID"];
         }
 
-        public JObject Serialize()
+        public JToken Serialize()
         {
-            JToken
+            JObject jObject = new JObject();
+            jObject.Add("mID", mID);
+            return jObject;
         }
 
         public ID<T> super
