@@ -32,7 +32,7 @@ namespace MoviedUWP
 
         private void MenuButton_OnClick(object sender, RoutedEventArgs e)
         {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+            SplitMenu.IsPaneOpen = !SplitMenu.IsPaneOpen;
         }
 
         private void Menu_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,6 +48,32 @@ namespace MoviedUWP
                 ListViewItem listViewItem = Menu.ContainerFromItem(e.RemovedItems[0]) as ListViewItem;
                 listViewItem.FontWeight = FontWeights.Normal;
             }
+
+            if (Timeline.IsSelected)
+            {
+                
+            }
+            else if (Library.IsSelected)
+            {
+                Frame.Navigate(typeof(LibraryPage));
+            }
+            else if(Friends.IsSelected)
+            {
+                Frame.Navigate(typeof(FriendsPage));
+            }
+            else if(Checkins.IsSelected)
+            {
+                Frame.Navigate(typeof(CheckinsPage));
+            }
+            else if (Wishlist.IsSelected)
+            {
+                Frame.Navigate(typeof(WishlistPage));
+            }
+            else if (Maps.IsSelected)
+            {
+                Frame.Navigate(typeof(MapsPage));
+            }
+            SplitMenu.IsPaneOpen = false;
         }
     }
 }

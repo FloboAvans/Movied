@@ -68,18 +68,33 @@ namespace Shared_Code
             this.message = message;
         }
 
-        public Message(JObject obj)
+        public Message(JObject jObject)
         {
-            senderID = (UniqeRandomNumber) (ulong) obj["senderID"];
-            destinationID = (UniqeRandomNumber) (ulong) obj["destinationID"];
-            traceNumber = Convert.FromBase64String((string) obj["traceNumber"]);
-
+            senderID = (UniqeRandomNumber) (ulong) jObject["senderID"];
+            destinationID = (UniqeRandomNumber) (ulong) jObject["destinationID"];
+            JToken prop = jObject["traceNumber"];
+            traceNumber = Convert.FromBase64String((string) jObject["traceNumber"]);
+            type = new ID<Type>((JObject)jObject["type"]);
+            succes = (bool) jObject["succes"];
+            isResponse = (bool) jObject["isResponse"];
+            JToken messageToken;
+            if (jObject.TryGetValue("message", out messageToken))
+                message = messageToken;
+            else
+                message = null;
         }
 
         public JObject Serialize()
         {
             JObject jObject = new JObject();
             jObject.Add("senderID", (ulong)(UniqeRandomNumber)senderID);
+            jObject.Add("destinationID", (ulong)(UniqeRandomNumber)destinationID);
+            jObject.Add("traceNumber", Convert.ToBase64String(traceNumber));
+            jObject.Add("type", type.Serialize());
+            jObject.Add("succes", succes);
+            jObject.Add("isResponse", isResponse);
+            if (message != null) jObject.Add("message", JObject.FromObject(message));
+            return jObject;
         }
 
         public override string ToString()

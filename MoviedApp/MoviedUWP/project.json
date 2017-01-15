@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Hasseware.TheMovieDB": "1.3.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
   },
   "frameworks": {
