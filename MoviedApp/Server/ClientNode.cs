@@ -134,7 +134,7 @@ namespace Server
                         {
                             forwardMessage.destinationID = clientNode.clientID;
                             forwardMessage.senderID = clientNode.Id;
-                            PostBox.TargetState targetState = PostBox.instance.GeTargetState((NodeAddress)message.message.userid);
+                            PostBox.TargetState targetState = PostBox.instance.GeTargetState((UniqeRandomNumber)(ulong)message.message.userid);
                             switch (targetState)
                             {
                                 case PostBox.TargetState.ACTIVE:
@@ -164,7 +164,7 @@ namespace Server
                                     }
                                     break;
                                 case PostBox.TargetState.NON_EXISTENT:
-                                    if (PostBox.instance.AddTarget((NodeAddress)message.message.userid,clientNode) != PostBox.Response.SUCCESS)
+                                    if (PostBox.instance.AddTarget((UniqeRandomNumber)(ulong)message.message.userid,clientNode) != PostBox.Response.SUCCESS)
                                         forwardMessage.type = Message.Type.ClientServer.Login.alreadyLogedIn;
                                     else
                                     {

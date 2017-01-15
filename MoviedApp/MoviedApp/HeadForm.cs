@@ -18,6 +18,8 @@ using HashingTest;
 using MoviedApp.Properties;
 using RatingControls;
 using Shared_Code;
+using Shared_Code.Client_Side;
+
 using Image = System.Drawing.Image;
 using Message = System.Windows.Forms.Message;
 using Resources = MoviedApp.Properties.Resources;

@@ -54,11 +54,16 @@
     <Compile Include="Message.cs" />
     <Compile Include="PasswordBank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerConnector.cs" />
+    <Compile Include="ServerHandler.cs" />
     <Compile Include="TraceID.cs" />
     <Compile Include="Typedefs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientSide\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

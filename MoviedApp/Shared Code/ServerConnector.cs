@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Shared_Code;
 
-namespace MoviedApp
+namespace Shared_Code.Client_Side
 {
-    class ServerConnector
+    public class ServerConnector
     {
         public enum Response
         {
