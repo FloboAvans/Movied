@@ -5,15 +5,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Shared_Code
 {
-#if WINDOWS_UWP
+
     public struct Message
-#else
-    [Serializable]
-    public struct Message
-#endif
     {
         public sealed class Type
         {
@@ -69,6 +66,33 @@ namespace Shared_Code
             this.succes = succes;
             this.isResponse = isResponse;
             this.message = message;
+        }
+
+        public Message(JObject jObject)
+        {
+            senderID = (UniqeRandomNumber) (ulong) jObject["senderID"];
+            destinationID = (UniqeRandomNumber) (ulong) jObject["destinationID"];
+            traceNumber = Convert.FromBase64String((string) jObject["traceNumber"]);
+            type = new ID<Type>((JObject)jObject["type"]);
+            succes = (bool) jObject["succes"];
+            isResponse = (bool) jObject["isResponse"];
+            JToken messageToken;
+            if (jObject.TryGetValue("message", out messageToken))
+                message = messageToken;
+            else
+                message = null;
+        }
+
+        public JObject Serialize()
+        {
+            JObject jObject = new JObject();
+            jObject.Add("senderID", (ulong)(UniqeRandomNumber)senderID);
+            jObject.Add("traceNumber", Convert.ToBase64String(traceNumber));
+            jObject.Add("type", type.Serialize());
+            jObject.Add("succes", succes);
+            jObject.Add("isResponse", isResponse);
+            if (message != null) jObject.Add("message", message);
+            return jObject;
         }
 
         public override string ToString()

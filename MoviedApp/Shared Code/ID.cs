@@ -5,19 +5,14 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Shared_Code
 {
     // http://stackoverflow.com/questions/980766/how-do-i-declare-a-nested-enum (01/11/2016)
     // author: yoyo
 
-
-#if WINDOWS_UWP
-    public struct ID<T>
-#else
-    [Serializable]
-    public struct ID<T> : ISerializable
-#endif
+    public struct ID<T> 
     {
         public static ID<T> none;
 
@@ -26,9 +21,16 @@ namespace Shared_Code
             get { return new ID<T>((mID << 8) | (uint)childID); }
         }
 
-        public ID(SerializationInfo info, StreamingContext context)
+        public ID(JObject jObject)
         {
-            mID = info.GetUInt32("mID");
+            mID = (uint) jObject["mID"];
+        }
+
+        public JToken Serialize()
+        {
+            JObject jObject = new JObject();
+            jObject.Add("mID", mID);
+            return jObject;
         }
 
         public ID<T> super
@@ -71,11 +73,6 @@ namespace Shared_Code
         public override int GetHashCode()
         {
             return (int)mID;
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("mID", mID);
         }
 
         private ID(uint id)

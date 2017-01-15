@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Shared_Code
 {
@@ -27,13 +28,13 @@ namespace Shared_Code
             byte[] messageBuffer = new byte[lenght];
             stream.Read(messageBuffer, 0, lenght);
             string messageString = Encoding.UTF8.GetString(messageBuffer);
-            Message message = JsonConvert.DeserializeObject<Message>(messageString);
+            Message message = new Message((JObject)JsonConvert.DeserializeObject(messageString));
             return message;
         }
 
         public static void Write(NetworkStream stream, Message message)
         {
-            string messageString = JsonConvert.SerializeObject(message);
+            string messageString = message.Serialize().ToString();
             byte[] messageBytes = Encoding.UTF8.GetBytes(messageString);
             byte[] lengthBuffer = BitConverter.GetBytes(messageBytes.Length);
 

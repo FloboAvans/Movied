@@ -51,7 +51,7 @@ namespace Server
                 while (true)
                 {
                     Message message = IOHandler.Read(client);
-                    //Console.WriteLine($"clientNode {Id} recieved message \n\t{message}");
+                    Console.WriteLine($"clientNode {Id} recieved message \n\t{message}");
                     AddMessage(message);
                 }
             }
