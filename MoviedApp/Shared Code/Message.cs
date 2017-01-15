@@ -72,6 +72,7 @@ namespace Shared_Code
         {
             senderID = (UniqeRandomNumber) (ulong) jObject["senderID"];
             destinationID = (UniqeRandomNumber) (ulong) jObject["destinationID"];
+            JToken prop = jObject["traceNumber"];
             traceNumber = Convert.FromBase64String((string) jObject["traceNumber"]);
             type = new ID<Type>((JObject)jObject["type"]);
             succes = (bool) jObject["succes"];
@@ -87,11 +88,12 @@ namespace Shared_Code
         {
             JObject jObject = new JObject();
             jObject.Add("senderID", (ulong)(UniqeRandomNumber)senderID);
+            jObject.Add("destinationID", (ulong)(UniqeRandomNumber)destinationID);
             jObject.Add("traceNumber", Convert.ToBase64String(traceNumber));
             jObject.Add("type", type.Serialize());
             jObject.Add("succes", succes);
             jObject.Add("isResponse", isResponse);
-            if (message != null) jObject.Add("message", message);
+            if (message != null) jObject.Add("message", JObject.FromObject(message));
             return jObject;
         }
 
