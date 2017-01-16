@@ -33,8 +33,11 @@ namespace Shared_Code.Client_Side
             }
         }
 
-        public Action<Message> OnMessageRecieved = message => Console.WriteLine("message recieved: " + message);
+        public static bool printMessages = true;
+
+        public Action<Message> OnMessageRecieved;
         public Action OnConnection = () => Console.WriteLine("connction established");
+
 
         private Mutex writeMutex = new Mutex(false);
 

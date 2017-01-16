@@ -17,17 +17,27 @@ namespace DebugApp
 
         private static void LoginHandler()
         {
+            string debug;
+            do
+            {
+                Console.Write("debug mode?['y' or 'n']: ");
+                debug = Console.ReadLine();
+            } while (debug != "y" && debug != "n");
+            if (debug == "y")
+                ServerConnector.instance.OnMessageRecieved +=
+                    message => Console.WriteLine("message recieved:\r\n\t" + message);
+
             string mode;
             do
             {
                 Console.WriteLine("\"login\" or \"create\"");
                 mode = Console.ReadLine();
             } while (mode != "login" && mode != "create");
-            if (mode == "login") Login1();
+            if (mode == "login") Login();
             else Create();
         }
 
-        private static void Login1()
+        private static void Login()
         {
                 Console.Write("username: ");
                 string username = Console.ReadLine();
@@ -41,24 +51,53 @@ namespace DebugApp
                     isResponse = false,
                     message = new {username = username},
                     succes = true
-                }, m1 =>
+                }, message =>
                 {
-                    if (m1.succes = false)
+                    if (message.succes == false)
                     {
                         Console.WriteLine("username does not exist");
-                        Login1();
+                        Login();
                     }
                     else
                     {
-                        byte[] saltBytes = Convert.FromBase64String((string) m1.message.salt);
-                        Console.WriteLine("salt extracted");
+                        byte[] saltBytes = Convert.FromBase64String((string) message.message.salt);
+                        HandlePassword(Login, username, saltBytes, message.traceNumber);
                     }
                 });
         }
 
         private static void Create()
         {
-            
+            Console.Write("username: ");
+            string username = Console.ReadLine();
+
+            ServerHandler.instance.SendMessage(new Message
+            {
+                destinationID = ServerHandler.instance.serverNodeID,
+                senderID = ServerHandler.instance.clientID,
+                isResponse = false,
+                succes = true,
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.ClientServer.Login.createUser,
+                message = new {username = username}
+            }, message =>
+            {
+                if (message.succes == false)
+                {
+                    Console.WriteLine("username is not avalible");
+                    Create();
+                }
+                else
+                {
+                    byte[] saltBytes = Convert.FromBase64String((string)message.message.salt);
+                    HandlePassword(Create, username, saltBytes, message.traceNumber);
+                }
+            });
+        }
+
+        private static void HandlePassword(Action back, string username, byte[] saltBytes, TraceID trace)
+        {
+            Console.WriteLine("password");
         }
     }
 }

@@ -63,6 +63,11 @@ namespace Shared_Code {
         {
             return !(id1 == id2);
         }
+
+        public override string ToString()
+        {
+            return generatorID + "-" + traceId;
+        }
     }
 
     [StructLayout(LayoutKind.Explicit, Size = sizeof(ulong))]
@@ -124,6 +129,14 @@ namespace Shared_Code {
         public static implicit operator UniqeRandomNumber(ulong number)
         {
             return *(UniqeRandomNumber*) &number;
+        }
+
+        public override string ToString()
+        {
+            ulong thisB = this;
+            ulong c = thisB >> 5;
+            ulong r = thisB & 7;
+            return c + "." + r;
         }
     }
 }

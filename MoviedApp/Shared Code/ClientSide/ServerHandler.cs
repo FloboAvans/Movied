@@ -65,8 +65,8 @@ namespace Shared_Code.Client_Side
                     }
                     TraceID.localID = clientID = (UniqeRandomNumber)(ulong)message.message.clientid;
                     serverNodeID = message.senderID;
-                    OnHandshakeComplete();
                     ++state;
+                    OnHandshakeComplete();
                     return;
                 case State.ACTIVE:
                     Action<Message> messageCallback;
