@@ -630,6 +630,8 @@ namespace MoviedApp
                             new {username = m1.message.username, hash = Convert.ToBase64String(hash)}),
                         m2 =>
                         {
+                            if (System.Diagnostics.Debugger.IsAttached)
+                                System.Diagnostics.Debugger.Break();
                             if (m2.succes)
                             {
                                 loginPanel.Invoke(new Action(() =>

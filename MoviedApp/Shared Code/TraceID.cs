@@ -133,10 +133,13 @@ namespace Shared_Code {
 
         public override string ToString()
         {
-            ulong thisB = this;
-            ulong c = thisB >> 5;
-            ulong r = thisB & 7;
-            return c + "." + r;
+            fixed (void* mem = &this)
+            {
+                byte* memB = (byte*)mem;
+
+                return
+                    $"[{*memB}.{*(memB + 1)}.{*(memB + 2)} | {*(memB + 3)}.{*(memB + 4)}.{*(memB + 5)}.{*(memB + 6)}.{*(memB + 7)}]";
+            }
         }
     }
 }

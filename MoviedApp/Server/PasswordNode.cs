@@ -39,7 +39,12 @@ namespace Server
                     byte[] saltBytes;
                     PasswordBank.Response response;
 
+                    int userid = -1;
+                    
                     response = passwordNode.passwordBank.GetSalt((string) message.message.username, out saltBytes);
+
+                    if (response == PasswordBank.Response.SUCCES)
+                        passwordNode.passwordBank.GetID((string)message.message.username, out userid);
 
                     if (response == PasswordBank.Response.SUCCES)
                         returnMessage = new Message(
@@ -49,7 +54,9 @@ namespace Server
                             message.type,
                             true,
                             true,
-                            new {salt = Convert.ToBase64String(saltBytes), username = (string)message.message.username});
+                            new {salt = Convert.ToBase64String(saltBytes),
+                                username = (string)message.message.username,
+                                userid = userid});
                     else
                         returnMessage = new Message(
                             passwordNode.Id,
@@ -58,7 +65,7 @@ namespace Server
                             message.type,
                             false,
                             true,
-                            new {response = response});
+                            new {response = response, username = message.message.username});
                     #endregion
                 }
                 else if (message.type == Message.Type.ClientServer.Login.checkHash)

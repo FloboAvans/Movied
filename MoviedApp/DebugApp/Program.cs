@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HashingTest;
 using Shared_Code;
 using Shared_Code.Client_Side;
 
@@ -14,6 +15,8 @@ namespace DebugApp
         {
             ServerHandler.instance.OnHandshakeComplete += LoginHandler;
         }
+
+        #region login
 
         private static void LoginHandler()
         {
@@ -61,9 +64,41 @@ namespace DebugApp
                     else
                     {
                         byte[] saltBytes = Convert.FromBase64String((string) message.message.salt);
-                        HandlePassword(Login, username, saltBytes, message.traceNumber);
+                        LoginPassword((int)message.message.userid, saltBytes, message.traceNumber);
                     }
                 });
+        }
+
+        private static void LoginPassword(int userid, byte[] salt, TraceID traceID)
+        {
+            Console.Write("password: ");
+            string password = Console.ReadLine();
+
+            ServerHandler.instance.SendMessage(new Message
+            {
+                destinationID = ServerHandler.instance.serverNodeID,
+                senderID = ServerHandler.instance.clientID,
+                traceNumber = traceID,
+                isResponse = true,
+                succes = true,
+                type = Message.Type.ClientServer.Login.checkHash,
+                message = new
+                {
+                    hash = Convert.ToBase64String(PasswordBank.HashPasword(password, salt)),
+                    userid = userid
+                }
+            }, message =>
+            {
+                if (message.succes)
+                {
+                    Console.WriteLine("login succesfull");
+                    MainPage();
+                }
+                else
+                {
+                    LoginPassword(message.message.userid, salt, traceID);
+                }
+            });
         }
 
         private static void Create()
@@ -90,14 +125,40 @@ namespace DebugApp
                 else
                 {
                     byte[] saltBytes = Convert.FromBase64String((string)message.message.salt);
-                    HandlePassword(Create, username, saltBytes, message.traceNumber);
+                    CreatePassword(message.message.userid, saltBytes, message.traceNumber);
                 }
             });
         }
 
-        private static void HandlePassword(Action back, string username, byte[] saltBytes, TraceID trace)
+        private static void CreatePassword(int userid, byte[] salt, TraceID traceID)
         {
-            Console.WriteLine("password");
+            Console.Write("password: ");
+            string password = Console.ReadLine();
+
+            ServerHandler.instance.SendMessage(new Message
+            {
+                destinationID = ServerHandler.instance.serverNodeID,
+                senderID = ServerHandler.instance.clientID,
+                traceNumber = traceID,
+                isResponse = true,
+                succes = true,
+                type = Message.Type.ClientServer.Login.setHash,
+                message = new
+                {
+                    hash = Convert.ToBase64String(PasswordBank.HashPasword(password, salt)),
+                    userid = userid
+                }
+            }, message =>
+            {
+                Console.WriteLine("account created succesfully");
+                MainPage();
+            });
+        }
+
+        #endregion
+        private static void MainPage()
+        {
+            
         }
     }
 }
