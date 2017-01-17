@@ -10,15 +10,15 @@
         <SplitView.Pane>
             <Grid x:Name="MenuGrid" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="12"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Row="0">
+                <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,12">
                 <Ellipse Height="100" Width="100" Margin="12" Fill="Aquamarine" VerticalAlignment="Top"></Ellipse>
                 <TextBlock Text="admin" FontSize="14" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                 </StackPanel>
-                    <ListView x:Name="Menu" Grid.Row="1" HorizontalAlignment="Center" SelectionMode="Single" SelectionChanged="Menu_OnSelectionChanged">
+                    <ListView x:Name="Menu" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" SelectionMode="Single" SelectionChanged="Menu_OnSelectionChanged">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="Template">
@@ -54,22 +54,22 @@
 
 
                     <ListViewItem x:Name="Timeline" HorizontalAlignment="Center">
-                        <TextBlock Text="Timeline" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Timeline" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Library" HorizontalAlignment="Center">
-                        <TextBlock Text="Library" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Library" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Friends" HorizontalAlignment="Center">
-                        <TextBlock Text="Friends" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Friends" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Checkins" HorizontalAlignment="Center">
-                        <TextBlock Text="Check-ins" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Check-ins" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Wishlist" HorizontalAlignment="Center">
-                        <TextBlock Text="Wishlist" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Wishlist" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Maps" HorizontalAlignment="Center">
-                        <TextBlock Text="Maps" FontSize="24" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="Maps" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                 </ListView>
             </Grid>

@@ -16,7 +16,7 @@
                     <TextBlock Text="coming soon" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
                     <TextBlock Text="highest rated" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
                     </ComboBox>
-                <GridView x:Name="MovieGrid" HorizontalAlignment="Center">
+                <GridView x:Name="MovieGrid" HorizontalAlignment="Stretch" SelectionChanged="MovieGrid_OnSelectionChanged">
             <!--<Image Source="ms-appx:///Assets/cover.jpg" Width="100" ></Image>
             <Image Source="ms-appx:///Assets/cover.jpg" Width="100" ></Image>
             <Image Source="ms-appx:///Assets/cover.jpg" Width="100" ></Image>

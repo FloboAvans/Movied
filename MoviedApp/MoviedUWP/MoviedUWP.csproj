@@ -112,6 +112,10 @@
     <Compile Include="MapsPage.xaml.cs">
       <DependentUpon>MapsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MovieData.cs" />
+    <Compile Include="MoviePage.xaml.cs">
+      <DependentUpon>MoviePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WishlistPage.xaml.cs">
       <DependentUpon>WishlistPage.xaml</DependentUpon>
@@ -157,6 +161,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MapsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MoviePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
