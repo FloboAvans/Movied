@@ -47,22 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckIn.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="ID.cs" />
-    <Compile Include="IOHandler.cs" />
-    <Compile Include="Message.cs" />
     <Compile Include="PasswordBank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ClientSide\ServerConnector.cs" />
-    <Compile Include="ClientSide\ServerHandler.cs" />
-    <Compile Include="TraceID.cs" />
-    <Compile Include="Typedefs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Shared Code Portable\Shared Code Portable.csproj">
+      <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
+      <Name>Shared Code Portable</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

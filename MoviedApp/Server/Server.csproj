@@ -62,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Shared Code Portable\Shared Code Portable.csproj">
+      <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
+      <Name>Shared Code Portable</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shared Code\Shared Code.csproj">
       <Project>{D0151B77-D2B6-485E-B1D8-60E991C2D1C5}</Project>
       <Name>Shared Code</Name>

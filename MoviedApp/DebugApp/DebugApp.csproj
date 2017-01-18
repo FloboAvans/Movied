@@ -51,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Shared Code Portable\Shared Code Portable.csproj">
+      <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
+      <Name>Shared Code Portable</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shared Code\Shared Code.csproj">
       <Project>{d0151b77-d2b6-485e-b1d8-60e991c2d1c5}</Project>
       <Name>Shared Code</Name>

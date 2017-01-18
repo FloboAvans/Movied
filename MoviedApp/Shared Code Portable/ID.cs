@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
-namespace Shared_Code
+namespace Shared_Code_Portable
 {
     // http://stackoverflow.com/questions/980766/how-do-i-declare-a-nested-enum (01/11/2016)
     // author: yoyo

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using HashingTest;
 using Shared_Code;
-using Shared_Code.Client_Side;
+using Shared_Code_Portable;
+using Shared_Code_Portable.ClientSide;
 
 namespace DebugApp
 {
