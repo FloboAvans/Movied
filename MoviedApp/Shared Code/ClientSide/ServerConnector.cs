@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Shared_Code;
 
-namespace MoviedApp
+namespace Shared_Code.Client_Side
 {
-    class ServerConnector
+    public class ServerConnector
     {
         public enum Response
         {
@@ -33,8 +33,11 @@ namespace MoviedApp
             }
         }
 
-        public Action<Message> OnMessageRecieved = message => Console.WriteLine("message recieved: " + message);
+        public static bool printMessages = true;
+
+        public Action<Message> OnMessageRecieved;
         public Action OnConnection = () => Console.WriteLine("connction established");
+
 
         private Mutex writeMutex = new Mutex(false);
 

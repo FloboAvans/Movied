@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Shared_Code;
 
-namespace MoviedApp
+namespace Shared_Code.Client_Side
 {
-    class ServerHandler
+    public class ServerHandler
     {
         public static readonly ServerHandler instance = new ServerHandler();
 
@@ -65,8 +65,8 @@ namespace MoviedApp
                     }
                     TraceID.localID = clientID = (UniqeRandomNumber)(ulong)message.message.clientid;
                     serverNodeID = message.senderID;
-                    OnHandshakeComplete();
                     ++state;
+                    OnHandshakeComplete();
                     return;
                 case State.ACTIVE:
                     Action<Message> messageCallback;

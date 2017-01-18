@@ -81,5 +81,10 @@ namespace Shared_Code
         {
             return (UniqeRandomNumber) a != (UniqeRandomNumber) b;
         }
+
+        public override string ToString()
+        {
+            return value.ToString();
+        }
     }
 }
