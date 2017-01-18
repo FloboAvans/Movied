@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="MoviedUWP.CheckinPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MoviedUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ratingControl="using:Bratched.Tools.RatingControl"
+    mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Image Source="ms-appx:///Assets/background_blue.jpg" Stretch="UniformToFill" HorizontalAlignment="Center"/>
+        <ScrollViewer VerticalScrollMode="Auto">
+            <Grid Margin="0,0,0,24">
+                <FlipView x:Name="MediaViewer" VerticalAlignment="Top" Height="200"/>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="12,212,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="Auto" MinHeight="98"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="24"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="TitleText" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBlock x:Name="RatingText" Grid.Row="2" FontStyle="Italic" FontSize="14" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+
+                    <ratingControl:RatingControl x:Name="Stars" ItemsCount="10" Value="5" IsEditable="True" RoundValueSlice="0.5" Grid.Row="3" PointerReleased="Stars_OnPointerReleased">
+                        <ratingControl:RatingControl.EmptyItemsDefinition>
+                            <ratingControl:RateItemDefinition OutlineColor="White"/>
+                        </ratingControl:RatingControl.EmptyItemsDefinition>
+                        <ratingControl:RatingControl.FullItemsDefinition>
+                            <ratingControl:RateItemDefinition BackgroundColor="White" OutlineColor="White"/>
+                        </ratingControl:RatingControl.FullItemsDefinition>
+                    </ratingControl:RatingControl>
+
+                    <TextBlock Text="Comment" Grid.Row="5" FontStyle="Italic" FontSize="14" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBox x:Name="CommentText" HorizontalAlignment="Stretch" Grid.Row="6" FontSize="14" Background="Transparent" AcceptsReturn="True" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></TextBox>
+
+                    <TextBlock Text="Recommend to" Grid.Row="8" FontStyle="Italic" FontSize="14" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <ComboBox x:Name="FriendsList" Grid.Row="9" HorizontalAlignment="Stretch" Background="Transparent" VerticalAlignment="Bottom" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand">
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock x:Name="SaveCheckin" Text="Save" FontSize="24" TextWrapping="Wrap" Grid.Row="11" FontStyle="Italic" Foreground="White" HorizontalAlignment="Right" Margin="0,0,12,12" VerticalAlignment="Bottom" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Tapped="SaveCheckin_OnTapped"/>
+
+
+                </Grid>
+                
+
+            </Grid>
+            </ScrollViewer>
+        
+
+    </Grid>
+</Page>

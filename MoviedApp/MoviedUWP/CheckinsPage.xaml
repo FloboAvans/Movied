@@ -7,7 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="Transparent">
+        <ScrollViewer VerticalScrollMode="Auto">
+            <StackPanel HorizontalAlignment="Center">
+                <ComboBox x:Name="Filter" HorizontalAlignment="Stretch" Foreground="White" Background="Transparent" VerticalAlignment="Bottom" SelectionChanged="Filter_OnSelectionChanged">
+                    <TextBlock Text="newest checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
+                    <TextBlock Text="top checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
+                    <TextBlock Text="lowest checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
+                </ComboBox>
+                <GridView x:Name="MovieGrid" HorizontalAlignment="Stretch" SelectionChanged="MovieGrid_OnSelectionChanged">
+                  </GridView>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

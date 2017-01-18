@@ -36,6 +36,12 @@ namespace MoviedUWP
 
         public void FillPage()
         {
+            foreach (Movie movie in MovieData.CheckinMovies)
+            {
+                if(movie.Id == MovieData.movie.Id)
+                    CheckinButton.Text = "\xE8FB";
+            }
+            
             CoverImage.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + MovieData.movie.Poster)));
 
             WebView v = new WebView();
@@ -56,6 +62,7 @@ namespace MoviedUWP
             TimeText.Text = (MovieData.movie.Runtime + " min.") ?? "-";
             DateText.Text = String.Format("{0:MMMM dd, yyyy}", MovieData.movie.ReleaseDate) ?? "-";
             LanguageText.Text = MovieData.movie.Languages.First().Name ?? "-";
+            TitleText.Text = MovieData.movie.Title;
             OverviewText.Text = MovieData.movie.Overview;
 
             List<MediaCast> cast = new List<MediaCast>();
@@ -81,6 +88,11 @@ namespace MoviedUWP
             Job1.Text = crew[0].Job ?? "-";
             Job2.Text = crew[1].Job ?? "-";
             Job3.Text = crew[2].Job ?? "-";
+        }
+
+        private void CheckinButton_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CheckinPage));
         }
     }
 }

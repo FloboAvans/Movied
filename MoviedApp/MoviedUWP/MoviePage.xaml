@@ -22,7 +22,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE125;" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Column="2"/>
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE141;" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Column="3"/>
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE1CE;" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Column="4"/>
+                    <TextBlock x:Name="CheckinButton" FontFamily="Segoe MDL2 Assets" Text="&#xE1CE;" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Grid.Column="4" Tapped="CheckinButton_OnTapped"/>
                 </Grid>
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="150,255,0,0">
                     <Grid.RowDefinitions>
@@ -31,7 +31,7 @@
                         <RowDefinition Height="18" />
                         <RowDefinition Height="18" />
                     </Grid.RowDefinitions>
-                    <TextBlock x:Name="GenreText" Text="Action, Sci-Fi" Grid.Row="0" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBlock x:Name="GenreText" Text="Action, Sci-Fi" TextWrapping="Wrap" Grid.Row="0" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     <TextBlock x:Name="TimeText" Text="83 min" Grid.Row="1" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     <TextBlock x:Name="DateText" Text="18 august 2016" Grid.Row="2" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     <TextBlock x:Name="LanguageText" Text="English" Grid.Row="3" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
@@ -41,6 +41,7 @@
 
                 <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="12,342,12,0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="24"/>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="24" />
@@ -48,11 +49,12 @@
                         <RowDefinition Height="24" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Overview" Grid.Row="0" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
-                    <TextBlock x:Name="OverviewText" TextWrapping="Wrap" Grid.Row="1" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBlock x:Name="TitleText" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBlock Text="Overview" Grid.Row="1" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <TextBlock x:Name="OverviewText" TextWrapping="Wrap" Grid.Row="2" FontSize="14" Foreground="White" HorizontalAlignment="Left" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     
-                    <TextBlock Text="Cast" Grid.Row="2" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
-                    <Grid Grid.Row="3">
+                    <TextBlock Text="Cast" Grid.Row="3" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <Grid Grid.Row="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
@@ -72,8 +74,8 @@
                         <TextBlock x:Name="Role3" Text="Diana Kruger" Grid.Row="1" Grid.Column="2" FontSize="12" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </Grid>
 
-                    <TextBlock Text="Featured Crew" Grid.Row="4" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
-                    <Grid Grid.Row="5">
+                    <TextBlock Text="Featured Crew" Grid.Row="5" FontStyle="Italic" FontSize="14" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <Grid Grid.Row="6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
