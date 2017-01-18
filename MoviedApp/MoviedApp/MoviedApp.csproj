@@ -81,8 +81,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Resize.cs" />
-    <Compile Include="ServerConnector.cs" />
-    <Compile Include="ServerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -94,7 +94,7 @@ namespace HashingTest
         private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
         // stores all the usersName and their entry
-        private Dictionary<string, Entry> usersName = new Dictionary<string, Entry>();
+        Dictionary<string, Entry> usersName = new Dictionary<string, Entry>();
         private Dictionary<int, Entry> usersID = new Dictionary<int, Entry>();
 
         /// <summary>

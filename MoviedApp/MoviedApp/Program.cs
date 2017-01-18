@@ -5,6 +5,7 @@ using System.Net.TMDb;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared_Code.Client_Side;
 
 namespace MoviedApp
 {
