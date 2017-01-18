@@ -27,9 +27,12 @@ namespace DebugApp
                 debug = Console.ReadLine();
             } while (debug != "y" && debug != "n");
             if (debug == "y")
-                ServerConnector.instance.OnMessageRecieved +=
+            {
+                Action<Message> OnMessage = ServerConnector.instance.OnMessageRecieved;
+                ServerConnector.instance.OnMessageRecieved =
                     message => Console.WriteLine("message recieved:\r\n\t" + message);
-
+                ServerConnector.instance.OnMessageRecieved += OnMessage;
+            }
             string mode;
             do
             {
@@ -79,7 +82,7 @@ namespace DebugApp
                 destinationID = ServerHandler.instance.serverNodeID,
                 senderID = ServerHandler.instance.clientID,
                 traceNumber = traceID,
-                isResponse = true,
+                isResponse = false,
                 succes = true,
                 type = Message.Type.ClientServer.Login.checkHash,
                 message = new
@@ -89,14 +92,14 @@ namespace DebugApp
                 }
             }, message =>
             {
-                if (message.succes)
+                if ((PasswordBank.Response)message.message.response == PasswordBank.Response.SUCCES )
                 {
                     Console.WriteLine("login succesfull");
                     MainPage();
                 }
                 else
                 {
-                    LoginPassword(message.message.userid, salt, traceID);
+                    LoginPassword((int)message.message.userid, salt, traceID);
                 }
             });
         }
@@ -125,7 +128,7 @@ namespace DebugApp
                 else
                 {
                     byte[] saltBytes = Convert.FromBase64String((string)message.message.salt);
-                    CreatePassword(message.message.userid, saltBytes, message.traceNumber);
+                    CreatePassword((int)message.message.userid, saltBytes, message.traceNumber);
                 }
             });
         }
@@ -140,7 +143,7 @@ namespace DebugApp
                 destinationID = ServerHandler.instance.serverNodeID,
                 senderID = ServerHandler.instance.clientID,
                 traceNumber = traceID,
-                isResponse = true,
+                isResponse = false,
                 succes = true,
                 type = Message.Type.ClientServer.Login.setHash,
                 message = new
