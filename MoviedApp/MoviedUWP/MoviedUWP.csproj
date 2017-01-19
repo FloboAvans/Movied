@@ -123,6 +123,7 @@
       <DependentUpon>MoviePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerInfo.cs" />
     <Compile Include="WishlistPage.xaml.cs">
       <DependentUpon>WishlistPage.xaml</DependentUpon>
     </Compile>

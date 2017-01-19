@@ -2,7 +2,9 @@
   "dependencies": {
     "BratchedTools.RatingControl": "1.0.0",
     "Hasseware.TheMovieDB": "1.3.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
+    "Newtonsoft.Json": "9.0.1",
+    "rda.SocketsForPCL": "2.0.2"
   },
   "frameworks": {
     "uap10.0": {}

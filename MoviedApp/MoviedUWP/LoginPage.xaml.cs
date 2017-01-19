@@ -25,6 +25,7 @@ namespace MoviedUWP
     {
         public LoginPage()
         {
+            ServerInfo.Init();
             this.InitializeComponent();
         }
 
