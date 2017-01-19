@@ -90,6 +90,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\cover.jpg" />
+    <Content Include="Assets\my-position.png" />
     <Content Include="Assets\Quicksand-Light.ttf" />
     <None Include="project.json" />
   </ItemGroup>
@@ -123,8 +124,8 @@
       <DependentUpon>MoviePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WishlistPage.xaml.cs">
-      <DependentUpon>WishlistPage.xaml</DependentUpon>
+    <Compile Include="WatchlistPage.xaml.cs">
+      <DependentUpon>WatchlistPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -182,16 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WishlistPage.xaml">
+    <Page Include="WatchlistPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shared Code Portable\Shared Code Portable.csproj">
-      <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
-      <Name>Shared Code Portable</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

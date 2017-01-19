@@ -65,8 +65,8 @@
                     <ListViewItem x:Name="Checkins" HorizontalAlignment="Center">
                         <TextBlock Text="Check-ins" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
-                    <ListViewItem x:Name="Wishlist" HorizontalAlignment="Center">
-                        <TextBlock Text="Wishlist" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                    <ListViewItem x:Name="Watchlist" HorizontalAlignment="Center">
+                        <TextBlock Text="Watchlist" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Maps" HorizontalAlignment="Center">
                         <TextBlock Text="Maps" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>

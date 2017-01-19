@@ -10,7 +10,7 @@
     <Grid Background="Transparent">
         <ScrollViewer VerticalScrollMode="Auto">
             <StackPanel HorizontalAlignment="Center">
-                <ComboBox x:Name="Filter" HorizontalAlignment="Stretch" Foreground="White" Background="Transparent" VerticalAlignment="Bottom" SelectionChanged="Filter_OnSelectionChanged">
+                <ComboBox x:Name="Filter" HorizontalAlignment="Stretch" Foreground="White" Background="Transparent" VerticalAlignment="Bottom" SelectionChanged="Filter_OnSelectionChanged" Style="{StaticResource ComboBoxStyle1}">
                     <TextBlock Text="newest checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
                     <TextBlock Text="top checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
                     <TextBlock Text="lowest checkins" Foreground="White" FontSize="24" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" TextWrapping="Wrap" Margin="6,0"></TextBlock>
