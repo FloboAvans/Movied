@@ -65,8 +65,8 @@ namespace Shared_Code_Portable
 
         public Message(JObject jObject)
         {
-            senderID = (UniqeRandomNumber) (ulong) jObject["senderID"];
-            destinationID = (UniqeRandomNumber) (ulong) jObject["destinationID"];
+            senderID = (UniqeRandomNumber) ulong.Parse(((string) jObject["senderID"]).Substring(1));
+            destinationID = (UniqeRandomNumber) ulong.Parse(((string) jObject["destinationID"]).Substring(1));
             JToken prop = jObject["traceNumber"];
             traceNumber = Convert.FromBase64String((string) jObject["traceNumber"]);
             type = new ID<Type>((JObject)jObject["type"]);
@@ -82,8 +82,8 @@ namespace Shared_Code_Portable
         public JObject Serialize()
         {
             JObject jObject = new JObject();
-            jObject.Add("senderID", (ulong)(UniqeRandomNumber)senderID);
-            jObject.Add("destinationID", (ulong)(UniqeRandomNumber)destinationID);
+            jObject.Add("senderID", ("z" + (ulong)(UniqeRandomNumber)senderID));
+            jObject.Add("destinationID", ("z"+(ulong)(UniqeRandomNumber)destinationID));
             jObject.Add("traceNumber", Convert.ToBase64String(traceNumber));
             jObject.Add("type", type.Serialize());
             jObject.Add("succes", succes);

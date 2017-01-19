@@ -20,7 +20,7 @@ namespace Server
                 rng.GetBytes(bytes);
                 return bytes;
             };
-
+            ID<Message.Type>.ToStringer += id => IDToString.ToString<Message.Type>(id, typeof(Message.Type));
             TraceID.localID = Constants.Network.SERVER_NODE_ADDRESS;
             PasswordNode.Init();
             ClientListner.Init();

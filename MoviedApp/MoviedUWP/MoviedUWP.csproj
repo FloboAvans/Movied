@@ -124,7 +124,8 @@
       <DependentUpon>MoviePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WatchlistPage.xaml.cs">
+    <Compile Include="ServerInfo.cs" />
+    <Compile Include="Watchlist.xaml.cs">
       <DependentUpon>WatchlistPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

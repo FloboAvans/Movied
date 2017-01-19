@@ -116,7 +116,7 @@ namespace Server
                     }
 
                     forwardMessage.succes = true;
-                    forwardMessage.message = new {clientid = (ulong)(UniqeRandomNumber)clientNode.clientID};
+                    forwardMessage.message = new {clientid = "z" + (ulong)(UniqeRandomNumber)clientNode.clientID};
                     ++clientNode.state;
                     clientNode.WriteToClient(forwardMessage);
                     return NodeResponse.succes;

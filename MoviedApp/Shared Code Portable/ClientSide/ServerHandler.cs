@@ -61,7 +61,7 @@ namespace Shared_Code_Portable.ClientSide
                     {
                         Debug.WriteLine($"connection was blocked, message={message}");
                     }
-                    TraceID.localID = clientID = (UniqeRandomNumber)(ulong)message.message.clientid;
+                    TraceID.localID = clientID = (UniqeRandomNumber)ulong.Parse(((string)message.message.clientid).Substring(1));
                     serverNodeID = message.senderID;
                     ++state;
                     OnHandshakeComplete();
