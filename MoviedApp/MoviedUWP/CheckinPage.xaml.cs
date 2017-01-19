@@ -29,17 +29,17 @@ namespace MoviedUWP
             this.InitializeComponent();
             
 
-            foreach (System.Net.TMDb.Image img in MovieData.movie.Images.Backdrops)
+            foreach (System.Net.TMDb.Image img in MovieData.Movie.Images.Backdrops)
             {
                 Image i = new Image();
                 i.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + img.FilePath)));
                 MediaViewer.Items.Add(i);
             }
-            TitleText.Text = MovieData.movie.Title;
+            TitleText.Text = MovieData.Movie.Title;
             int x = 0;
-            foreach (var tuple in MovieData.checkinsList)
+            foreach (var tuple in MovieData.CheckinsList)
             {
-                if (tuple.Item1 == MovieData.movie.Id)
+                if (tuple.Item1 == MovieData.Movie.Id)
                 {
                     Stars.Value = tuple.Item2;
                     CommentText.Text = tuple.Item3;
@@ -61,13 +61,13 @@ namespace MoviedUWP
             //TODO add checkin to the server
             if (changingIndex != null)
             {
-                MovieData.checkinsList[changingIndex.Value] = new Tuple<int, double, string>(MovieData.movie.Id, Stars.Value, CommentText.Text);
+                MovieData.CheckinsList[changingIndex.Value] = new Tuple<int, double, string>(MovieData.Movie.Id, Stars.Value, CommentText.Text);
             }
             else
             {
-                MovieData.checkinsList.Add(new Tuple<int, double, string>(MovieData.movie.Id, Stars.Value, CommentText.Text));
+                MovieData.CheckinsList.Add(new Tuple<int, double, string>(MovieData.Movie.Id, Stars.Value, CommentText.Text));
             }
-            MovieData.filter = "newest checkins";
+            MovieData.Filter = "newest checkins";
             MovieData.downloadMovies();
             Frame.GoBack();
         }

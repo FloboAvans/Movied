@@ -31,7 +31,7 @@ namespace MoviedUWP
         {
             this.InitializeComponent();
             MovieData.downloadMovies();
-            MovieGrid.ItemsSource = MovieData.FillLibraryTable(MovieData.movies);
+            MovieGrid.ItemsSource = MovieData.FillLibraryTable(MovieData.Movies);
             Filter.SelectedIndex = 0;
         }
 
@@ -39,15 +39,15 @@ namespace MoviedUWP
 
         private void Filter_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MovieData.filter = ((TextBlock)Filter.SelectedItem).Text;
+            MovieData.Filter = ((TextBlock)Filter.SelectedItem).Text;
             MovieData.downloadMovies();
-            MovieGrid.ItemsSource = MovieData.FillLibraryTable(MovieData.movies);
+            MovieGrid.ItemsSource = MovieData.FillLibraryTable(MovieData.Movies);
         }
 
         private void MovieGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-            MovieData.SetMovieFormLibrary(MovieGrid.SelectedIndex);
+            MovieData.SetMovieFromLibrary(MovieGrid.SelectedIndex);
             Frame.Navigate(typeof(MoviePage));
         }
     }

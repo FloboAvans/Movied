@@ -27,21 +27,21 @@ namespace MoviedUWP
             this.InitializeComponent();
             Filter.SelectedIndex = 0;
             MovieData.downloadMovies();
-            MovieGrid.ItemsSource = MovieData.FillCheckinsTable(MovieData.CheckinMovies);
+            MovieGrid.ItemsSource = MovieData.FillNormalTable(MovieData.CheckinMovies);
             
         }
 
         private void MovieGrid_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MovieData.SetMovieFormCheckins(MovieGrid.SelectedIndex);
+            MovieData.SetMovieFromCheckins(MovieGrid.SelectedIndex);
             Frame.Navigate(typeof(MoviePage));
         }
 
         private void Filter_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MovieData.filter = ((TextBlock)Filter.SelectedItem).Text;
+            MovieData.Filter = ((TextBlock)Filter.SelectedItem).Text;
             MovieData.downloadMovies();
-            MovieGrid.ItemsSource = MovieData.FillCheckinsTable(MovieData.CheckinMovies);
+            MovieGrid.ItemsSource = MovieData.FillNormalTable(MovieData.CheckinMovies);
         }
     }
 }

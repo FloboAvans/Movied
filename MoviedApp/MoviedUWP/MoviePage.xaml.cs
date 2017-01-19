@@ -38,35 +38,35 @@ namespace MoviedUWP
         {
             foreach (Movie movie in MovieData.CheckinMovies)
             {
-                if(movie.Id == MovieData.movie.Id)
+                if(movie.Id == MovieData.Movie.Id)
                     CheckinButton.Text = "\xE8FB";
             }
             
-            CoverImage.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + MovieData.movie.Poster)));
+            CoverImage.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + MovieData.Movie.Poster)));
 
             WebView v = new WebView();
-            v.NavigateToString(@"<iframe height=""100%"" width=""100%"" src=""https://www.youtube.com/embed/" + MovieData.movie.Videos.Results.First().Key + @"?rel=0&controls=0&?showinfo=0"" frameborder=""0""></iframe>");
+            v.NavigateToString(@"<iframe height=""100%"" width=""100%"" src=""https://www.youtube.com/embed/" + MovieData.Movie.Videos.Results.First().Key + @"?rel=0&controls=0&?showinfo=0"" frameborder=""0""></iframe>");
             MediaViewer.Items.Add(v);
 
-            foreach (System.Net.TMDb.Image img in MovieData.movie.Images.Backdrops)
+            foreach (System.Net.TMDb.Image img in MovieData.Movie.Images.Backdrops)
             {
                 Image i = new Image();
                 i.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + img.FilePath)));
                 MediaViewer.Items.Add(i);
             }
 
-            foreach (Genre g in MovieData.movie.Genres)
+            foreach (Genre g in MovieData.Movie.Genres)
             {
                 GenreText.Text = GenreText.Text + ", " + g.Name;
             }
-            TimeText.Text = (MovieData.movie.Runtime + " min.") ?? "-";
-            DateText.Text = String.Format("{0:MMMM dd, yyyy}", MovieData.movie.ReleaseDate) ?? "-";
-            LanguageText.Text = MovieData.movie.Languages.First().Name ?? "-";
-            TitleText.Text = MovieData.movie.Title;
-            OverviewText.Text = MovieData.movie.Overview;
+            TimeText.Text = (MovieData.Movie.Runtime + " min.") ?? "-";
+            DateText.Text = String.Format("{0:MMMM dd, yyyy}", MovieData.Movie.ReleaseDate) ?? "-";
+            LanguageText.Text = MovieData.Movie.Languages.First().Name ?? "-";
+            TitleText.Text = MovieData.Movie.Title;
+            OverviewText.Text = MovieData.Movie.Overview;
 
             List<MediaCast> cast = new List<MediaCast>();
-            foreach (MediaCast c in MovieData.movie.Credits.Cast.Take(3))
+            foreach (MediaCast c in MovieData.Movie.Credits.Cast.Take(3))
             {
                 cast.Add(c);
             }
@@ -78,7 +78,7 @@ namespace MoviedUWP
             Role3.Text = cast[2].Character ?? "-";
 
             List<MediaCrew> crew = new List<MediaCrew>();
-            foreach (MediaCrew c in MovieData.movie.Credits.Crew.Take(3))
+            foreach (MediaCrew c in MovieData.Movie.Credits.Crew.Take(3))
             {
                 crew.Add(c);
             }
