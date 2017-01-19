@@ -10,14 +10,14 @@ using Shared_Code_Portable;
 
 namespace Shared_Code
 {
-    public static class IDExtensions
+    public static class IDToString
     {
-        public static string ToString<T,G>(this ID<G> id)
+        public static string ToString<T,G>(ID<G> id)
         {
             return ToString(id, typeof(T));
         }
 
-        public static string ToString<G>(this ID<G> id, Type type)
+        public static string ToString<G>(ID<G> id, Type type)
         {
             foreach (var field in type.GetFields(BindingFlags.GetField | BindingFlags.Public | BindingFlags.Static))
             {
