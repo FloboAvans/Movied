@@ -15,6 +15,7 @@ namespace DebugApp
         static void Main(string[] args)
         {
             ServerHandler.instance.OnHandshakeComplete += LoginHandler;
+            Console.ReadLine();
         }
 
         #region login

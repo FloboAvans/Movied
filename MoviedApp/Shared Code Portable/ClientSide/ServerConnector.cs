@@ -53,21 +53,23 @@ namespace Shared_Code_Portable.ClientSide
             Task.Factory.StartNew(ConnectionEstablisher);
         }
 
-        private void ConnectionEstablisher()
+        private async void ConnectionEstablisher()
         {
-            TcpSocketListener server = new TcpSocketListener();
-            server.ConnectionReceived += (sender, args) =>
-            {
-                var Client = args.SocketClient;
-                var fromServer = Client.ReadStream;
-                toServer = Client.WriteStream;
+            TcpSocketClient server = new TcpSocketClient();
+            await server.ConnectAsync(Constants.Network.HOST_IP, Constants.Network.HOST_PORT);
 
+            toServer = server.WriteStream;
+            Stream fromServer = server.ReadStream;
+
+            OnConnection();
+
+            Task.Factory.StartNew(() =>
+            {
                 while (true)
                 {
                     OnMessageRecieved(IOHandler.Read(fromServer));
                 }
-            };
-            server.StartListeningAsync(Constants.Network.HOST_PORT);
+            });
         }
 
         public Response SendMessage(Message message)
