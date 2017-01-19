@@ -33,8 +33,7 @@ namespace MoviedUWP
             {
                 Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
                 {
-                    LoginButton.IsEnabled = true;
-                    //NewUser.I
+                    LoginButton.IsEnabled = true;                    
                 });
             });
             this.InitializeComponent();
@@ -102,21 +101,6 @@ namespace MoviedUWP
                 });
             }
             });
-            /*
-            //TODO CHECK WITH SERVER @FLOBO!!
-            if (UsernameTextBox.Text != "good_username")
-            {
-                UsernameTextBox.Background = new SolidColorBrush(new Color());
-            }
-            if (PasswordTextBox.Text != "good_password")
-            {
-                PasswordTextBox.Background = new SolidColorBrush(new Color());
-            }
-            else
-            {
-                Frame.Navigate(typeof(MainPage));
-            }
-            */
         }
 
         private void NewUser_OnTapped(object sender, TappedRoutedEventArgs e)
