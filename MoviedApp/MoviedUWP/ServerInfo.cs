@@ -16,6 +16,7 @@ namespace MoviedUWP
     {
         public static bool hasConnected = false;
         private static bool hasInited = false;
+        public static int userid = -1;
 
         public static void Init(Action OnConnected)
         {

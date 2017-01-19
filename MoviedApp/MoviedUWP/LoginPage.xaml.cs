@@ -48,12 +48,9 @@ namespace MoviedUWP
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
-            int userid = -1;
 
             ServerHandler.instance.SendMessage(new Message
             {
-                destinationID = ServerHandler.instance.serverNodeID,
-                senderID = ServerHandler.instance.clientID,
                 traceNumber = TraceID.GenerateTraceID(),
                 type = Message.Type.ClientServer.Login.saltRequest,
                 isResponse = false,
@@ -72,32 +69,30 @@ namespace MoviedUWP
                 Dispatcher.RunAsync(CoreDispatcherPriority.High, () => UsernameTextBox.Background = new SolidColorBrush(Colors.Transparent));
                 byte[] saltBytes = Convert.FromBase64String((string)m1.message.salt);
                 string hash = Convert.ToBase64String(ServerInfo.HashPasword(password, saltBytes));
-                userid = m1.message.userid;
+                ServerInfo.userid = m1.message.userid;
                 ServerHandler.instance.SendMessage(new Message
                 {
-                    destinationID = m1.senderID,
-                    senderID = m1.destinationID,
                     traceNumber = m1.traceNumber,
                     type = Message.Type.ClientServer.Login.checkHash,
                     isResponse = false,
                     succes = true,
                     message = new
                     {
-                        userid = userid,
+                        userid = ServerInfo.userid,
                         hash = hash
                     }
                 }, m2 =>
                 {
-                    //Debugger.Break();
-                    if ((ServerInfo.Response) m2.message.response == ServerInfo.Response.SUCCES)
-                    {                     
-                        Dispatcher.RunAsync(CoreDispatcherPriority.High, () => Frame.Navigate(typeof(MainPage)));
-                    }
-                    else
-                    {
-                        Dispatcher.RunAsync(CoreDispatcherPriority.High, () => PasswordTextBox.Background = new SolidColorBrush(Color.FromArgb(75, 175, 0, 0)));
-                        requestInProgress = false;
-                    }
+                //Debugger.Break();
+                if ((ServerInfo.Response) m2.message.response == ServerInfo.Response.SUCCES)
+                {                     
+                    Dispatcher.RunAsync(CoreDispatcherPriority.High, () => Frame.Navigate(typeof(MainPage)));
+                }
+                else
+                {
+                    Dispatcher.RunAsync(CoreDispatcherPriority.High, () => PasswordTextBox.Background = new SolidColorBrush(Color.FromArgb(75, 175, 0, 0)));
+                    requestInProgress = false;
+                }
                 });
             }
             });
@@ -105,20 +100,56 @@ namespace MoviedUWP
 
         private void NewUser_OnTapped(object sender, TappedRoutedEventArgs e)
         {
-            //TODO CHECK WITH SERVER @FLOBO!!
-            if (UsernameTextBox.Text == "" || UsernameTextBox.Text == "username")
+            if (requestInProgress || ServerInfo.hasConnected == false) return;
+            requestInProgress = true;
+
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+
+            ServerHandler.instance.SendMessage(new Message
             {
-                UsernameTextBox.Background = new SolidColorBrush(new Color());
-            }
-            if (UsernameTextBox.Text == "" || UsernameTextBox.Text == "password")
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.ClientServer.Login.createUser,
+                isResponse = false,
+                succes = true,
+                message = new
+                {
+                    username
+                }
+            }, m1 =>
             {
-                PasswordTextBox.Background = new SolidColorBrush(new Color());
-            }
-            else
-            {
-                //TODO ADD NEW USER ON SERVER @FLOBO
-                Frame.Navigate(typeof(MainPage));
-            }
+                if (m1.succes == false)
+                {
+                    Dispatcher.RunAsync(CoreDispatcherPriority.High,
+                        () => UsernameTextBox.Background = new SolidColorBrush(Color.FromArgb(75, 175, 0, 0)));
+                    requestInProgress = false;
+                }
+                else
+                {
+                    Dispatcher.RunAsync(CoreDispatcherPriority.High,
+                        () => UsernameTextBox.Background = new SolidColorBrush(Colors.Transparent));
+
+                    ServerInfo.userid = m1.message.userid;
+                    byte[] saltBytes = Convert.FromBase64String((string) m1.message.salt);
+                    string hash = Convert.ToBase64String(ServerInfo.HashPasword(password, saltBytes));
+
+                    ServerHandler.instance.SendMessage(new Message
+                    {
+                        traceNumber = m1.traceNumber,
+                        type = Message.Type.ClientServer.Login.setHash,
+                        isResponse = false,
+                        succes = true,
+                        message = new
+                        {
+                            ServerInfo.userid,
+                            hash
+                        }
+                    }, m2 =>
+                    {
+                        Dispatcher.RunAsync(CoreDispatcherPriority.High, () => Frame.Navigate(typeof(MainPage)));
+                    });
+                }
+            });
         }
     }
 }

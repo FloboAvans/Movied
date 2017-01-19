@@ -90,6 +90,9 @@ namespace Shared_Code_Portable.ClientSide
             if (state != State.ACTIVE)
                 return false;
 
+            message.destinationID = serverNodeID;
+            message.senderID = clientID;
+
             lock (resultDictionary)
             {
                 if (resultDictionary.ContainsKey(message.traceNumber))
