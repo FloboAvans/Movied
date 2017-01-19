@@ -77,9 +77,9 @@ namespace MoviedUWP
             {
                 Frame.Navigate(typeof(CheckinsPage));
             }
-            else if (Wishlist.IsSelected)
+            else if (Watchlist.IsSelected)
             {
-                Frame.Navigate(typeof(WishlistPage));
+                Frame.Navigate(typeof(WatchlistPage));
             }
             else if (Maps.IsSelected)
             {

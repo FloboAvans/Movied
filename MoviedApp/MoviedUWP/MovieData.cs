@@ -8,7 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
-using Shared_Code;
 
 namespace MoviedUWP
 {
@@ -55,6 +54,18 @@ namespace MoviedUWP
                         break;
                     case "HIGHEST RATED":
                         Movies = client.Movies.GetTopRatedAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "MOST POPULAR ":
+                        //Movies = client.Movies.GetPopularAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "IN THEATER ":
+                        //Movies = client.Movies.GetNowPlayingAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "COMING SOON ":
+                        //Movies = client.Movies.GetUpcomingAsync(null, 1, new CancellationToken(false)).Result;
+                        break;
+                    case "HIGHEST RATED ":
+                        //Movies = client.Movies.GetTopRatedAsync(null, 1, new CancellationToken(false)).Result;
                         break;
                     case "NEWEST CHECKINS":
                         CheckinMovies.Clear();

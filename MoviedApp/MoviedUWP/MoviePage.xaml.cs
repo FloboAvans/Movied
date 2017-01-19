@@ -38,10 +38,21 @@ namespace MoviedUWP
         {
             foreach (Movie movie in MovieData.CheckinMovies)
             {
-                if(movie.Id == MovieData.Movie.Id)
+                if (movie.Id == MovieData.Movie.Id)
+                {
                     CheckinButton.Text = "\xE8FB";
+                    break;
+                }
             }
-            
+            foreach (Movie movie in MovieData.WatchlistMovies)
+            {
+                if (movie.Id == MovieData.Movie.Id)
+                {
+                    WatchlistButton.Text = "\xE77A";
+                    break;
+                }
+            }
+
             CoverImage.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + MovieData.Movie.Poster)));
 
             WebView v = new WebView();
@@ -93,6 +104,21 @@ namespace MoviedUWP
         private void CheckinButton_OnTapped(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(CheckinPage));
+        }
+
+        private void WatchlistButton_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (WatchlistButton.Text == "\xE141")
+            {
+                MovieData.WatchlistMovies.Add(MovieData.Movie);
+                WatchlistButton.Text = "\xE77A";
+            }
+            else if (WatchlistButton.Text == "\xE77A")
+            {
+                MovieData.WatchlistMovies.RemoveAll((x => x.Id == MovieData.Movie.Id));
+                WatchlistButton.Text = "\xE141";
+            }
+                
         }
     }
 }

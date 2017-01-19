@@ -44,10 +44,10 @@
                     <TextBox x:Name="CommentText" HorizontalAlignment="Stretch" Grid.Row="6" FontSize="14" Background="Transparent" AcceptsReturn="True" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></TextBox>
 
                     <TextBlock Text="Recommend to" Grid.Row="8" FontStyle="Italic" FontSize="14" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
-                    <ComboBox x:Name="FriendsList" Grid.Row="9" HorizontalAlignment="Stretch" Background="Transparent" VerticalAlignment="Bottom" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand">
-                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
-                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
-                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White" Background="Black"></ComboBoxItem>
+                    <ComboBox x:Name="FriendsList" Grid.Row="9" HorizontalAlignment="Stretch" Background="Transparent" VerticalAlignment="Bottom" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Style="{StaticResource ComboBoxStyle1}">
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White"></ComboBoxItem>
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White"></ComboBoxItem>
+                        <ComboBoxItem Content="most popular" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Foreground="White"></ComboBoxItem>
                     </ComboBox>
                     <TextBlock x:Name="SaveCheckin" Text="Save" FontSize="24" TextWrapping="Wrap" Grid.Row="11" FontStyle="Italic" Foreground="White" HorizontalAlignment="Right" Margin="0,0,12,12" VerticalAlignment="Bottom" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Tapped="SaveCheckin_OnTapped"/>
 
