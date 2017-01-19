@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Shared_Code;
 using Shared_Code_Portable;
+using Sockets.Plugin;
 
 namespace Server
 {
@@ -27,13 +28,22 @@ namespace Server
 
         private void Listner()
         {
+            TcpSocketListener listener = new TcpSocketListener();
+
+            listener.ConnectionReceived += (sender, args) =>
+            {
+                var client = args.SocketClient;
+                new ClientNode(client.WriteStream, client.ReadStream);
+            };
+            listener.StartListeningAsync(Constants.Network.HOST_PORT);
+            /*
             TcpListener listner = new TcpListener(Dns.GetHostAddresses(Constants.Network.HOST_IP)[0], Constants.Network.HOST_PORT);
             listner.Start();
             while (true)
             {
                 TcpClient client = listner.AcceptTcpClient();
                 new ClientNode(client);
-            }
+            }*/
         }
     }
 }

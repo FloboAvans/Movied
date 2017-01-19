@@ -30,16 +30,18 @@ namespace Server
         public NodeAddress clientID = UniqeRandomNumber.Generate();
         public State state = State.START;
 
-        private NetworkStream client;
+        private Stream toClient;
+        private Stream fromClient;
 
-        public ClientNode(TcpClient client) : base(MessageHandler, NodeAddress.None)
+        public ClientNode(Stream writeStream, Stream readStream) : base(MessageHandler, NodeAddress.None)
         {
-            if (client == null)
+            if (writeStream == null || readStream == null)
                 throw new ArgumentNullException("client may not be null");
-            if (client.Connected == false)
+            if (writeStream.CanWrite == false || readStream.CanRead == false)
                 throw new ArgumentException("client needs to be connected");
 
-            this.client = client.GetStream();
+            toClient = writeStream;
+            fromClient = readStream;
             new Thread(ReadFromClient).Start();
 
             ++state;
@@ -51,7 +53,7 @@ namespace Server
             {
                 while (true)
                 {
-                    Message message = IOHandler.Read(client);
+                    Message message = IOHandler.Read(fromClient);
                     Console.WriteLine($"clientNode {Id} recieved message \n\t{message}");
                     AddMessage(message);
                 }
@@ -74,7 +76,7 @@ namespace Server
         {
             try
             {
-                IOHandler.Write(client, message);
+                IOHandler.Write(toClient, message);
             }
             catch (Exception e)
             {

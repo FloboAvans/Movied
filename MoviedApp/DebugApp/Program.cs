@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using HashingTest;
 using Shared_Code;
@@ -15,13 +17,25 @@ namespace DebugApp
         static void Main(string[] args)
         {
             ServerHandler.instance.OnHandshakeComplete += LoginHandler;
-            Console.ReadLine();
+            while (true)
+            {
+                Thread.Sleep(10000000);
+            }
+            
         }
 
         #region login
 
         private static void LoginHandler()
         {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            UniqeRandomNumber.makeRandom = i =>
+            {
+                byte[] bytes = new byte[i];
+                rng.GetBytes(bytes);
+                return bytes;
+            };
+
             string debug;
             do
             {
@@ -163,7 +177,14 @@ namespace DebugApp
         #endregion
         private static void MainPage()
         {
-            
+            int movieID;
+            string id;
+            do
+            {
+                Console.Write("checkin movieID: ");
+                id = Console.ReadLine();
+            } while (int.TryParse(id, out movieID) == false || movieID < 0);
+
         }
     }
 }

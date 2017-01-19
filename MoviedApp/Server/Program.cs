@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Shared_Code;
@@ -12,6 +13,14 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            UniqeRandomNumber.makeRandom = i =>
+            {
+                byte[] bytes = new byte[i];
+                rng.GetBytes(bytes);
+                return bytes;
+            };
+
             TraceID.localID = Constants.Network.SERVER_NODE_ADDRESS;
             PasswordNode.Init();
             ClientListner.Init();
