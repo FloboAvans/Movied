@@ -68,7 +68,7 @@ namespace Shared_Code_Portable.ClientSide
                 {
                     server = null;
                 }
-            } while (true);
+            } while (server == null);
             toServer = server.WriteStream;
             Stream fromServer = server.ReadStream;
 

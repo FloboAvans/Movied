@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Shared_Code;
 using Shared_Code_Portable;
 
@@ -31,26 +32,67 @@ namespace Server
             if (node.GetType() != typeof(DataNode))
                 return Node.NodeResponse.PreCheck.nodeMismatch;
 
-            if (message.type.isa(Message.Type.ClientServer.User.checkIn) == false)
+            if (message.type.isa(Message.Type.userData) == false)
                 return NodeResponse.messageTypeMismatch;
 
-            UserID userid = (int)message.message.userid;
+            Message returnMessage;
 
-            if (message.type == Message.Type.ClientServer.User.CheckIn.create)
+            UserID userid = (int)message.message.userid;
+            CheckIn checkIn = new CheckIn((JObject) message.message.checkIn);
+
+            if (message.type == Message.Type.UserData.CheckIn.create)
             {
-                bool exists = instance.userEntries.ContainsKey(userid);
-                if (exists)
-                {
-                    bool hasCheckedIn = (instance.userEntries
-                                .Single(pair => pair.Key == userid)
-                        ).Value.checkIns
+                #region create
+                bool userExists = instance.userEntries.ContainsKey(userid);
+                if (userExists == false) instance.userEntries.Add(userid, message.message.checkIn);
+                bool checkInExists = false;
+                if (userExists)
+                    checkInExists = instance.userEntries
+                        .Single(pair => pair.Key == userid).Value.checkIns
                         .Contains(message.message.checkIn);
 
 
-                }
+                returnMessage = new Message
+                {
+                    destinationID = message.senderID,
+                    senderID = node.Id,
+                    traceNumber = message.traceNumber,
+                    type = message.type,
+                    isResponse = true,
+                    succes = userExists ? !checkInExists : true
+                };  
+
+                if (checkInExists == false)
+                    instance.userEntries[userid].checkIns.Add(checkIn);
+#endregion
+            }
+            else if (message.type == Message.Type.UserData.CheckIn.getAll)
+            {
+                #region getAll
+                List<CheckIn> checkIns = null;
+                if (instance.userEntries.ContainsKey(userid))
+                    checkIns = instance.userEntries[userid].checkIns;
+
+                returnMessage = new Message
+                {
+                    destinationID = message.senderID,
+                    senderID = node.Id,
+                    traceNumber = message.traceNumber,
+                    type = message.type,
+                    isResponse = true,
+                    succes = checkIns != null,
+                    message = checkIns
+                };
+                #endregion
+            }
+            else
+            {
+                return NodeResponse.messageTypeMismatch;
             }
 
-            return default(ID<NodeResponse>);
+            PostBox.Response pbResponse = PostBox.instance.PostMessage(returnMessage);
+            if (pbResponse == PostBox.Response.SUCCESS) return NodeResponse.succes;
+            return NodeResponse.PostBox.unableToSendMessage;
         }
     }
 
