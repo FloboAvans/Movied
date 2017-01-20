@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json.Linq;
+using Shared_Code;
 using Shared_Code_Portable;
 using Shared_Code_Portable.ClientSide;
 
@@ -37,6 +39,31 @@ namespace MoviedUWP
                 });
             });
             this.InitializeComponent();
+        }
+
+        private static void OnLogedIn()
+        {
+            ServerHandler.instance.SendMessage(new Message
+            {
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.UserData.CheckIn.getAll,
+                isResponse = false,
+                succes = true
+            }, message =>
+            {
+                List<CheckIn> checkIns = new List<CheckIn>();
+                if (message.succes && message.message != null &&
+                    (checkIns = ((JObject) message.message).DeserializeToCheckIns()).Count > 0)
+                {
+                    foreach (CheckIn checkIn in checkIns)
+                    {
+                        MovieData.CheckinsList.Add(new Tuple<int, double, string>(
+                            checkIn.movieId,
+                            ((double) checkIn.rating.GetValueOrDefault())/2,
+                            checkIn.description));
+                    }
+                }
+            });
         }
 
         private bool requestInProgress = false;
@@ -90,6 +117,7 @@ namespace MoviedUWP
                 }
                 else
                 {
+                    OnLogedIn();
                     Dispatcher.RunAsync(CoreDispatcherPriority.High, () => PasswordTextBox.Background = new SolidColorBrush(Color.FromArgb(75, 175, 0, 0)));
                     requestInProgress = false;
                 }
@@ -146,6 +174,7 @@ namespace MoviedUWP
                         }
                     }, m2 =>
                     {
+                        OnLogedIn();
                         Dispatcher.RunAsync(CoreDispatcherPriority.High, () => Frame.Navigate(typeof(MainPage)));
                     });
                 }

@@ -16,7 +16,7 @@ namespace Shared_Code_Portable
         public static class Network
         {
 
-            public const string HOST_IP = "localhost";
+            public const string HOST_IP = "80.114.188.140";
             public const int HOST_PORT = 9696;
 
             public const int LENGTH_BYTE_SIZE = 4;

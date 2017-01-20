@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,6 +14,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Shared_Code;
+using Shared_Code_Portable;
+using Shared_Code_Portable.ClientSide;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -58,18 +62,43 @@ namespace MoviedUWP
 
         private void SaveCheckin_OnTapped(object sender, TappedRoutedEventArgs e)
         {
-            //TODO add checkin to the server
-            if (changingIndex != null)
+            CheckIn checkIn = new CheckIn(null);
+            checkIn.movieId = MovieData.Movie.Id;
+            checkIn.rating = (byte) (Stars.Value*2);
+            checkIn.description = CommentText.Text;
+
+            ServerHandler.instance.SendMessage(new Message
             {
-                MovieData.CheckinsList[changingIndex.Value] = new Tuple<int, double, string>(MovieData.Movie.Id, Stars.Value, CommentText.Text);
-            }
-            else
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.UserData.CheckIn.create,
+                isResponse = false,
+                succes = true,
+                message = new
+                {
+                    userid = ServerInfo.userid,
+                    checkIn = checkIn.Serialize()
+                }
+            }, message =>
             {
-                MovieData.CheckinsList.Add(new Tuple<int, double, string>(MovieData.Movie.Id, Stars.Value, CommentText.Text));
-            }
-            MovieData.Filter = "newest checkins";
-            MovieData.downloadMovies();
-            Frame.GoBack();
+                Dispatcher.RunAsync(CoreDispatcherPriority.High, () =>
+                {
+                    if (changingIndex != null)
+                    {
+                        MovieData.CheckinsList[changingIndex.Value] = new Tuple<int, double, string>(
+                            MovieData.Movie.Id, Stars.Value, CommentText.Text);
+                    }
+                    else
+                    {
+                        MovieData.CheckinsList.Add(new Tuple<int, double, string>(MovieData.Movie.Id, Stars.Value,
+                            CommentText.Text));
+                    }
+                    MovieData.Filter = "newest checkins";
+                    MovieData.downloadMovies();
+                    Frame.GoBack();
+                });
+            });
+
+
         }
     }
 }
