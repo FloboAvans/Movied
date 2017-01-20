@@ -25,8 +25,18 @@ namespace MoviedUWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static Action HideSearchbar;
+
+        public string LibraryText = "Library";
+        public string TimelineText = "Timeline";
+        public string FriendsText = "Friends";
+        public string CheckinsText = "Check-ins";
+        public string WatchlistText = "Watchlist";
+        public string MapsText = "Maps";
+
         public MainPage()
         {
+            HideSearchbar = hide;
             this.InitializeComponent();
             MenuGrid.Background = new SolidColorBrush(Color.FromArgb(245, 25, 35, 50));
 
@@ -40,6 +50,15 @@ namespace MoviedUWP
 
                 }
             };
+
+            Frame.Navigate(typeof(LibraryPage));
+        }
+
+        private void hide()
+        {
+            Logo.Visibility = Visibility.Visible;
+            SearchButton.Visibility = Visibility.Visible;
+            SearchTextBox.Visibility = Visibility.Collapsed;
         }
 
         private void MenuButton_OnClick(object sender, RoutedEventArgs e)
@@ -86,6 +105,24 @@ namespace MoviedUWP
                 Frame.Navigate(typeof(MapsPage));
             }
             SplitMenu.IsPaneOpen = false;
+            Logo.Visibility = Visibility.Visible;
+            SearchButton.Visibility = Visibility.Visible;
+            SearchTextBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void SearchButton_OnTapped(object sender, TappedRoutedEventArgs e)
+        {
+            Logo.Visibility = Visibility.Collapsed;
+            SearchButton.Visibility = Visibility.Collapsed;
+            SearchTextBox.Visibility = Visibility.Visible;
+        }
+
+        private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            MovieData.Filter = SearchTextBox.Text;
+            MovieData.downloadMovies();
+            if(Frame.CurrentSourcePageType == typeof(LibraryPage))
+                LibraryPage.OnSearching();
         }
     }
 }

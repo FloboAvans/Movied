@@ -6,11 +6,15 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Windows.Input;
+using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Networking.Proximity;
 using Windows.Services.Maps;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -33,17 +37,78 @@ namespace MoviedUWP
     public sealed partial class MapsPage : Page
     {
         Geolocator geolocator;
-        public ObservableCollection<Cinema> Cinemas { get; set; }
+
+        private IList<Geofence> geofences = GeofenceMonitor.Current.Geofences;
+        public delegate void OnGeofenceTriggered(Geofence geofence);
+        public event OnGeofenceTriggered GeofenceEnteredEventTriggered;
+        public event OnGeofenceTriggered GeofenceExitedEventTriggered;
 
         public MapsPage()
         {
             this.InitializeComponent();
-            DataContext = this;
-            foreach (Cinema cinema in MovieData.Cinemas)
-            {
-                Cinemas.Add(cinema);
-            }
+            BasicGeoposition b = new BasicGeoposition();
+            b.Latitude = 51.586096;
+            b.Longitude = 4.792252;
+            addGeofence(b, 20, "Kinepolis");
             this.Loaded += MainPage_Loaded;
+            GeofenceMonitor.Current.GeofenceStateChanged += OnGeofenceStateChanged;
+        }
+
+        private async void OnGeofenceStateChanged(GeofenceMonitor sender, object args)
+        {
+            var reports = sender.ReadReports();
+
+            await CoreApplication.MainView.Dispatcher.RunAsync
+            (CoreDispatcherPriority.Normal, () =>
+            {
+                foreach (GeofenceStateChangeReport report in reports)
+                {
+                    GeofenceState state = report.NewState;
+                    Geofence geofence = report.Geofence;
+
+                    if (state == GeofenceState.Entered)
+                    {
+                        GeofenceEnteredEventTriggered?.Invoke(geofence);
+                        MessageBox("Yeah","Arrived");
+                    }
+                    else if (state == GeofenceState.Exited)
+                    {
+                        GeofenceExitedEventTriggered?.Invoke(geofence);
+                    }
+                }
+            });
+        }
+
+        public void addGeofence(BasicGeoposition position, double radius, string geofenceName)
+        {
+            Geofence newGeofence = GenerateGeofence(position, radius, geofenceName);
+            bool existingGeofence = false;
+            foreach (Geofence g in geofences)
+            {
+                if (g.Id.Equals(newGeofence.Id))
+                {
+                    existingGeofence = true;
+                }
+            }
+            if (!existingGeofence)
+            {
+                geofences.Add(newGeofence);
+            }
+        }
+
+        private Geofence GenerateGeofence(BasicGeoposition position, double radius, string geofenceName)
+        {
+            string geofenceId = geofenceName;
+            // the geofence is a circular region:
+            Geocircle geocircle = new Geocircle(position, radius);
+
+            bool singleUse = false;
+
+            MonitoredGeofenceStates mask = MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited;
+
+            TimeSpan dwellTime = new TimeSpan(0, 0, 1);
+
+            return new Geofence(geofenceId, geocircle, mask, singleUse, dwellTime);
         }
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -82,7 +147,7 @@ namespace MoviedUWP
                     Latitude = 51.580753,
                     Longitude = 4.835116
                 }), "Bavelseparklaan 4, 4817 ZX Breda", "kinepolis_breda.jpg"));
-
+                
                 foreach (Cinema cinema in MovieData.Cinemas)
                 {
                     MapIcon mapIcon = new MapIcon();
@@ -139,6 +204,9 @@ namespace MoviedUWP
         private async void ContentBox(string message, string title, string image = null)
         {
             var dialog = new ContentDialog();
+            dialog.FontFamily =  new FontFamily("ms-appx:///Assets/Quicksand-Light.ttf#Quicksand");
+            dialog.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+            dialog.Background = new SolidColorBrush(Color.FromArgb(200,18,31,31));
             dialog.Title = title;
             dialog.PrimaryButtonText = "Route";
             dialog.SecondaryButtonText = "Cancel";
@@ -151,7 +219,7 @@ namespace MoviedUWP
             Grid.SetRow(t, 0);
             Image i = new Image();
             i.Source = new BitmapImage(new Uri("ms-appx:///Assets/Cinemas/" + image));
-            i.Width = 100;
+            i.Width = 200;
             i.HorizontalAlignment = HorizontalAlignment.Center;
             Grid.SetRow(i,1);
             g.Children.Add(t);
