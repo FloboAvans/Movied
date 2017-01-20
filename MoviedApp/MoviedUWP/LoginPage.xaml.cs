@@ -47,7 +47,7 @@ namespace MoviedUWP
             requestInProgress = true;
 
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             ServerHandler.instance.SendMessage(new Message
             {
@@ -104,7 +104,7 @@ namespace MoviedUWP
             requestInProgress = true;
 
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string password = PasswordTextBox.Password;
 
             ServerHandler.instance.SendMessage(new Message
             {

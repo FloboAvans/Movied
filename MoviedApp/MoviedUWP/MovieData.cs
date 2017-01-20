@@ -24,6 +24,7 @@ namespace MoviedUWP
         public static List<Movie> LibraryMovies = new List<Movie>();
         public static List<Movie> CheckinMovies = new List<Movie>();
         public static List<Movie> WatchlistMovies = new List<Movie>();
+        public static List<Cinema> Cinemas = new List<Cinema>();
 
         //private static void checkIn()
         //{

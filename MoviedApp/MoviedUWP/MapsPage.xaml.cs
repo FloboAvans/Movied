@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Windows.Input;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -18,6 +20,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,10 +33,16 @@ namespace MoviedUWP
     public sealed partial class MapsPage : Page
     {
         Geolocator geolocator;
+        public ObservableCollection<Cinema> Cinemas { get; set; }
 
         public MapsPage()
         {
             this.InitializeComponent();
+            DataContext = this;
+            foreach (Cinema cinema in MovieData.Cinemas)
+            {
+                Cinemas.Add(cinema);
+            }
             this.Loaded += MainPage_Loaded;
         }
 
@@ -47,22 +56,48 @@ namespace MoviedUWP
                     maximumAge: TimeSpan.FromMinutes(5),
                     timeout: TimeSpan.FromSeconds(10));
 
-                MapIcon mapIcon = new MapIcon();
-                 
-                mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/my-position.png"));
+                MapIcon location = new MapIcon();
+
+                location.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/my-position.png"));
 
                 //mapIcon.Title = "Current Location";
 
-                mapIcon.Location = new Geopoint(new BasicGeoposition()
+                location.Location = new Geopoint(new BasicGeoposition()
                 { 
                     Latitude = geoposition.Coordinate.Point.Position.Latitude,
                     Longitude = geoposition.Coordinate.Point.Position.Longitude
                 });
                 // Positon of the MapIcon  
-                mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
-                MyMap.MapElements.Add(mapIcon);
+                location.NormalizedAnchorPoint = new Point(0.5, 0.5);
+                MyMap.MapElements.Add(location);
+
+                MovieData.Cinemas.Add(new Cinema("Pathé Breda", new Geopoint(new BasicGeoposition()
+                {
+                    Latitude = 51.589715,
+                    Longitude = 4.785032
+                }), "Chasséveld 15, 4811 DH Breda", "pathe_breda.jpg"));
+
+                MovieData.Cinemas.Add(new Cinema("Kinepolis Breda", new Geopoint(new BasicGeoposition()
+                {
+                    Latitude = 51.580753,
+                    Longitude = 4.835116
+                }), "Bavelseparklaan 4, 4817 ZX Breda", "kinepolis_breda.jpg"));
+
+                foreach (Cinema cinema in MovieData.Cinemas)
+                {
+                    MapIcon mapIcon = new MapIcon();
+                    mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/cinema.png"));
+                    mapIcon.Location = new Geopoint(new BasicGeoposition()
+                    {
+                        Latitude = cinema.Location.Position.Latitude,
+                        Longitude = cinema.Location.Position.Longitude,
+                    });
+                    mapIcon.NormalizedAnchorPoint = new Point(0.5, 0.5);
+                    MyMap.MapElements.Add(mapIcon);
+                }
+
                 // Showing in the Map  
-                await MyMap.TrySetViewAsync(mapIcon.Location, 18D, 0, 0, MapAnimationKind.Bow);
+                await MyMap.TrySetViewAsync(location.Location, 18D, 0, 0, MapAnimationKind.Bow);
 
                  
                 progressBar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -70,7 +105,7 @@ namespace MoviedUWP
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox("Location service is turned off!");
+                MessageBox("Location service is turned off!", "Error");
             }
         }
         
@@ -92,26 +127,49 @@ namespace MoviedUWP
             }
             catch (UnauthorizedAccessException)
             {
-                MessageBox("Location service is turned off!");
+                MessageBox("Location service is turned off!", "Error");
             }
         }
-        private async void MessageBox(string message)
+        private async void MessageBox(string message, string title)
         {
-            var dialog = new MessageDialog(message.ToString());
+            var dialog = new MessageDialog(message.ToString(), title);
             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () => await dialog.ShowAsync());
         }
 
-        private async void MyMap_MapTapped(MapControl sender, MapInputEventArgs args)
+        private async void ContentBox(string message, string title, string image = null)
         {
-            Geopoint pointToReverseGeocode = new Geopoint(args.Location.Position);
-            // Reverse geocode the specified geographic location.  
-            MapLocationFinderResult result = await MapLocationFinder.FindLocationsAtAsync(pointToReverseGeocode);
-            var resultText = new StringBuilder();
-            if (result.Status == MapLocationFinderStatus.Success)
-            {
-                resultText.AppendLine(result.Locations[0].Address.District + ", " + result.Locations[0].Address.Town + ", " + result.Locations[0].Address.Country);
-            }
-            MessageBox(resultText.ToString());
+            var dialog = new ContentDialog();
+            dialog.Title = title;
+            dialog.PrimaryButtonText = "Route";
+            dialog.SecondaryButtonText = "Cancel";
+            //dialog.Comm
+            Grid g = new Grid();
+            g.RowDefinitions.Add(new RowDefinition());
+            g.RowDefinitions.Add(new RowDefinition());
+            TextBlock t = new TextBlock();
+            t.Text = message;
+            Grid.SetRow(t, 0);
+            Image i = new Image();
+            i.Source = new BitmapImage(new Uri("ms-appx:///Assets/Cinemas/" + image));
+            i.Width = 100;
+            i.HorizontalAlignment = HorizontalAlignment.Center;
+            Grid.SetRow(i,1);
+            g.Children.Add(t);
+            g.Children.Add(i);
+            dialog.Content = g;
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () => await dialog.ShowAsync());
+        }
+
+        private void MyMap_OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            MapIcon myClickedIcon = args.MapElements.FirstOrDefault(x => x is MapIcon) as MapIcon;
+            Cinema c = MovieData.Cinemas.Find(x => (x.Location.Position.Latitude == myClickedIcon.Location.Position.Latitude && x.Location.Position.Longitude == myClickedIcon.Location.Position.Longitude));
+            ContentBox(c.Adres, c.Title, c.Image);
+        }
+
+        private void MapIcon_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -89,6 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\cinema.png" />
     <Content Include="Assets\cover.jpg" />
     <Content Include="Assets\my-position.png" />
     <Content Include="Assets\Quicksand-Light.ttf" />
@@ -104,6 +105,7 @@
     <Compile Include="CheckinsPage.xaml.cs">
       <DependentUpon>CheckinsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cinema.cs" />
     <Compile Include="FriendsPage.xaml.cs">
       <DependentUpon>FriendsPage.xaml</DependentUpon>
     </Compile>
@@ -194,6 +196,9 @@
       <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
       <Name>Shared Code Portable</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Cinemas\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

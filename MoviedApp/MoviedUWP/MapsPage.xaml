@@ -13,14 +13,15 @@
     x:Name="MyMap"
     MapServiceToken="hXfoPb3UobMURPpymfd8~0KFlzLHFoGrO6NViSu2ltQ~AhzGBC78z3Ww6lQE6Df1AETSVLvCRCt7Q_WXIMPTYgiPpkVf6kNv0RYgId0cy5a0"
     HorizontalAlignment="Stretch"  
-    VerticalAlignment="Stretch"  
-    MapTapped="MyMap_MapTapped" 
+    VerticalAlignment="Stretch" 
     LandmarksVisible="True" 
     ZoomInteractionMode="GestureAndControl"
     TiltInteractionMode="GestureAndControl"
     PanInteractionMode="Auto" 
     RotateInteractionMode="GestureAndControl"
-   />
+    MapElementClick="MyMap_OnMapElementClick"
+   >
+        </maps:MapControl>
         <Border CornerRadius="10" x:Name="border" Grid.Row="1"  
         Height="70"  
         Width="70"  

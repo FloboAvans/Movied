@@ -21,7 +21,7 @@
                 <RowDefinition Height="32"/>
                 </Grid.RowDefinitions>
             <TextBox x:Name="UsernameTextBox" Grid.Row="0" HorizontalAlignment="Stretch" TextAlignment="Center" Text="username" Foreground="White" Background="Transparent" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></TextBox>
-            <TextBox x:Name="PasswordTextBox" Grid.Row="2" HorizontalAlignment="Stretch" TextAlignment="Center" Text="password" Foreground="White" Background="Transparent" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></TextBox>
+            <PasswordBox x:Name="PasswordTextBox" Grid.Row="2" HorizontalAlignment="Stretch" Password="password" Foreground="White" HorizontalContentAlignment="Center" Background="Transparent" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></PasswordBox>
             <Button x:Name="LoginButton" IsEnabled="False" Grid.Row="4" HorizontalAlignment="Stretch" Content="login" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Tapped="LoginButton_OnTapped"></Button>
             <TextBlock x:Name="NewUser" Grid.Row="6" HorizontalAlignment="Stretch" TextAlignment="Center" FontSize="14" Text="new user" Foreground="White" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand" Tapped="NewUser_OnTapped"></TextBlock>
         </Grid>
