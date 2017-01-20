@@ -45,6 +45,7 @@ namespace Shared_Code_Portable.ClientSide
         }
 
         private bool initialized = false;
+
         public void Init()
         {
             if (initialized)
@@ -55,9 +56,19 @@ namespace Shared_Code_Portable.ClientSide
 
         private async void ConnectionEstablisher()
         {
-            TcpSocketClient server = new TcpSocketClient();
-            await server.ConnectAsync(Constants.Network.HOST_IP, Constants.Network.HOST_PORT);
-
+            TcpSocketClient server = null;
+            do
+            {
+                try
+                {
+                    server = new TcpSocketClient();
+                    await server.ConnectAsync(Constants.Network.HOST_IP, Constants.Network.HOST_PORT);
+                }
+                catch (Exception)
+                {
+                    server = null;
+                }
+            } while (server == null);
             toServer = server.WriteStream;
             Stream fromServer = server.ReadStream;
 

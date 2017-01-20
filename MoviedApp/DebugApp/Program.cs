@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using HashingTest;
+using Newtonsoft.Json.Linq;
 using Shared_Code;
 using Shared_Code_Portable;
 using Shared_Code_Portable.ClientSide;
@@ -88,6 +89,8 @@ namespace DebugApp
                 });
         }
 
+        private static int _userid = -1;
+
         private static void LoginPassword(int userid, byte[] salt, TraceID traceID)
         {
             Console.Write("password: ");
@@ -110,6 +113,7 @@ namespace DebugApp
             {
                 if ((PasswordBank.Response)message.message.response == PasswordBank.Response.SUCCES )
                 {
+                    _userid = userid;
                     Console.WriteLine("login succesfull");
                     MainPage();
                 }
@@ -169,6 +173,7 @@ namespace DebugApp
                 }
             }, message =>
             {
+                _userid = userid;
                 Console.WriteLine("account created succesfully");
                 MainPage();
             });
@@ -177,14 +182,150 @@ namespace DebugApp
         #endregion
         private static void MainPage()
         {
-            int movieID;
-            string id;
+            string mode = null;
             do
             {
-                Console.Write("checkin movieID: ");
-                id = Console.ReadLine();
-            } while (int.TryParse(id, out movieID) == false || movieID < 0);
+                Console.Write("checkin new, mod, get: ");
+                mode = Console.ReadLine()?.Trim();
+            } while (mode != "new" && mode != "get" && mode != "mod");
+            if (mode == "new") NewCheckin();
+            else if (mode == "mod") ModCheckin();
+            else if (mode == "get") GetCheckins();
+        }
 
+        private static void GetCheckins()
+        {
+            ServerHandler.instance.SendMessage(new Message
+            {
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.UserData.CheckIn.getAll,
+                succes = true,
+                isResponse = false,
+                message = new
+                {
+                    userid = _userid
+                }
+            }, message =>
+            {
+                if (message.succes && message.message != null && (checkIns = ((JObject)message.message).DeserializeToCheckIns()).Count > 0)
+                {
+                    foreach (CheckIn checkIn in checkIns)
+                    {
+                        Console.WriteLine("\t"+checkIn);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("\tempty list");
+                }
+                MainPage();
+            });
+        }
+
+        private static void NewCheckin()
+        {
+            int movieId = -1;
+            do
+            {
+                Console.Write("\tmovieId(> 0): ");
+                int.TryParse(Console.ReadLine().Trim(), out movieId);
+            } while (movieId < 0);
+
+            int rating = -1;
+            do
+            {
+                Console.Write("\trating(0-10)[- for na): ");
+                string input = Console.ReadLine().Trim();
+                if (input == "-")
+                {
+                    rating = int.MinValue;
+                    break;
+                }
+                int.TryParse(input, out rating);
+            } while (rating < 0 || rating > 10);
+
+            Console.Write("\tdescription: ");
+            string description = Console.ReadLine().Trim();
+
+            CheckIn checkIn = new CheckIn(null);
+            checkIn.movieId = movieId;
+            if (rating != int.MinValue) checkIn.rating = (byte) rating;
+            if (description != "") checkIn.description = description;
+
+            ServerHandler.instance.SendMessage(new Message
+            {
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.UserData.CheckIn.create,
+                isResponse = false,
+                succes = true,
+                message = new
+                {
+                    userid = _userid,
+                    checkIn
+                }
+            }, message =>
+            {
+                Console.WriteLine(message.succes ? "added succesfully" : "unable to add");
+                MainPage();
+            });
+        }
+
+        private static List<CheckIn> checkIns = null;
+
+        private static void ModCheckin()
+        {
+            int movieID = -1;
+            do
+            {
+                Console.Write("\tmovieId(>0): ");
+                int.TryParse(Console.ReadLine().Trim(), out movieID);
+            } while (movieID < 0 || checkIns.Exists(checjIn => checjIn.movieId == movieID) == false);
+
+            CheckIn modCheckIn = checkIns.Find(checkIn => checkIn.movieId == movieID);
+
+            int rating = -1;
+            do
+            {
+                Console.Write("\trating(0-10[- ign ! idd]");
+                string input = Console.ReadLine().Trim();
+                if (input == "-")
+                {
+                    rating = int.MinValue;
+                    break;
+                }
+                if (input == "!")
+                {
+                    rating = int.MaxValue;
+                    break;
+                }
+                int.TryParse(Console.ReadLine().Trim(), out rating);
+            } while (rating < 0 || rating > 10);
+
+            Console.Write("\tdescription [! idd]: ");
+            string description = Console.ReadLine().Trim();
+            if (description == "!") description = modCheckIn.description;
+
+            modCheckIn.rating = rating == int.MinValue
+                ? null
+                : rating == int.MaxValue ? modCheckIn.rating : (byte) rating;
+            modCheckIn.description = description;
+
+            ServerHandler.instance.SendMessage(new Message
+            {
+                traceNumber = TraceID.GenerateTraceID(),
+                type = Message.Type.UserData.CheckIn.modify,
+                isResponse = false,
+                succes = true,
+                message = new
+                {
+                    userid = _userid,
+                    checkIn = modCheckIn.Serialize()
+                }
+            }, message =>
+            {
+                Console.WriteLine(message.succes ? "mod succsesfull" : "mod unsuccessfull");
+                MainPage();
+            });
         }
     }
 }

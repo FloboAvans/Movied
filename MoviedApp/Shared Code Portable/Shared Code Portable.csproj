@@ -43,6 +43,7 @@
     <Compile Include="ClientSide\ServerConnector.cs" />
     <Compile Include="ClientSide\ServerHandler.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Extender.cs" />
     <Compile Include="ID.cs" />
     <Compile Include="IOHandler.cs" />
     <Compile Include="Message.cs" />

@@ -104,6 +104,7 @@ namespace Server
                 case State.START:
                     throw new Exception("state should never be START");
                 case State.HANDSHAKE:
+                    #region handshake
                     forwardMessage.destinationID = clientNode.clientID;
                     forwardMessage.senderID = clientNode.Id;
                     forwardMessage.isResponse = true;
@@ -120,6 +121,7 @@ namespace Server
                     ++clientNode.state;
                     clientNode.WriteToClient(forwardMessage);
                     return NodeResponse.succes;
+#endregion
                 case State.LOGIN:
                     #region LOGIN
                     if (message.type.isa(Message.Type.ClientServer.login) == false)
@@ -192,6 +194,25 @@ namespace Server
 
                     #endregion
                     break;
+                case State.ACTIVE:
+                    #region active
+                    if (message.type.isa(Message.Type.userData))
+                    {
+                        if (message.isResponse == false)
+                        {
+                            message.destinationID = Constants.Server.DATA_NODE_ADDRESS;
+                            message.senderID = node.Id;
+                            DataNode.instance.AddMessage(message);
+                        }
+                        else
+                        {
+                            message.destinationID = clientNode.clientID;
+                            message.senderID = node.Id;
+                            clientNode.WriteToClient(message);
+                        }
+                    }
+                    break;
+#endregion
             }
 
             return NodeResponse.succes;

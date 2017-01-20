@@ -40,18 +40,18 @@ namespace Shared_Code_Portable
                 }
 
                 public static readonly ID<Type> handshake = clientServer[3];
+            }
 
-                public static readonly ID<Type> user = clientServer[4];
-                public static class User
+            public static readonly ID<Type> userData = 2;
+            public static class UserData
+            {
+                public static readonly ID<Type> checkIn = userData[0];
+                public static class CheckIn
                 {
-                    public static readonly ID<Type> checkIn = user[0];
-                    public static class CheckIn
-                    {
-                        public static readonly ID<Type> create = checkIn[0];
-                        public static readonly ID<Type> modify = checkIn[1];
-                        public static readonly ID<Type> remove = checkIn[2];
-                        public static readonly ID<Type> getAll = checkIn[3];
-                    }
+                    public static readonly ID<Type> create = checkIn[0];
+                    public static readonly ID<Type> modify = checkIn[1];
+                    public static readonly ID<Type> remove = checkIn[2];
+                    public static readonly ID<Type> getAll = checkIn[3];
                 }
             }
         }
