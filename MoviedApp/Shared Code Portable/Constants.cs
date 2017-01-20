@@ -27,6 +27,7 @@ namespace Shared_Code_Portable
 
         public static class Server
         {
+            public static readonly NodeAddress DATA_NODE_ADDRESS = new UniqeRandomNumber(new byte[3] {0, 0, 0}, new byte[5] {1, 2, 3, 2, 1});
             public static readonly NodeAddress PASSWORD_NODE_ADDRESS = new UniqeRandomNumber(new byte[3] {0, 0, 0}, new byte[5] {5, 4, 3, 2, 1});
         }
 

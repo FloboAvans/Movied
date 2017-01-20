@@ -62,7 +62,7 @@
   <ItemGroup>
     <Compile Include="ClientListner.cs" />
     <Compile Include="ClientNode.cs" />
-    <Compile Include="Data.cs" />
+    <Compile Include="DataNode.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="PasswordNode.cs" />
     <Compile Include="PostBox.cs" />
