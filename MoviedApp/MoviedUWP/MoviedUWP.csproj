@@ -90,6 +90,8 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <Content Include="Assets\cinema.png" />
+    <Content Include="Assets\Cinemas\kinepolis_breda.jpg" />
+    <Content Include="Assets\Cinemas\pathe_breda.jpg" />
     <Content Include="Assets\cover.jpg" />
     <Content Include="Assets\my-position.png" />
     <Content Include="Assets\Quicksand-Light.ttf" />
@@ -192,13 +194,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Shared Code Portable\Shared Code Portable.csproj">
       <Project>{6be31922-3849-460e-b63d-0db9f3d4138f}</Project>
       <Name>Shared Code Portable</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Cinemas\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

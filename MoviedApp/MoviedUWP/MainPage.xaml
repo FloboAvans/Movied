@@ -54,22 +54,22 @@
 
 
                     <ListViewItem x:Name="Timeline" HorizontalAlignment="Center">
-                        <TextBlock Text="Timeline" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind TimelineText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Library" HorizontalAlignment="Center">
-                        <TextBlock Text="Library" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind LibraryText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Friends" HorizontalAlignment="Center">
-                        <TextBlock Text="Friends" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind FriendsText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Checkins" HorizontalAlignment="Center">
-                        <TextBlock Text="Check-ins" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind CheckinsText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Watchlist" HorizontalAlignment="Center">
-                        <TextBlock Text="Watchlist" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind WatchlistText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                     <ListViewItem x:Name="Maps" HorizontalAlignment="Center">
-                        <TextBlock Text="Maps" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
+                        <TextBlock Text="{x:Bind MapsText}" FontSize="18" Foreground="White" HorizontalAlignment="Center" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"/>
                     </ListViewItem>
                 </ListView>
             </Grid>
@@ -81,7 +81,7 @@
 
                 <CommandBar IsSticky="true" Background="DarkSlateGray">
 
-                    <AppBarButton Icon="Zoom"/>
+                    <AppBarButton x:Name="SearchButton" Icon="Zoom" Tapped="SearchButton_OnTapped"/>
                     <CommandBar.SecondaryCommands>
                         <AppBarButton Icon="Like" Label="Like"/>
                         <AppBarButton Icon="Dislike" Label="Dislike"/>
@@ -92,7 +92,8 @@
                     </CommandBar.Content>
 
                 </CommandBar>
-                <Image Source="ms-appx:///Assets/logo_movied.png" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="12"/>
+                <Image x:Name="Logo" Source="ms-appx:///Assets/logo_movied.png" Height="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="12"/>
+                <TextBox x:Name="SearchTextBox" Visibility="Collapsed" FontSize="24" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="48" Margin="48,0" TextChanged="SearchTextBox_OnTextChanged" FontFamily="ms-appx:///Assets/Quicksand-Light.ttf#Quicksand"></TextBox>
             </Grid>
         </SplitView.Content>
     </SplitView>

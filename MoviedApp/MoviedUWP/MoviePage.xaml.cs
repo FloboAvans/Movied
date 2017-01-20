@@ -54,10 +54,14 @@ namespace MoviedUWP
             }
 
             CoverImage.Source = new BitmapImage(new Uri(Path.Combine("https://image.tmdb.org/t/p/w500" + MovieData.Movie.Poster)));
-
-            WebView v = new WebView();
-            v.NavigateToString(@"<iframe height=""100%"" width=""100%"" src=""https://www.youtube.com/embed/" + MovieData.Movie.Videos.Results.First().Key + @"?rel=0&controls=0&?showinfo=0"" frameborder=""0""></iframe>");
-            MediaViewer.Items.Add(v);
+            if (MovieData.Movie.Videos.Results.Any())
+            {
+                WebView v = new WebView();
+                v.NavigateToString(@"<iframe height=""100%"" width=""100%"" src=""https://www.youtube.com/embed/" +
+                                   MovieData.Movie.Videos.Results.First().Key +
+                                   @"?rel=0&controls=0&?showinfo=0"" frameborder=""0""></iframe>");
+                MediaViewer.Items.Add(v);
+            }
 
             foreach (System.Net.TMDb.Image img in MovieData.Movie.Images.Backdrops)
             {
