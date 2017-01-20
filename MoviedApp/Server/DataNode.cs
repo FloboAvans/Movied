@@ -27,6 +27,16 @@ namespace Server
 
         private Dictionary<UserID, UserEntry> userEntries = new Dictionary<UserID, UserEntry>();
 
+        private bool UserExists(UserID user)
+        {
+            return userEntries.ContainsKey(user);
+        }
+
+        private bool UserHasMovie(UserID user, int movieId)
+        {
+            return UserExists(user) && userEntries[user].checkIns.Any(checkIn => checkIn.movieId == movieId);
+        }
+
         private static ID<NodeResponse> MessageHandler(Node node, Message message)
         {
             if (node.GetType() != typeof(DataNode))
@@ -38,18 +48,17 @@ namespace Server
             Message returnMessage;
 
             UserID userid = (int)message.message.userid;
-            CheckIn checkIn = new CheckIn((JObject) message.message.checkIn);
+            CheckIn checkIn = new CheckIn((JObject)message.message.checkIn);
 
             if (message.type == Message.Type.UserData.CheckIn.create)
             {
                 #region create
-                bool userExists = instance.userEntries.ContainsKey(userid);
-                if (userExists == false) instance.userEntries.Add(userid, message.message.checkIn);
+                if (instance.UserExists(userid) == false) instance.userEntries.Add(userid, new UserEntry());
                 bool checkInExists = false;
-                if (userExists)
+                if (instance.UserExists(userid))
                     checkInExists = instance.userEntries
                         .Single(pair => pair.Key == userid).Value.checkIns
-                        .Contains(message.message.checkIn);
+                        .Contains(checkIn);
 
 
                 returnMessage = new Message
@@ -59,12 +68,41 @@ namespace Server
                     traceNumber = message.traceNumber,
                     type = message.type,
                     isResponse = true,
-                    succes = userExists ? !checkInExists : true
+                    succes = instance.UserExists(userid) ? !checkInExists : true
                 };  
 
                 if (checkInExists == false)
                     instance.userEntries[userid].checkIns.Add(checkIn);
 #endregion
+            }
+            else if (message.type == Message.Type.UserData.CheckIn.modify)
+            {
+                #region modify
+                if (instance.UserExists(userid) == false || instance.UserHasMovie(userid, checkIn.movieId) == false)
+                    returnMessage = new Message
+                    {
+                        destinationID = message.senderID,
+                        senderID = node.Id,
+                        traceNumber = message.traceNumber,
+                        type = message.type,
+                        isResponse = true,
+                        succes = false
+                    };
+                else
+                {
+                    CheckIn storedCheckIn = instance.userEntries[userid].checkIns.Find(_checkIn => _checkIn.movieId == checkIn.movieId);
+                    storedCheckIn.rating = checkIn.rating;
+                    storedCheckIn.description = checkIn.description;
+                    returnMessage = new Message
+                    {
+                        destinationID = message.senderID,
+                        senderID = node.Id,
+                        traceNumber = message.traceNumber,
+                        isResponse = true,
+                        succes = true
+                    };
+                }
+                #endregion
             }
             else if (message.type == Message.Type.UserData.CheckIn.getAll)
             {
@@ -81,7 +119,7 @@ namespace Server
                     type = message.type,
                     isResponse = true,
                     succes = checkIns != null,
-                    message = checkIns
+                    message = checkIns.Serialize()
                 };
                 #endregion
             }

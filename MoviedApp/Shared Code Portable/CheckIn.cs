@@ -12,7 +12,7 @@ namespace Shared_Code
         public double Latitude, Longitude;
     }
 
-    public struct CheckIn
+    public class CheckIn
     {
         /*
         [Flags]
@@ -42,27 +42,44 @@ namespace Shared_Code
         {
             JObject jObject = new JObject();
             jObject.Add("movieId", movieId);
-            
+            if (rating.HasValue) jObject.Add("rating", rating.Value);
+            if (description != null) jObject.Add("description", description);
+
             return jObject;
         }
 
         public CheckIn(JObject jObject)
         {
+            if (jObject == null)
+            {
+                movieId = -1;
+                rating = 255;
+                description = null;
+                return;
+            }
+
             JToken _out;
             movieId = (int) jObject["movieId"];
             rating = jObject.TryGetValue("rating", out _out) ? (byte?) _out : null;
             description = jObject.TryGetValue("description", out _out) ? (string)_out : null;
         }
 
-        private void test()
+        public override string ToString()
         {
-            CheckIn checkIn = new CheckIn
-            {
-                movieId = 123,
-                description = "super awesome",
-                rating = 10
-                //date = GetCurrentDate()
-            };
+            string returnValue = "mID = " + movieId;
+            if (rating.HasValue) returnValue += ", rating = " + rating.Value;
+            if (description != null) returnValue += ", des = " + description;
+            return returnValue;
+        }
+
+        public static bool operator ==(CheckIn a, CheckIn b)
+        {
+            return a.movieId == b.movieId;
+        }
+
+        public static bool operator !=(CheckIn a, CheckIn b)
+        {
+            return !(a == b);
         }
     }
 }
